@@ -1,6 +1,8 @@
-# 0.2
-Adjusted icon size and fixed callback url (to work on servers other
-than "localhost:8080").
+## 0.2 (2017-04-03)
+* Adjusted icon size 
+* fixed callback url (to work on servers other than "localhost:8080").
 
-# 0.1
+## 0.1 (2017-04-02)
 First working draft.
+
+

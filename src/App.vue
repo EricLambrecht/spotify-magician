@@ -1,21 +1,16 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <img :src="logoURI" width="140">
     <h1>Better Spotify Playlists (prototype, WIP)</h1>
-    <h2>Essential Links</h2>
-    <h2>{{msg}}</h2>
 
     <a v-show="!hasAccess" :href="loginURI">Get access</a>
     <div v-if="hasAccess">
-      <h2>YIPPIE! We're in!</h2>
-
-      <label for="playlistURI">Playlist URI: </label>
+      <label for="playlistURI">Enter Playlist URI: </label>
       <input v-model="playlistURI" type="text" id="playlistURI"/>
       <button v-on:click="fetchPlaylist">Playlist suchen</button>
 
       <div v-if="playlistData">
         <h3>{{playlistData.name}}</h3>
-        <img :src="playlistData.images[0]" width="140"/>
         <ol class="tracks">
           <template v-for="(item, index) in playlistData.tracks.items">
              <li class="track">
@@ -45,10 +40,10 @@ export default {
   name: 'app',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App',
       hasAccess: false,
       accessToken: null,
       playlistURI: "spotify:user:1127316932:playlist:0pLfNXXyU21MWIv0tP3hwH",
+      logoURI: "/src/assets/logo.png",
       playlistData: {
         name: "",
         tracks: {
@@ -81,7 +76,7 @@ export default {
       return 'https://accounts.spotify.com/authorize?' +
         'client_id=' + config.client_id + '&' +
         'response_type=token&' +
-        'redirect_uri=' + encodeURIComponent(location.protocol + '//' + location.hostname);
+        'redirect_uri=' + encodeURIComponent(location.protocol + '//' + location.host + '/');
     },
     playlistURIData() {
       // example: spotify:user:1127316932:playlist:0pLfNXXyU21MWIv0tP3hwH
@@ -100,6 +95,8 @@ export default {
           data.tracks = this.parseTracks(data.tracks);
           // Save data in order to display the playlist
           this.playlistData = data;
+          // Set logo to playlist image
+          this.logoURI = this.playlistData.images[0].url;
         }, (err) => {
           const res = JSON.parse(err.response);
 
@@ -180,6 +177,7 @@ export default {
 </script>
 
 <style lang="scss">
+$spotify-green: #1DB954;
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -202,6 +200,6 @@ ol {
 }
 
 a {
-  color: #42b983;
+  color: $spotify-green;
 }
 </style>

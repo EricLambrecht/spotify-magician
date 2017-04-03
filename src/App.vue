@@ -63,7 +63,7 @@ export default {
       return 'https://accounts.spotify.com/authorize?' +
         'client_id=' + config.client_id + '&' +
         'response_type=token&' +
-        'redirect_uri=' + encodeURIComponent(location.protocol + '//' + location.host + '/');
+        'redirect_uri=' + encodeURIComponent(location.protocol + '//' + location.host + location.pathname);
     }
   },
   methods: {

@@ -13,7 +13,7 @@ import moment from 'moment';
 import 'moment-duration-format';
 
 let s = new SpotifyWebApi();
-s.setAccessToken('')
+s.setAccessToken('');
 
 export default {
   name: 'spotify-playlist-selector',
@@ -36,8 +36,6 @@ export default {
     fetchPlaylist () {
       s.getPlaylist(this.playlistURIData.userId, this.playlistURIData.id)
         .then((data) => {
-          // Prepare the tracks before we store them
-          data.tracks = this.parseTracks(data.tracks);
           // Emit event for parents...
           this.$emit('select', data);
         }, (err) => {
@@ -55,47 +53,6 @@ export default {
           }
         });
     },
-    parseTracks(tracks) {
-      const startTime = moment.duration(50400000).add(5, 'hours'); // 14 Stunden (14 Uhr)
-      let _currentTime = moment.duration(50400000).add(5, 'hours');
-      let _lastHour = _currentTime.hours();
-
-      tracks.items = tracks.items.map((item, index, arr) => {
-        let modifiedItem = item;
-        let modifiedTrack = modifiedItem.track;
-
-        // Determine when the song start (relative to the playlist's start time)
-        if(index === 0) {
-          modifiedTrack.relative_start_time_ms = startTime.asMilliseconds();
-        }
-        else {
-          const previousTrackDuration = arr[index - 1].track.duration_ms;
-
-          // increase current time
-          _currentTime = _currentTime.add(previousTrackDuration);
-
-          // see if this is the first track of the hour
-          if(_currentTime.hours() !== _lastHour) {
-            modifiedTrack.first_of_hour = true;
-          }
-          else {
-            modifiedTrack.first_of_hour = false;
-          }
-
-          // set relative start time
-          modifiedTrack.relative_start_time_ms = _currentTime.asMilliseconds();
-
-          // save current hour
-          _lastHour = _currentTime.hours();
-        }
-
-        // save and return
-        modifiedItem.track = modifiedTrack;
-        return modifiedItem;
-      });
-
-      return tracks;
-    }
   },
 }
 </script>

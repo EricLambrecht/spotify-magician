@@ -5,13 +5,13 @@
 
     <a v-show="!hasAccess" :href="loginURI">Get access</a>
     <div v-if="hasAccess">
-      <!--label for="playlistURI">Enter Playlist URI: </label>
-      <input v-model="playlistURI" type="text" id="playlistURI"/>
-      <button v-on:click="fetchPlaylist">Playlist suchen</button-->
-      <playlist-selector v-on:select="onPlaylistSelect" v-on:error="onPlaylistError"/>
+      <playlist-selector v-on:select="onPlaylistSelect" v-on:error="onPlaylistError" start-time="0"/>
 
       <div v-if="playlistData">
         <h3>{{playlistData.name}}</h3>
+        <p>Start Time</p>
+        <input type="number" v-model="startHour" v-on:change="onChangeTime" min="0" max="24"/>
+        <input type="number" v-model="startMinute" v-on:change="onChangeTime" min="0" max="59" step="5"/>
         <track-list :track-items="playlistData.tracks.items"/>
       </div>
 
@@ -20,10 +20,18 @@
 </template>
 
 <script>
+import * as SpotifyWebApi from 'spotify-web-api-js';
+
 import SpotifyTrackList from "./components/SpotifyTrackList.vue";
 import SpotifyPlaylistSelector from "./components/SpotifyPlaylistSelector.vue";
 
+import moment from 'moment';
+import 'moment-duration-format';
+
 import config from './config.js';
+
+let s = new SpotifyWebApi();
+s.setAccessToken('');
 
 export default {
   name: 'app',
@@ -36,6 +44,8 @@ export default {
       hasAccess: false,
       accessToken: null,
       logoURI: "./src/assets/logo.png",
+      startHour: 18,
+      startMinute: 0,
       playlistData: {
         name: "",
         tracks: {
@@ -58,6 +68,8 @@ export default {
   },
   methods: {
     onPlaylistSelect (playlistData) {
+      // Parse tracks
+      playlistData.tracks = this.parseTracks(playlistData.tracks);
       // Save data in order to display the playlist
       this.playlistData = playlistData;
       // Set logo to playlist image
@@ -66,6 +78,51 @@ export default {
     onPlaylistError (error) {
       this.hasAccess = false;
     },
+    onChangeTime () {
+      if(this.playlistData) {
+        this.playlistData.tracks = this.parseTracks(this.playlistData.tracks);
+      }
+    },
+    parseTracks(tracks) {
+      let _currentTime = moment.duration(0).add(parseInt(this.startHour), 'hours').add(parseInt(this.startMinute), 'minutes');
+      let _lastHour = _currentTime.hours();
+
+      tracks.items = tracks.items.map((item, index, arr) => {
+        let modifiedItem = item;
+        let modifiedTrack = modifiedItem.track;
+
+        // Determine when the song start (relative to the playlist's start time)
+        if(index === 0) {
+          modifiedTrack.relative_start_time_ms = _currentTime.asMilliseconds();
+        }
+        else {
+          const previousTrackDuration = arr[index - 1].track.duration_ms;
+
+          // increase current time
+          _currentTime = _currentTime.add(previousTrackDuration);
+
+          // see if this is the first track of the hour
+          if(_currentTime.hours() !== _lastHour) {
+            modifiedTrack.first_of_hour = true;
+          }
+          else {
+            modifiedTrack.first_of_hour = false;
+          }
+
+          // set relative start time
+          modifiedTrack.relative_start_time_ms = _currentTime.asMilliseconds();
+
+          // save current hour
+          _lastHour = _currentTime.hours();
+        }
+
+        // save and return
+        modifiedItem.track = modifiedTrack;
+        return modifiedItem;
+      });
+
+      return tracks;
+    }
   },
   mounted () {
     const hash = location.hash.substr(1); // .*access_token=([^&?]*)
@@ -84,22 +141,22 @@ export default {
 </script>
 
 <style lang="scss">
-$spotify-green: #1DB954;
-$spotify-black: #191414;
-#app {
-  font-family: Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  $spotify-green: #1DB954;
+  $spotify-black: #191414;
+  #app {
+    font-family: Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 60px;
+  }
 
-h1, h2 {
-  font-weight: normal;
-}
+  h1, h2 {
+    font-weight: normal;
+  }
 
-a {
-  color: $spotify-green;
-}
+  a {
+    color: $spotify-green;
+  }
 </style>

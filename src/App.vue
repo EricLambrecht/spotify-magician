@@ -43,7 +43,7 @@ export default {
       hasAccess: false,
       accessToken: null,
       playlistURI: "spotify:user:1127316932:playlist:0pLfNXXyU21MWIv0tP3hwH",
-      logoURI: "/src/assets/logo.png",
+      logoURI: "./src/assets/logo.png",
       playlistData: {
         name: "",
         tracks: {
@@ -178,6 +178,7 @@ export default {
 
 <style lang="scss">
 $spotify-green: #1DB954;
+$spotify-black: #191414;
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

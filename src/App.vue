@@ -194,9 +194,11 @@ h1, h2 {
 ol {
   list-style: none;
   text-align: left;
-  li {
+}
 
-  }
+.tracks {
+  max-width: 1000px;
+  margin: auto;
 }
 
 a {

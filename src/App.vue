@@ -76,7 +76,9 @@ export default {
       this.logoURI = playlistData.images[0].url;
     },
     onPlaylistError (error) {
-      this.hasAccess = false;
+      if(error.tokenExpired) {
+        this.hasAccess = false;
+      }
     },
     onChangeTime () {
       if(this.playlistData) {

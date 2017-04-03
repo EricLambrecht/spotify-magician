@@ -15,7 +15,7 @@
 
       <div v-if="playlistData">
         <h3>{{playlistData.name}}</h3>
-        <img :src="playlistData.images[0]"/>
+        <img :src="playlistData.images[0]" width="140"/>
         <ol class="tracks">
           <template v-for="(item, index) in playlistData.tracks.items">
              <li class="track">
@@ -81,7 +81,7 @@ export default {
       return 'https://accounts.spotify.com/authorize?' +
         'client_id=' + config.client_id + '&' +
         'response_type=token&' +
-        'redirect_uri=' + encodeURIComponent('http://localhost:8080/');
+        'redirect_uri=' + encodeURIComponent(location.protocol + '//' + location.hostname);
     },
     playlistURIData() {
       // example: spotify:user:1127316932:playlist:0pLfNXXyU21MWIv0tP3hwH

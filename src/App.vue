@@ -75,16 +75,19 @@ export default {
       // Set logo to playlist image
       this.logoURI = playlistData.images[0].url;
     },
+
     onPlaylistError (error) {
       if(error.tokenExpired) {
         this.hasAccess = false;
       }
     },
+
     onChangeTime () {
       if(this.playlistData) {
         this.playlistData.tracks = this.parseTracks(this.playlistData.tracks);
       }
     },
+
     parseTracks(tracks) {
       let _currentTime = moment.duration(0).add(parseInt(this.startHour), 'hours').add(parseInt(this.startMinute), 'minutes');
       let _lastHour = _currentTime.hours();
@@ -142,7 +145,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   $spotify-green: #1DB954;
   $spotify-black: #191414;
   #app {

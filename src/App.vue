@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import * as SpotifyWebApi from 'spotify-web-api-js';
+import SpotifyWebApi from 'spotify-web-api-js';
 
 import SpotifyTrackList from "./components/SpotifyTrackList.vue";
 import SpotifyPlaylistSelector from "./components/SpotifyPlaylistSelector.vue";

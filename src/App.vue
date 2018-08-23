@@ -93,7 +93,7 @@
         spotifyApi.setAccessToken(this.accessToken);
       }
       else {
-        console.warn(search);
+        console.warn(search); // eslint-disable-line no-console
         this.hasAccess = false;
       }
     },

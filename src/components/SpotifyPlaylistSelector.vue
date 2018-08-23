@@ -47,12 +47,12 @@
               const remainingTracks = await this.getTracks(numberOfFetchedTracks, 100);
               tracks.items = tracks.items.concat(remainingTracks.items);
             } catch (err) {
-              console.error(err);
+              this.$emit('error', {message: err.message});
             }
           }
           return tracks;
         } catch (err) {
-          console.error(err);
+          this.$emit('error', {message: err.message});
         }
       },
       async fetchPlaylist() {
@@ -67,7 +67,7 @@
               data.tracks.items = data.tracks.items.concat(remainingTracks.items);
               this.$emit('select', data); // emit event for parents (TODO: add state management)
             } catch (err) {
-              console.error(err);
+              this.$emit('error', {message: err.message});
             }
           }
           else {
@@ -83,7 +83,7 @@
             this.$emit('error', {message: "Token expired", tokenExpired: true});
           }
           else {
-            console.warn(res);
+            console.warn(res); // eslint-disable-line no-console
             this.$emit('error', {message: "An unknown error occured"});
           }
         }

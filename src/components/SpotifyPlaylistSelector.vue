@@ -1,8 +1,11 @@
 <template>
   <div class="spotify-playlist-selector">
     <label for="playlistURI">Enter Playlist URI: </label>
-    <input v-model="playlistURI" type="text" id="playlistURI"/>
-    <button v-on:click="fetchPlaylist">Playlist suchen</button>
+    <input 
+      id="playlistURI" 
+      v-model="playlistURI" 
+      type="text">
+    <button @click="fetchPlaylist">Playlist suchen</button>
   </div>
 </template>
 
@@ -15,7 +18,7 @@
   spotifyApi.setAccessToken('');
 
   export default {
-    name: 'spotify-playlist-selector',
+    name: 'SpotifyPlaylistSelector',
     data() {
       return {
         playlistURI: "spotify:user:1127316932:playlist:0pLfNXXyU21MWIv0tP3hwH",
@@ -44,12 +47,12 @@
               const remainingTracks = await this.getTracks(numberOfFetchedTracks, 100);
               tracks.items = tracks.items.concat(remainingTracks.items);
             } catch (err) {
-              console.error(err);
+              this.$emit('error', {message: err.message});
             }
           }
           return tracks;
         } catch (err) {
-          console.error(err);
+          this.$emit('error', {message: err.message});
         }
       },
       async fetchPlaylist() {
@@ -64,7 +67,7 @@
               data.tracks.items = data.tracks.items.concat(remainingTracks.items);
               this.$emit('select', data); // emit event for parents (TODO: add state management)
             } catch (err) {
-              console.error(err);
+              this.$emit('error', {message: err.message});
             }
           }
           else {
@@ -80,7 +83,7 @@
             this.$emit('error', {message: "Token expired", tokenExpired: true});
           }
           else {
-            console.warn(res);
+            console.warn(res); // eslint-disable-line no-console
             this.$emit('error', {message: "An unknown error occured"});
           }
         }

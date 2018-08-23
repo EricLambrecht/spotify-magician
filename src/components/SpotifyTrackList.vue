@@ -1,11 +1,13 @@
 <template>
   <ol class="track-list">
     <template v-for="(item, index) in trackItems">
-      <li class="track">
-        <h4 v-if="index === 0 || item.track.first_of_hour">{{item.track.relative_start_time_ms |
-          formatTime('h:mm')}} Uhr</h4>
-        <p>{{item.track.relative_start_time_ms | formatTime('h:mm')}} - {{item.track.artists[0].name}} - {{
-          item.track.name }} ({{item.track.duration_ms | formatTime('mm:ss')}})</p>
+      <li 
+        :key="item.track.id" 
+        class="track">
+        <h4 v-if="index === 0 || item.track.first_of_hour">{{ item.track.relative_start_time_ms |
+        formatTime('h:mm') }} Uhr</h4>
+        <p>{{ item.track.relative_start_time_ms | formatTime('h:mm') }} - {{ item.track.artists[0].name }} - {{
+        item.track.name }} ({{ item.track.duration_ms | formatTime('mm:ss') }})</p>
       </li>
     </template>
   </ol>
@@ -16,8 +18,7 @@
   import 'moment-duration-format';
 
   export default {
-    name: 'spotify-track-list',
-    props: ['trackItems'],
+    name: 'SpotifyTrackList',
     filters: {
       formatTime(milliseconds, format = "") {
         const duration = moment.duration(milliseconds);
@@ -35,6 +36,12 @@
         else {
           return duration.format('mm:ss');
         }
+      }
+    },
+    props: {
+      trackItems: {
+        type: Array,
+        required: true
       }
     },
   }

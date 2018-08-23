@@ -24,17 +24,20 @@ export default {
   computed: {
     playlistURIData() {
       // example: spotify:user:1127316932:playlist:0pLfNXXyU21MWIv0tP3hwH
-      const search = this.playlistURI.match(/.*user:([\d]+):playlist:(.+)/i);
+      const search = this.playlistURI.match(/.*user:([^\s]+):playlist:([^\s]+)/i);
+      if (search === null) {
+          return null;
+      }
       return {
-        userId: search[1] ? search[1] : "",
-        id: search[2] ? search[2] : "",
+        userId: search[1],
+        id: search[2],
       };
     }
   },
   methods: {
     getTracks(offset = 0, limit = 0) {
       // Do we have all tracks?
-      return s.getPlaylistTracks(this.playlistURIData.userId, this.playlistURIData.id, {
+      return s.getPlaylistTracks(this.playlistURIData.id, {
         limit: limit,
         offset: offset
       }).then((tracks) => {
@@ -52,7 +55,7 @@ export default {
     },
     fetchPlaylist () {
       console.log('this.playlistURIData', this.playlistURIData);
-      s.getPlaylist(this.playlistURIData.userId, this.playlistURIData.id)
+      s.getPlaylist(this.playlistURIData.id)
         .then((data) => {
 
           // Do we have all tracks?
@@ -71,6 +74,7 @@ export default {
             this.$emit('select', data);
           }
         }, (err) => {
+          console.log('err', err);
           const res = JSON.parse(err.response);
 
           // See if access token expired

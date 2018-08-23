@@ -1,8 +1,11 @@
 <template>
   <div class="spotify-playlist-selector">
     <label for="playlistURI">Enter Playlist URI: </label>
-    <input v-model="playlistURI" type="text" id="playlistURI"/>
-    <button v-on:click="fetchPlaylist">Playlist suchen</button>
+    <input 
+      id="playlistURI" 
+      v-model="playlistURI" 
+      type="text">
+    <button @click="fetchPlaylist">Playlist suchen</button>
   </div>
 </template>
 
@@ -15,7 +18,7 @@
   spotifyApi.setAccessToken('');
 
   export default {
-    name: 'spotify-playlist-selector',
+    name: 'SpotifyPlaylistSelector',
     data() {
       return {
         playlistURI: "spotify:user:1127316932:playlist:0pLfNXXyU21MWIv0tP3hwH",

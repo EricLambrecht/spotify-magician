@@ -1,17 +1,35 @@
 <template>
   <div id="app">
-    <img :src="logoURI" width="140">
+    <img 
+      :src="logoURI" 
+      width="140">
     <h1>Better Spotify Playlists (prototype, WIP)</h1>
 
-    <a v-show="!hasAccess" :href="loginURI">Get access</a>
+    <a 
+      v-show="!hasAccess" 
+      :href="loginURI">Get access</a>
     <div v-if="hasAccess">
-      <playlist-selector v-on:select="onPlaylistSelect" v-on:error="onPlaylistError" start-time="0"/>
+      <playlist-selector 
+        start-time="0" 
+        @select="onPlaylistSelect" 
+        @error="onPlaylistError"/>
 
       <div v-if="playlistData">
-        <h3>{{playlistData.name}}</h3>
+        <h3>{{ playlistData.name }}</h3>
         <p>Start Time</p>
-        <input type="number" v-model="startHour" v-on:change="onChangeTime" min="0" max="24"/>
-        <input type="number" v-model="startMinute" v-on:change="onChangeTime" min="0" max="59" step="5"/>
+        <input 
+          v-model="startHour" 
+          type="number" 
+          min="0" 
+          max="24" 
+          @change="onChangeTime">
+        <input 
+          v-model="startMinute" 
+          type="number" 
+          min="0" 
+          max="59" 
+          step="5" 
+          @change="onChangeTime">
         <track-list :track-items="playlistData.tracks.items"/>
       </div>
 
@@ -34,7 +52,7 @@
   spotifyApi.setAccessToken('');
 
   export default {
-    name: 'app',
+    name: 'App',
     components: {
       'track-list': SpotifyTrackList,
       'playlist-selector': SpotifyPlaylistSelector
@@ -64,6 +82,19 @@
           'client_id=' + config.client_id + '&' +
           'response_type=token&' +
           'redirect_uri=' + encodeURIComponent(location.protocol + '//' + location.host + location.pathname);
+      }
+    },
+    mounted() {
+      const hash = location.hash.substr(1); // .*access_token=([^&?]*)
+      const search = hash.match(/.*access_token=([^&?]*)/i);
+      if (search && search.length > 1) {
+        this.hasAccess = true;
+        this.accessToken = search[1];
+        spotifyApi.setAccessToken(this.accessToken);
+      }
+      else {
+        console.warn(search);
+        this.hasAccess = false;
       }
     },
     methods: {
@@ -128,19 +159,6 @@
         });
 
         return tracks;
-      }
-    },
-    mounted() {
-      const hash = location.hash.substr(1); // .*access_token=([^&?]*)
-      const search = hash.match(/.*access_token=([^&?]*)/i);
-      if (search && search.length > 1) {
-        this.hasAccess = true;
-        this.accessToken = search[1];
-        spotifyApi.setAccessToken(this.accessToken);
-      }
-      else {
-        console.warn(search);
-        this.hasAccess = false;
       }
     },
   }

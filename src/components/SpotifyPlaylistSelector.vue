@@ -38,7 +38,6 @@
           limit: limit,
           offset: offset
         }).then((tracks) => {
-          console.log("getPlaylistTracks", tracks);
           const fetchedTracks = tracks.items.length + tracks.offset;
           if (fetchedTracks < tracks.total) {
             this.getTracks(fetchedTracks, 100).then((remainingTracks) => {
@@ -50,39 +49,38 @@
           return Promise.resolve(tracks);
         })
       },
-      fetchPlaylist() {
-        console.log('this.playlistId', this.playlistId);
-        s.getPlaylist(this.playlistId)
-          .then((data) => {
+      async fetchPlaylist() {
+        try {
+          const data = await s.getPlaylist(this.playlistId);
 
-            // Do we have all tracks?
-            const fetchedTracks = data.tracks.items.length + data.tracks.offset;
-            if (fetchedTracks < data.tracks.total) {
-              this.getTracks(fetchedTracks, 100).then((remainingTracks) => {
-                data.tracks.items = data.tracks.items.concat(remainingTracks.items);
-                // Emit event for parents...
-                this.$emit('select', data);
-              }).catch((err) => {
-                console.warn(err);
-              });
-            }
-            else {
+          // Do we have all tracks?
+          const fetchedTracks = data.tracks.items.length + data.tracks.offset;
+          if (fetchedTracks < data.tracks.total) {
+            this.getTracks(fetchedTracks, 100).then((remainingTracks) => {
+              data.tracks.items = data.tracks.items.concat(remainingTracks.items);
               // Emit event for parents...
               this.$emit('select', data);
-            }
-          }, (err) => {
-            console.log('err', err);
-            const res = JSON.parse(err.response);
+            }).catch((err) => {
+              console.warn(err);
+            });
+          }
+          else {
+            // Emit event for parents...
+            this.$emit('select', data);
+          }
+        }
+        catch (err) {
+          const res = JSON.parse(err.response);
 
-            // See if access token expired
-            if (res.error && res.error.status === 401) {
-              this.$emit('error', {message: "Token expired", tokenExpired: true});
-            }
-            else {
-              console.warn(res);
-              this.$emit('error', {message: "An unknown error occured"});
-            }
-          });
+          // See if access token expired
+          if (res.error && res.error.status === 401) {
+            this.$emit('error', {message: "Token expired", tokenExpired: true});
+          }
+          else {
+            console.warn(res);
+            this.$emit('error', {message: "An unknown error occured"});
+          }
+        }
       },
     },
   }

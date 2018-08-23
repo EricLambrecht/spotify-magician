@@ -20,129 +20,129 @@
 </template>
 
 <script>
-import SpotifyWebApi from 'spotify-web-api-js';
+  import SpotifyWebApi from 'spotify-web-api-js';
 
-import SpotifyTrackList from "./components/SpotifyTrackList.vue";
-import SpotifyPlaylistSelector from "./components/SpotifyPlaylistSelector.vue";
+  import SpotifyTrackList from "./components/SpotifyTrackList.vue";
+  import SpotifyPlaylistSelector from "./components/SpotifyPlaylistSelector.vue";
 
-import moment from 'moment';
-import 'moment-duration-format';
+  import moment from 'moment';
+  import 'moment-duration-format';
 
-import config from './config.js';
+  import config from './config.js';
 
-const spotifyApi = new SpotifyWebApi();
-spotifyApi.setAccessToken('');
+  const spotifyApi = new SpotifyWebApi();
+  spotifyApi.setAccessToken('');
 
-export default {
-  name: 'app',
-  components: {
-    'track-list': SpotifyTrackList,
-    'playlist-selector': SpotifyPlaylistSelector
-  },
-  data () {
-    return {
-      hasAccess: false,
-      accessToken: null,
-      logoURI: "./src/assets/logo.png",
-      startHour: 18,
-      startMinute: 0,
-      playlistData: {
-        name: "",
-        tracks: {
-          href: "",
-          items: [],
-          limit: 0,
-          total: 0
-        },
-        images: [],
-      }
-    }
-  },
-  computed: {
-    loginURI () {
-      return 'https://accounts.spotify.com/authorize?' +
-        'client_id=' + config.client_id + '&' +
-        'response_type=token&' +
-        'redirect_uri=' + encodeURIComponent(location.protocol + '//' + location.host + location.pathname);
-    }
-  },
-  methods: {
-    onPlaylistSelect (playlistData) {
-      // Parse tracks
-      playlistData.tracks = this.parseTracks(playlistData.tracks);
-      // Save data in order to display the playlist
-      this.playlistData = playlistData;
-      // Set logo to playlist image
-      this.logoURI = playlistData.images[0].url;
+  export default {
+    name: 'app',
+    components: {
+      'track-list': SpotifyTrackList,
+      'playlist-selector': SpotifyPlaylistSelector
     },
+    data() {
+      return {
+        hasAccess: false,
+        accessToken: null,
+        logoURI: "./src/assets/logo.png",
+        startHour: 18,
+        startMinute: 0,
+        playlistData: {
+          name: "",
+          tracks: {
+            href: "",
+            items: [],
+            limit: 0,
+            total: 0
+          },
+          images: [],
+        }
+      }
+    },
+    computed: {
+      loginURI() {
+        return 'https://accounts.spotify.com/authorize?' +
+          'client_id=' + config.client_id + '&' +
+          'response_type=token&' +
+          'redirect_uri=' + encodeURIComponent(location.protocol + '//' + location.host + location.pathname);
+      }
+    },
+    methods: {
+      onPlaylistSelect(playlistData) {
+        // Parse tracks
+        playlistData.tracks = this.parseTracks(playlistData.tracks);
+        // Save data in order to display the playlist
+        this.playlistData = playlistData;
+        // Set logo to playlist image
+        this.logoURI = playlistData.images[0].url;
+      },
 
-    onPlaylistError (error) {
-      if(error.tokenExpired) {
+      onPlaylistError(error) {
+        if (error.tokenExpired) {
+          this.hasAccess = false;
+        }
+      },
+
+      onChangeTime() {
+        if (this.playlistData) {
+          this.playlistData.tracks = this.parseTracks(this.playlistData.tracks);
+        }
+      },
+
+      parseTracks(tracks) {
+        let _currentTime = moment.duration(0).add(parseInt(this.startHour), 'hours').add(parseInt(this.startMinute), 'minutes');
+        let _lastHour = _currentTime.hours();
+
+        tracks.items = tracks.items.map((item, index, arr) => {
+          let modifiedItem = item;
+          let modifiedTrack = modifiedItem.track;
+
+          // Determine when the song start (relative to the playlist's start time)
+          if (index === 0) {
+            modifiedTrack.relative_start_time_ms = _currentTime.asMilliseconds();
+          }
+          else {
+            const previousTrackDuration = arr[index - 1].track.duration_ms;
+
+            // increase current time
+            _currentTime = _currentTime.add(previousTrackDuration);
+
+            // see if this is the first track of the hour
+            if (_currentTime.hours() !== _lastHour) {
+              modifiedTrack.first_of_hour = true;
+            }
+            else {
+              modifiedTrack.first_of_hour = false;
+            }
+
+            // set relative start time
+            modifiedTrack.relative_start_time_ms = _currentTime.asMilliseconds();
+
+            // save current hour
+            _lastHour = _currentTime.hours();
+          }
+
+          // save and return
+          modifiedItem.track = modifiedTrack;
+          return modifiedItem;
+        });
+
+        return tracks;
+      }
+    },
+    mounted() {
+      const hash = location.hash.substr(1); // .*access_token=([^&?]*)
+      const search = hash.match(/.*access_token=([^&?]*)/i);
+      if (search && search.length > 1) {
+        this.hasAccess = true;
+        this.accessToken = search[1];
+        spotifyApi.setAccessToken(this.accessToken);
+      }
+      else {
+        console.warn(search);
         this.hasAccess = false;
       }
     },
-
-    onChangeTime () {
-      if(this.playlistData) {
-        this.playlistData.tracks = this.parseTracks(this.playlistData.tracks);
-      }
-    },
-
-    parseTracks(tracks) {
-      let _currentTime = moment.duration(0).add(parseInt(this.startHour), 'hours').add(parseInt(this.startMinute), 'minutes');
-      let _lastHour = _currentTime.hours();
-
-      tracks.items = tracks.items.map((item, index, arr) => {
-        let modifiedItem = item;
-        let modifiedTrack = modifiedItem.track;
-
-        // Determine when the song start (relative to the playlist's start time)
-        if(index === 0) {
-          modifiedTrack.relative_start_time_ms = _currentTime.asMilliseconds();
-        }
-        else {
-          const previousTrackDuration = arr[index - 1].track.duration_ms;
-
-          // increase current time
-          _currentTime = _currentTime.add(previousTrackDuration);
-
-          // see if this is the first track of the hour
-          if(_currentTime.hours() !== _lastHour) {
-            modifiedTrack.first_of_hour = true;
-          }
-          else {
-            modifiedTrack.first_of_hour = false;
-          }
-
-          // set relative start time
-          modifiedTrack.relative_start_time_ms = _currentTime.asMilliseconds();
-
-          // save current hour
-          _lastHour = _currentTime.hours();
-        }
-
-        // save and return
-        modifiedItem.track = modifiedTrack;
-        return modifiedItem;
-      });
-
-      return tracks;
-    }
-  },
-  mounted () {
-    const hash = location.hash.substr(1); // .*access_token=([^&?]*)
-    const search =  hash.match(/.*access_token=([^&?]*)/i);
-    if(search && search.length > 1) {
-      this.hasAccess = true;
-      this.accessToken = search[1];
-      spotifyApi.setAccessToken(this.accessToken);
-    }
-    else {
-      console.warn(search);
-      this.hasAccess = false;
-    }
-  },
-}
+  }
 </script>
 
 <style lang="scss" scoped>

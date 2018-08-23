@@ -7,9 +7,8 @@
 </template>
 
 <script>
-import * as SpotifyWebApi from 'spotify-web-api-js';
+import SpotifyWebApi from 'spotify-web-api-js';
 
-import moment from 'moment';
 import 'moment-duration-format';
 
 let s = new SpotifyWebApi();
@@ -52,6 +51,7 @@ export default {
       })
     },
     fetchPlaylist () {
+      console.log('this.playlistURIData', this.playlistURIData);
       s.getPlaylist(this.playlistURIData.userId, this.playlistURIData.id)
         .then((data) => {
 

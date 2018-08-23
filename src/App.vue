@@ -30,8 +30,8 @@ import 'moment-duration-format';
 
 import config from './config.js';
 
-let s = new SpotifyWebApi();
-s.setAccessToken('');
+const spotifyApi = new SpotifyWebApi();
+spotifyApi.setAccessToken('');
 
 export default {
   name: 'app',
@@ -132,10 +132,10 @@ export default {
   mounted () {
     const hash = location.hash.substr(1); // .*access_token=([^&?]*)
     const search =  hash.match(/.*access_token=([^&?]*)/i);
-    if(search.length > 1) {
+    if(search && search.length > 1) {
       this.hasAccess = true;
       this.accessToken = search[1];
-      s.setAccessToken(this.accessToken);
+      spotifyApi.setAccessToken(this.accessToken);
     }
     else {
       console.warn(search);

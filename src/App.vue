@@ -68,12 +68,9 @@
     },
     methods: {
       onPlaylistSelect(playlistData) {
-        // Parse tracks
         playlistData.tracks = this.parseTracks(playlistData.tracks);
-        // Save data in order to display the playlist
         this.playlistData = playlistData;
-        // Set logo to playlist image
-        this.logoURI = playlistData.images[0].url;
+        this.logoURI = playlistData.images[0].url; // Replace logo with playlist image
       },
 
       onPlaylistError(error) {
@@ -89,25 +86,29 @@
       },
 
       parseTracks(tracks) {
-        let _currentTime = moment.duration(0).add(parseInt(this.startHour), 'hours').add(parseInt(this.startMinute), 'minutes');
-        let _lastHour = _currentTime.hours();
+        let currentTime = moment
+          .duration(0)
+          .add(parseInt(this.startHour), 'hours')
+          .add(parseInt(this.startMinute), 'minutes');
+
+        let lastHour = currentTime.hours();
 
         tracks.items = tracks.items.map((item, index, arr) => {
-          let modifiedItem = item;
-          let modifiedTrack = modifiedItem.track;
+          const modifiedItem = item;
+          const modifiedTrack = modifiedItem.track;
 
           // Determine when the song start (relative to the playlist's start time)
           if (index === 0) {
-            modifiedTrack.relative_start_time_ms = _currentTime.asMilliseconds();
+            modifiedTrack.relative_start_time_ms = currentTime.asMilliseconds();
           }
           else {
             const previousTrackDuration = arr[index - 1].track.duration_ms;
 
             // increase current time
-            _currentTime = _currentTime.add(previousTrackDuration);
+            currentTime = currentTime.add(previousTrackDuration);
 
             // see if this is the first track of the hour
-            if (_currentTime.hours() !== _lastHour) {
+            if (currentTime.hours() !== lastHour) {
               modifiedTrack.first_of_hour = true;
             }
             else {
@@ -115,10 +116,10 @@
             }
 
             // set relative start time
-            modifiedTrack.relative_start_time_ms = _currentTime.asMilliseconds();
+            modifiedTrack.relative_start_time_ms = currentTime.asMilliseconds();
 
             // save current hour
-            _lastHour = _currentTime.hours();
+            lastHour = currentTime.hours();
           }
 
           // save and return

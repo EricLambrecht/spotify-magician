@@ -11,8 +11,8 @@
 
   import 'moment-duration-format';
 
-  let s = new SpotifyWebApi();
-  s.setAccessToken('');
+  const spotifyApi = new SpotifyWebApi();
+  spotifyApi.setAccessToken('');
 
   export default {
     name: 'spotify-playlist-selector',
@@ -32,37 +32,40 @@
       }
     },
     methods: {
-      getTracks(offset = 0, limit = 0) {
-        // Do we have all tracks?
-        return s.getPlaylistTracks(this.playlistId, {
-          limit: limit,
-          offset: offset
-        }).then((tracks) => {
-          const fetchedTracks = tracks.items.length + tracks.offset;
-          if (fetchedTracks < tracks.total) {
-            this.getTracks(fetchedTracks, 100).then((remainingTracks) => {
+      async getTracks(offset = 0, limit = 0) {
+        try {
+          const tracks = await spotifyApi.getPlaylistTracks(this.playlistId, {
+            limit: limit,
+            offset: offset
+          });
+          const numberOfFetchedTracks = tracks.items.length + tracks.offset;
+          if (numberOfFetchedTracks < tracks.total) {
+            try {
+              const remainingTracks = await this.getTracks(numberOfFetchedTracks, 100);
               tracks.items = tracks.items.concat(remainingTracks.items);
-            }).catch((err) => {
-              console.warn(err);
-            });
+            } catch (err) {
+              console.error(err);
+            }
           }
-          return Promise.resolve(tracks);
-        })
+          return tracks;
+        } catch (err) {
+          console.error(err);
+        }
       },
       async fetchPlaylist() {
         try {
-          const data = await s.getPlaylist(this.playlistId);
+          const data = await spotifyApi.getPlaylist(this.playlistId);
 
           // Do we have all tracks?
-          const fetchedTracks = data.tracks.items.length + data.tracks.offset;
-          if (fetchedTracks < data.tracks.total) {
-            this.getTracks(fetchedTracks, 100).then((remainingTracks) => {
+          const numberOfFetchedTracks = data.tracks.items.length + data.tracks.offset;
+          if (numberOfFetchedTracks < data.tracks.total) {
+            try {
+            const remainingTracks = await this.getTracks(numberOfFetchedTracks, 100);
               data.tracks.items = data.tracks.items.concat(remainingTracks.items);
-              // Emit event for parents...
-              this.$emit('select', data);
-            }).catch((err) => {
-              console.warn(err);
-            });
+              this.$emit('select', data); // emit event for parents (TODO: add state management)
+            } catch (err) {
+              console.error(err);
+            }
           }
           else {
             // Emit event for parents...

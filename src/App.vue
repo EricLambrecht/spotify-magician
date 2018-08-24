@@ -99,7 +99,7 @@ export default {
   },
   methods: {
     onPlaylistSelect(playlistData) {
-      this.playlistData.tracks = this.parseTracks(playlistData.tracks);
+      this.playlistData.tracks = this.getTracksWithTime(playlistData.tracks);
       this.logoURI = playlistData.images[0].url; // Replace logo with playlist image
     },
 
@@ -111,11 +111,11 @@ export default {
 
     onChangeTime() {
       if (this.playlistData) {
-        this.playlistData.tracks = this.parseTracks(this.playlistData.tracks);
+        this.playlistData.tracks = this.getTracksWithTime(this.playlistData.tracks);
       }
     },
 
-    parseTracks(tracks) {
+    getTracksWithTime(tracks) {
       let currentTime = moment
         .duration(0)
         .add(parseInt(this.startHour, 10), 'hours')
@@ -127,30 +127,16 @@ export default {
         const modifiedItem = item;
         const modifiedTrack = modifiedItem.track;
 
-        // Determine when the song start (relative to the playlist's start time)
-        if (index === 0) {
-          modifiedTrack.relative_start_time_ms = currentTime.asMilliseconds();
-        } else {
+        // Determine when the song starts (relative to the playlist's start time)
+        if (index !== 0) {
           const previousTrackDuration = arr[index - 1].track.duration_ms;
-
-          // increase current time
           currentTime = currentTime.add(previousTrackDuration);
 
-          // see if this is the first track of the hour
-          if (currentTime.hours() !== lastHour) {
-            modifiedTrack.first_of_hour = true;
-          } else {
-            modifiedTrack.first_of_hour = false;
-          }
-
-          // set relative start time
-          modifiedTrack.relative_start_time_ms = currentTime.asMilliseconds();
-
-          // save current hour
+          modifiedTrack.first_of_hour = currentTime.hours() !== lastHour;
           lastHour = currentTime.hours();
         }
+        modifiedTrack.relative_start_time_ms = currentTime.asMilliseconds();
 
-        // save and return
         modifiedItem.track = modifiedTrack;
         return modifiedItem;
       });

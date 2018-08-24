@@ -81,8 +81,7 @@ export default {
         if (res.error && res.error.status === 401) {
           this.$emit('error', { message: 'Token expired', tokenExpired: true });
         } else {
-          console.warn(res); // eslint-disable-line no-console
-          this.$emit('error', { message: 'An unknown error occured' });
+          this.$emit('error', { message: res.error.message || 'An unknown error occured' });
         }
       }
     },

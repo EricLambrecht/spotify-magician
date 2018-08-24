@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.5.0"></a>
+# [0.5.0](https://github.com/EricLambrecht/better-spotify-playlists/compare/v0.4.1...v0.5.0) (2018-08-24)
+
+
+### Features
+
+* **playlist-selector:** Error messages are now shown to the user ([2c3a279](https://github.com/EricLambrecht/better-spotify-playlists/commit/2c3a279))
+
+
+
 <a name="0.4.1"></a>
 ## 0.4.1 (2018-08-23)
 

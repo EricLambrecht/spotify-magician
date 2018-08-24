@@ -30,6 +30,7 @@
           max="59" 
           step="5" 
           @change="onChangeTime">
+        <p v-if="errorMessage">{{ errorMessage }}</p>
         <track-list :track-items="playlistData.tracks.items"/>
       </div>
 
@@ -61,6 +62,7 @@ export default {
     return {
       hasAccess: false,
       accessToken: null,
+      errorMessage: '',
       logoURI: './src/assets/logo.png',
       startHour: 18,
       startMinute: 0,
@@ -106,6 +108,8 @@ export default {
     onPlaylistError(error) {
       if (error.tokenExpired) {
         this.hasAccess = false;
+      } else {
+        this.errorMessage = error.message;
       }
     },
 

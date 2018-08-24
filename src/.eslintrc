@@ -1,9 +1,12 @@
 {
   "extends": [
     "eslint:recommended",
+    "airbnb-base",
     "plugin:vue/recommended"
   ],
-  "rules": {},
+  "rules": {
+    "no-trailing-spaces": "off"
+  },
   "parserOptions": {
     "ecmaVersion": 2017
   }

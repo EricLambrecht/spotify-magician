@@ -53,6 +53,7 @@ export default {
   ol {
     list-style: none;
     text-align: left;
+    padding: 0;
   }
 
   .track-list {

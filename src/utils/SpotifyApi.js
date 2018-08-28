@@ -34,6 +34,20 @@ export default class SpotifyApi extends SpotifyWebApi {
   }
 
   /**
+   * Returns a user's playlists
+   * @param options
+   * @returns {Promise<Object>}
+   */
+  async getUserPlaylists(options = {}) {
+    try {
+      const apiResult = await super.getUserPlaylists(options);
+      return apiResult.items;
+    } catch (err) {
+      throw SpotifyApi.handleApiError(err);
+    }
+  }
+
+  /**
    * This function fetches a slice of a playlist's tracks
    * @param playlistId A spotify playlist ID
    * @param offset Only tracks above this index will be fetched

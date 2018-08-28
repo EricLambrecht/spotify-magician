@@ -1,31 +1,66 @@
 <template>
   <div class="spotify-playlist-selector">
-    <label for="playlistURI">Enter Playlist URI: </label>
-    <input 
-      id="playlistURI" 
-      v-model="playlistURI" 
-      type="text">
-    <button @click="fetchPlaylist">Playlist suchen</button>
+    <div 
+      v-if="mode === 'custom'" 
+      class="form">
+      <label 
+        for="playlistURI" 
+        class="label">Enter playlist URI: </label>
+      <input
+        id="playlistURI"
+        v-model="playlistURI"
+        type="text"
+        class="input uri-input"
+      >
+      <button 
+        class="fetch-button" 
+        @click="fetchPlaylist">Playlist laden</button>
+    </div>
+    <div 
+      v-else 
+      class="form">
+      <label 
+        for="playlistId" 
+        class="label">Choose a playlist: </label>
+      <select 
+        id="playlistId" 
+        v-model="playlistId" 
+        class="input select-box" 
+        @change="fetchPlaylist">
+        <option 
+          v-for="playlist in userPlaylists"
+          :key="playlist.id"
+          :value="playlist.id">
+          {{ playlist.name }}
+        </option>
+      </select>
+    </div>
+    <button 
+      class="mode-button" 
+      @click="switchMode">
+      {{ mode === 'user' ? 'Enter manually' : 'Choose from your playlists' }}
+    </button>
   </div>
 </template>
 
 <script>
-import SpotifyWebApi from 'spotify-web-api-js';
-
 import 'moment-duration-format';
+import SpotifyApi from '../utils/SpotifyApi';
 
-const spotifyApi = new SpotifyWebApi();
-spotifyApi.setAccessToken('');
+const spotifyApi = new SpotifyApi();
 
 export default {
   name: 'SpotifyPlaylistSelector',
   data() {
     return {
-      playlistURI: 'spotify:user:1127316932:playlist:0pLfNXXyU21MWIv0tP3hwH',
+      playlistURI: '',
+      userPlaylists: [],
+      playlistId: null,
+      mode: 'user',
     };
   },
   computed: {
-    playlistId() {
+    parsedPlaylistId() {
       // example: spotify:user:1127316932:playlist:0pLfNXXyU21MWIv0tP3hwH
       const search = this.playlistURI.match(/.*user:[^\s]+:playlist:([^\s]+)/i);
       if (search === null) {
@@ -34,61 +69,61 @@ export default {
       return search[1];
     },
   },
+  async mounted() {
+    try {
+      this.userPlaylists = await spotifyApi.getUserPlaylists();
+    } catch (err) {
+      this.$emit('error', { message: err.message });
+    }
+  },
   methods: {
-    async getTracks(offset = 0, limit = 0) {
-      try {
-        const tracks = await spotifyApi.getPlaylistTracks(this.playlistId, {
-          limit,
-          offset,
-        });
-        const numberOfFetchedTracks = tracks.items.length + tracks.offset;
-        if (numberOfFetchedTracks < tracks.total) {
-          try {
-            const remainingTracks = await this.getTracks(numberOfFetchedTracks, 100);
-            tracks.items = tracks.items.concat(remainingTracks.items);
-          } catch (err) {
-            this.$emit('error', { message: err.message });
-          }
-        }
-        return tracks;
-      } catch (err) {
-        this.$emit('error', { message: err.message });
-        return null;
-      }
-    },
     async fetchPlaylist() {
       try {
-        const data = await spotifyApi.getPlaylist(this.playlistId);
-
-        // Do we have all tracks?
-        const numberOfFetchedTracks = data.tracks.items.length + data.tracks.offset;
-        if (numberOfFetchedTracks < data.tracks.total) {
-          try {
-            const remainingTracks = await this.getTracks(numberOfFetchedTracks, 100);
-            data.tracks.items = data.tracks.items.concat(remainingTracks.items);
-            this.$emit('select', data); // emit event for parents (TODO: add state management)
-          } catch (err) {
-            this.$emit('error', { message: err.message });
-          }
+        let playlist;
+        if (this.mode === 'custom') {
+          playlist = await spotifyApi.getFullPlaylist(this.parsedPlaylistId);
         } else {
-          // Emit event for parents...
-          this.$emit('select', data);
+          playlist = await spotifyApi.getFullPlaylist(this.playlistId);
         }
+        this.$emit('select', playlist); // emit event for parents (TODO: add state management)
       } catch (err) {
-        const res = JSON.parse(err.response);
-
-        // See if access token expired
-        if (res.error && res.error.status === 401) {
-          this.$emit('error', { message: 'Token expired', tokenExpired: true });
+        if (err.message === 'Token expired') {
+          this.$emit('error', { message: err.message, tokenExpired: true });
         } else {
-          this.$emit('error', { message: res.error.message || 'An unknown error occured' });
+          this.$emit('error', { message: err.message });
         }
       }
+    },
+    switchMode() {
+      this.mode = this.mode === 'user' ? 'custom' : 'user';
     },
   },
 };
 </script>
 
 <style lang="scss">
+  .spotify-playlist-selector {
+    .form {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
 
+      .label {
+        margin-right: 10px;
+      }
+      .input {
+        padding: 5px 10px;
+      }
+      .select-box {
+      }
+      .fetch-button {
+        padding: 4px 10px 5px;
+        margin-left: 2px;
+      }
+    }
+    .mode-button {
+      margin-top: 5px;
+    }
+  }
 </style>

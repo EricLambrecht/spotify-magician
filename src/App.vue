@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <img 
-      :src="logoURI" 
+      :src="logoURI"
+      class="image"
       width="140">
     <h1>Spotify Magician</h1>
 
@@ -14,23 +15,28 @@
         @select="onPlaylistSelect" 
         @error="onPlaylistError"/>
 
+      <p 
+        v-if="errorMessage" 
+        class="error-message">{{ errorMessage }}</p>
+
       <div v-if="playlistData">
         <h3>{{ playlistData.name }}</h3>
-        <p>Start Time</p>
-        <input 
-          v-model="startHour" 
-          type="number" 
-          min="0" 
-          max="24" 
-          @change="onChangeTime">
-        <input 
-          v-model="startMinute" 
-          type="number" 
-          min="0" 
-          max="59" 
-          step="5" 
-          @change="onChangeTime">
-        <p v-if="errorMessage">{{ errorMessage }}</p>
+        <div class="display-settings">
+          <span>Start Time:</span>
+          <input
+            v-model="startHour"
+            type="number"
+            min="0"
+            max="24"
+            @change="onChangeTime">
+          <input
+            v-model="startMinute"
+            type="number"
+            min="0"
+            max="59"
+            step="5"
+            @change="onChangeTime">
+        </div>
         <track-list :track-items="playlistData.tracks.items"/>
       </div>
 
@@ -39,18 +45,15 @@
 </template>
 
 <script>
-import SpotifyWebApi from 'spotify-web-api-js';
-
 import moment from 'moment';
 import SpotifyTrackList from './components/SpotifyTrackList.vue';
 import SpotifyPlaylistSelector from './components/SpotifyPlaylistSelector.vue';
+import SpotifyApi from './utils/SpotifyApi';
+import config from './config';
 
 import 'moment-duration-format';
 
-import config from './config';
-
-const spotifyApi = new SpotifyWebApi();
-spotifyApi.setAccessToken('');
+const spotifyApi = new SpotifyApi();
 
 export default {
   name: 'App',
@@ -69,10 +72,7 @@ export default {
       playlistData: {
         name: '',
         tracks: {
-          href: '',
           items: [],
-          limit: 0,
-          total: 0,
         },
         images: [],
       },
@@ -103,6 +103,7 @@ export default {
     onPlaylistSelect(playlistData) {
       this.playlistData.tracks.items = this.getTrackItemsWithTime(playlistData.tracks.items);
       this.logoURI = playlistData.images[0].url; // Replace logo with playlist image
+      this.errorMessage = '';
     },
 
     onPlaylistError(error) {
@@ -111,6 +112,14 @@ export default {
       } else {
         this.errorMessage = error.message;
       }
+      this.logoURI = './src/assets/logo.png';
+      this.playlistData = {
+        name: '',
+        tracks: {
+          items: [],
+        },
+        images: [],
+      };
     },
 
     onChangeTime() {
@@ -128,7 +137,7 @@ export default {
       let lastHour = currentTime.hours();
 
       return trackItems.map((item, index, arr) => {
-        const track = item.track;
+        const { track } = item;
 
         // Determine when the song starts (relative to the playlist's start time)
         if (index !== 0) {
@@ -140,8 +149,10 @@ export default {
         }
         track.relative_start_time_ms = currentTime.asMilliseconds();
 
-        item.track = track;
-        return item;
+        return {
+          ...item,
+          track,
+        };
       });
     },
   },
@@ -157,7 +168,33 @@ export default {
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
-    margin-top: 60px;
+    max-width: 1000px;
+    margin: 60px auto;
+  }
+
+  .image {
+    height: 140px;
+    width: 140px;
+    object-fit: cover;
+  }
+
+  .display-settings {
+    text-align: left;
+
+    input {
+      max-width: 50px;
+      padding: 3px 5px;
+    }
+  }
+
+  .error-message {
+    display: block;
+    font-weight: bold;
+    color: #e25451;
+    border: 2px solid #e25451;
+    border-radius: 2px;
+    padding: 5px 10px;
+    margin: 20px 0;
   }
 
   h1, h2 {

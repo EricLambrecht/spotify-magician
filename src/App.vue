@@ -14,7 +14,9 @@
         @select="onPlaylistSelect" 
         @error="onPlaylistError"/>
 
-      <p v-if="errorMessage">{{ errorMessage }}</p>
+      <p 
+        v-if="errorMessage" 
+        class="error-message">{{ errorMessage }}</p>
 
       <div v-if="playlistData">
         <h3>{{ playlistData.name }}</h3>
@@ -69,10 +71,7 @@ export default {
       playlistData: {
         name: '',
         tracks: {
-          href: '',
           items: [],
-          limit: 0,
-          total: 0,
         },
         images: [],
       },
@@ -103,6 +102,7 @@ export default {
     onPlaylistSelect(playlistData) {
       this.playlistData.tracks.items = this.getTrackItemsWithTime(playlistData.tracks.items);
       this.logoURI = playlistData.images[0].url; // Replace logo with playlist image
+      this.errorMessage = '';
     },
 
     onPlaylistError(error) {
@@ -111,6 +111,14 @@ export default {
       } else {
         this.errorMessage = error.message;
       }
+      this.logoURI = './src/assets/logo.png';
+      this.playlistData = {
+        name: '',
+        tracks: {
+          items: [],
+        },
+        images: [],
+      };
     },
 
     onChangeTime() {
@@ -170,6 +178,16 @@ export default {
       max-width: 50px;
       padding: 3px 5px;
     }
+  }
+
+  .error-message {
+    display: block;
+    font-weight: bold;
+    color: #e25451;
+    border: 2px solid #e25451;
+    border-radius: 2px;
+    padding: 5px 10px;
+    margin: 20px 0;
   }
 
   h1, h2 {

@@ -1,8 +1,9 @@
 <template>
   <img
-    :src="imageSource"
-    class="image"
-    width="140">
+    :src="source"
+    :style="style"
+    :width="size"
+    class="image">
 </template>
 
 <script>
@@ -13,10 +14,17 @@ export default {
       type: String,
       default: '',
     },
+    size: {
+      type: Number,
+      default: 140,
+    },
   },
   computed: {
-    imageSource() {
+    source() {
       return this.url || './src/assets/logo.png';
+    },
+    style() {
+      return `{ width: ${this.size}px; height: ${this.size}px; }`;
     },
   },
 };
@@ -24,8 +32,6 @@ export default {
 
 <style lang="scss">
   .image {
-    height: 140px;
-    width: 140px;
     object-fit: cover;
     border-radius: 5px;
   }

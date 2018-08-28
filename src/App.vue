@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <square-image :url="playlistImage" />
+    <square-image 
+      :url="playlistImage" 
+      size="140"/>
     <h1>Spotify Magician</h1>
 
     <a 

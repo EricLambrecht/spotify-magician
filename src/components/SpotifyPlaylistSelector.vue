@@ -53,7 +53,7 @@ export default {
   name: 'SpotifyPlaylistSelector',
   data() {
     return {
-      playlistURI: 'spotify:user:1127316932:playlist:0pLfNXXyU21MWIv0tP3hwH',
+      playlistURI: '',
       userPlaylists: [],
       playlistId: null,
       mode: 'user',

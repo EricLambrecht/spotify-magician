@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <img 
-      :src="logoURI" 
+      :src="logoURI"
+      class="image"
       width="140">
     <h1>Better Spotify Playlists (prototype, WIP)</h1>
 
@@ -169,6 +170,12 @@ export default {
     color: #2c3e50;
     max-width: 1000px;
     margin: 60px auto;
+  }
+
+  .image {
+    height: 140px;
+    width: 140px;
+    object-fit: cover;
   }
 
   .display-settings {

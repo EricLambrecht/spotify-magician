@@ -39,18 +39,15 @@
 </template>
 
 <script>
-import SpotifyWebApi from 'spotify-web-api-js';
-
 import moment from 'moment';
 import SpotifyTrackList from './components/SpotifyTrackList.vue';
 import SpotifyPlaylistSelector from './components/SpotifyPlaylistSelector.vue';
+import SpotifyApi from './utils/SpotifyApi';
+import config from './config';
 
 import 'moment-duration-format';
 
-import config from './config';
-
-const spotifyApi = new SpotifyWebApi();
-spotifyApi.setAccessToken('');
+const spotifyApi = new SpotifyApi();
 
 export default {
   name: 'App',

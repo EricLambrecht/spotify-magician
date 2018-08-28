@@ -6,6 +6,10 @@ All notable changes to this project will be documented in this file. See [standa
 ## [0.6.3](https://github.com/EricLambrecht/better-spotify-playlists/compare/v0.6.2...v0.6.3) (2018-08-28)
 
 
+### Miscellaneous
+
+* **ui:** Removed default spotify URI from input.
+
 
 <a name="0.6.2"></a>
 ## [0.6.2](https://github.com/EricLambrecht/better-spotify-playlists/compare/v0.6.1...v0.6.2) (2018-08-28)

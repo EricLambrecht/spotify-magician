@@ -46,13 +46,14 @@ They are parsed and bundled with [webpack](https://webpack.js.org)
 
 We use the [airbnb code style](https://github.com/airbnb/javascript) and the 
 recommended [Vue code styles](https://github.com/vuejs/eslint-plugin-vue).
-Check your code before you commit it using "eslint" to see if you have any code style errors.
 
-You can do this using the following npm script:
+You should use [eslint](https://eslint.org/) to check your code before you commit it to avoid code style errors:
 
 ```bash
 npm run lint
 ```
+
+You can also configure your editor or IDE to use *eslint* and check your code during development.
 
 ### Commiting changes
 
@@ -63,8 +64,8 @@ You can run the following command to commit your changes with commitizen:
 npm run commit
 ```
 
-This will also guarantee that you commits can be used to automatically generate new changelog entries.
-You can release a new version (and update the changelog) if you run:
+This will also guarantee that your commits can be used to automatically generate new changelog entries.
+You can release a new app version (and update the changelog) if you run:
 
 ```bash
 npm run release

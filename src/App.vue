@@ -1,9 +1,6 @@
 <template>
   <div id="app">
-    <img 
-      :src="logoURI"
-      class="image"
-      width="140">
+    <square-image :url="playlistImage" />
     <h1>Spotify Magician</h1>
 
     <a 
@@ -48,6 +45,7 @@
 import moment from 'moment';
 import SpotifyTrackList from './components/SpotifyTrackList.vue';
 import SpotifyPlaylistSelector from './components/SpotifyPlaylistSelector.vue';
+import SquareImage from './components/SquareImage.vue';
 import SpotifyApi from './utils/SpotifyApi';
 import config from './config';
 
@@ -60,13 +58,14 @@ export default {
   components: {
     'track-list': SpotifyTrackList,
     'playlist-selector': SpotifyPlaylistSelector,
+    'square-image': SquareImage,
   },
   data() {
     return {
       hasAccess: false,
       accessToken: null,
       errorMessage: '',
-      logoURI: './src/assets/logo.png',
+      playlistImage: null,
       startHour: 18,
       startMinute: 0,
       playlistData: {
@@ -95,14 +94,13 @@ export default {
       this.accessToken = accessToken;
       spotifyApi.setAccessToken(this.accessToken);
     } else {
-      console.warn(search); // eslint-disable-line no-console
       this.hasAccess = false;
     }
   },
   methods: {
     onPlaylistSelect(playlistData) {
       this.playlistData.tracks.items = this.getTrackItemsWithTime(playlistData.tracks.items);
-      this.logoURI = playlistData.images[0].url; // Replace logo with playlist image
+      this.playlistImage = playlistData.images[0].url; // Replace logo with playlist image
       this.errorMessage = '';
     },
 
@@ -112,7 +110,7 @@ export default {
       } else {
         this.errorMessage = error.message;
       }
-      this.logoURI = './src/assets/logo.png';
+      this.playlistImage = null;
       this.playlistData = {
         name: '',
         tracks: {
@@ -170,12 +168,6 @@ export default {
     color: #2c3e50;
     max-width: 1000px;
     margin: 60px auto;
-  }
-
-  .image {
-    height: 140px;
-    width: 140px;
-    object-fit: cover;
   }
 
   .display-settings {

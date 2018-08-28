@@ -18,7 +18,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Features
 
-* **playlist-selector:** Error messages are now shown to the user ([2c3a279](https://github.com/EricLambrecht/better-spotify-playlists/commit/2c3a279))
+* **ui:** Error messages are now shown to the user ([2c3a279](https://github.com/EricLambrecht/better-spotify-playlists/commit/2c3a279))
 
 
 
@@ -33,25 +33,25 @@ All notable changes to this project will be documented in this file. See [standa
 
 
 <a name="0.4.0"></a>
-## 0.4.0 (2017-04-04)
+# 0.4.0 (2017-04-04)
 ### Features
 * Added support for more than 100 tracks per playlist
 
 <a name="0.3.0"></a>
-## 0.3.0 (2017-04-03)
+# 0.3.0 (2017-04-03)
 ### Features
 * Added ability to define playlist start time.
 * Fixed several bugs
 * Refactored code base
 
 <a name="0.2.0"></a>
-## 0.2.0 (2017-04-03)
+# 0.2.0 (2017-04-03)
 ### Features
 * Adjusted icon size
 * fixed callback url (to work on servers other than "localhost:8080").
 
 <a name="0.1.0"></a>
-## 0.1.0 (2017-04-03)
+# 0.1.0 (2017-04-03)
 
 ### Features
 * First working draft.

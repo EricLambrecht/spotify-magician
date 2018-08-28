@@ -5,27 +5,77 @@
 
 > A spotify playlist editor
 
+**Live App on Github Pages:** [http://ericlambrecht.github.io/better-spotify-playlists]()
+
+This project is an attempt to improve the playlist editing (and visualization)
+capabilities of Spotify. So far, this is a purely client based web app. It's built 
+with [VueJS](https://vuejs.org/) and the 
+[Spotify Web API](https://developer.spotify.com/documentation/web-api/) (using 
+[this](https://github.com/JMPerez/spotify-web-api-js) wrapper).
+
+
 ## Build Setup
+
+You will need the following tools if you want to setup this project locally:
+
+- [Node](https://nodejs.org/en/download/)
+- npm >= 5.2 (comes with Node)
+
+Install packages and run a local development server using the following npm scripts:
 
 ``` bash
 # install dependencies
 npm install
 
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
+# serve app with hot module reloading on localhost:8080
+npm run start
 ```
 
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
-## Config
+## Contributing
 
-Please setup a configuration file in your `src/` folder that looks like this:
+We use ECMAScript 2018 in this project. So please use *async/await* instead of *Promises* and 
+feel free to make use of the newest Javascript features whenever it makes sense. See 
+([Code Style](#code-style) for further information). 
 
-```javascript
-module.exports = {
-	client_id: '123456789ABCDEFG'
-}
+This project uses's [Vue](https://vuejs.org/)'s *single-page-components*. 
+They are parsed and bundled with [webpack](https://webpack.js.org) 
+(see [docs for vue-loader](http://vuejs.github.io/vue-loader)).
+
+### Code Style
+
+We use the [airbnb code style](https://github.com/airbnb/javascript) and the 
+recommended [Vue code styles](https://github.com/vuejs/eslint-plugin-vue).
+Check your code before you commit it using "eslint" to see if you have any code style errors.
+
+You can do this using the following npm script:
+
+```bash
+npm run lint
 ```
+
+### Commiting changes
+
+Please use *commitizen* if you want to commit any changes and try to be as specific as necessary.
+
+You can run the following command to commit your changes with commitizen:
+```bash
+npm run commit
+```
+
+This will also guarantee that you commits can be used to automatically generate new changelog entries.
+You can release a new version (and update the changelog) if you run:
+
+```bash
+npm run release
+```
+
+### New Features
+
+Please create feature branches and make a pull request to *master* if you want to implement new features.
+
+### Deployment
+All changes on master will be automatically deployed to github pages!
+
+We have an automated deployment pipeline on Travis CI. You can monitor the current build status 
+[here](https://travis-ci.org/EricLambrecht/better-spotify-playlists) (or by clicking on the build status badge at the top).

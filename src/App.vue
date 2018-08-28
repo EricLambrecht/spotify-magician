@@ -4,7 +4,7 @@
       :src="logoURI"
       class="image"
       width="140">
-    <h1>Better Spotify Playlists (prototype, WIP)</h1>
+    <h1>Spotify Magician</h1>
 
     <a 
       v-show="!hasAccess" 

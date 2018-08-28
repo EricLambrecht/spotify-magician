@@ -5,7 +5,8 @@
 
 > A spotify playlist editor
 
-**Live App on Github Pages:** [http://ericlambrecht.github.io/better-spotify-playlists]()
+**Live App on Github Pages:** 
+[http://ericlambrecht.github.io/better-spotify-playlists](http://ericlambrecht.github.io/better-spotify-playlists)
 
 This project is an attempt to improve the playlist editing (and visualization)
 capabilities of Spotify. So far, this is a purely client based web app. It's built 

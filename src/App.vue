@@ -101,7 +101,7 @@ export default {
   },
   methods: {
     onPlaylistSelect(playlistData) {
-      this.playlistData.tracks = this.getTracksWithTime(playlistData.tracks);
+      this.playlistData.tracks.items = this.getTrackItemsWithTime(playlistData.tracks.items);
       this.logoURI = playlistData.images[0].url; // Replace logo with playlist image
     },
 
@@ -115,11 +115,11 @@ export default {
 
     onChangeTime() {
       if (this.playlistData) {
-        this.playlistData.tracks = this.getTracksWithTime(this.playlistData.tracks);
+        this.playlistData.tracks.items = this.getTrackItemsWithTime(this.playlistData.tracks.items);
       }
     },
 
-    getTracksWithTime(tracks) {
+    getTrackItemsWithTime(trackItems) {
       let currentTime = moment
         .duration(0)
         .add(parseInt(this.startHour, 10), 'hours')
@@ -127,28 +127,24 @@ export default {
 
       let lastHour = currentTime.hours();
 
-      const items = tracks.items.map((item, index, arr) => {
-        const modifiedItem = item;
-        const modifiedTrack = modifiedItem.track;
+      return trackItems.map((item, index, arr) => {
+        const { track } = item;
 
         // Determine when the song starts (relative to the playlist's start time)
         if (index !== 0) {
           const previousTrackDuration = arr[index - 1].track.duration_ms;
           currentTime = currentTime.add(previousTrackDuration);
 
-          modifiedTrack.first_of_hour = currentTime.hours() !== lastHour;
+          track.first_of_hour = currentTime.hours() !== lastHour;
           lastHour = currentTime.hours();
         }
-        modifiedTrack.relative_start_time_ms = currentTime.asMilliseconds();
+        track.relative_start_time_ms = currentTime.asMilliseconds();
 
-        modifiedItem.track = modifiedTrack;
-        return modifiedItem;
+        return {
+          ...item,
+          track,
+        };
       });
-
-      return {
-        ...tracks,
-        items,
-      };
     },
   },
 };

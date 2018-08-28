@@ -128,7 +128,7 @@ export default {
       let lastHour = currentTime.hours();
 
       return trackItems.map((item, index, arr) => {
-        const track = item.track;
+        const { track } = item;
 
         // Determine when the song starts (relative to the playlist's start time)
         if (index !== 0) {
@@ -140,8 +140,10 @@ export default {
         }
         track.relative_start_time_ms = currentTime.asMilliseconds();
 
-        item.track = track;
-        return item;
+        return {
+          ...item,
+          track,
+        };
       });
     },
   },

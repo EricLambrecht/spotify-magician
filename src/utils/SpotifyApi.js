@@ -1,22 +1,14 @@
 import SpotifyWebApi from 'spotify-web-api-js';
 
 /**
- * This class is a light wrapper around the spotify web api (spotify-web-api-js)
+ * This class extends the spotify web api (spotify-web-api-js).
  *
- * It is used to add some useful functions to the API and streamline error handling.
+ * It adds's some useful functions to the API and streamlines error handling for our app.
  */
-export default class SpotifyApi {
+export default class SpotifyApi extends SpotifyWebApi {
   constructor() {
-    this.api = new SpotifyWebApi();
-    this.api.setAccessToken('');
-  }
-
-  /**
-   * Use this function to authenticate the user and therefore enable api access
-   * @param accessToken
-   */
-  setAccessToken(accessToken) {
-    this.api.setAccessToken(accessToken);
+    super();
+    this.setAccessToken('');
   }
 
   /**
@@ -48,9 +40,9 @@ export default class SpotifyApi {
    * @param limit The maximum amount of tracks that will be fetched
    * @returns {Promise<SpotifyApi.PlaylistTrackResponse>}
    */
-  async getTracks(playlistId, offset = 0, limit = 0) {
+  async getPlaylistSlice(playlistId, offset = 0, limit = 0) {
     try {
-      const tracks = await this.api.getPlaylistTracks(playlistId, {
+      const tracks = await this.getPlaylistTracks(playlistId, {
         limit,
         offset,
       });
@@ -73,12 +65,12 @@ export default class SpotifyApi {
    */
   async getFullPlaylist(playlistId) {
     try {
-      const playlist = await this.api.getPlaylist(playlistId);
+      const playlist = await this.getPlaylist(playlistId);
 
       // Do we have all tracks?
       const numberOfFetchedTracks = playlist.tracks.items.length + playlist.tracks.offset;
       if (numberOfFetchedTracks < playlist.tracks.total) {
-        const remainingTracks = await this.getTracks(playlistId, numberOfFetchedTracks, 100);
+        const remainingTracks = await this.getPlaylistSlice(playlistId, numberOfFetchedTracks, 100);
         playlist.tracks.items = playlist.tracks.items.concat(remainingTracks.items);
       }
       return playlist;

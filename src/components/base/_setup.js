@@ -7,10 +7,12 @@ import Vue from 'vue';
  * Apart from that, this is also the approach that big libraries like element-ui take.
  */
 
-import headline from './Headline.vue';
-import paragraph from './Paragraph.vue';
-import link from './Link.vue';
+import Headline from './Headline.vue';
+import Link from './Link.vue';
+import Paragraph from './Paragraph.vue';
+import TextInput from './TextInput.vue';
 
-Vue.component('b-headline', headline);
-Vue.component('b-paragraph', paragraph);
-Vue.component('b-link', link);
+Vue.component('b-headline', Headline);
+Vue.component('b-link', Link);
+Vue.component('b-paragraph', Paragraph);
+Vue.component('b-text-input', TextInput);

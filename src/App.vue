@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <square-image :url="playlistImage" size="140"/>
+    <square-image :url="playlistImage" :size="140"/>
     <b-headline level="1">Spotify Magician</b-headline>
     <b-paragraph>Test</b-paragraph>
     <b-link v-show="!hasAccess" :href="loginURI">

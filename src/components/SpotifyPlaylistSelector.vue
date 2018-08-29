@@ -4,12 +4,12 @@
       <label for="playlistURI" class="label">
         Enter playlist URI:
       </label>
-      <input
+      <b-text-input
         id="playlistURI"
         v-model="playlistURI"
         type="text"
         class="input uri-input"
-      >
+      />
       <button class="fetch-button" @click="fetchPlaylist">
         Playlist laden
       </button>

@@ -5,7 +5,9 @@
     "plugin:vue/recommended"
   ],
   "rules": {
-    "no-trailing-spaces": "off"
+    "no-trailing-spaces": "off",
+    "vue/html-closing-bracket-newline": ["error", { "multiline": "always" }],
+    "vue/max-attributes-per-line": ["error", { "singleline": 2 }]
   },
   "parserOptions": {
     "ecmaVersion": 2018

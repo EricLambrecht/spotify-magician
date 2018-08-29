@@ -1,23 +1,19 @@
 <template>
   <div id="app">
-    <square-image 
-      :url="playlistImage" 
-      size="140"/>
-    <headline level="1">Spotify Magician</headline>
-    <a 
-      v-show="!hasAccess" 
-      :href="loginURI">
+    <square-image :url="playlistImage" size="140"/>
+    <b-headline level="1">Spotify Magician</b-headline>
+    <b-paragraph>Test</b-paragraph>
+    <a v-show="!hasAccess" :href="loginURI">
       Get access
     </a>
     <div v-if="hasAccess">
       <playlist-selector 
         start-time="0" 
         @select="onPlaylistSelect" 
-        @error="onPlaylistError"/>
+        @error="onPlaylistError"
+      />
 
-      <p 
-        v-if="errorMessage" 
-        class="error-message">
+      <p v-if="errorMessage" class="error-message">
         {{ errorMessage }}
       </p>
 
@@ -30,14 +26,16 @@
             type="number"
             min="0"
             max="24"
-            @change="onChangeTime">
+            @change="onChangeTime"
+          >
           <input
             v-model="startMinute"
             type="number"
             min="0"
             max="59"
             step="5"
-            @change="onChangeTime">
+            @change="onChangeTime"
+          >
         </div>
         <track-list :track-items="playlistData.tracks.items"/>
       </div>
@@ -51,8 +49,6 @@ import moment from 'moment';
 import SpotifyTrackList from './components/SpotifyTrackList.vue';
 import SpotifyPlaylistSelector from './components/SpotifyPlaylistSelector.vue';
 import SquareImage from './components/SquareImage.vue';
-import Headline from './components/Headline.vue';
-import Paragraph from './components/Paragraph.vue';
 import SpotifyApi from './utils/SpotifyApi';
 import config from './config';
 
@@ -66,8 +62,6 @@ export default {
     'track-list': SpotifyTrackList,
     'playlist-selector': SpotifyPlaylistSelector,
     'square-image': SquareImage,
-    paragraph: Paragraph,
-    headline: Headline,
   },
   data() {
     return {

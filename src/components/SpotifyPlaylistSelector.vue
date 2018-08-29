@@ -1,43 +1,39 @@
 <template>
   <div class="spotify-playlist-selector">
-    <div 
-      v-if="mode === 'custom'" 
-      class="form">
-      <label 
-        for="playlistURI" 
-        class="label">Enter playlist URI: </label>
+    <div v-if="mode === 'custom'" class="form">
+      <label for="playlistURI" class="label">
+        Enter playlist URI:
+      </label>
       <input
         id="playlistURI"
         v-model="playlistURI"
         type="text"
         class="input uri-input"
       >
-      <button 
-        class="fetch-button" 
-        @click="fetchPlaylist">Playlist laden</button>
+      <button class="fetch-button" @click="fetchPlaylist">
+        Playlist laden
+      </button>
     </div>
-    <div 
-      v-else 
-      class="form">
-      <label 
-        for="playlistId" 
-        class="label">Choose a playlist: </label>
+    <div v-else class="form">
+      <label for="playlistId" class="label">
+        Choose a playlist:
+      </label>
       <select 
         id="playlistId" 
         v-model="playlistId" 
         class="input select-box" 
-        @change="fetchPlaylist">
+        @change="fetchPlaylist"
+      >
         <option 
           v-for="playlist in userPlaylists"
           :key="playlist.id"
-          :value="playlist.id">
+          :value="playlist.id"
+        >
           {{ playlist.name }}
         </option>
       </select>
     </div>
-    <button 
-      class="mode-button" 
-      @click="switchMode">
+    <button class="mode-button" @click="switchMode">
       {{ mode === 'user' ? 'Enter manually' : 'Choose from your playlists' }}
     </button>
   </div>

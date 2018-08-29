@@ -3,7 +3,8 @@
     <template v-for="(item, index) in trackItems">
       <li 
         :key="item.track.id" 
-        class="track">
+        class="track"
+      >
         <h4 v-if="index === 0 || item.track.first_of_hour">{{ item.track.relative_start_time_ms |
         formatTime('h:mm') }} Uhr</h4>
         <p>

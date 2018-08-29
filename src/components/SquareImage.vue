@@ -3,7 +3,8 @@
     :src="source"
     :style="style"
     :width="size"
-    class="image">
+    class="image"
+  >
 </template>
 
 <script>

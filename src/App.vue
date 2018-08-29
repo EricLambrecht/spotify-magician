@@ -52,6 +52,7 @@ import SpotifyTrackList from './components/SpotifyTrackList.vue';
 import SpotifyPlaylistSelector from './components/SpotifyPlaylistSelector.vue';
 import SquareImage from './components/SquareImage.vue';
 import Headline from './components/Headline.vue';
+import Paragraph from './components/Paragraph.vue';
 import SpotifyApi from './utils/SpotifyApi';
 import config from './config';
 
@@ -65,6 +66,7 @@ export default {
     'track-list': SpotifyTrackList,
     'playlist-selector': SpotifyPlaylistSelector,
     'square-image': SquareImage,
+    paragraph: Paragraph,
     headline: Headline,
   },
   data() {

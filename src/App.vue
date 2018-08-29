@@ -3,11 +3,12 @@
     <square-image 
       :url="playlistImage" 
       size="140"/>
-    <h1>Spotify Magician</h1>
-
+    <headline level="1">Spotify Magician</headline>
     <a 
       v-show="!hasAccess" 
-      :href="loginURI">Get access</a>
+      :href="loginURI">
+      Get access
+    </a>
     <div v-if="hasAccess">
       <playlist-selector 
         start-time="0" 
@@ -16,7 +17,9 @@
 
       <p 
         v-if="errorMessage" 
-        class="error-message">{{ errorMessage }}</p>
+        class="error-message">
+        {{ errorMessage }}
+      </p>
 
       <div v-if="playlistData">
         <h3>{{ playlistData.name }}</h3>
@@ -48,6 +51,7 @@ import moment from 'moment';
 import SpotifyTrackList from './components/SpotifyTrackList.vue';
 import SpotifyPlaylistSelector from './components/SpotifyPlaylistSelector.vue';
 import SquareImage from './components/SquareImage.vue';
+import Headline from './components/Headline.vue';
 import SpotifyApi from './utils/SpotifyApi';
 import config from './config';
 
@@ -61,6 +65,7 @@ export default {
     'track-list': SpotifyTrackList,
     'playlist-selector': SpotifyPlaylistSelector,
     'square-image': SquareImage,
+    headline: Headline,
   },
   data() {
     return {

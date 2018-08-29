@@ -3,6 +3,7 @@
     {{ label }}
     <input
       :type="type"
+      :value="value"
       v-bind="attrs"
       @input="$emit('input', $event.target.value)"
       v-on="listeners"

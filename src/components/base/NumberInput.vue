@@ -1,31 +1,24 @@
 <template>
-  <label>
-    {{ label }}
-    <input
-      :type="type"
-      v-bind="attrs"
-      @input="$emit('input', $event.target.value)"
-      v-on="listeners"
-    >
-  </label>
+  <input
+    :type="type"
+    v-bind="attrs"
+    @input="$emit('input', $event.target.value)"
+    v-on="listeners"
+  >
 </template>
 
 <script>
 export default {
-  name: 'TextInput',
+  name: 'NumberInput',
   inheritAttrs: false,
   props: {
-    label: {
-      type: String,
-      default: '',
-    },
     value: {
       type: String,
       default: '',
     },
     type: {
       required: true,
-      validator: value => ['type', 'password'].indexOf(value) !== -1,
+      validator: value => value === 'number',
     },
   },
   computed: {
@@ -42,10 +35,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  label {
-    padding: 0;
-  }
   input {
-    padding: 5px 10px;
+    padding: 3px 5px;
   }
 </style>

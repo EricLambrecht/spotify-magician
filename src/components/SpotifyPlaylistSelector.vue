@@ -108,11 +108,7 @@ export default {
       .label {
         margin-right: 10px;
       }
-      .input {
-        padding: 5px 10px;
-      }
-      .select-box {
-      }
+      .select-box { }
       .fetch-button {
         padding: 4px 10px 5px;
         margin-left: 2px;

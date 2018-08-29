@@ -2,7 +2,6 @@
   <div id="app">
     <square-image :url="playlistImage" :size="140"/>
     <b-headline level="1">Spotify Magician</b-headline>
-    <b-paragraph>Test</b-paragraph>
     <b-link v-show="!hasAccess" :href="loginURI">
       Get access
     </b-link>
@@ -21,21 +20,21 @@
         <h3>{{ playlistData.name }}</h3>
         <div class="display-settings">
           <span>Start Time:</span>
-          <input
+          <b-number-input
             v-model="startHour"
             type="number"
             min="0"
             max="24"
             @change="onChangeTime"
-          >
-          <input
+          />
+          <b-number-input
             v-model="startMinute"
             type="number"
             min="0"
             max="59"
             step="5"
             @change="onChangeTime"
-          >
+          />
         </div>
         <track-list :track-items="playlistData.tracks.items"/>
       </div>

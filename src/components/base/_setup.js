@@ -9,10 +9,12 @@ import Vue from 'vue';
 
 import Headline from './Headline.vue';
 import Link from './Link.vue';
+import NumberInput from './NumberInput.vue';
 import Paragraph from './Paragraph.vue';
 import TextInput from './TextInput.vue';
 
 Vue.component('b-headline', Headline);
 Vue.component('b-link', Link);
+Vue.component('b-number-input', NumberInput);
 Vue.component('b-paragraph', Paragraph);
 Vue.component('b-text-input', TextInput);

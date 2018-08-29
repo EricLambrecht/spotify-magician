@@ -3,9 +3,9 @@
     <square-image :url="playlistImage" size="140"/>
     <b-headline level="1">Spotify Magician</b-headline>
     <b-paragraph>Test</b-paragraph>
-    <a v-show="!hasAccess" :href="loginURI">
+    <b-link v-show="!hasAccess" :href="loginURI">
       Get access
-    </a>
+    </b-link>
     <div v-if="hasAccess">
       <playlist-selector 
         start-time="0" 
@@ -161,14 +161,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  $spotify-green: #1DB954;
-  $spotify-black: #191414;
+  :root {
+    --spotify-green: #1DB954;
+    --spotify-black: #191414;
+
+    --color-default: #2c3e50;
+    --color-danger: #e25451;
+  }
+
   #app {
     font-family: Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
-    color: #2c3e50;
+    color: var(--color-default);
     max-width: 1000px;
     margin: 60px auto;
   }
@@ -185,18 +191,11 @@ export default {
   .error-message {
     display: block;
     font-weight: bold;
-    color: #e25451;
-    border: 2px solid #e25451;
+    color: var(--color-danger);
+    border: 2px solid var(--color-danger);
     border-radius: 2px;
     padding: 5px 10px;
     margin: 20px 0;
   }
 
-  h1, h2 {
-    font-weight: normal;
-  }
-
-  a {
-    color: $spotify-green;
-  }
 </style>

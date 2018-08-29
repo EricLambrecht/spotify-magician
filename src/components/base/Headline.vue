@@ -22,20 +22,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  h1.headline {
+  .headline {
+    color: var(--color-default);
     font-weight: bold;
+  }
+  h1.headline {
     font-size: 32px;
   }
   h2.headline {
-    font-weight: bold;
     font-size: 26px;
   }
   h3.headline {
-    font-weight: bold;
     font-size: 20px;
   }
   h4.headline {
-    font-weight: bold;
     font-size: 16px;
   }
 </style>

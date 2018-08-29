@@ -9,6 +9,8 @@ import Vue from 'vue';
 
 import headline from './Headline.vue';
 import paragraph from './Paragraph.vue';
+import link from './Link.vue';
 
 Vue.component('b-headline', headline);
 Vue.component('b-paragraph', paragraph);
+Vue.component('b-link', link);

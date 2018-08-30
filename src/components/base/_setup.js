@@ -8,6 +8,8 @@ import Vue from 'vue';
  */
 
 import Button from './Button.vue';
+import Dropdown from './Dropdown.vue';
+import DropdownItem from './DropdownItem.vue';
 import Headline from './Headline.vue';
 import LabeledElement from './LabeledElement.vue';
 import Link from './Link.vue';
@@ -17,6 +19,8 @@ import Text from './Text.vue';
 import TextInput from './TextInput.vue';
 
 Vue.component('b-button', Button);
+Vue.component('b-dropdown', Dropdown);
+Vue.component('b-dropdown-item', DropdownItem);
 Vue.component('b-headline', Headline);
 Vue.component('b-labeled-element', LabeledElement);
 Vue.component('b-link', Link);

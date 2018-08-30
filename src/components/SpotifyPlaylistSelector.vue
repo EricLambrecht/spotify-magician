@@ -17,23 +17,20 @@
       </b-button>
     </div>
     <div v-else class="form">
-      <label for="playlistId" class="label">
-        Choose a playlist:
-      </label>
-      <select 
-        id="playlistId" 
+      <b-dropdown
         v-model="playlistId" 
         class="input select-box" 
+        label="Choose a playlist:"
         @change="fetchPlaylist"
       >
-        <option 
+        <b-dropdown-item
           v-for="playlist in userPlaylists"
           :key="playlist.id"
           :value="playlist.id"
         >
           {{ playlist.name }}
-        </option>
-      </select>
+        </b-dropdown-item>
+      </b-dropdown>
     </div>
     <b-button class="mode-button" @click="switchMode">
       {{ mode === 'user' ? 'Enter manually' : 'Choose from your playlists' }}

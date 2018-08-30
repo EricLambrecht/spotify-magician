@@ -1,18 +1,20 @@
 <template>
   <div class="spotify-playlist-selector">
     <div v-if="mode === 'custom'" class="form">
-      <label for="playlistURI" class="label">
-        Enter playlist URI:
-      </label>
       <b-text-input
         id="playlistURI"
         v-model="playlistURI"
         type="text"
         class="input uri-input"
+        label="Enter playlist URI:"
       />
-      <button class="fetch-button" @click="fetchPlaylist">
+      <b-button 
+        class="fetch-button" 
+        primary 
+        @click="fetchPlaylist"
+      >
         Playlist laden
-      </button>
+      </b-button>
     </div>
     <div v-else class="form">
       <label for="playlistId" class="label">
@@ -33,9 +35,9 @@
         </option>
       </select>
     </div>
-    <button class="mode-button" @click="switchMode">
+    <b-button class="mode-button" @click="switchMode">
       {{ mode === 'user' ? 'Enter manually' : 'Choose from your playlists' }}
-    </button>
+    </b-button>
   </div>
 </template>
 
@@ -103,15 +105,14 @@ export default {
       display: flex;
       flex-direction: row;
       justify-content: center;
-      align-items: center;
+      align-items: flex-end;
 
       .label {
         margin-right: 10px;
       }
       .select-box { }
       .fetch-button {
-        padding: 4px 10px 5px;
-        margin-left: 2px;
+        margin-left: 4px;
       }
     }
     .mode-button {

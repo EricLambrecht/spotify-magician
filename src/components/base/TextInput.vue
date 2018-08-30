@@ -1,6 +1,5 @@
 <template>
-  <label>
-    {{ label }}
+  <b-labeled-element :label="label">
     <input
       :type="type"
       :value="value"
@@ -8,7 +7,7 @@
       @input="$emit('input', $event.target.value)"
       v-on="listeners"
     >
-  </label>
+  </b-labeled-element>
 </template>
 
 <script>
@@ -43,10 +42,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  label {
-    padding: 0;
-  }
   input {
-    padding: 5px 10px;
+    color: var(--color-default-light);
+    border-radius: 3px;
+    border: 1px solid #CCC;
+    padding: 6px 10px 6px;
   }
 </style>

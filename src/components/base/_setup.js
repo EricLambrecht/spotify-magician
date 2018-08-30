@@ -7,14 +7,18 @@ import Vue from 'vue';
  * Apart from that, this is also the approach that big libraries like element-ui take.
  */
 
+import Button from './Button.vue';
 import Headline from './Headline.vue';
+import LabeledElement from './LabeledElement.vue';
 import Link from './Link.vue';
 import NumberInput from './NumberInput.vue';
 import Paragraph from './Paragraph.vue';
 import Text from './Text.vue';
 import TextInput from './TextInput.vue';
 
+Vue.component('b-button', Button);
 Vue.component('b-headline', Headline);
+Vue.component('b-labeled-element', LabeledElement);
 Vue.component('b-link', Link);
 Vue.component('b-number-input', NumberInput);
 Vue.component('b-paragraph', Paragraph);

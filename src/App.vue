@@ -146,11 +146,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  @import './assets/css_reset.css';
+
   :root {
     --spotify-green: #1DB954;
     --spotify-black: #191414;
 
-    --color-default: #2c3e50;
+    --color-default: #343030;
+    --color-default-light: #454242;
     --color-danger: #e25451;
   }
 

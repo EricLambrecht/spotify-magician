@@ -18,7 +18,7 @@
 
       <div v-if="playlistData">
         <h3>{{ playlistData.name }}</h3>
-        <time-settings 
+        <start-time-settings
           :on-change-time="onChangeTime"
         />
         <track-list :track-items="playlistData.tracks.items"/>
@@ -33,7 +33,7 @@ import moment from 'moment';
 import SpotifyTrackList from './components/SpotifyTrackList.vue';
 import SpotifyPlaylistSelector from './components/SpotifyPlaylistSelector.vue';
 import SquareImage from './components/SquareImage.vue';
-import TimeSettings from './components/TimeSettings.vue';
+import StartTimeSettings from './components/StartTimeSettings.vue';
 import SpotifyApi from './utils/SpotifyApi';
 import config from './config';
 
@@ -44,10 +44,10 @@ const spotifyApi = new SpotifyApi();
 export default {
   name: 'App',
   components: {
-    'time-settings': TimeSettings,
+    StartTimeSettings,
+    SquareImage,
     'track-list': SpotifyTrackList,
     'playlist-selector': SpotifyPlaylistSelector,
-    'square-image': SquareImage,
   },
   data() {
     return {

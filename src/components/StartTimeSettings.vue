@@ -20,7 +20,7 @@
 </template>
 <script>
 export default {
-  name: 'TimeSettings',
+  name: 'StartTimeSettings',
   props: {
     onChangeTime: {
       type: Function,

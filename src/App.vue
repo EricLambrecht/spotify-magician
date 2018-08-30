@@ -18,24 +18,9 @@
 
       <div v-if="playlistData">
         <h3>{{ playlistData.name }}</h3>
-        <div class="display-settings">
-          <span>Start Time:</span>
-          <b-number-input
-            v-model="startHour"
-            type="number"
-            min="0"
-            max="24"
-            @change="onChangeTime"
-          />
-          <b-number-input
-            v-model="startMinute"
-            type="number"
-            min="0"
-            max="59"
-            step="5"
-            @change="onChangeTime"
-          />
-        </div>
+        <time-settings 
+          :on-change-time="onChangeTime"
+        />
         <track-list :track-items="playlistData.tracks.items"/>
       </div>
 
@@ -48,6 +33,7 @@ import moment from 'moment';
 import SpotifyTrackList from './components/SpotifyTrackList.vue';
 import SpotifyPlaylistSelector from './components/SpotifyPlaylistSelector.vue';
 import SquareImage from './components/SquareImage.vue';
+import TimeSettings from './components/TimeSettings.vue';
 import SpotifyApi from './utils/SpotifyApi';
 import config from './config';
 
@@ -58,6 +44,7 @@ const spotifyApi = new SpotifyApi();
 export default {
   name: 'App',
   components: {
+    'time-settings': TimeSettings,
     'track-list': SpotifyTrackList,
     'playlist-selector': SpotifyPlaylistSelector,
     'square-image': SquareImage,
@@ -122,7 +109,9 @@ export default {
       };
     },
 
-    onChangeTime() {
+    onChangeTime(startHour, startMinute) {
+      this.startHour = startHour;
+      this.startMinute = startMinute;
       if (this.playlistData) {
         this.playlistData.tracks.items = this.getTrackItemsWithTime(this.playlistData.tracks.items);
       }
@@ -176,15 +165,6 @@ export default {
     color: var(--color-default);
     max-width: 1000px;
     margin: 60px auto;
-  }
-
-  .display-settings {
-    text-align: left;
-
-    input {
-      max-width: 50px;
-      padding: 3px 5px;
-    }
   }
 
   .error-message {

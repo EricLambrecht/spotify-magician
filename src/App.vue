@@ -18,12 +18,9 @@
 
       <div v-if="playlistData">
         <h3>{{ playlistData.name }}</h3>
-        <start-time-settings
-          :on-change-time="onChangeTime"
-        />
+        <start-time-settings :on-change-time="onChangeTime"/>
         <track-list :track-items="playlistData.tracks.items"/>
       </div>
-
     </div>
   </div>
 </template>

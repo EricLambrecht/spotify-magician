@@ -45,7 +45,7 @@ import SpotifyApi from '../utils/SpotifyApi';
 const spotifyApi = new SpotifyApi();
 
 export default {
-  name: 'SpotifyPlaylistSelector',
+  name: 'PlaylistSelector',
   data() {
     return {
       playlistURI: '',

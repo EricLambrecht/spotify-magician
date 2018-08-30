@@ -1,53 +1,36 @@
 <template>
   <div id="app">
-    <img 
-      :src="logoURI"
-      class="image"
-      width="140">
-    <h1>Spotify Magician</h1>
-
-    <a 
-      v-show="!hasAccess" 
-      :href="loginURI">Get access</a>
+    <square-image :url="playlistImage" :size="140"/>
+    <b-headline level="1">Spotify Magician</b-headline>
+    <b-link v-show="!hasAccess" :href="loginURI">
+      Get access
+    </b-link>
     <div v-if="hasAccess">
       <playlist-selector 
         start-time="0" 
         @select="onPlaylistSelect" 
-        @error="onPlaylistError"/>
+        @error="onPlaylistError"
+      />
 
-      <p 
-        v-if="errorMessage" 
-        class="error-message">{{ errorMessage }}</p>
+      <p v-if="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </p>
 
       <div v-if="playlistData">
         <h3>{{ playlistData.name }}</h3>
-        <div class="display-settings">
-          <span>Start Time:</span>
-          <input
-            v-model="startHour"
-            type="number"
-            min="0"
-            max="24"
-            @change="onChangeTime">
-          <input
-            v-model="startMinute"
-            type="number"
-            min="0"
-            max="59"
-            step="5"
-            @change="onChangeTime">
-        </div>
-        <track-list :track-items="playlistData.tracks.items"/>
+        <start-time-settings :on-change-time="onChangeTime"/>
+        <playlist :track-items="playlistData.tracks.items"/>
       </div>
-
     </div>
   </div>
 </template>
 
 <script>
 import moment from 'moment';
-import SpotifyTrackList from './components/SpotifyTrackList.vue';
-import SpotifyPlaylistSelector from './components/SpotifyPlaylistSelector.vue';
+import Playlist from './components/Playlist.vue';
+import PlaylistSelector from './components/PlaylistSelector.vue';
+import SquareImage from './components/SquareImage.vue';
+import StartTimeSettings from './components/StartTimeSettings.vue';
 import SpotifyApi from './utils/SpotifyApi';
 import config from './config';
 
@@ -58,15 +41,17 @@ const spotifyApi = new SpotifyApi();
 export default {
   name: 'App',
   components: {
-    'track-list': SpotifyTrackList,
-    'playlist-selector': SpotifyPlaylistSelector,
+    StartTimeSettings,
+    SquareImage,
+    Playlist,
+    PlaylistSelector,
   },
   data() {
     return {
       hasAccess: false,
       accessToken: null,
       errorMessage: '',
-      logoURI: './src/assets/logo.png',
+      playlistImage: null,
       startHour: 18,
       startMinute: 0,
       playlistData: {
@@ -95,14 +80,13 @@ export default {
       this.accessToken = accessToken;
       spotifyApi.setAccessToken(this.accessToken);
     } else {
-      console.warn(search); // eslint-disable-line no-console
       this.hasAccess = false;
     }
   },
   methods: {
     onPlaylistSelect(playlistData) {
       this.playlistData.tracks.items = this.getTrackItemsWithTime(playlistData.tracks.items);
-      this.logoURI = playlistData.images[0].url; // Replace logo with playlist image
+      this.playlistImage = playlistData.images[0].url; // Replace logo with playlist image
       this.errorMessage = '';
     },
 
@@ -112,7 +96,7 @@ export default {
       } else {
         this.errorMessage = error.message;
       }
-      this.logoURI = './src/assets/logo.png';
+      this.playlistImage = null;
       this.playlistData = {
         name: '',
         tracks: {
@@ -122,7 +106,9 @@ export default {
       };
     },
 
-    onChangeTime() {
+    onChangeTime(startHour, startMinute) {
+      this.startHour = startHour;
+      this.startMinute = startMinute;
       if (this.playlistData) {
         this.playlistData.tracks.items = this.getTrackItemsWithTime(this.playlistData.tracks.items);
       }
@@ -160,48 +146,35 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  $spotify-green: #1DB954;
-  $spotify-black: #191414;
+  @import './assets/css_reset.css';
+
+  :root {
+    --spotify-green: #1DB954;
+    --spotify-black: #191414;
+
+    --color-default: #343030;
+    --color-default-light: #454242;
+    --color-danger: #e25451;
+  }
+
   #app {
     font-family: Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
-    color: #2c3e50;
+    color: var(--color-default);
     max-width: 1000px;
     margin: 60px auto;
-  }
-
-  .image {
-    height: 140px;
-    width: 140px;
-    object-fit: cover;
-  }
-
-  .display-settings {
-    text-align: left;
-
-    input {
-      max-width: 50px;
-      padding: 3px 5px;
-    }
   }
 
   .error-message {
     display: block;
     font-weight: bold;
-    color: #e25451;
-    border: 2px solid #e25451;
+    color: var(--color-danger);
+    border: 2px solid var(--color-danger);
     border-radius: 2px;
     padding: 5px 10px;
     margin: 20px 0;
   }
 
-  h1, h2 {
-    font-weight: normal;
-  }
-
-  a {
-    color: $spotify-green;
-  }
 </style>

@@ -1,45 +1,40 @@
 <template>
   <div class="spotify-playlist-selector">
-    <div 
-      v-if="mode === 'custom'" 
-      class="form">
-      <label 
-        for="playlistURI" 
-        class="label">Enter playlist URI: </label>
-      <input
+    <div v-if="mode === 'custom'" class="form">
+      <b-text-input
         id="playlistURI"
         v-model="playlistURI"
         type="text"
         class="input uri-input"
-      >
-      <button 
+        label="Enter playlist URI:"
+      />
+      <b-button 
         class="fetch-button" 
-        @click="fetchPlaylist">Playlist laden</button>
+        primary 
+        @click="fetchPlaylist"
+      >
+        Playlist laden
+      </b-button>
     </div>
-    <div 
-      v-else 
-      class="form">
-      <label 
-        for="playlistId" 
-        class="label">Choose a playlist: </label>
-      <select 
-        id="playlistId" 
+    <div v-else class="form">
+      <b-dropdown
         v-model="playlistId" 
         class="input select-box" 
-        @change="fetchPlaylist">
-        <option 
+        label="Choose a playlist:"
+        @change="fetchPlaylist"
+      >
+        <b-dropdown-item
           v-for="playlist in userPlaylists"
           :key="playlist.id"
-          :value="playlist.id">
+          :value="playlist.id"
+        >
           {{ playlist.name }}
-        </option>
-      </select>
+        </b-dropdown-item>
+      </b-dropdown>
     </div>
-    <button 
-      class="mode-button" 
-      @click="switchMode">
+    <b-button class="mode-button" @click="switchMode">
       {{ mode === 'user' ? 'Enter manually' : 'Choose from your playlists' }}
-    </button>
+    </b-button>
   </div>
 </template>
 
@@ -50,7 +45,7 @@ import SpotifyApi from '../utils/SpotifyApi';
 const spotifyApi = new SpotifyApi();
 
 export default {
-  name: 'SpotifyPlaylistSelector',
+  name: 'PlaylistSelector',
   data() {
     return {
       playlistURI: '',
@@ -107,19 +102,14 @@ export default {
       display: flex;
       flex-direction: row;
       justify-content: center;
-      align-items: center;
+      align-items: flex-end;
 
       .label {
         margin-right: 10px;
       }
-      .input {
-        padding: 5px 10px;
-      }
-      .select-box {
-      }
+      .select-box { }
       .fetch-button {
-        padding: 4px 10px 5px;
-        margin-left: 2px;
+        margin-left: 4px;
       }
     }
     .mode-button {

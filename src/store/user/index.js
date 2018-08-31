@@ -4,10 +4,8 @@ import mutations from './mutations';
 
 // initial state
 const state = {
-  error: null,
-  playlist: null,
-  startHour: 18,
-  startMinute: 0,
+  accessToken: null,
+  playlists: [],
 };
 
 export default {

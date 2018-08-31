@@ -7,6 +7,5 @@ module.exports = merge(common, {
   devServer: {
 	  publicPath: '/dist/',
 	  historyApiFallback: true,
-	  noInfo: true
   }
 });

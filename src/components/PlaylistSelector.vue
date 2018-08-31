@@ -62,7 +62,7 @@ export default {
     },
   },
   mounted() {
-    this.$store.dispatch('getPlaylists');
+    this.$store.dispatch('user/getPlaylists');
   },
   methods: {
     fetchPlaylist() {
@@ -70,7 +70,7 @@ export default {
         ? this.parsedPlaylistId
         : this.playlistId;
 
-      this.$store.dispatch('fetchPlaylist', playlistId);
+      this.$store.dispatch('editor/fetchPlaylist', playlistId);
     },
     switchMode() {
       this.mode = this.mode === 'user' ? 'custom' : 'user';

@@ -29,7 +29,7 @@ export default {
   },
   methods: {
     onChangeTime() {
-      this.$store.dispatch('setStartingTime', { startHour: this.startHour, startMinute: this.startMinute });
+      this.$store.dispatch('editor/setStartingTime', { startHour: this.startHour, startMinute: this.startMinute });
     },
   },
 };

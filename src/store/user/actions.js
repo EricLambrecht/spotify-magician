@@ -24,7 +24,7 @@ export default {
       spotifyApi.setAccessToken(state.accessToken);
       commit('setPlaylists', await spotifyApi.getUserPlaylists());
     } catch (err) {
-      commit('setError', err.message);
+      commit('editor/setError', err.message, { root: true });
     }
   },
 };

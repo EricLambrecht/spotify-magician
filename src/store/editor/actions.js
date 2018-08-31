@@ -15,7 +15,7 @@ export default {
       dispatch('setStartingTime', { startHour: state.startHour, startMinute: state.startMinute });
     } catch (err) {
       if (err.message === 'Token expired') {
-        commit('setAccessToken', null);
+        commit('user/setAccessToken', null, { root: true });
       }
       commit('setError', err.message);
     }

@@ -6,11 +6,7 @@
       Get access
     </b-link>
     <div v-if="hasAccess">
-      <playlist-selector 
-        start-time="0" 
-        @select="onPlaylistSelect" 
-        @error="onPlaylistError"
-      />
+      <playlist-selector />
 
       <p v-if="errorMessage" class="error-message">
         {{ errorMessage }}
@@ -18,7 +14,7 @@
 
       <div v-if="playlistData">
         <h3>{{ playlistData.name }}</h3>
-        <start-time-settings :on-change-time="onChangeTime"/>
+        <start-time-settings/>
         <playlist :track-items="playlistData.tracks.items"/>
       </div>
     </div>
@@ -26,17 +22,11 @@
 </template>
 
 <script>
-import moment from 'moment';
 import Playlist from './components/Playlist.vue';
 import PlaylistSelector from './components/PlaylistSelector.vue';
 import SquareImage from './components/SquareImage.vue';
 import StartTimeSettings from './components/StartTimeSettings.vue';
-import SpotifyApi from './utils/SpotifyApi';
 import config from './config';
-
-import 'moment-duration-format';
-
-const spotifyApi = new SpotifyApi();
 
 export default {
   name: 'App',
@@ -46,23 +36,6 @@ export default {
     Playlist,
     PlaylistSelector,
   },
-  data() {
-    return {
-      hasAccess: false,
-      accessToken: null,
-      errorMessage: '',
-      playlistImage: null,
-      startHour: 18,
-      startMinute: 0,
-      playlistData: {
-        name: '',
-        tracks: {
-          items: [],
-        },
-        images: [],
-      },
-    };
-  },
   computed: {
     loginURI() {
       return `${'https://accounts.spotify.com/authorize?'
@@ -70,77 +43,27 @@ export default {
           + 'response_type=token&'
           + `redirect_uri=${encodeURIComponent(`${window.location.protocol}//${window.location.host}${window.location.pathname}`)}`;
     },
+    hasAccess() {
+      return this.$store.getters.hasAccess;
+    },
+    playlistData() {
+      return this.$store.state.editor.playlist;
+    },
+    startHour() {
+      return this.$store.state.editor.startHour;
+    },
+    startMinute() {
+      return this.$store.state.editor.startMinute;
+    },
+    errorMessage() {
+      return this.$store.state.editor.error;
+    },
+    playlistImage() {
+      return this.$store.getters.playlistImage;
+    },
   },
   mounted() {
-    const hash = window.location.hash.substr(1); // .*access_token=([^&?]*)
-    const search = hash.match(/.*access_token=([^&?]*)/i);
-    if (search && search.length > 1) {
-      const [, accessToken] = search;
-      this.hasAccess = true;
-      this.accessToken = accessToken;
-      spotifyApi.setAccessToken(this.accessToken);
-    } else {
-      this.hasAccess = false;
-    }
-  },
-  methods: {
-    onPlaylistSelect(playlistData) {
-      this.playlistData.tracks.items = this.getTrackItemsWithTime(playlistData.tracks.items);
-      this.playlistImage = playlistData.images[0].url; // Replace logo with playlist image
-      this.errorMessage = '';
-    },
-
-    onPlaylistError(error) {
-      if (error.tokenExpired) {
-        this.hasAccess = false;
-      } else {
-        this.errorMessage = error.message;
-      }
-      this.playlistImage = null;
-      this.playlistData = {
-        name: '',
-        tracks: {
-          items: [],
-        },
-        images: [],
-      };
-    },
-
-    onChangeTime(startHour, startMinute) {
-      this.startHour = startHour;
-      this.startMinute = startMinute;
-      if (this.playlistData) {
-        this.playlistData.tracks.items = this.getTrackItemsWithTime(this.playlistData.tracks.items);
-      }
-    },
-
-    getTrackItemsWithTime(trackItems) {
-      let currentTime = moment
-        .duration(0)
-        .add(parseInt(this.startHour, 10), 'hours')
-        .add(parseInt(this.startMinute, 10), 'minutes');
-
-      let lastHour = currentTime.hours();
-
-      return trackItems.map((item, index, arr) => {
-        const { track } = item;
-
-        // Determine when the song starts (relative to the playlist's start time)
-        if (index !== 0) {
-          const previousTrackDuration = arr[index - 1].track.duration_ms;
-          currentTime = currentTime.add(previousTrackDuration);
-
-          track.first_of_hour = currentTime.hours() !== lastHour;
-          lastHour = currentTime.hours();
-        }
-        track.relative_start_time_ms = currentTime.asMilliseconds();
-
-        return {
-          ...item,
-          track,
-        };
-      });
-    },
+    this.$store.dispatch('checkAccess');
   },
 };
 </script>

@@ -6,7 +6,7 @@
       type="number"
       min="0"
       max="24"
-      @change="onChangeTime(startHour, startMinute)"
+      @input="onChangeTime"
     />
     <b-number-input
       v-model="startMinute"
@@ -14,24 +14,23 @@
       min="0"
       max="59"
       step="5"
-      @change="onChangeTime(startHour, startMinute)"
+      @input="onChangeTime"
     />
   </div>
 </template>
 <script>
 export default {
   name: 'StartTimeSettings',
-  props: {
-    onChangeTime: {
-      type: Function,
-      required: true,
-    },
-  },
   data() {
     return {
       startHour: 18,
       startMinute: 0,
     };
+  },
+  methods: {
+    onChangeTime() {
+      this.$store.dispatch('setStartingTime', { startHour: this.startHour, startMinute: this.startMinute });
+    },
   },
 };
 </script>

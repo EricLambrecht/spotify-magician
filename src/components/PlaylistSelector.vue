@@ -39,17 +39,11 @@
 </template>
 
 <script>
-import 'moment-duration-format';
-import SpotifyApi from '../utils/SpotifyApi';
-
-const spotifyApi = new SpotifyApi();
-
 export default {
   name: 'PlaylistSelector',
   data() {
     return {
       playlistURI: '',
-      userPlaylists: [],
       playlistId: null,
       mode: 'user',
     };
@@ -63,31 +57,20 @@ export default {
       }
       return search[1];
     },
+    userPlaylists() {
+      return this.$store.state.user.playlists;
+    },
   },
-  async mounted() {
-    try {
-      this.userPlaylists = await spotifyApi.getUserPlaylists();
-    } catch (err) {
-      this.$emit('error', { message: err.message });
-    }
+  mounted() {
+    this.$store.dispatch('getPlaylists');
   },
   methods: {
-    async fetchPlaylist() {
-      try {
-        let playlist;
-        if (this.mode === 'custom') {
-          playlist = await spotifyApi.getFullPlaylist(this.parsedPlaylistId);
-        } else {
-          playlist = await spotifyApi.getFullPlaylist(this.playlistId);
-        }
-        this.$emit('select', playlist); // emit event for parents (TODO: add state management)
-      } catch (err) {
-        if (err.message === 'Token expired') {
-          this.$emit('error', { message: err.message, tokenExpired: true });
-        } else {
-          this.$emit('error', { message: err.message });
-        }
-      }
+    fetchPlaylist() {
+      const playlistId = this.mode === 'custom'
+        ? this.parsedPlaylistId
+        : this.playlistId;
+
+      this.$store.dispatch('fetchPlaylist', playlistId);
     },
     switchMode() {
       this.mode = this.mode === 'user' ? 'custom' : 'user';

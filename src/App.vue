@@ -22,11 +22,15 @@
 </template>
 
 <script>
+import { createNamespacedHelpers, mapGetters } from 'vuex';
+
 import Playlist from './components/Playlist.vue';
 import PlaylistSelector from './components/PlaylistSelector.vue';
 import SquareImage from './components/SquareImage.vue';
 import StartTimeSettings from './components/StartTimeSettings.vue';
 import config from './config';
+
+const { mapState } = createNamespacedHelpers('editor');
 
 export default {
   name: 'App',
@@ -43,27 +47,19 @@ export default {
           + 'response_type=token&'
           + `redirect_uri=${encodeURIComponent(`${window.location.protocol}//${window.location.host}${window.location.pathname}`)}`;
     },
-    hasAccess() {
-      return this.$store.getters.hasAccess;
-    },
-    playlistData() {
-      return this.$store.state.editor.playlist;
-    },
-    startHour() {
-      return this.$store.state.editor.startHour;
-    },
-    startMinute() {
-      return this.$store.state.editor.startMinute;
-    },
-    errorMessage() {
-      return this.$store.state.editor.error;
-    },
-    playlistImage() {
-      return this.$store.getters.playlistImage;
-    },
+    ...mapState({
+      playlistData: state => state.playlist,
+      startHour: state => state.startHour,
+      startMinute: state => state.startMinute,
+      errorMessage: state => state.errorMessage,
+    }),
+    ...mapGetters({
+      hasAccess: 'user/hasAccess',
+      playlistImage: 'editor/playlistImage',
+    }),
   },
   mounted() {
-    this.$store.dispatch('checkAccess');
+    this.$store.dispatch('user/checkAccess');
   },
 };
 </script>

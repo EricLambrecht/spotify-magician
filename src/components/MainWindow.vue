@@ -29,7 +29,7 @@ export default {
   },
   computed: {
     ...mapState('editor', {
-      errorMessage: state => state.errorMessage,
+      errorMessage: state => state.error,
     }),
     ...mapGetters({
       playlistImage: 'editor/playlistImage',

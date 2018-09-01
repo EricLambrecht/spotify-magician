@@ -22,6 +22,7 @@ export default {
     border: 2px solid var(--color-danger);
     border-radius: 2px;
     padding: 5px 10px;
-    margin: 20px 0;
+    max-width: var(--grid-max-width);
+    margin: 20px auto;
   }
 </style>

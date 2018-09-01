@@ -1,21 +1,24 @@
 <template>
   <div class="display-settings">
-    <span>Start Time:</span>
-    <b-number-input
-      v-model="startHour"
-      type="number"
-      min="0"
-      max="24"
-      @input="onChangeTime"
-    />
-    <b-number-input
-      v-model="startMinute"
-      type="number"
-      min="0"
-      max="59"
-      step="5"
-      @input="onChangeTime"
-    />
+    <b-labeled-element label="Starting time">
+      <div class="inputs">
+        <b-number-input
+          v-model="startHour"
+          type="number"
+          min="0"
+          max="24"
+          @input="onChangeTime"
+        />
+        <b-number-input
+          v-model="startMinute"
+          type="number"
+          min="0"
+          max="59"
+          step="5"
+          @input="onChangeTime"
+        />
+      </div>
+    </b-labeled-element>
   </div>
 </template>
 <script>
@@ -40,6 +43,11 @@ export default {
 
     input {
       max-width: 50px;
+    }
+
+    .inputs {
+      display: flex;
+      flex-direction: row;
     }
   }
 </style>

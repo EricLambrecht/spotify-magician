@@ -1,38 +1,31 @@
 <template>
   <div class="main-window">
-    <square-image :url="playlistImage" :size="140"/>
-    <b-headline level="1">{{ playlistName }}</b-headline>
-
-    <playlist-selector />
-
+    <main-window-header/>
+    <editor-operation-panel/>
     <error-message :error-message="errorMessage"/>
-
-    <div v-if="playlistData">
-      <start-time-settings/>
-      <playlist :track-items="playlistData.tracks.items"/>
-    </div>
+    <editor-playlist/>
   </div>
 </template>
 
 <script>
 import { createNamespacedHelpers, mapGetters } from 'vuex';
 
-import Playlist from './Playlist.vue';
-import PlaylistSelector from './PlaylistSelector.vue';
-import SquareImage from './SquareImage.vue';
+import EditorPlaylist from './EditorPlaylist.vue';
 import ErrorMessage from './ErrorMessage.vue';
 import StartTimeSettings from './StartTimeSettings.vue';
+import MainWindowHeader from './MainWindowHeader.vue';
+import EditorOperationPanel from './EditorOperationPanel.vue';
 
 const { mapState } = createNamespacedHelpers('editor');
 
 export default {
   name: 'MainWindow',
   components: {
+    EditorOperationPanel,
+    EditorPlaylist,
     ErrorMessage,
+    MainWindowHeader,
     StartTimeSettings,
-    SquareImage,
-    Playlist,
-    PlaylistSelector,
   },
   computed: {
     ...mapState({
@@ -49,6 +42,8 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+  .main-window {
 
+  }
 </style>

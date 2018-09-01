@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.7.0"></a>
+# [0.7.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.6.3...v0.7.0) (2018-09-01)
+
+
+### Features
+
+* **ui/ux:** slightly altered playlist item styles ([fdf4e30](https://github.com/EricLambrecht/spotify-magician/commit/fdf4e30))
+* **ui/ux:** styled header section and added playlist meta information ([98eaa12](https://github.com/EricLambrecht/spotify-magician/commit/98eaa12))
+
+
+
 <a name="0.6.3"></a>
 ## [0.6.3](https://github.com/EricLambrecht/better-spotify-playlists/compare/v0.6.2...v0.6.3) (2018-08-28)
 

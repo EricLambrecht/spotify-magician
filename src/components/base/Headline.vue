@@ -4,12 +4,12 @@ export default {
   props: {
     level: {
       type: String,
-      default: '1',
+      default: '0',
     },
   },
   render(createElement) {
     return createElement(
-      `h${this.level}`,
+      this.level === 0 ? 'span' : `h${this.level}`,
       {
         class: {
           headline: true,

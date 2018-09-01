@@ -1,0 +1,15 @@
+:root {
+  /* Colors */
+  --spotify-green: #1DB954;
+  --spotify-black: #191414;
+
+  --color-default: #343030;
+  --color-default-light: #454242;
+  --color-danger: #e25451;
+
+  /* Typography */
+
+  /* Dimensions */
+  --grid-max-width: 1000px;
+  --grid-padding: 20px;
+}

@@ -29,25 +29,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import './assets/css_reset.css';
-
-  :root {
-    --spotify-green: #1DB954;
-    --spotify-black: #191414;
-
-    --color-default: #343030;
-    --color-default-light: #454242;
-    --color-danger: #e25451;
-  }
+  @import 'assets/css/css_reset.css';
+  @import 'assets/css/globals.css';
 
   #app {
     font-family: Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-align: center;
     color: var(--color-default);
-    max-width: 1000px;
-    margin: 60px auto;
   }
 
 </style>

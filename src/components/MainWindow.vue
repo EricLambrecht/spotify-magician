@@ -8,15 +8,13 @@
 </template>
 
 <script>
-import { createNamespacedHelpers, mapGetters } from 'vuex';
+import { mapGetters, mapState } from 'vuex';
 
 import EditorPlaylist from './EditorPlaylist.vue';
 import ErrorMessage from './ErrorMessage.vue';
 import StartTimeSettings from './StartTimeSettings.vue';
 import MainWindowHeader from './MainWindowHeader.vue';
 import EditorOperationPanel from './EditorOperationPanel.vue';
-
-const { mapState } = createNamespacedHelpers('editor');
 
 export default {
   name: 'MainWindow',

@@ -14,4 +14,7 @@ export default {
       state.playlist.tracks.items = items;
     }
   },
+  showStartingTime(state, showIt) {
+    state.showStartingTime = showIt;
+  },
 };

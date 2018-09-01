@@ -1,12 +1,23 @@
 <template>
   <b-list-item class="playlist-item">
-    {{ item.track.relative_start_time_ms | formatTime('h:mm') }} -
-    {{ item.track.artists[0].name }} -
-    {{ item.track.name }} ({{ item.track.duration_ms | formatTime('mm:ss') }})
+    <b-text v-if="showStartingTime">
+      {{ item.track.relative_start_time_ms | formatTime('h:mm') }} -
+    </b-text>
+    <b-text>
+      {{ item.track.artists[0].name }}
+    </b-text>
+    -
+    <b-text>
+      {{ item.track.name }}
+    </b-text>
+    <b-text>
+      ({{ item.track.duration_ms | formatTime('mm:ss') }})
+    </b-text>
   </b-list-item>
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import formatTime from '../utils/formatTime';
 
 export default {
@@ -21,6 +32,15 @@ export default {
       type: Object,
       required: true,
     },
+    position: {
+      type: Number,
+      required: true,
+    },
+  },
+  computed: {
+    ...mapState('editor', {
+      showStartingTime: state => state.showStartingTime,
+    }),
   },
 };
 </script>

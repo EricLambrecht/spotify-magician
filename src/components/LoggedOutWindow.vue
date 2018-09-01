@@ -28,6 +28,8 @@ export default {
 };
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+  .logged-out-window {
+    text-align: center;
+  }
 </style>

@@ -10,7 +10,7 @@
 import formatTime from '../utils/formatTime';
 
 export default {
-  name: 'PlaylistItem',
+  name: 'EditorPlaylistItem',
   filters: {
     formatTime(milliseconds, format = '') {
       return formatTime(milliseconds, format);

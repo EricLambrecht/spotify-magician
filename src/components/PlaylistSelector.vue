@@ -32,9 +32,9 @@
         </b-dropdown-item>
       </b-dropdown>
     </div>
-    <b-button class="mode-button" @click="switchMode">
+    <b-text class="mode-switch" @click.native="switchMode">
       {{ mode === 'user' ? 'Enter manually' : 'Choose from your playlists' }}
-    </b-button>
+    </b-text>
   </div>
 </template>
 
@@ -95,8 +95,12 @@ export default {
         margin-left: 4px;
       }
     }
-    .mode-button {
-      margin-top: 5px;
+    .mode-switch {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 12px;
+      text-decoration: underline;
+      cursor: pointer;
     }
   }
 </style>

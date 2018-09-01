@@ -5,4 +5,10 @@ export default {
     }
     return state.playlist.images[0].url;
   },
+  playlistName: (state) => {
+    if (state.playlist) {
+      return state.playlist.name;
+    }
+    return 'Choose playlist';
+  },
 };

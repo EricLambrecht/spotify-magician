@@ -27,6 +27,17 @@ export default {
 
 <style lang="scss" scoped>
   .playlist-item {
-    margin-top: 16px;
+    width: 100%;
+    padding: 15px;
+    position: relative;
+    left: -15px;
+
+    margin-top: 2px;
+    border-radius: 5px;
+
+    &:hover {
+      background-color: #F0F0F0;
+      cursor: pointer;
+    }
   }
 </style>

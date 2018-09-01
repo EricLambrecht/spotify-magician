@@ -41,6 +41,7 @@ export default {
 
     .section-headline {
       margin-top: 20px;
+      margin-bottom: 12px;
       font-weight: bold;
     }
   }

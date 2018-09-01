@@ -8,25 +8,25 @@ module.exports = {
     {value: 'refactor', name: 'refactor: A code change that neither fixes a bug nor adds a feature'},
     {value: 'perf',     name: 'perf:     A code change that improves performance'},
     {value: 'test',     name: 'test:     Adding missing tests'},
-    {value: 'chore',    name: 'chore:    Build process or auxiliary tool changes'}
+    {value: 'chore',    name: 'chore:    Build process or auxiliary tool changes'},
+    {value: 'ci',       name: 'ci:       CI related changes'}
   ],
 
   scopes: [
     {name: 'editor'},
-    {name: 'ui/ux'},
     {name: 'api'},
+    {name: 'ui/ux'},
     {name: 'other'},
   ],
 
-  // it needs to match the value for field type. Eg.: 'fix'
-  /*
   scopeOverrides: {
     docs: [
       {name: 'readme'},
       {name: 'changelog'},
-    ]
+    ],
+    chore: [],
   },
-  */
+
   // override the messages, defaults are as follows
   messages: {
     type: 'Select the type of change that you\'re committing:',

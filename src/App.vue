@@ -1,61 +1,25 @@
 <template>
   <div id="app">
-    <square-image :url="playlistImage" :size="140"/>
-    <b-headline level="1">Spotify Magician</b-headline>
-    <b-link v-show="!hasAccess" :href="loginURI">
-      Get access
-    </b-link>
-    <div v-if="hasAccess">
-      <playlist-selector />
-
-      <p v-if="errorMessage" class="error-message">
-        {{ errorMessage }}
-      </p>
-
-      <div v-if="playlistData">
-        <h3>{{ playlistData.name }}</h3>
-        <start-time-settings/>
-        <playlist :track-items="playlistData.tracks.items"/>
-      </div>
-    </div>
+    <logged-out-window v-if="!hasAccess"/>
+    <main-window v-else/>
   </div>
 </template>
 
 <script>
-import { createNamespacedHelpers, mapGetters } from 'vuex';
+import { mapGetters } from 'vuex';
 
-import Playlist from './components/Playlist.vue';
-import PlaylistSelector from './components/PlaylistSelector.vue';
-import SquareImage from './components/SquareImage.vue';
-import StartTimeSettings from './components/StartTimeSettings.vue';
-import config from './config';
-
-const { mapState } = createNamespacedHelpers('editor');
+import LoggedOutWindow from './components/LoggedOutWindow.vue';
+import MainWindow from './components/MainWindow.vue';
 
 export default {
   name: 'App',
   components: {
-    StartTimeSettings,
-    SquareImage,
-    Playlist,
-    PlaylistSelector,
+    LoggedOutWindow,
+    MainWindow,
   },
   computed: {
-    loginURI() {
-      return `${'https://accounts.spotify.com/authorize?'
-          + 'client_id='}${config.client_id}&`
-          + 'response_type=token&'
-          + `redirect_uri=${encodeURIComponent(`${window.location.protocol}//${window.location.host}${window.location.pathname}`)}`;
-    },
-    ...mapState({
-      playlistData: state => state.playlist,
-      startHour: state => state.startHour,
-      startMinute: state => state.startMinute,
-      errorMessage: state => state.errorMessage,
-    }),
     ...mapGetters({
       hasAccess: 'user/hasAccess',
-      playlistImage: 'editor/playlistImage',
     }),
   },
   mounted() {
@@ -84,16 +48,6 @@ export default {
     color: var(--color-default);
     max-width: 1000px;
     margin: 60px auto;
-  }
-
-  .error-message {
-    display: block;
-    font-weight: bold;
-    color: var(--color-danger);
-    border: 2px solid var(--color-danger);
-    border-radius: 2px;
-    padding: 5px 10px;
-    margin: 20px 0;
   }
 
 </style>

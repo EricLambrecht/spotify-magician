@@ -3,18 +3,23 @@
     <template v-for="(item, index) in playlistItems">
       <b-list-item
         v-if="index === 0 || item.track.first_of_hour"
+        v-show="showStartingTime"
         :key="item.track.relative_start_time_ms"
         class="section-headline"
       >
         {{ item.track.relative_start_time_ms | formatTime('h:mm') }} Uhr
       </b-list-item>
-      <editor-playlist-item :item="item" :key="item.track.id"/>
+      <editor-playlist-item
+        :item="item"
+        :position="index+1"
+        :key="item.track.id"
+      />
     </template>
   </b-list>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapState } from 'vuex';
 import EditorPlaylistItem from './EditorPlaylistItem.vue';
 import formatTime from '../utils/formatTime';
 
@@ -27,6 +32,9 @@ export default {
     },
   },
   computed: {
+    ...mapState('editor', {
+      showStartingTime: state => state.showStartingTime,
+    }),
     ...mapGetters({
       playlistItems: 'editor/playlistItems',
     }),

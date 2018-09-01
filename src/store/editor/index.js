@@ -8,6 +8,7 @@ const state = {
   playlist: null,
   startHour: 18,
   startMinute: 0,
+  showStartingTime: false,
 };
 
 export default {

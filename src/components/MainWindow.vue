@@ -28,10 +28,7 @@ export default {
     StartTimeSettings,
   },
   computed: {
-    ...mapState({
-      playlistData: state => state.playlist,
-      startHour: state => state.startHour,
-      startMinute: state => state.startMinute,
+    ...mapState('editor', {
       errorMessage: state => state.errorMessage,
     }),
     ...mapGetters({

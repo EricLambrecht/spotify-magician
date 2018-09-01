@@ -50,4 +50,7 @@ export default {
     });
     commit('setTrackItems', trackItems);
   },
+  showStartingTime({ commit }, showIt) {
+    commit('showStartingTime', showIt);
+  },
 };

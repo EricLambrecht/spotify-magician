@@ -12,19 +12,13 @@ module.exports = {
     {value: 'ci',       name: 'ci:       CI related changes'}
   ],
 
-  scopes: [
-    {name: 'editor'},
-    {name: 'api'},
-    {name: 'ui/ux'},
-    {name: 'other'},
-  ],
+  scopes: [],
 
   scopeOverrides: {
     docs: [
       {name: 'readme'},
       {name: 'changelog'},
     ],
-    chore: [],
   },
 
   // override the messages, defaults are as follows

@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.7.3"></a>
+## [0.7.3](https://github.com/EricLambrecht/spotify-magician/compare/v0.7.2...v0.7.3) (2018-09-02)
+
+
+### Bug Fixes
+
+* **editor:** redirect user to login on "token expired" error ([8010c75](https://github.com/EricLambrecht/spotify-magician/commit/8010c75)), closes [#13](https://github.com/EricLambrecht/spotify-magician/issues/13)
+* **other:** fixed error in base headline component ([779b222](https://github.com/EricLambrecht/spotify-magician/commit/779b222))
+* **ui/ux:** fixed error message display for real this time (last fix was broken) ([6a5001d](https://github.com/EricLambrecht/spotify-magician/commit/6a5001d))
+
+
+
 <a name="0.7.2"></a>
 ## [0.7.2](https://github.com/EricLambrecht/spotify-magician/compare/v0.7.1...v0.7.2) (2018-09-01)
 

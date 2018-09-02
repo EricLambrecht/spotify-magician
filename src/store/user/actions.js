@@ -19,12 +19,12 @@ export default {
       commit('setAccessToken', null);
     }
   },
-  async getPlaylists({ commit, state }) {
+  async getPlaylists({ commit, dispatch, state }) {
     try {
       spotifyApi.setAccessToken(state.accessToken);
       commit('setPlaylists', await spotifyApi.getUserPlaylists());
     } catch (err) {
-      commit('editor/setError', err.message, { root: true });
+      dispatch('editor/setError', err.message, { root: true });
     }
   },
 };

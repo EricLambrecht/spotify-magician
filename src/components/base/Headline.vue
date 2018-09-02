@@ -9,7 +9,7 @@ export default {
   },
   render(createElement) {
     return createElement(
-      this.level === 0 ? 'span' : `h${this.level}`,
+      this.level === '0' ? 'span' : `h${this.level}`,
       {
         class: {
           headline: true,

@@ -14,11 +14,14 @@ export default {
       commit('setPlaylist', playlist);
       dispatch('setStartingTime', { startHour: state.startHour, startMinute: state.startMinute });
     } catch (err) {
-      if (err.message === 'Token expired') {
-        commit('user/setAccessToken', null, { root: true });
-      }
-      commit('setError', err.message);
+      dispatch('setError', err.message);
     }
+  },
+  setError({ commit }, errorMessage) {
+    if (errorMessage === 'Token expired') {
+      commit('user/setAccessToken', null, { root: true });
+    }
+    commit('setError', errorMessage);
   },
   setStartingTime({ commit, state }, { startHour, startMinute }) {
     commit('setStartingTime', { startHour, startMinute });

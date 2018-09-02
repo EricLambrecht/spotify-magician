@@ -8,9 +8,9 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Bug Fixes
 
-* **editor:** redirect user to login on "token expired" error ([8010c75](https://github.com/EricLambrecht/spotify-magician/commit/8010c75)), closes [#13](https://github.com/EricLambrecht/spotify-magician/issues/13)
-* **other:** fixed error in base headline component ([779b222](https://github.com/EricLambrecht/spotify-magician/commit/779b222))
-* **ui/ux:** fixed error message display for real this time (last fix was broken) ([6a5001d](https://github.com/EricLambrecht/spotify-magician/commit/6a5001d))
+* redirect user to login on "token expired" error ([8010c75](https://github.com/EricLambrecht/spotify-magician/commit/8010c75)), closes [#13](https://github.com/EricLambrecht/spotify-magician/issues/13)
+* fixed error in base headline component ([779b222](https://github.com/EricLambrecht/spotify-magician/commit/779b222))
+* fixed error message display for real this time (last fix was broken) ([6a5001d](https://github.com/EricLambrecht/spotify-magician/commit/6a5001d))
 
 
 
@@ -20,7 +20,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Bug Fixes
 
-* **ui/ux:** fixed displayling of error messages ([d3f88af](https://github.com/EricLambrecht/spotify-magician/commit/d3f88af))
+* fixed displayling of error messages ([d3f88af](https://github.com/EricLambrecht/spotify-magician/commit/d3f88af))
 
 
 
@@ -30,7 +30,7 @@ I accidentally commited this feature as a "bug fix". I didn't want to change the
 
 ### Bug Fixes
 
-* **editor:** added option to (de-)activate relative starting time feature ([976d4c7](https://github.com/EricLambrecht/spotify-magician/commit/976d4c7))
+* added option to (de-)activate relative starting time feature ([976d4c7](https://github.com/EricLambrecht/spotify-magician/commit/976d4c7))
 
 
 
@@ -40,8 +40,8 @@ I accidentally commited this feature as a "bug fix". I didn't want to change the
 
 ### Features
 
-* **ui/ux:** slightly altered playlist item styles ([fdf4e30](https://github.com/EricLambrecht/spotify-magician/commit/fdf4e30))
-* **ui/ux:** styled header section and added playlist meta information ([98eaa12](https://github.com/EricLambrecht/spotify-magician/commit/98eaa12))
+* slightly altered playlist item styles ([fdf4e30](https://github.com/EricLambrecht/spotify-magician/commit/fdf4e30))
+* styled header section and added playlist meta information ([98eaa12](https://github.com/EricLambrecht/spotify-magician/commit/98eaa12))
 
 
 
@@ -51,7 +51,7 @@ I accidentally commited this feature as a "bug fix". I didn't want to change the
 
 ### Miscellaneous
 
-* **ui:** Removed default spotify URI from input.
+* Removed default spotify URI from input.
 
 
 <a name="0.6.2"></a>
@@ -60,7 +60,7 @@ I accidentally commited this feature as a "bug fix". I didn't want to change the
 
 ### Bug Fixes
 
-* **ui:** Prevent playlist image aspect ratio from changing ([5b49f93](https://github.com/EricLambrecht/better-spotify-playlists/commit/5b49f93))
+* Prevent playlist image aspect ratio from changing ([5b49f93](https://github.com/EricLambrecht/better-spotify-playlists/commit/5b49f93))
 
 
 
@@ -70,7 +70,7 @@ I accidentally commited this feature as a "bug fix". I didn't want to change the
 
 ### Bug Fixes
 
-* **ui:** Fixed error message not disappearing. Also removed tracks in case of error. ([2ba9c69](https://github.com/EricLambrecht/better-spotify-playlists/commit/2ba9c69))
+* Fixed error message not disappearing. Also removed tracks in case of error. ([2ba9c69](https://github.com/EricLambrecht/better-spotify-playlists/commit/2ba9c69))
 
 
 
@@ -80,7 +80,7 @@ I accidentally commited this feature as a "bug fix". I didn't want to change the
 
 ### Features
 
-* **ui:** Added a playlist dropdown for easier playlist selection ([13cb061](https://github.com/EricLambrecht/better-spotify-playlists/commit/13cb061))
+* Added a playlist dropdown for easier playlist selection ([13cb061](https://github.com/EricLambrecht/better-spotify-playlists/commit/13cb061))
 
 
 
@@ -90,7 +90,7 @@ I accidentally commited this feature as a "bug fix". I didn't want to change the
 
 ### Features
 
-* **ui:** Error messages are now shown to the user ([2c3a279](https://github.com/EricLambrecht/better-spotify-playlists/commit/2c3a279))
+* Error messages are now shown to the user ([2c3a279](https://github.com/EricLambrecht/better-spotify-playlists/commit/2c3a279))
 
 
 

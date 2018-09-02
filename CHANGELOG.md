@@ -14,7 +14,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 <a name="0.7.1"></a>
 ## [0.7.1](https://github.com/EricLambrecht/spotify-magician/compare/v0.7.0...v0.7.1) (2018-09-01)
-
+I accidentally commited this feature as a "bug fix". I didn't want to change the version number, though. Sorry for that. ;)
 
 ### Bug Fixes
 

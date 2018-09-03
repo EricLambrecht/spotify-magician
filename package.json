@@ -54,7 +54,7 @@
     },
     "standard-version": {
       "scripts": {
-        "postchangelog": "replace '✨ |🐛 ' '' CHANGELOG.md"
+        "postchangelog": "replace  '🐛 ' '' CHANGELOG.md&&replace '✨ ' '' CHANGELOG.md"
       }
     }
   }

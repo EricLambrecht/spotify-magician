@@ -8,7 +8,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Features
 
-* ✨ We now use emojis in our git commit messages again! ([3e87539](https://github.com/EricLambrecht/spotify-magician/commit/3e87539))
+* We now use emojis in our git commit messages again! ([3e87539](https://github.com/EricLambrecht/spotify-magician/commit/3e87539))
 
 
 
@@ -110,7 +110,7 @@ I accidentally commited this feature as a "bug fix". I didn't want to change the
 
 ### Bug Fixes
 
-* 🐛 Fixed spotify web api calls ([d4f76d9](https://github.com/EricLambrecht/better-spotify-playlists/commit/d4f76d9))
+* Fixed spotify web api calls ([d4f76d9](https://github.com/EricLambrecht/better-spotify-playlists/commit/d4f76d9))
 
 
 

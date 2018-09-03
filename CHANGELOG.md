@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.7.5"></a>
+## [0.7.5](https://github.com/EricLambrecht/spotify-magician/compare/v0.7.4...v0.7.5) (2018-09-03)
+
+
+### Bug Fixes
+
+* Fixed automated changelog generation (strip emojis) ([33c53e6](https://github.com/EricLambrecht/spotify-magician/commit/33c53e6))
+
+
+
 <a name="0.7.4"></a>
 ## [0.7.4](https://github.com/EricLambrecht/spotify-magician/compare/v0.7.3...v0.7.4) (2018-09-03)
 

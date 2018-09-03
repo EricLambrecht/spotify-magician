@@ -1,7 +1,7 @@
 {
   "name": "spotify-magician",
   "description": "A spotify playlist editor",
-  "version": "0.7.4",
+  "version": "0.7.5",
   "author": "Eric Lambrecht <ericlambrecht.hh@gmail.com>",
   "private": true,
   "scripts": {
@@ -51,11 +51,11 @@
   "config": {
     "commitizen": {
       "path": "node_modules/emoji-cz"
-    },
-    "standard-version": {
-      "scripts": {
-        "postchangelog": "replace  '🐛 ' '' CHANGELOG.md&&replace '✨ ' '' CHANGELOG.md"
-      }
+    }
+  },
+  "standard-version": {
+    "scripts": {
+      "postchangelog": "replace  '🐛 ' '' CHANGELOG.md&&replace '✨ ' '' CHANGELOG.md"
     }
   }
 }

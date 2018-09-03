@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.7.4"></a>
+## [0.7.4](https://github.com/EricLambrecht/spotify-magician/compare/v0.7.3...v0.7.4) (2018-09-03)
+
+
+### Features
+
+* ✨ We now use emojis in our git commit messages again! ([3e87539](https://github.com/EricLambrecht/spotify-magician/commit/3e87539))
+
+
+
 <a name="0.7.3"></a>
 ## [0.7.3](https://github.com/EricLambrecht/spotify-magician/compare/v0.7.2...v0.7.3) (2018-09-02)
 

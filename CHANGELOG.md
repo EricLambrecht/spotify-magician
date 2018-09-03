@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.7.5"></a>
+## [0.7.5](https://github.com/EricLambrecht/spotify-magician/compare/v0.7.4...v0.7.5) (2018-09-03)
+
+
+### Bug Fixes
+
+* Fixed automated changelog generation (strip emojis) ([33c53e6](https://github.com/EricLambrecht/spotify-magician/commit/33c53e6))
+
+
+
+<a name="0.7.4"></a>
+## [0.7.4](https://github.com/EricLambrecht/spotify-magician/compare/v0.7.3...v0.7.4) (2018-09-03)
+
+
+### Features
+
+* We now use emojis in our git commit messages again! ([3e87539](https://github.com/EricLambrecht/spotify-magician/commit/3e87539))
+
+
+
 <a name="0.7.3"></a>
 ## [0.7.3](https://github.com/EricLambrecht/spotify-magician/compare/v0.7.2...v0.7.3) (2018-09-02)
 
@@ -100,7 +120,7 @@ I accidentally commited this feature as a "bug fix". I didn't want to change the
 
 ### Bug Fixes
 
-* 🐛 Fixed spotify web api calls ([d4f76d9](https://github.com/EricLambrecht/better-spotify-playlists/commit/d4f76d9))
+* Fixed spotify web api calls ([d4f76d9](https://github.com/EricLambrecht/better-spotify-playlists/commit/d4f76d9))
 
 
 

@@ -1,7 +1,7 @@
 {
   "name": "spotify-magician",
   "description": "A spotify playlist editor",
-  "version": "0.7.3",
+  "version": "0.7.5",
   "author": "Eric Lambrecht <ericlambrecht.hh@gmail.com>",
   "private": true,
   "scripts": {
@@ -31,7 +31,6 @@
     "commitizen": "^2.10.1",
     "cross-env": "^5.2.0",
     "css-loader": "^1.0.0",
-    "cz-customizable": "^5.2.0",
     "emoji-cz": "^0.3.0",
     "eslint": "^5.4.0",
     "eslint-config-airbnb-base": "^13.1.0",
@@ -52,11 +51,11 @@
   "config": {
     "commitizen": {
       "path": "node_modules/emoji-cz"
-    },
-    "standard-version": {
-      "scripts": {
-        "postchangelog": "replace '✨ |🐛 ' '' CHANGELOG.md"
-      }
+    }
+  },
+  "standard-version": {
+    "scripts": {
+      "postchangelog": "replace  '🐛 ' '' CHANGELOG.md&&replace '✨ ' '' CHANGELOG.md"
     }
   }
 }

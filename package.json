@@ -52,6 +52,11 @@
   "config": {
     "commitizen": {
       "path": "node_modules/emoji-cz"
+    },
+    "standard-version": {
+      "scripts": {
+        "postchangelog": "replace '✨ |🐛 ' '' CHANGELOG.md"
+      }
     }
   }
 }

@@ -1,0 +1,40 @@
+{
+  "path": "node_modules/emoji-cz",
+  "emoji-cz": {
+    "types": {
+      "Fix": {
+        "name": "fix"
+      },
+      "Feat": {
+        "name": "feat"
+      },
+      "Docs": {
+        "name": "docs",
+        "emoji": "📝"
+      },
+      "Style": {
+        "name": "style",
+        "description": "White-space, formatting, missing semi-colons..."
+      },
+      "Refactor": {
+        "emoji": "♻️",
+        "name": "refactor"
+      },
+      "Perf": {
+        "emoji": "⚡",
+        "name": "perf"
+      },
+      "Test": {
+        "emoji": "🚨",
+        "description": "Adding missing tests or correcting existing tests",
+        "name": "test"
+      },
+      "Chore": {
+        "emoji": "🔧",
+        "name": "chore",
+        "description": "Build process or auxiliary tool changes'"
+      }
+    },
+    "format": "[name]: [emoji] [subject]"
+  }
+}

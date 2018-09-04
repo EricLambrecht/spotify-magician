@@ -33,7 +33,7 @@ export default {
   },
   computed: {
     ...mapState('editor', {
-      showStartingTime: state => state.showStartingTime,
+      showStartingTime: state => state.displayOptions.showStartingTime,
     }),
     ...mapGetters({
       playlistItems: 'editor/playlistItems',

@@ -5,10 +5,12 @@ import mutations from './mutations';
 // initial state
 const state = {
   error: null,
+  displayOptions: {
+    showStartingTime: false,
+    startHour: 18,
+    startMinute: 0,
+  },
   playlist: null,
-  startHour: 18,
-  startMinute: 0,
-  showStartingTime: false,
 };
 
 export default {

@@ -12,7 +12,10 @@ export default {
       spotifyApi.setAccessToken(rootState.user.accessToken);
       const playlist = await spotifyApi.getFullPlaylist(playlistId);
       commit('setPlaylist', playlist);
-      dispatch('setStartingTime', { startHour: state.startHour, startMinute: state.startMinute });
+      dispatch('setStartingTime', {
+        startHour: state.displayOptions.startHour,
+        startMinute: state.displayOptions.startMinute,
+      });
     } catch (err) {
       dispatch('setError', err.message);
     }

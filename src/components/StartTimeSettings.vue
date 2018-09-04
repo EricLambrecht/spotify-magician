@@ -42,7 +42,7 @@ export default {
   },
   computed: {
     ...mapState('editor', {
-      showStartingTime: state => state.showStartingTime,
+      showStartingTime: state => state.displayOptions.showStartingTime,
     }),
   },
   methods: {

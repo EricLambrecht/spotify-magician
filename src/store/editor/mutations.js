@@ -6,8 +6,8 @@ export default {
     state.error = errorMessage;
   },
   setStartingTime(state, { startHour, startMinute }) {
-    state.startHour = startHour;
-    state.startMinute = startMinute;
+    state.displayOptions.startHour = startHour;
+    state.displayOptions.startMinute = startMinute;
   },
   setTrackItems(state, items) {
     if (state.playlist && state.playlist.tracks) {
@@ -15,6 +15,6 @@ export default {
     }
   },
   showStartingTime(state, showIt) {
-    state.showStartingTime = showIt;
+    state.displayOptions.showStartingTime = showIt;
   },
 };

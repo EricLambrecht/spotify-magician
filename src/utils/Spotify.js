@@ -1,6 +1,6 @@
 import SpotifyWebApi from 'spotify-web-api-js';
 
-const api = new SpotifyWebApi();
+export const api = new SpotifyWebApi();
 
 /**
  * This is a collection of (mostly) functions that use the spotify-web-api.

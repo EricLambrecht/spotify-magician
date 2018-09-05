@@ -6,6 +6,10 @@ All notable changes to this project will be documented in this file. See [standa
 # [0.8.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.7.5...v0.8.0) (2018-09-05)
 
 
+### Features
+
+* Added ability to add tracks to the playlist ([04bae10](https://github.com/EricLambrecht/spotify-magician/commit/04bae10))
+
 
 <a name="0.7.5"></a>
 ## [0.7.5](https://github.com/EricLambrecht/spotify-magician/compare/v0.7.4...v0.7.5) (2018-09-03)

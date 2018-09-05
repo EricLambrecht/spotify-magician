@@ -1,7 +1,7 @@
 {
   "name": "spotify-magician",
   "description": "A spotify playlist editor",
-  "version": "0.7.5",
+  "version": "0.8.0",
   "author": "Eric Lambrecht <ericlambrecht.hh@gmail.com>",
   "private": true,
   "scripts": {
@@ -9,7 +9,7 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules --optimize-minimize --config webpack.prod.js",
     "commit": "git-cz",
     "lint": "eslint --ext .js,.vue src",
-    "release": "standard-version --message 'chore(release): :bookmark: %s'"
+    "release": "standard-version --message \"chore(release): :bookmark: %s\""
   },
   "repository": {
     "type": "git",
@@ -55,7 +55,7 @@
   },
   "standard-version": {
     "scripts": {
-      "postchangelog": "replace  '🐛 ' '' CHANGELOG.md&&replace '✨ ' '' CHANGELOG.md"
+      "postchangelog": "replace  \"🐛 \" \"\" CHANGELOG.md&&replace \"✨ \" \"\" CHANGELOG.md"
     }
   }
 }

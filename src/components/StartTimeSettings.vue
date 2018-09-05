@@ -1,7 +1,7 @@
 <template>
   <div class="display-settings">
     <b-labeled-element label="Starting time">
-      <div v-if="showStartingTime" class="inputs">
+      <div v-if="showSettings" class="inputs">
         <b-number-input
           v-model="startHour"
           type="number"
@@ -17,12 +17,12 @@
           step="5"
           @input="onChangeTime"
         />
-        <b-text class="switch" @click.native="deactivateSetting">
+        <b-text class="switch" @click.native="showStartingTime(false)">
           Hide
         </b-text>
       </div>
       <div v-else>
-        <b-text class="switch" @click.native="activateSetting">
+        <b-text class="switch" @click.native="showStartingTime(true)">
           Show
         </b-text>
       </div>
@@ -30,7 +30,7 @@
   </div>
 </template>
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 
 export default {
   name: 'StartTimeSettings',
@@ -42,18 +42,16 @@ export default {
   },
   computed: {
     ...mapState('editor', {
-      showStartingTime: state => state.displayOptions.showStartingTime,
+      showSettings: state => state.displayOptions.showStartingTime,
     }),
   },
   methods: {
+    ...mapActions('editor', [
+      'setStartingTime',
+      'showStartingTime',
+    ]),
     onChangeTime() {
-      this.$store.dispatch('editor/setStartingTime', { startHour: this.startHour, startMinute: this.startMinute });
-    },
-    activateSetting() {
-      this.$store.dispatch('editor/showStartingTime', true);
-    },
-    deactivateSetting() {
-      this.$store.dispatch('editor/showStartingTime', false);
+      this.setStartingTime({ startHour: this.startHour, startMinute: this.startMinute });
     },
   },
 };

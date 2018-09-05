@@ -45,7 +45,7 @@ export default {
 <style lang="scss">
   .playlist {
     max-width: 1000px;
-    margin: auto;
+    margin: 20px auto;
 
     .section-headline {
       margin-top: 20px;

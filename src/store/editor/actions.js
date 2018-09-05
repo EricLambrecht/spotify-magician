@@ -1,31 +1,41 @@
 import moment from 'moment';
-import SpotifyApi from '../../utils/SpotifyApi';
+import Spotify from '../../utils/Spotify';
 import 'moment-duration-format';
-
-const spotifyApi = new SpotifyApi();
 
 export default {
   async fetchPlaylist({
     commit, dispatch, state, rootState, 
   }, playlistId) {
     try {
-      spotifyApi.setAccessToken(rootState.user.accessToken);
-      const playlist = await spotifyApi.getFullPlaylist(playlistId);
+      Spotify.setAccessToken(rootState.user.accessToken);
+      const playlist = await Spotify.getFullPlaylist(playlistId);
       commit('setPlaylist', playlist);
       dispatch('setStartingTime', {
         startHour: state.displayOptions.startHour,
         startMinute: state.displayOptions.startMinute,
       });
     } catch (err) {
-      dispatch('setError', err.message);
+      Spotify.handleApiError(dispatch, err);
     }
   },
+
+  async appendTrackToPlaylist({ dispatch, state }, uri) {
+    try {
+      // const { snapshot_id } = ... TODO: we could compare snapshots to support collaboration...
+      await Spotify.addTracksToPlaylist(state.playlist.id, [uri]);
+      dispatch('fetchPlaylist', state.playlist.id);
+    } catch (err) {
+      Spotify.handleApiError(dispatch, err);
+    }
+  },
+
   setError({ commit }, errorMessage) {
     if (errorMessage === 'Token expired') {
       commit('user/setAccessToken', null, { root: true });
     }
     commit('setError', errorMessage);
   },
+
   setStartingTime({ commit, state }, { startHour, startMinute }) {
     commit('setStartingTime', { startHour, startMinute });
 
@@ -56,6 +66,7 @@ export default {
     });
     commit('setTrackItems', trackItems);
   },
+
   showStartingTime({ commit }, showIt) {
     commit('showStartingTime', showIt);
   },

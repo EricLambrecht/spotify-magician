@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.9.0"></a>
+# [0.9.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.7.5...v0.9.0) (2018-09-05)
+
+
+### Features
+
+* Added ability to re-order tracks! ([cef82d9](https://github.com/EricLambrecht/spotify-magician/commit/cef82d9)), closes [#5](https://github.com/EricLambrecht/spotify-magician/issues/5)
+
+
+
 <a name="0.8.0"></a>
 # [0.8.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.7.5...v0.8.0) (2018-09-05)
 

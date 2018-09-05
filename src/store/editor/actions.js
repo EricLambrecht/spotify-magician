@@ -1,5 +1,5 @@
 import moment from 'moment';
-import Spotify from '../../utils/Spotify';
+import Spotify, { api } from '../../utils/Spotify';
 import 'moment-duration-format';
 
 export default {
@@ -23,6 +23,15 @@ export default {
     try {
       // const { snapshot_id } = ... TODO: we could compare snapshots to support collaboration...
       await Spotify.addTracksToPlaylist(state.playlist.id, [uri]);
+      dispatch('fetchPlaylist', state.playlist.id);
+    } catch (err) {
+      Spotify.handleApiError(dispatch, err);
+    }
+  },
+
+  async reorderTracks({ dispatch, state }, { rangeStart, insertBefore }) {
+    try {
+      await api.reorderTracksInPlaylist(state.playlist.id, rangeStart, insertBefore);
       dispatch('fetchPlaylist', state.playlist.id);
     } catch (err) {
       Spotify.handleApiError(dispatch, err);

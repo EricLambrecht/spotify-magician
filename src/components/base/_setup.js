@@ -8,6 +8,7 @@ import Vue from 'vue';
  */
 
 import Button from './Button.vue';
+import Container from './Container.vue';
 import Dropdown from './Dropdown.vue';
 import DropdownItem from './DropdownItem.vue';
 import Grid from './Grid.vue';
@@ -24,6 +25,7 @@ import Text from './Text.vue';
 import TextInput from './TextInput.vue';
 
 Vue.component('b-button', Button);
+Vue.component('b-container', Container);
 Vue.component('b-dropdown', Dropdown);
 Vue.component('b-dropdown-item', DropdownItem);
 Vue.component('b-grid', Grid);

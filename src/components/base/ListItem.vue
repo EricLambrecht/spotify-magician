@@ -12,6 +12,6 @@ export default {
 
 <style lang="scss" scoped>
   li {
-    margin-top: 10px;
+    padding: 10px 10px;
   }
 </style>

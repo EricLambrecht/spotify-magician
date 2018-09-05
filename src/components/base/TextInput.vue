@@ -24,8 +24,8 @@ export default {
       default: '',
     },
     type: {
-      required: true,
-      validator: value => ['type', 'password'].indexOf(value) !== -1,
+      default: 'text',
+      validator: value => ['text', 'password'].indexOf(value) !== -1,
     },
   },
   computed: {

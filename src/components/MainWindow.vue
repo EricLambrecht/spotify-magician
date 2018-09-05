@@ -25,6 +25,11 @@ export default {
     MainWindowHeader,
     StartTimeSettings,
   },
+  data() {
+    return {
+      query: '',
+    };
+  },
   computed: {
     ...mapState('editor', {
       errorMessage: state => state.error,

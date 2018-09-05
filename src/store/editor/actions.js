@@ -1,16 +1,15 @@
+/* eslint-disable import/no-cycle */
 import moment from 'moment';
-import SpotifyApi from '../../utils/SpotifyApi';
+import Spotify from '../../utils/Spotify';
 import 'moment-duration-format';
-
-const spotifyApi = new SpotifyApi();
 
 export default {
   async fetchPlaylist({
     commit, dispatch, state, rootState, 
   }, playlistId) {
     try {
-      spotifyApi.setAccessToken(rootState.user.accessToken);
-      const playlist = await spotifyApi.getFullPlaylist(playlistId);
+      Spotify.setAccessToken(rootState.user.accessToken);
+      const playlist = await Spotify.getFullPlaylist(playlistId);
       commit('setPlaylist', playlist);
       dispatch('setStartingTime', {
         startHour: state.displayOptions.startHour,

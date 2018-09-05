@@ -1,6 +1,5 @@
-import SpotifyApi from '../../utils/SpotifyApi';
-
-const spotifyApi = new SpotifyApi();
+/* eslint-disable import/no-cycle */
+import Spotify from '../../utils/Spotify';
 
 export default {
   checkAccess({ commit }) {
@@ -13,7 +12,7 @@ export default {
 
     if (search && search.length > 1) {
       const [, accessToken] = search;
-      spotifyApi.setAccessToken(this.accessToken);
+      Spotify.setAccessToken(accessToken);
       commit('setAccessToken', accessToken);
     } else {
       commit('setAccessToken', null);
@@ -21,8 +20,8 @@ export default {
   },
   async getPlaylists({ commit, dispatch, state }) {
     try {
-      spotifyApi.setAccessToken(state.accessToken);
-      commit('setPlaylists', await spotifyApi.getUserPlaylists());
+      Spotify.setAccessToken(state.accessToken);
+      commit('setPlaylists', await Spotify.getUserPlaylists());
     } catch (err) {
       dispatch('editor/setError', err.message, { root: true });
     }

@@ -12,6 +12,9 @@
 import SquareImage from './SquareImage.vue';
 import config from '../config';
 
+const scopes = ['playlist-modify-public'];
+const getScopes = () => scopes.map(scope => encodeURIComponent(scope)).join(' ');
+
 export default {
   name: 'LoggedOutWindow',
   components: {
@@ -22,6 +25,7 @@ export default {
       return `${'https://accounts.spotify.com/authorize?'
         + 'client_id='}${config.client_id}&`
         + 'response_type=token&'
+        + `scope=${getScopes()}&`
         + `redirect_uri=${encodeURIComponent(`${window.location.protocol}//${window.location.host}${window.location.pathname}`)}`;
     },
   },

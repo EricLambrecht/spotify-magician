@@ -1,4 +1,3 @@
-/* eslint-disable import/no-cycle */
 import Spotify from '../../utils/Spotify';
 
 export default {
@@ -23,7 +22,7 @@ export default {
       Spotify.setAccessToken(state.accessToken);
       commit('setPlaylists', await Spotify.getUserPlaylists());
     } catch (err) {
-      dispatch('editor/setError', err.message, { root: true });
+      Spotify.handleApiError(dispatch, err);
     }
   },
 };

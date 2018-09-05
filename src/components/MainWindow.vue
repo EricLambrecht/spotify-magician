@@ -4,6 +4,7 @@
     <editor-operation-panel/>
     <error-message :error-message="errorMessage"/>
     <editor-playlist/>
+    <editor-track-adder/>
   </div>
 </template>
 
@@ -15,10 +16,12 @@ import ErrorMessage from './ErrorMessage.vue';
 import StartTimeSettings from './StartTimeSettings.vue';
 import MainWindowHeader from './MainWindowHeader.vue';
 import EditorOperationPanel from './EditorOperationPanel.vue';
+import EditorTrackAdder from './EditorTrackAdder.vue';
 
 export default {
   name: 'MainWindow',
   components: {
+    EditorTrackAdder,
     EditorOperationPanel,
     EditorPlaylist,
     ErrorMessage,

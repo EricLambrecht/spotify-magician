@@ -1,4 +1,3 @@
-/* eslint-disable import/no-cycle */
 import actions from './actions';
 import getters from './getters';
 import mutations from './mutations';

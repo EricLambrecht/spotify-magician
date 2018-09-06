@@ -1,26 +1,54 @@
 <template>
-  <b-container>
-    <track-search class="editor-track-adder" @select="appendTrackToPlaylist"/>
+  <b-container v-if="playlistExists">
+    <div class="add-button" @click.capture="openModal('add-track')">
+      <b-text class="label">
+        Add track
+      </b-text>
+    </div>
   </b-container>
 </template>
 
 <script>
-import { mapActions } from 'vuex';
-import TrackSearch from './TrackSearch.vue';
+import { mapActions, mapGetters } from 'vuex';
 
 export default {
   name: 'EditorTrackAdder',
-  components: { TrackSearch },
+  computed: {
+    ...mapGetters('editor', [
+      'playlistExists',
+    ]),
+  },
   methods: {
     ...mapActions('editor', [
-      'appendTrackToPlaylist',
+      'openModal',
     ]),
   },
 };
 </script>
 
 <style lang="scss" scoped>
-  .editor-track-adder {
-    margin-top: 20px;
+  .add-button {
+    display: flex;
+    justify-content: center;
+    margin: 20px 90px;
+    padding: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    background-color: #F0F0F0;
+    transition: background-color .1s ease;
+
+    .label {
+      font-size: 18px;
+      font-weight: bold;
+      opacity: 0.7;
+      transition: opacity .1s ease;
+    }
+
+    &:hover {
+      background-color: #F4F4F4;
+      .label {
+        opacity: 0.6;
+      }
+    }
   }
 </style>

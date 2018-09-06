@@ -112,6 +112,9 @@ export default {
     max-width: 1000px;
     margin: 20px auto;
 
+    /* This really solves an issue with drag and drop rendering in chrome */
+    transform: translateZ(0);
+
     .section-headline {
       margin-top: 20px;
       margin-bottom: 12px;

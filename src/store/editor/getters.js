@@ -9,7 +9,7 @@ export default {
       total: 0,
     },
   },
-  hasPlaylist: (state, getters) => getters.playlist.href !== '',
+  playlistExists: (state, getters) => getters.playlist.href !== '',
   playlistImage: (state, getters) => {
     if (getters.playlist.images.length === 0) {
       return './src/assets/logo.png';
@@ -23,4 +23,5 @@ export default {
     (total, item) => total + item.track.duration_ms,
     0,
   ),
+  isOpen: state => modalName => state.openedModal === modalName,
 };

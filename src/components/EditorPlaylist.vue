@@ -74,13 +74,13 @@ export default {
         this.draggedFrom = this.draggedTo;
       }
     },
-    onDragEnd() {
+    async onDragEnd() {
       // Dispatch actual reordering action
       const insertBefore = this.draggedFromOriginally < this.draggedTo
         ? this.draggedTo + 1
         : this.draggedTo;
 
-      this.reorderTracks({
+      await this.reorderTracks({
         rangeStart: this.draggedFromOriginally,
         insertBefore,
       });

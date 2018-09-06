@@ -23,7 +23,7 @@ export default {
     try {
       // const { snapshot_id } = ... TODO: we could compare snapshots to support collaboration...
       await Spotify.addTracksToPlaylist(state.playlist.id, [uri]);
-      dispatch('fetchPlaylist', state.playlist.id);
+      await dispatch('fetchPlaylist', state.playlist.id);
     } catch (err) {
       Spotify.handleApiError(dispatch, err);
     }
@@ -32,7 +32,7 @@ export default {
   async reorderTracks({ dispatch, state }, { rangeStart, insertBefore }) {
     try {
       await api.reorderTracksInPlaylist(state.playlist.id, rangeStart, insertBefore);
-      dispatch('fetchPlaylist', state.playlist.id);
+      await dispatch('fetchPlaylist', state.playlist.id);
     } catch (err) {
       Spotify.handleApiError(dispatch, err);
     }

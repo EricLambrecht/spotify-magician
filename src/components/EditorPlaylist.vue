@@ -119,6 +119,7 @@ export default {
       margin-top: 20px;
       margin-bottom: 12px;
       font-weight: bold;
+      padding: 0;
     }
 
     .drag-hover {

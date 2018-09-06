@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.10.0"></a>
+# [0.10.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.9.2...v0.10.0) (2018-09-06)
+
+
+### Features
+
+* We now support modals (e.g. track adding is now a modal) ([86e88db](https://github.com/EricLambrecht/spotify-magician/commit/86e88db))
+
+
+
 <a name="0.9.2"></a>
 ## [0.9.2](https://github.com/EricLambrecht/spotify-magician/compare/v0.9.1...v0.9.2) (2018-09-06)
 

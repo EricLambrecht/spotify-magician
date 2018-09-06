@@ -79,4 +79,12 @@ export default {
   showStartingTime({ commit }, showIt) {
     commit('showStartingTime', showIt);
   },
+  
+  openModal({ commit }, modalName) {
+    commit('setOpenedModal', modalName);
+  },
+  
+  closeModal({ commit }) {
+    commit('setOpenedModal', null);
+  },
 };

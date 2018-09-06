@@ -36,13 +36,13 @@ export default {
     formatTime,
   },
   computed: {
-    ...mapGetters({
-      playlistImage: 'editor/playlistImage',
-      playlistName: 'editor/playlistName',
-      playlistTrackCount: 'editor/playlistTrackCount',
-      playlistExists: 'editor/hasPlaylist',
-      playlistLengthMs: 'editor/playlistLengthMs',
-    }),
+    ...mapGetters('editor', [
+      'playlistImage',
+      'playlistName',
+      'playlistTrackCount',
+      'playlistExists',
+      'playlistLengthMs',
+    ]),
   },
 };
 </script>

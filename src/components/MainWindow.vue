@@ -3,13 +3,14 @@
     <main-window-header/>
     <editor-operation-panel/>
     <error-message :error-message="errorMessage"/>
+    <modal-manager/>
     <editor-playlist/>
     <editor-track-adder/>
   </div>
 </template>
 
 <script>
-import { mapGetters, mapState } from 'vuex';
+import { mapGetters, mapState, mapActions } from 'vuex';
 
 import EditorPlaylist from './EditorPlaylist.vue';
 import ErrorMessage from './ErrorMessage.vue';
@@ -17,10 +18,12 @@ import StartTimeSettings from './StartTimeSettings.vue';
 import MainWindowHeader from './MainWindowHeader.vue';
 import EditorOperationPanel from './EditorOperationPanel.vue';
 import EditorTrackAdder from './EditorTrackAdder.vue';
+import ModalManager from './ModalManager.vue';
 
 export default {
   name: 'MainWindow',
   components: {
+    ModalManager,
     EditorTrackAdder,
     EditorOperationPanel,
     EditorPlaylist,
@@ -37,17 +40,22 @@ export default {
     ...mapState('editor', {
       errorMessage: state => state.error,
     }),
-    ...mapGetters({
-      playlistImage: 'editor/playlistImage',
-      playlistName: 'editor/playlistName',
-    }),
+    ...mapGetters('editor', [
+      'playlistImage',
+      'playlistName',
+      'isOpen',
+    ]),
+  },
+  methods: {
+    ...mapActions('editor', [
+      'openModal',
+    ]),
   },
 };
 </script>
 
 <style lang="scss" scoped>
   .main-window {
-    /* This really solves an issue with drag and drop rendering in chrome */
-    transform: translateZ(0);
+
   }
 </style>

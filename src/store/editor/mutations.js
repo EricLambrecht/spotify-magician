@@ -17,4 +17,7 @@ export default {
   showStartingTime(state, showIt) {
     state.displayOptions.showStartingTime = showIt;
   },
+  setOpenedModal(state, modalNameOrNull) {
+    state.openedModal = modalNameOrNull;
+  },
 };

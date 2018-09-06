@@ -110,6 +110,8 @@ export default class Spotify {
     const { tracks: pagedTracks } = result;
     const { items: tracks } = pagedTracks;
 
+    // TODO: Sort by track popularity.
+    // And maybe fetch more than 20 (if performance allows) to improve sorting.
     return tracks.map(track => ({
       name: track.name,
       uri: track.uri,

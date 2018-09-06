@@ -11,6 +11,7 @@ const state = {
     startMinute: 0,
   },
   playlist: null,
+  openedModal: null,
 };
 
 export default {

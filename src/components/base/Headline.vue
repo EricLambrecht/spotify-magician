@@ -27,8 +27,8 @@ export default {
     font-weight: bold;
   }
   h1.headline {
-    font-size: 32px;
-    margin: 16px 0 32px;
+    font-size: 34px;
+    margin: 17px 0 34px;
   }
   h2.headline {
     font-size: 26px;

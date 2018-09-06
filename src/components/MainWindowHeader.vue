@@ -6,7 +6,9 @@
           <div class="content">
             <square-image :url="playlistImage" :size="110"/>
             <div class="playlist-meta">
-              <b-headline class="playlist-name">{{ playlistName }}</b-headline>
+              <b-headline :class="{ 'playlist-name': true, 'large': !playlistExists }">
+                {{ playlistName }}
+              </b-headline>
               <div class="smaller-info">
                 <b-text v-if="playlistExists">{{ playlistTrackCount }} songs</b-text>
                 <b-text v-if="playlistExists" >
@@ -64,7 +66,10 @@ export default {
       margin: 0 30px -1px;
 
       .playlist-name {
-        font-size: 40px;
+        font-size: 36px;
+        &.large {
+          font-size: 40px;
+        }
       }
 
       .smaller-info {

@@ -1,26 +1,22 @@
 <template>
   <div class="header">
-    <b-grid>
-      <b-row>
-        <b-column>
-          <div class="content">
-            <square-image :url="playlistImage" :size="110"/>
-            <div class="playlist-meta">
-              <b-headline :class="{ 'playlist-name': true, 'large': !playlistExists }">
-                {{ playlistName }}
-              </b-headline>
-              <div class="smaller-info">
-                <b-text v-if="playlistExists">{{ playlistTrackCount }} songs</b-text>
-                <b-text v-if="playlistExists" >
-                  {{ playlistLengthMs | formatTime('h [hr.,] mm [min.]') }}
-                </b-text>
-              </div>
-            </div>
-            <playlist-selector class="selector"/>
+    <b-container>
+      <div class="content">
+        <square-image :url="playlistImage" :size="110"/>
+        <div class="playlist-meta">
+          <b-headline :class="{ 'playlist-name': true, 'large': !playlistExists }">
+            {{ playlistName }}
+          </b-headline>
+          <div class="smaller-info">
+            <b-text v-if="playlistExists">{{ playlistTrackCount }} songs</b-text>
+            <b-text v-if="playlistExists" >
+              {{ playlistLengthMs | formatTime('h [hr.,] mm [min.]') }}
+            </b-text>
           </div>
-        </b-column>
-      </b-row>
-    </b-grid>
+        </div>
+        <playlist-selector class="selector"/>
+      </div>
+    </b-container>
   </div>
 </template>
 

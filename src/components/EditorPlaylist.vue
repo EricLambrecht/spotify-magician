@@ -13,6 +13,10 @@
         :item="item"
         :position="index+1"
         :key="item.track.id"
+        :class="{
+          'drag-hover': draggedTo === index,
+          'drag-origin': index === draggedFromOriginally
+        }"
         draggable="true"
         @dragstart.native="onDragStart(index)"
         @dragend.native="onDragEnd(index)"
@@ -89,8 +93,8 @@ export default {
       this.dragging = false;
       this.draggedFrom = null;
       this.draggedTo = null;
-      this.temporaryPlaylistItems = null; 
-      // TODO: Keep temp items, but only show them when "dragging = true"
+      this.draggedFromOriginally = null;
+      this.temporaryPlaylistItems = null;
     },
     moveElement(from, to) {
       this.temporaryPlaylistItems.splice(
@@ -112,6 +116,16 @@ export default {
       margin-top: 20px;
       margin-bottom: 12px;
       font-weight: bold;
+    }
+
+    .drag-hover {
+      background-color: #F0F0F0;
+    }
+    .drag-origin:hover {
+      background-color: transparent;
+    }
+    .drag-hover.drag-origin:hover {
+      background-color: #F0F0F0;
     }
   }
 </style>

@@ -47,6 +47,7 @@ export default {
 
 <style lang="scss" scoped>
   .main-window {
-
+    /* This really solves an issue with drag and drop rendering in chrome */
+    transform: translateZ(0);
   }
 </style>

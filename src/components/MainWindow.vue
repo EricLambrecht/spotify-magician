@@ -43,8 +43,14 @@ export default {
     ...mapGetters('editor', [
       'playlistImage',
       'playlistName',
+      'playlistExists',
       'isOpen',
     ]),
+  },
+  mounted() {
+    if (!this.playlistExists) {
+      this.openModal('select-playlist');
+    }
   },
   methods: {
     ...mapActions('editor', [

@@ -12,7 +12,7 @@
       <editor-playlist-item
         :item="item"
         :position="index+1"
-        :key="item.track.id"
+        :key="item._uniqueId"
         :class="{
           'drag-hover': draggedTo === index,
           'drag-origin': index === draggedFromOriginally
@@ -102,6 +102,9 @@ export default {
         0, 
         this.temporaryPlaylistItems.splice(from, 1)[0],
       );
+    },
+    createUniqueId() {
+      return Math.random().toString(36).substr(2, 9);
     },
   },
 };

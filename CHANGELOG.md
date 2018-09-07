@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.12.0"></a>
+# [0.12.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.11.0...v0.12.0) (2018-09-07)
+
+
+### Bug Fixes
+
+* Fixed a bug where selecting the first playlist was impossible ([15a253b](https://github.com/EricLambrecht/spotify-magician/commit/15a253b))
+* Hide playlist selector button if no playlist is selected. ([1406a79](https://github.com/EricLambrecht/spotify-magician/commit/1406a79))
+
+
+### Features
+
+* Slightly restyled login screen ([422c11b](https://github.com/EricLambrecht/spotify-magician/commit/422c11b))
+
+
+
 <a name="0.11.0"></a>
 # [0.11.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.10.0...v0.11.0) (2018-09-07)
 

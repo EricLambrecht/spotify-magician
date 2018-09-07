@@ -1,9 +1,9 @@
 <template>
   <div class="logged-out-window">
     <square-image :url="'./src/assets/logo.png'" :size="140"/>
-    <b-headline level="1">Spotify Magician</b-headline>
-    <b-link :href="loginURI">
-      Get access
+    <b-headline level="1" class="app-name">Spotify Magician</b-headline>
+    <b-link :href="loginURI" class="login-link">
+      Please login
     </b-link>
   </div>
 </template>
@@ -34,6 +34,27 @@ export default {
 
 <style lang="scss" scoped>
   .logged-out-window {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
     text-align: center;
+
+    .app-name {
+      margin-bottom: 20px;
+    }
+
+    .login-link {
+      font-size: 18px;
+      text-decoration: none;
+      transition: .1s background-color ease;
+      padding: 10px;
+      border-radius: 5px;
+
+      &:hover {
+        background-color: #F0F0F0;
+      }
+    }
   }
 </style>

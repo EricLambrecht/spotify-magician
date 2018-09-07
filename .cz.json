@@ -32,7 +32,12 @@
       "Chore": {
         "emoji": "🔧",
         "name": "chore",
-        "description": "Build process or auxiliary tool changes'"
+        "description": "Auxiliary tool changes, configs, dev-ops etc."
+      },
+      "CI": {
+        "emoji": "🚀",
+        "name": "ci",
+        "description": "Changes to the build pipeline"
       }
     },
     "format": "[name]: [emoji] [subject]"

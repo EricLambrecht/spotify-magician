@@ -47,11 +47,6 @@ export default {
       'isOpen',
     ]),
   },
-  mounted() {
-    if (!this.playlistExists) {
-      this.openModal('select-playlist');
-    }
-  },
   methods: {
     ...mapActions('editor', [
       'openModal',

@@ -60,7 +60,7 @@ You can also configure your editor or IDE to use *eslint* and check your code du
 
 ### Commiting changes
 
-Please commit your changes in the [conventional commit format](https://conventionalcommits.org/). 
+**Please commit your changes in the [conventional commit format](https://conventionalcommits.org/).**
 
 I recommend to use *commitizen* (which is included in our dev-dependencies). It will help you to write
 your commit messages in this format. There is an npm script to launch commitizen (`npm run commit`) - but

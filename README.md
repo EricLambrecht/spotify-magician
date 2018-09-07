@@ -60,26 +60,22 @@ You can also configure your editor or IDE to use *eslint* and check your code du
 
 ### Commiting changes
 
-Please use *commitizen* if you want to commit any changes and try to be as specific as necessary.
+Please commit your changes in the [conventional commit format](https://conventionalcommits.org/). 
 
-You can run the following command to commit your changes with commitizen:
-```bash
-npm run commit
-```
+I recommend to use *commitizen* (which is included in our dev-dependencies). It will help you to write
+your commit messages in this format. There is an npm script to launch commitizen (`npm run commit`) - but
+make sure to stage your changes beforehand with `git add`.
 
-This will also guarantee that your commits can be used to automatically generate new changelog entries.
-You can release a new app version (and update the changelog) if you run:
 
-```bash
-npm run release
-```
+This will also guarantee that your commits can be used to *automatically* generate new changelog entries.
+You can release a new app version (and update the changelog) by running `npm run release`.
 
 ### New Features
 
-Please create feature branches and make a pull request to *master* if you want to implement new features.
+Please create *feature branches* and make a pull request to **master** if you want to implement new features.
 
 ### Deployment
-All changes on master will be automatically deployed to github pages!
+All releases (i.e. tagged commits) on master will be automatically deployed to github pages!
 
 We have an automated deployment pipeline on Travis CI. You can monitor the current build status 
 [here](https://travis-ci.org/EricLambrecht/better-spotify-playlists) (or by clicking on the build status badge at the top).

@@ -13,7 +13,7 @@
         primary 
         @click="fetchPlaylist"
       >
-        Playlist laden
+        Load playlist
       </b-button>
     </div>
     <div v-else class="form">
@@ -22,6 +22,9 @@
         class="input select-box"
         @change="fetchPlaylist"
       >
+        <b-dropdown-item key="0">
+          ---
+        </b-dropdown-item>
         <b-dropdown-item
           v-for="playlist in userPlaylists"
           :key="playlist.id"
@@ -38,6 +41,8 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex';
+
 export default {
   name: 'PlaylistSelector',
   data() {
@@ -59,9 +64,12 @@ export default {
     userPlaylists() {
       return this.$store.state.user.playlists;
     },
+    ...mapGetters('editor', [
+      'playlistName',
+    ]),
   },
   mounted() {
-    this.$store.dispatch('user/getPlaylists');
+    this.getPlaylists();
   },
   methods: {
     async fetchPlaylist() {
@@ -75,6 +83,9 @@ export default {
     switchMode() {
       this.mode = this.mode === 'user' ? 'custom' : 'user';
     },
+    ...mapActions('user', [
+      'getPlaylists',
+    ]),
   },
 };
 </script>

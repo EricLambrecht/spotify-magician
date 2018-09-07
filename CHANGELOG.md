@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.11.0"></a>
+# [0.11.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.10.0...v0.11.0) (2018-09-07)
+
+
+### Bug Fixes
+
+* Fixed display of playlists with duplicate tracks ([4caee70](https://github.com/EricLambrecht/spotify-magician/commit/4caee70))
+* Starting time: fixed hour heading indentation ([1692dfd](https://github.com/EricLambrecht/spotify-magician/commit/1692dfd))
+
+
+### Features
+
+* Users now have to choose a playlist upon startup ([4a6c15b](https://github.com/EricLambrecht/spotify-magician/commit/4a6c15b))
+
+
+
 <a name="0.10.0"></a>
 # [0.10.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.9.2...v0.10.0) (2018-09-06)
 

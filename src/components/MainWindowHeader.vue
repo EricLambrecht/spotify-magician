@@ -5,7 +5,8 @@
         <square-image :url="playlistImage" :size="110"/>
         <div class="playlist-meta">
           <b-headline :class="{ 'playlist-name': true, 'large': !playlistExists }">
-            {{ playlistName }} <b-button 
+            {{ playlistName }} <b-button
+              v-if="playlistExists"
               class="selector" 
               tertiary 
               @click="openModal('select-playlist')"

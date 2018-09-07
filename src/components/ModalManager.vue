@@ -1,7 +1,11 @@
 <template>
-  <transition :duration="300" name="modal">
+  <transition 
+    :duration="300" 
+    name="modal" 
+    appear
+  >
     <add-track-modal v-if="isOpen('add-track')"/>
-    <select-playlist-modal v-if="isOpen('select-playlist')"/>
+    <select-playlist-modal v-if="isOpen('select-playlist') || !playlistExists"/>
     <!-- add more modals here... -->
   </transition>
 </template>
@@ -18,6 +22,7 @@ export default {
     ...mapGetters('editor', [
       'playlistImage',
       'playlistName',
+      'playlistExists',
       'isOpen',
     ]),
   },

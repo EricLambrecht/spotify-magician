@@ -1,4 +1,6 @@
 [![Build Status](https://travis-ci.org/EricLambrecht/spotify-magician.svg?branch=master)](https://travis-ci.org/EricLambrecht/spotify-magician)
+[![dependencies Status](https://david-dm.org/ericlambrecht/spotify-magician/status.svg)](https://david-dm.org/ericlambrecht/spotify-magician)
+[![devDependencies Status](https://david-dm.org/ericlambrecht/spotify-magician/dev-status.svg)](https://david-dm.org/ericlambrecht/spotify-magician?type=dev)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
 # spotify-magician

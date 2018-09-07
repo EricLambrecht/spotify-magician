@@ -7,7 +7,7 @@
       <div class="main">
         <slot/>
       </div>
-      <div class="footer">
+      <div v-if="$slots.footer" class="footer">
         <slot name="footer"/>
       </div>
     </div>

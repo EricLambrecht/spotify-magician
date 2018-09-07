@@ -19,8 +19,7 @@
     <div v-else class="form">
       <b-dropdown
         v-model="playlistId" 
-        class="input select-box" 
-        label="Choose a playlist:"
+        class="input select-box"
         @change="fetchPlaylist"
       >
         <b-dropdown-item
@@ -65,12 +64,13 @@ export default {
     this.$store.dispatch('user/getPlaylists');
   },
   methods: {
-    fetchPlaylist() {
+    async fetchPlaylist() {
       const playlistId = this.mode === 'custom'
         ? this.parsedPlaylistId
         : this.playlistId;
 
-      this.$store.dispatch('editor/fetchPlaylist', playlistId);
+      await this.$store.dispatch('editor/fetchPlaylist', playlistId);
+      this.$emit('select');
     },
     switchMode() {
       this.mode = this.mode === 'user' ? 'custom' : 'user';

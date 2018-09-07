@@ -5,7 +5,11 @@
         <square-image :url="playlistImage" :size="110"/>
         <div class="playlist-meta">
           <b-headline :class="{ 'playlist-name': true, 'large': !playlistExists }">
-            {{ playlistName }}
+            {{ playlistName }} <b-button 
+              class="selector" 
+              tertiary 
+              @click="openModal('select-playlist')"
+            >⇆</b-button>
           </b-headline>
           <div class="smaller-info">
             <b-text v-if="playlistExists">{{ playlistTrackCount }} songs</b-text>
@@ -14,14 +18,13 @@
             </b-text>
           </div>
         </div>
-        <playlist-selector class="selector"/>
       </div>
     </b-container>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 import PlaylistSelector from './PlaylistSelector.vue';
 import SquareImage from './SquareImage.vue';
 import formatTime from '../utils/formatTime';
@@ -44,6 +47,11 @@ export default {
       'playlistLengthMs',
     ]),
   },
+  methods: {
+    ...mapActions('editor', [
+      'openModal',
+    ]),
+  },
 };
 </script>
 
@@ -62,6 +70,9 @@ export default {
       margin: 0 30px -1px;
 
       .playlist-name {
+        display: flex;
+        align-items: flex-end;
+
         font-size: 36px;
         &.large {
           font-size: 40px;
@@ -86,9 +97,13 @@ export default {
     }
   }
 
-
   .selector {
-    margin-left: auto;
-    align-self: flex-start;
+    margin-left: 25px;
+    font-size: 32px;
+    font-weight: bold;
+    color: var(--spotify-green);
+
+    position: relative;
+    top: 9px;
   }
 </style>

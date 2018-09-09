@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.12.1"></a>
+## [0.12.1](https://github.com/EricLambrecht/spotify-magician/compare/v0.12.0...v0.12.1) (2018-09-09)
+
+
+### Features
+
+* Added toast message system ([e7ee980](https://github.com/EricLambrecht/spotify-magician/commit/e7ee980))
+* Made most errors appear as toast messages ([ea7cec3](https://github.com/EricLambrecht/spotify-magician/commit/ea7cec3))
+
+
+
 <a name="0.12.0"></a>
 # [0.12.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.11.0...v0.12.0) (2018-09-07)
 

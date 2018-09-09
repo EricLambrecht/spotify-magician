@@ -22,9 +22,9 @@ export default {
       id, message, type, dismissible, 
     });
 
-    // Dismiss this toast automatically after 2 seconds if it's not dismissible
+    // Dismiss this toast automatically after 3 seconds if it's not dismissible
     if (typeof dismissible === 'undefined' || dismissible === false) {
-      setTimeout(() => dispatch('removeToast', id), 2000);
+      setTimeout(() => dispatch('removeToast', id), 3000);
     }
 
     return id;

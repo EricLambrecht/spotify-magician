@@ -6,6 +6,7 @@ import mutations from './mutations';
 const state = {
   error: null,
   openedModal: null,
+  toastMessages: [],
 };
 
 export default {

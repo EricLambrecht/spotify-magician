@@ -3,7 +3,10 @@
     <main-window-header/>
     <editor-operation-panel/>
     <error-message :error-message="errorMessage"/>
+
     <modal-manager/>
+    <toast-message-system/>
+
     <editor-playlist/>
     <editor-track-adder/>
   </div>
@@ -19,10 +22,12 @@ import MainWindowHeader from './MainWindowHeader.vue';
 import EditorOperationPanel from './EditorOperationPanel.vue';
 import EditorTrackAdder from './EditorTrackAdder.vue';
 import ModalManager from './ModalManager.vue';
+import ToastMessageSystem from './ToastMessageSystem.vue';
 
 export default {
   name: 'MainWindow',
   components: {
+    ToastMessageSystem,
     ModalManager,
     EditorTrackAdder,
     EditorOperationPanel,
@@ -52,6 +57,7 @@ export default {
   methods: {
     ...mapActions('app', [
       'openModal',
+      'addToast',
     ]),
   },
 };

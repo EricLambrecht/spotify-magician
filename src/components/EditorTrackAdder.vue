@@ -19,7 +19,7 @@ export default {
     ]),
   },
   methods: {
-    ...mapActions('editor', [
+    ...mapActions('app', [
       'openModal',
     ]),
   },

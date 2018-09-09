@@ -4,12 +4,9 @@ import mutations from './mutations';
 
 // initial state
 const state = {
-  displayOptions: {
-    showStartingTime: false,
-    startHour: 18,
-    startMinute: 0,
-  },
-  playlist: null,
+  error: null,
+  openedModal: null,
+  toastMessages: [],
 };
 
 export default {

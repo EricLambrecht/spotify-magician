@@ -38,13 +38,6 @@ export default {
     }
   },
 
-  setError({ commit }, errorMessage) {
-    if (errorMessage === 'Token expired') {
-      commit('user/setAccessToken', null, { root: true });
-    }
-    commit('setError', errorMessage);
-  },
-
   setStartingTime({ commit, state }, { startHour, startMinute }) {
     commit('setStartingTime', { startHour, startMinute });
 
@@ -78,13 +71,5 @@ export default {
 
   showStartingTime({ commit }, showIt) {
     commit('showStartingTime', showIt);
-  },
-  
-  openModal({ commit }, modalName) {
-    commit('setOpenedModal', modalName);
-  },
-  
-  closeModal({ commit }) {
-    commit('setOpenedModal', null);
   },
 };

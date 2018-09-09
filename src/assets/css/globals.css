@@ -5,7 +5,9 @@
 
   --color-default: #343030;
   --color-default-light: #454242;
-  --color-danger: #e25451;
+  --color-danger: #e2403e;
+  --color-warning: #ffcb5d;
+  --color-info: #4a97cc;
 
   /* Typography */
 

@@ -23,11 +23,13 @@ export default {
       'playlistImage',
       'playlistName',
       'playlistExists',
-      'isOpen',
     ]),
+    ...mapGetters('app', {
+      isOpen: 'modalIsOpen',
+    }),
   },
   methods: {
-    ...mapActions('editor', [
+    ...mapActions('app', [
       'openModal',
       'closeModal',
     ]),

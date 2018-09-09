@@ -3,6 +3,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 
 // Modules
+import app from './app';
 import editor from './editor';
 import user from './user';
 
@@ -12,6 +13,7 @@ const debug = process.env.NODE_ENV !== 'production';
 
 export default new Vuex.Store({
   modules: {
+    app,
     editor,
     user,
   },

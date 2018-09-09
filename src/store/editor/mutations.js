@@ -2,9 +2,6 @@ export default {
   setPlaylist(state, playlist) {
     state.playlist = { ...playlist };
   },
-  setError(state, errorMessage) {
-    state.error = errorMessage;
-  },
   setStartingTime(state, { startHour, startMinute }) {
     state.displayOptions.startHour = startHour;
     state.displayOptions.startMinute = startMinute;
@@ -16,8 +13,5 @@ export default {
   },
   showStartingTime(state, showIt) {
     state.displayOptions.showStartingTime = showIt;
-  },
-  setOpenedModal(state, modalNameOrNull) {
-    state.openedModal = modalNameOrNull;
   },
 };

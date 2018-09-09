@@ -15,9 +15,11 @@ export default {
   name: 'AddTrackModal',
   components: { TrackSearch },
   methods: {
+    ...mapActions('app', [
+      'closeModal',
+    ]),
     ...mapActions('editor', [
       'appendTrackToPlaylist',
-      'closeModal',
     ]),
   },
 };

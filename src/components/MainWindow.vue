@@ -40,15 +40,17 @@ export default {
     ...mapState('editor', {
       errorMessage: state => state.error,
     }),
+    ...mapGetters('app', {
+      isOpen: 'modalIsOpen',
+    }),
     ...mapGetters('editor', [
       'playlistImage',
       'playlistName',
       'playlistExists',
-      'isOpen',
     ]),
   },
   methods: {
-    ...mapActions('editor', [
+    ...mapActions('app', [
       'openModal',
     ]),
   },

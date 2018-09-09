@@ -25,5 +25,4 @@ export default {
     (total, item) => total + item.track.duration_ms,
     0,
   ),
-  isOpen: state => modalName => state.openedModal === modalName,
 };

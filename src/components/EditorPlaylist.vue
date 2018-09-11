@@ -127,13 +127,14 @@ export default {
     }
 
     .drag-hover {
-      background-color: #F0F0F0;
+      background-color: white;
+      box-shadow: 0 0 5px 0px var(--spotify-green);
     }
     .drag-origin:hover {
-      background-color: transparent;
+      background-color: var(--color-track-item);
     }
     .drag-hover.drag-origin:hover {
-      background-color: #F0F0F0;
+      background-color: white;
     }
   }
 </style>

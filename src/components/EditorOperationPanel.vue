@@ -25,5 +25,6 @@ export default {
   .operation-panel {
     padding: 12px 0;
     box-shadow: 0 2px 2px 0px rgba(0,0,0,0.1);
+    background-color: var(--color-light-grey);
   }
 </style>

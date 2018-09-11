@@ -72,7 +72,7 @@ export default {
 
       .footer {
         padding: 20px 30px;
-        background-color: #F0F0F0;
+        background-color: var(--color-background-grey);
         border-bottom-left-radius: 5px;
         border-bottom-right-radius: 5px;
 

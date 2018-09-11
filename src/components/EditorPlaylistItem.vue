@@ -87,6 +87,7 @@ export default {
 
     &:hover {
       background-color:  white;
+      box-shadow: 0 0 5px 0px rgba(0,0,0, 0.15);
       cursor: pointer;
 
       .track-menu {

@@ -135,6 +135,7 @@ export default {
     }
     .drag-hover.drag-origin:hover {
       background-color: white;
+      box-shadow: 0 0 5px 0px var(--spotify-green);
     }
   }
 </style>

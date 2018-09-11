@@ -1,5 +1,10 @@
 <template>
-  <b-list-item class="playlist-item">
+  <b-list-item 
+    class="playlist-item" 
+    tabindex="0" 
+    @click.self="toggleContextMenu" 
+    @blur.self="hideContextMenu"
+  >
     <b-text v-if="showStartingTime" class="time">
       {{ item.track.relative_start_time_ms | formatTime('h:mm') }}
     </b-text>
@@ -13,11 +18,12 @@
     <b-text class="duration">
       {{ item.track.duration_ms | formatTime('mm:ss') }}
     </b-text>
+    <b-context-menu :show="showContextMenu" :actions="contextMenuActions"/>
   </b-list-item>
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 import formatTime from '../utils/formatTime';
 
 export default {
@@ -37,10 +43,34 @@ export default {
       required: true,
     },
   },
+  data() {
+    return {
+      showContextMenu: false,
+    };
+  },
   computed: {
     ...mapState('editor', {
       showStartingTime: state => state.displayOptions.showStartingTime,
     }),
+    contextMenuActions() {
+      return [
+        {
+          label: 'Remove from playlist',
+          callback: () => this.removeTrack(this.item.track.uri),
+        },
+      ];
+    },
+  },
+  methods: {
+    ...mapActions('editor', [
+      'removeTrack',
+    ]),
+    toggleContextMenu() {
+      this.showContextMenu = !this.showContextMenu;
+    },
+    hideContextMenu() {
+      this.showContextMenu = false;
+    },
   },
 };
 </script>
@@ -58,6 +88,10 @@ export default {
     border-radius: 5px;
 
     transition: background-color .1s ease;
+
+    &:focus {
+      outline: none;
+    }
 
     > * {
       overflow: hidden;
@@ -92,7 +126,7 @@ export default {
 
       .track-menu {
         opacity: 0; /* TODO: enable */
-        pointer-events: all;
+        pointer-events: initial;
       }
     }
   }

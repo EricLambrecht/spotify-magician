@@ -112,6 +112,7 @@ export default {
 
 <style lang="scss">
   .playlist {
+    width: 100%;
     max-width: 1000px;
     margin: 20px auto;
 

@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.13.0"></a>
+# [0.13.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.12.1...v0.13.0) (2018-09-11)
+
+
+### Features
+
+* Restyled tracklist ([045d038](https://github.com/EricLambrecht/spotify-magician/commit/045d038))
+* Version number and changelog are now displayed inside the app ([ecba3ae](https://github.com/EricLambrecht/spotify-magician/commit/ecba3ae))
+* You can now remove tracks ([cb3c800](https://github.com/EricLambrecht/spotify-magician/commit/cb3c800)), closes [#19](https://github.com/EricLambrecht/spotify-magician/issues/19)
+
+
+
 <a name="0.12.1"></a>
 ## [0.12.1](https://github.com/EricLambrecht/spotify-magician/compare/v0.12.0...v0.12.1) (2018-09-09)
 

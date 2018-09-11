@@ -59,7 +59,7 @@ export default {
     }
 
     &:hover {
-      background-color: #F0F0F0;
+      background-color: var(--color-background-grey);
       position: relative;
       overflow: hidden;
       &::after {
@@ -87,7 +87,7 @@ export default {
         width: 50px;
         background-color: var(--spotify-green);
         transform: translateY(-50%) rotate(45deg);
-        box-shadow: 0 0 2px 10px #F0F0F0;
+        box-shadow: 0 0 2px 10px var(--color-background-grey);
       }
       /* wow. sorry. */
     }

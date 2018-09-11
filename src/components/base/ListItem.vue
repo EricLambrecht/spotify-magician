@@ -1,5 +1,5 @@
 <template>
-  <li>
+  <li v-on="$listeners">
     <slot/>
   </li>
 </template>

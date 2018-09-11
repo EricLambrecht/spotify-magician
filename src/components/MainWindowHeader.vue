@@ -58,7 +58,7 @@ export default {
 
 <style lang="scss" scoped>
   .header {
-    background-color: #F0F0F0;
+    background-color: white;
     padding: 60px 0;
   }
 

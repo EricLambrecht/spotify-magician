@@ -9,6 +9,7 @@ import Vue from 'vue';
 
 import Button from './Button.vue';
 import Container from './Container.vue';
+import ContextMenu from './ContextMenu.vue';
 import Dropdown from './Dropdown.vue';
 import DropdownItem from './DropdownItem.vue';
 import Grid from './Grid.vue';
@@ -28,6 +29,7 @@ import TextInput from './TextInput.vue';
 Vue.component('b-button', Button);
 Vue.component('b-column', GridColumn);
 Vue.component('b-container', Container);
+Vue.component('b-context-menu', ContextMenu);
 Vue.component('b-dropdown', Dropdown);
 Vue.component('b-dropdown-item', DropdownItem);
 Vue.component('b-grid', Grid);

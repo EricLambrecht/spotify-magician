@@ -53,7 +53,7 @@ export default {
       border-radius: 5px;
 
       &:hover {
-        background-color: #F0F0F0;
+        background-color: var(--color-background-grey);
       }
     }
   }

@@ -9,6 +9,8 @@
 
     <editor-playlist/>
     <editor-track-adder/>
+
+    <main-window-footer/>
   </div>
 </template>
 
@@ -23,10 +25,12 @@ import EditorOperationPanel from './EditorOperationPanel.vue';
 import EditorTrackAdder from './EditorTrackAdder.vue';
 import ModalManager from './ModalManager.vue';
 import ToastMessageSystem from './ToastMessageSystem.vue';
+import MainWindowFooter from './MainWindowFooter.vue';
 
 export default {
   name: 'MainWindow',
   components: {
+    MainWindowFooter,
     ToastMessageSystem,
     ModalManager,
     EditorTrackAdder,
@@ -65,6 +69,9 @@ export default {
 
 <style lang="scss" scoped>
   .main-window {
-
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-background-grey);
   }
 </style>

@@ -34,20 +34,20 @@ export default {
     padding: 10px;
     border-radius: 20px;
     cursor: pointer;
-    background-color: #F0F0F0;
+    background-color: var(--color-light-grey);
     transition: background-color .1s ease;
 
     .label {
       font-size: 18px;
       font-weight: bold;
-      opacity: 0.7;
+      opacity: 0.6;
       transition: opacity .1s ease;
     }
 
     &:hover {
-      background-color: #F4F4F4;
+      background-color: white;
       .label {
-        opacity: 0.6;
+        opacity: 0.7;
       }
     }
   }

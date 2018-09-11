@@ -59,7 +59,7 @@ export default {
       opacity: 1;
 
       .header {
-        padding: 20px 20px 0;
+        padding: 25px 30px 0;
 
         .headline {
           margin: 0 0 2px;
@@ -67,12 +67,12 @@ export default {
       }
 
       .main {
-        padding: 20px;
+        padding: 20px 30px;
       }
 
       .footer {
-        padding: 20px;
-        background-color: #F0F0F0;
+        padding: 20px 30px;
+        background-color: var(--color-background-grey);
         border-bottom-left-radius: 5px;
         border-bottom-right-radius: 5px;
 

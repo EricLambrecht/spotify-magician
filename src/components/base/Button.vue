@@ -59,7 +59,7 @@ export default {
       box-shadow: none;
       &:hover {
         background-image: none;
-        background-color: #E9E9E9;
+        background-color: var(--color-light-grey);
       }
     }
   }

@@ -72,4 +72,13 @@ export default {
   showStartingTime({ commit }, showIt) {
     commit('showStartingTime', showIt);
   },
+
+  async removeTrack({ dispatch, state }, uri) {
+    try {
+      await api.removeTracksFromPlaylist(state.playlist.id, [uri]);
+      await dispatch('fetchPlaylist', state.playlist.id);
+    } catch (err) {
+      Spotify.handleApiError(dispatch, err);
+    }
+  },
 };

@@ -9,7 +9,7 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules --optimize-minimize --config webpack.prod.js",
     "commit": "git-cz",
     "lint": "eslint --ext .js,.vue src",
-    "release": "standard-version --message \"chore(release): :bookmark: %s\""
+    "release": "standard-version -a --message \"chore(release): :bookmark: %s\""
   },
   "repository": {
     "type": "git",

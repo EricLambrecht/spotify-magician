@@ -5,18 +5,35 @@
         <b-column>
           <start-time-settings/>
         </b-column>
+        <b-column>
+          <b-button @click="shuffle">Shuffle</b-button>
+        </b-column>
       </b-row>
     </b-grid>
   </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 import StartTimeSettings from './StartTimeSettings.vue';
 
 export default {
   name: 'EditorOperationPanel',
   components: {
     StartTimeSettings,
+  },
+  methods: {
+    async shuffle() {
+      try {
+        await this.askForConfirmation();
+        console.log('Shuffle');
+      } catch (e) {
+        // do nothing
+      }
+    },
+    ...mapActions('app', [
+      'askForConfirmation',
+    ]),
   },
 };
 </script>

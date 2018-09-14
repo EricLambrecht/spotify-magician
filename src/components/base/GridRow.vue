@@ -12,6 +12,6 @@ export default {
 
 <style lang="scss" scoped>
   .grid-row {
-
+    display: flex;
   }
 </style>

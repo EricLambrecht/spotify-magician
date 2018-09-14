@@ -1,12 +1,10 @@
 <template>
-  <div class="changelog-saljhd98a2ebhs">
-    <b-modal class="modal">
-      <div v-html="html"/>
-      <div slot="footer">
-        <b-button @click="closeModal('changelog-modal')">Close</b-button>
-      </div>
-    </b-modal>
-  </div>
+  <b-modal class="modal changelog-saljhd98a2ebhs">
+    <div v-html="html"/>
+    <div slot="footer">
+      <b-button @click="closeModal('changelog-modal')">Close</b-button>
+    </div>
+  </b-modal>
 </template>
 
 <script>
@@ -30,11 +28,9 @@ export default {
 
 <style lang="scss">
   .changelog-saljhd98a2ebhs {
-    .modal {
-      .main {
-        max-height: 80vh;
-        overflow-y: scroll;
-      }
+    .main {
+      max-height: 75vh;
+      overflow-y: scroll;
     }
 
     h1 {

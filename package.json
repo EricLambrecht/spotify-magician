@@ -19,7 +19,7 @@
     "lodash": "^4.17.10",
     "moment": "^2.22.2",
     "moment-duration-format": "^2.2.2",
-    "spotify-web-api-js": "^1.1.0",
+    "spotify-web-api-js": "^1.1.1",
     "vue": "^2.5.17",
     "vue-feather-icon": "^1.2.0",
     "vuex": "^3.0.1"

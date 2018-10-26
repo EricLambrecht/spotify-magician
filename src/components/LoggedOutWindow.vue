@@ -12,7 +12,7 @@
 import SquareImage from './SquareImage.vue';
 import config from '../config';
 
-const scopes = config.spotify.scopes;
+const { spotify: { scopes } } = config;
 const getScopes = () => scopes.map(scope => encodeURIComponent(scope)).join(' ');
 
 export default {

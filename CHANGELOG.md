@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file. See [standa
 <a name="0.14.1"></a>
 ## [0.14.1](https://github.com/EricLambrecht/spotify-magician/compare/v0.14.0...v0.14.1) (2018-10-26)
 
-
+Re-deployment because of previously broken test.
 
 <a name="0.14.0"></a>
 # [0.14.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.13.1...v0.14.0) (2018-10-26)

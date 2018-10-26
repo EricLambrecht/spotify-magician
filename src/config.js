@@ -1,5 +1,12 @@
 const config = {
-  client_id: 'dc57243b2f564609beb31f87954380b6',
+  spotify: {
+    client_id: 'dc57243b2f564609beb31f87954380b6',
+    scopes: [
+      'playlist-read-private',
+      'playlist-modify-public',
+      'playlist-modify-private',
+    ],
+  },
 };
 
 export default config;

@@ -5,8 +5,10 @@
         <b-column>
           <start-time-settings/>
         </b-column>
-        <b-column>
-          <b-button @click="shuffle">Shuffle</b-button>
+        <b-column class="right">
+          <b-button tertiary @click="onClickShuffle">
+            <shuffle-icon class="icon"/>
+          </b-button>
         </b-column>
       </b-row>
     </b-grid>
@@ -15,24 +17,40 @@
 
 <script>
 import { mapActions } from 'vuex';
+import { Shuffle } from 'vue-feather-icon';
 import StartTimeSettings from './StartTimeSettings.vue';
+import shuffle from '../editor-operations/shuffle';
 
 export default {
   name: 'EditorOperationPanel',
   components: {
     StartTimeSettings,
+    ShuffleIcon: Shuffle.default,
   },
   methods: {
-    async shuffle() {
+    async onClickShuffle() {
       try {
-        await this.askForConfirmation();
-        console.log('Shuffle');
+        await this.askForConfirmation({
+          headline: 'Shuffle',
+          question: 'Are you sure you want to shuffle your playlist?',
+          positive: 'Shuffle',
+          negative: 'Cancel',
+        });
+        await this.rearrangePlaylistWith(shuffle);
       } catch (e) {
-        // do nothing
+        this.addToast({
+          message: e.message,
+          type: 'error',
+          dismissible: false,
+        });
       }
     },
     ...mapActions('app', [
       'askForConfirmation',
+      'addToast',
+    ]),
+    ...mapActions('editor', [
+      'rearrangePlaylistWith',
     ]),
   },
 };
@@ -43,5 +61,15 @@ export default {
     padding: 12px 0;
     box-shadow: 0 2px 2px 0px rgba(0,0,0,0.1);
     background-color: var(--color-light-grey);
+  }
+
+  .icon, .icon > * {
+    color: green;
+    fill: red;
+    stroke: blue;
+  }
+
+  .right {
+    margin-left: auto;
   }
 </style>

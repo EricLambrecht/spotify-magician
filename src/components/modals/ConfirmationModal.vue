@@ -1,5 +1,5 @@
 <template>
-  <b-modal headline="Please confirm">
+  <b-modal :headline="pendingConfirmation.headline">
     <b-text>{{ pendingConfirmation.question }}</b-text>
     <div slot="footer">
       <b-button tertiary @click="declineConfirmation">{{ pendingConfirmation.negative }}</b-button>

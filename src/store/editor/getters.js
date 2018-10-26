@@ -4,6 +4,7 @@ export default {
     href: '',
     images: [],
     public: false,
+    id: null,
     tracks: {
       items: [],
       total: 0,

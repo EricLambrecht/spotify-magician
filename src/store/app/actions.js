@@ -39,16 +39,18 @@ export default {
     }
   },
 
-  askForConfirmation({ commit }, confirmation) {
+  askForConfirmation({ commit }, confirmation = {}) {
     const promise = new Promise((resolve, reject) => {
       commit('setOnConfirmationAccept', resolve);
       commit('setOnConfirmationDecline', reject);
     });
-    // TODO make customizable
-    commit('setPendingConfirmation', confirmation || {
+
+    commit('setPendingConfirmation', {
+      headline: 'Please confirm',
       question: 'Are you sure you want to proceed?',
       positive: 'Yes',
       negative: 'No',
+      ...confirmation,
     });
     return promise;
   },

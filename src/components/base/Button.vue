@@ -33,11 +33,9 @@ export default {
     border-radius: 3px;
     border: none;
     outline: 0;
-    box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.2);
 
     cursor: pointer;
 
-    background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.04));
     background-color: white;
     color: var(--color-default);
     font-size: 14px;
@@ -48,7 +46,6 @@ export default {
 
     &.primary {
       background-color: var(--spotify-green);
-      box-shadow: 0 2px 1px 0 rgba(11, 74, 34, 0.3);
       border: none;
       color: white;
     }
@@ -59,7 +56,7 @@ export default {
       box-shadow: none;
       &:hover {
         background-image: none;
-        background-color: var(--color-light-grey);
+        background-color: #E0E0E0;
       }
     }
   }

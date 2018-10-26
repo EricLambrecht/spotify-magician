@@ -11,4 +11,13 @@ export default {
   removeToast(state, index) {
     state.toastMessages.splice(index, 1);
   },
+  setPendingConfirmation(state, confirmation) {
+    state.pendingConfirmation = { ...confirmation };
+  },
+  setOnConfirmationAccept(state, callback) {
+    state.onConfirmationAccept = callback;
+  },
+  setOnConfirmationDecline(state, callback) {
+    state.onConfirmationDecline = callback;
+  },
 };

@@ -38,4 +38,36 @@ export default {
       console.error('could not remove toast message', id); // eslint-disable-line no-console
     }
   },
+
+  askForConfirmation({ commit }, confirmation = {}) {
+    const promise = new Promise((resolve, reject) => {
+      commit('setOnConfirmationAccept', resolve);
+      commit('setOnConfirmationDecline', reject);
+    });
+
+    commit('setPendingConfirmation', {
+      headline: 'Please confirm',
+      question: 'Are you sure you want to proceed?',
+      positive: 'Yes',
+      negative: 'No',
+      ...confirmation,
+    });
+    return promise;
+  },
+
+  async acceptConfirmation({ commit, state }) {
+    const { onConfirmationAccept } = state;
+    onConfirmationAccept(); // resolve promise
+    commit('setPendingConfirmation', null);
+    commit('setOnConfirmationAccept', null);
+    commit('setOnConfirmationDecline', null);
+  },
+
+  declineConfirmation({ commit, state }) {
+    const { onConfirmationDecline } = state;
+    onConfirmationDecline(); // reject promise
+    commit('setPendingConfirmation', null);
+    commit('setOnConfirmationAccept', null);
+    commit('setOnConfirmationDecline', null);
+  },
 };

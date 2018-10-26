@@ -7,6 +7,9 @@ const state = {
   error: null,
   openedModal: null,
   toastMessages: [],
+  pendingConfirmation: {},
+  onConfirmationAccept: null,
+  onConfirmationDecline: null,
 };
 
 export default {

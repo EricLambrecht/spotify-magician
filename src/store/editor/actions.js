@@ -81,4 +81,19 @@ export default {
       Spotify.handleApiError(dispatch, err);
     }
   },
+
+  async replaceTracks({ dispatch, state }, uris) {
+    try {
+      await api.replaceTracksInPlaylist(state.playlist.id, uris);
+      await dispatch('fetchPlaylist', state.playlist.id);
+    } catch (err) {
+      Spotify.handleApiError(dispatch, err);
+    }
+  },
+
+  async rearrangePlaylistWith({ dispatch, state }, rearranger) {
+    const { playlist } = state;
+    const uris = rearranger.rearrange(playlist);
+    return dispatch('replaceTracks', uris);
+  },
 };

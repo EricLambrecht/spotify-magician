@@ -16,6 +16,7 @@
     "url": "https://github.com/EricLambrecht/spotify-magician.git"
   },
   "dependencies": {
+    "laue": "^0.1.1",
     "lodash": "^4.17.10",
     "moment": "^2.22.2",
     "moment-duration-format": "^2.2.2",

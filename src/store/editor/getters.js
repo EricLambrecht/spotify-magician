@@ -27,10 +27,20 @@ export default {
   playlistIds: (state, getters) => getters.playlistItems.map(
     item => item.track.id,
   ),
+  playlistTrackNamesById: (state, getters) => getters.playlist.tracks.items.reduce(
+    (acc, item) => {
+      acc[item.track.id] = item.track.name;
+      return acc;
+    },
+    {},
+  ),
   playlistTrackCount: (state, getters) => getters.playlist.tracks.total,
   playlistLengthMs: (state, getters) => getters.playlist.tracks.items.reduce(
     (total, item) => total + item.track.duration_ms,
     0,
+  ),
+  getAudioFeatureWithName: (state, getters) => featureName => state.playlistAudioFeatures.map(
+    feature => ({ data: feature[featureName], name: getters.playlistTrackNamesById[feature.id] }),
   ),
   getAudioFeature: state => featureName => state.playlistAudioFeatures.map(
     feature => feature[featureName],

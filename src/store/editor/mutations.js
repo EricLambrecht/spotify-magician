@@ -2,6 +2,9 @@ export default {
   setPlaylist(state, playlist) {
     state.playlist = { ...playlist };
   },
+  setPlaylistAudioFeatures(state, audioFeatures) {
+    state.playlistAudioFeatures = audioFeatures;
+  },
   setStartingTime(state, { startHour, startMinute }) {
     state.displayOptions.startHour = startHour;
     state.displayOptions.startMinute = startMinute;

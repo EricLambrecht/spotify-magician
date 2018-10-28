@@ -10,6 +10,7 @@ const state = {
     startMinute: 0,
   },
   playlist: null,
+  playlistAudioFeatures: null,
 };
 
 export default {

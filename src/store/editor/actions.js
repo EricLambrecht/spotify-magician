@@ -19,6 +19,18 @@ export default {
     }
   },
 
+  async fetchPlaylistAudioFeatures({
+    commit, dispatch, getters,
+  }) {
+    try {
+      const { playlistIds } = getters;
+      const result = await api.getAudioFeaturesForTracks(playlistIds);
+      commit('setPlaylistAudioFeatures', result.audio_features);
+    } catch (err) {
+      Spotify.handleApiError(dispatch, err);
+    }
+  },
+
   async appendTrackToPlaylist({ dispatch, state }, uri) {
     try {
       // const { snapshot_id } = ... TODO: we could compare snapshots to support collaboration...

@@ -6,6 +6,9 @@
           <start-time-settings/>
         </b-column>
         <b-column class="right">
+          <b-button tertiary @click="onClickStatistics">
+            <chart-icon class="icon"/>
+          </b-button>
           <b-button tertiary @click="onClickShuffle">
             <shuffle-icon class="icon"/>
           </b-button>
@@ -17,7 +20,7 @@
 
 <script>
 import { mapActions } from 'vuex';
-import { Shuffle } from 'vue-feather-icon';
+import { Shuffle, BarChart } from 'vue-feather-icon';
 import StartTimeSettings from './StartTimeSettings.vue';
 import shuffle from '../editor-operations/shuffle';
 
@@ -26,6 +29,7 @@ export default {
   components: {
     StartTimeSettings,
     ShuffleIcon: Shuffle.default,
+    ChartIcon: BarChart.default,
   },
   methods: {
     async onClickShuffle() {
@@ -45,12 +49,26 @@ export default {
         });
       }
     },
+    async onClickStatistics() {
+      try {
+        await this.fetchPlaylistAudioFeatures();
+        this.openModal('statistics-modal');
+      } catch (e) {
+        this.addToast({
+          message: e.message,
+          type: 'error',
+          dismissible: false,
+        });
+      }
+    },
     ...mapActions('app', [
       'askForConfirmation',
       'addToast',
+      'openModal',
     ]),
     ...mapActions('editor', [
       'rearrangePlaylistWith',
+      'fetchPlaylistAudioFeatures',
     ]),
   },
 };

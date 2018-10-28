@@ -1,7 +1,7 @@
 {
   "name": "spotify-magician",
   "description": "A spotify playlist editor",
-  "version": "0.14.1",
+  "version": "0.15.0",
   "author": "Eric Lambrecht <ericlambrecht.hh@gmail.com>",
   "private": true,
   "scripts": {
@@ -22,6 +22,7 @@
     "spotify-web-api-js": "^1.1.1",
     "vue": "^2.5.17",
     "vue-feather-icon": "^1.2.0",
+    "vuetrend": "^0.3.2",
     "vuex": "^3.0.1"
   },
   "devDependencies": {

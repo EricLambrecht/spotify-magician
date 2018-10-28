@@ -2,10 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.15.0"></a>
+# [0.15.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.14.1...v0.15.0) (2018-10-28)
+
+
+### Features
+
+* Added playlist statistics (energy, valence, danceability) ([804d0d7](https://github.com/EricLambrecht/spotify-magician/commit/804d0d7))
+
+
+
 <a name="0.14.1"></a>
 ## [0.14.1](https://github.com/EricLambrecht/spotify-magician/compare/v0.14.0...v0.14.1) (2018-10-26)
 
-
+Re-deployment because of previously broken test.
 
 <a name="0.14.0"></a>
 # [0.14.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.13.1...v0.14.0) (2018-10-26)

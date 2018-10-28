@@ -5,6 +5,8 @@
       <trend 
         :data="getAudioFeature('energy')"
         :gradient="['#6fa8dc', '#42b983', '#2c3e50']"
+        :min="0"
+        class="chart"
         auto-draw
         smooth
       />
@@ -19,6 +21,8 @@
       <trend 
         :data="getAudioFeature('valence')"
         :gradient="['#6fa8dc', '#42b983', '#2c3e50']"
+        :min="0"
+        class="chart"
         auto-draw
         smooth
       />
@@ -33,6 +37,8 @@
       <trend
         :data="getAudioFeature('danceability')"
         :gradient="['#6fa8dc', '#42b983', '#2c3e50']"
+        :min="0"
+        class="chart"
         auto-draw
         smooth
       />
@@ -76,6 +82,11 @@ export default {
     &:not(:last-child) {
       margin-bottom: 40px;
     }
+  }
+  .chart {
+    margin: 15px 1px 10px;
+    border-left: 2px dashed var(--color-light-grey);
+    border-right: 2px dashed var(--color-light-grey);
   }
   .chart-bottom {
     display: flex;

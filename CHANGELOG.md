@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.16.0"></a>
+# [0.16.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.15.1...v0.16.0) (2018-10-31)
+
+
+### Features
+
+* Added tooltip to audio feature graphs ([b4cdef7](https://github.com/EricLambrecht/spotify-magician/commit/b4cdef7))
+
+
+
 <a name="0.15.1"></a>
 ## [0.15.1](https://github.com/EricLambrecht/spotify-magician/compare/v0.15.0...v0.15.1) (2018-10-28)
 

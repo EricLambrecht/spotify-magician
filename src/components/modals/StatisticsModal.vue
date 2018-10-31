@@ -1,52 +1,8 @@
 <template>
   <b-modal headline="Statistics">
-    <div class="section">
-      <b-headline>Energy</b-headline>
-      <trend 
-        :data="getAudioFeature('energy')"
-        :gradient="['#6fa8dc', '#42b983', '#2c3e50']"
-        :min="0"
-        class="chart"
-        auto-draw
-        smooth
-      />
-      <div class="chart-bottom">
-        <b-text class="start">Start</b-text>
-        <b-text class="end">End</b-text>
-      </div>
-    </div>
-
-    <div class="section">
-      <b-headline>Positiveness</b-headline>
-      <trend 
-        :data="getAudioFeature('valence')"
-        :gradient="['#6fa8dc', '#42b983', '#2c3e50']"
-        :min="0"
-        class="chart"
-        auto-draw
-        smooth
-      />
-      <div class="chart-bottom">
-        <b-text class="start">Start</b-text>
-        <b-text class="end">End</b-text>
-      </div>
-    </div>
-
-    <div class="section">
-      <b-headline>Danceability</b-headline>
-      <trend
-        :data="getAudioFeature('danceability')"
-        :gradient="['#6fa8dc', '#42b983', '#2c3e50']"
-        :min="0"
-        class="chart"
-        auto-draw
-        smooth
-      />
-      <div class="chart-bottom">
-        <b-text class="start">Start</b-text>
-        <b-text class="end">End</b-text>
-      </div>
-    </div>
+    <audio-feature-graph headline="Energy" feature-name="energy"/>
+    <audio-feature-graph headline="Positiveness" feature-name="valence"/>
+    <audio-feature-graph headline="Danceability" feature-name="danceability"/>
 
     <div slot="footer">
       <b-button @click="closeModal">Close</b-button>
@@ -56,17 +12,27 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex';
+import {
+  Cartesian, Line, Tooltip, XAxis, 
+} from 'laue';
 import Trend from 'vuetrend';
+import AudioFeatureGraph from '../AudioFeatureGraph.vue';
 
 export default {
   name: 'StatisticsModal',
   components: {
+    AudioFeatureGraph,
     Trend,
+    LaCartesian: Cartesian,
+    LaLine: Line,
+    LaTooltip: Tooltip,
+    LaXAxis: XAxis,
   },
   computed: {
     ...mapGetters('editor', [
       'playlistItems',
       'getAudioFeature',
+      'getAudioFeatureWithName',
     ]),
   },
   methods: {
@@ -90,6 +56,11 @@ export default {
   }
   .chart-bottom {
     display: flex;
+    font-size: 13px;
+    color: #666;
+  }
+  .x-axis {
+    display: none;
   }
   .end {
     margin-left: auto;

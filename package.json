@@ -1,7 +1,7 @@
 {
   "name": "spotify-magician",
   "description": "A spotify playlist editor",
-  "version": "0.15.1",
+  "version": "0.16.0",
   "author": "Eric Lambrecht <ericlambrecht.hh@gmail.com>",
   "private": true,
   "scripts": {
@@ -16,6 +16,7 @@
     "url": "https://github.com/EricLambrecht/spotify-magician.git"
   },
   "dependencies": {
+    "laue": "^0.1.1",
     "lodash": "^4.17.10",
     "moment": "^2.22.2",
     "moment-duration-format": "^2.2.2",

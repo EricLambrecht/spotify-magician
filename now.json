@@ -1,0 +1,3 @@
+{
+  "builds": [{ "src": "src/main.js", "use": "@now/node" }]
+}

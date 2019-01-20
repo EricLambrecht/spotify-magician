@@ -1,6 +1,6 @@
 <template>
   <img
-    :src="source"
+    :src="url"
     :style="style"
     :width="size"
     class="image"
@@ -21,9 +21,6 @@ export default {
     },
   },
   computed: {
-    source() {
-      return this.url || './src/assets/logo.png';
-    },
     style() {
       return `{ width: ${this.size}px; height: ${this.size}px; }`;
     },

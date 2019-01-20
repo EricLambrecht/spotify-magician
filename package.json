@@ -48,6 +48,7 @@
     "replace": "^1.0.1",
     "sass-loader": "^7.1.0",
     "standard-version": "^4.4.0",
+    "url-loader": "^1.1.2",
     "vue-loader": "^15.5.1",
     "vue-template-compiler": "^2.5.22",
     "webpack": "^4.28.4",

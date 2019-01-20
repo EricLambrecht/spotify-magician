@@ -1,6 +1,8 @@
 <template>
   <div class="footer">
-    <b-text class="version" @click.native="openModal('changelog-modal')">v{{ version }}</b-text>
+    <b-text class="version" @click.native="openModal('changelog-modal')">
+      v{{ version }}
+    </b-text>
   </div>
 </template>
 

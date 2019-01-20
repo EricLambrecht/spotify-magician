@@ -1,8 +1,10 @@
 <template>
   <b-modal class="modal changelog-saljhd98a2ebhs">
-    <div v-html="html"/>
+    <div v-html="html" />
     <div slot="footer">
-      <b-button @click="closeModal('changelog-modal')">Close</b-button>
+      <b-button @click="closeModal('changelog-modal')">
+        Close
+      </b-button>
     </div>
   </b-modal>
 </template>

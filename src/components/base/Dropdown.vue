@@ -6,7 +6,7 @@
       @input="$emit('input', $event.target.value)"
       v-on="listeners"
     >
-      <slot/>
+      <slot />
     </select>
   </b-labeled-element>
 </template>

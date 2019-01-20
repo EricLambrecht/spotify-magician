@@ -1,8 +1,10 @@
 <template>
   <b-modal headline="Choose a playlist">
-    <playlist-selector @select="closeModal"/>
+    <playlist-selector @select="closeModal" />
     <div v-if="playlistExists" slot="footer">
-      <b-button @click="closeModal">Close</b-button>
+      <b-button @click="closeModal">
+        Close
+      </b-button>
     </div>
   </b-modal>
 </template>

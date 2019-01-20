@@ -1,6 +1,6 @@
 <template>
   <div class="track-search">
-    <b-text-input v-model="query" @input="searchTrack"/>
+    <b-text-input v-model="query" @input="searchTrack" />
     <b-list class="results">
       <b-list-item
         v-for="track in searchResult"
@@ -9,7 +9,9 @@
         @click.native="onTrackClick(track.uri)"
       >
         <b-text class="label">
-          <b-text bold>{{ track.name }}</b-text> - {{ track.artist }} - {{ track.album }}
+          <b-text bold>
+            {{ track.name }}
+          </b-text> - {{ track.artist }} - {{ track.album }}
         </b-text>
       </b-list-item>
     </b-list>

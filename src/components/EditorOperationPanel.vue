@@ -3,14 +3,14 @@
     <b-grid>
       <b-row>
         <b-column>
-          <start-time-settings/>
+          <start-time-settings />
         </b-column>
         <b-column class="right">
           <b-button tertiary @click="onClickStatistics">
-            <chart-icon class="icon"/>
+            <chart-icon class="icon" />
           </b-button>
           <b-button tertiary @click="onClickShuffle">
-            <shuffle-icon class="icon"/>
+            <shuffle-icon class="icon" />
           </b-button>
         </b-column>
       </b-row>

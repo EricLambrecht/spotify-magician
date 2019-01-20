@@ -1,6 +1,6 @@
 <template>
   <span :class="{ bold: bold, italic: italic }">
-    <slot/>
+    <slot />
   </span>
 </template>
 

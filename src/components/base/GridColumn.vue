@@ -1,6 +1,6 @@
 <template>
   <div class="grid-column">
-    <slot/>
+    <slot />
   </div>
 </template>
 

@@ -1,32 +1,25 @@
 <template>
   <b-modal headline="Statistics">
-    <audio-feature-graph headline="Energy" feature-name="energy"/>
-    <audio-feature-graph headline="Positiveness" feature-name="valence"/>
-    <audio-feature-graph headline="Danceability" feature-name="danceability"/>
+    <audio-feature-graph headline="Energy" feature-name="energy" />
+    <audio-feature-graph headline="Positiveness" feature-name="valence" />
+    <audio-feature-graph headline="Danceability" feature-name="danceability" />
 
     <div slot="footer">
-      <b-button @click="closeModal">Close</b-button>
+      <b-button @click="closeModal">
+        Close
+      </b-button>
     </div>
   </b-modal>
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex';
-import {
-  Cartesian, Line, Tooltip, XAxis, 
-} from 'laue';
-import Trend from 'vuetrend';
 import AudioFeatureGraph from '../AudioFeatureGraph.vue';
 
 export default {
   name: 'StatisticsModal',
   components: {
     AudioFeatureGraph,
-    Trend,
-    LaCartesian: Cartesian,
-    LaLine: Line,
-    LaTooltip: Tooltip,
-    LaXAxis: XAxis,
   },
   computed: {
     ...mapGetters('editor', [

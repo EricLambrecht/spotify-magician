@@ -4,7 +4,7 @@
     :class="{ primary: primary, tertiary: tertiary }"
     v-on="$listeners"
   >
-    <slot/>
+    <slot />
   </button>
 </template>
 

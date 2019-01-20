@@ -10,9 +10,9 @@
         {{ item.track.relative_start_time_ms | formatTime('h:mm') }} Uhr
       </b-list-item>
       <editor-playlist-item
+        :key="item._uniqueId"
         :item="item"
         :position="index+1"
-        :key="item._uniqueId"
         :class="{
           'drag-hover': draggedTo === index,
           'drag-origin': index === draggedFromOriginally

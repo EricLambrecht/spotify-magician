@@ -48,7 +48,7 @@
     "html-loader": "^0.5.5",
     "markdown-loader": "^5.0.0",
     "node-sass": "^4.11.0",
-    "now-cli": "0.0.0",
+    "now": "^13.1.2",
     "replace": "^1.0.1",
     "sass-loader": "^7.1.0",
     "standard-version": "^4.4.0",

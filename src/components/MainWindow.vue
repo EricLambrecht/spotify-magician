@@ -1,16 +1,16 @@
 <template>
   <div class="main-window">
-    <main-window-header/>
-    <editor-operation-panel/>
-    <error-message :error-message="errorMessage"/>
+    <main-window-header />
+    <editor-operation-panel />
+    <error-message :error-message="errorMessage" />
 
-    <modal-manager/>
-    <toast-message-system/>
+    <modal-manager />
+    <toast-message-system />
 
-    <editor-playlist/>
-    <editor-track-adder/>
+    <editor-playlist />
+    <editor-track-adder />
 
-    <main-window-footer/>
+    <main-window-footer />
   </div>
 </template>
 
@@ -19,7 +19,6 @@ import { mapGetters, mapState, mapActions } from 'vuex';
 
 import EditorPlaylist from './EditorPlaylist.vue';
 import ErrorMessage from './ErrorMessage.vue';
-import StartTimeSettings from './StartTimeSettings.vue';
 import MainWindowHeader from './MainWindowHeader.vue';
 import EditorOperationPanel from './EditorOperationPanel.vue';
 import EditorTrackAdder from './EditorTrackAdder.vue';
@@ -38,7 +37,6 @@ export default {
     EditorPlaylist,
     ErrorMessage,
     MainWindowHeader,
-    StartTimeSettings,
   },
   data() {
     return {

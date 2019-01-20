@@ -1,6 +1,6 @@
 <template>
   <option :value="value">
-    <slot/>
+    <slot />
   </option>
 </template>
 

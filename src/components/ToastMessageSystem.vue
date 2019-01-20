@@ -2,8 +2,8 @@
   <div class="fixed-container">
     <toast
       v-for="(toast, index) in toastMessages"
-      :key="toast.id"
       :id="toast.id"
+      :key="toast.id"
       :message="toast.message"
       :dismissible="toast.dismissible"
       :type="toast.type"

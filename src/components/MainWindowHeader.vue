@@ -2,7 +2,7 @@
   <div class="header">
     <b-container>
       <div class="content">
-        <square-image :url="playlistImage" :size="110"/>
+        <square-image :url="playlistImage" :size="110" />
         <div class="playlist-meta">
           <b-headline :class="{ 'playlist-name': true, 'large': !playlistExists }">
             {{ playlistName }} <b-button
@@ -10,11 +10,15 @@
               class="selector" 
               tertiary 
               @click="openModal('select-playlist')"
-            >⇆</b-button>
+            >
+              ⇆
+            </b-button>
           </b-headline>
           <div class="smaller-info">
-            <b-text v-if="playlistExists">{{ playlistTrackCount }} songs</b-text>
-            <b-text v-if="playlistExists" >
+            <b-text v-if="playlistExists">
+              {{ playlistTrackCount }} songs
+            </b-text>
+            <b-text v-if="playlistExists">
               {{ playlistLengthMs | formatTime('h [hr.,] mm [min.]') }}
             </b-text>
           </div>
@@ -26,7 +30,6 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
-import PlaylistSelector from './PlaylistSelector.vue';
 import SquareImage from './SquareImage.vue';
 import formatTime from '../utils/formatTime';
 
@@ -34,7 +37,6 @@ export default {
   name: 'MainWindowHeader',
   components: {
     SquareImage,
-    PlaylistSelector,
   },
   filters: {
     formatTime,

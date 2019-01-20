@@ -1,13 +1,14 @@
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, './dist'),
-    publicPath: '/dist/',
-    filename: 'build.js'
+    publicPath: '',
+    filename: '[hash].build.js'
   },
   module: {
     rules: [
@@ -33,11 +34,10 @@ module.exports = {
         ),
       },
       {
-        test: /\.(png|jpg|gif|svg)$/,
-        loader: 'file-loader',
-        options: {
-          name: '[name].[ext]?[hash]'
-        }
+        test: /\.(jpg|svg)$/, use: [ "file-loader" ]
+      },
+      {
+        test: /\.png$/, use: [ "url-loader?mimetype=image/png" ]
       },
       {
         test: /\.md$/,
@@ -58,6 +58,10 @@ module.exports = {
   plugins: [
 	  new CleanWebpackPlugin(['dist']),
     new VueLoaderPlugin(),
+    new HtmlWebpackPlugin({
+      title: 'Spotify Magician',
+      template: 'src/index.html',
+    }),
   ],
   resolve: {
     alias: {

@@ -6,8 +6,10 @@ stages:
 - test
 - name: deploy-github
   if: tag IS present
-- name: deploy-now
+- name: deploy-now-nightly
   if: branch = master
+- name: deploy-now
+  if: tag IS present
 
 jobs:
   include:
@@ -23,6 +25,14 @@ jobs:
         on:
           branch: master
           tags: true
-    - stage: deploy-now
+    - stage: deploy-now-nightly
       script: npm run deploy
-      after_script: npm run alias:prod
+      after_script: npm run alias:dev
+    - stage: deploy-now
+      deploy:
+        provider: script
+        script: npm run deploy
+        on:
+          branch: master
+          tags: true
+      after_deploy: npm run alias:prod

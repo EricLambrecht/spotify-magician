@@ -4,14 +4,16 @@ node_js:
 
 stages:
 - test
-- name: deploy
+- name: deploy-github
+  if: tag IS present
+- name: deploy-now
   if: tag IS present
 
 jobs:
   include:
     - stage: test
       script: npm run lint
-    - stage: deploy
+    - stage: deploy-github
       script: npm run build
       deploy:
         provider: pages
@@ -21,3 +23,6 @@ jobs:
         on:
           branch: master
           tags: true
+    - stage: deploy-now
+      script: npm run deploy
+      after_script: npm run alias:prod

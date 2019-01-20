@@ -10,7 +10,10 @@
     "now-build": "npm run build",
     "commit": "git-cz",
     "lint": "eslint --ext .js,.vue src",
-    "release": "standard-version -a --message \"chore(release): :bookmark: %s\""
+    "release": "standard-version -a --message \"chore(release): :bookmark: %s\"",
+    "deploy": "now --token $NOW_TOKEN",
+    "alias:dev": "now alias spotify-magician-nightly --token $NOW_TOKEN",
+    "alias:prod": "now alias --token $NOW_TOKEN"
   },
   "repository": {
     "type": "git",
@@ -45,6 +48,7 @@
     "html-loader": "^0.5.5",
     "markdown-loader": "^5.0.0",
     "node-sass": "^4.11.0",
+    "now-cli": "0.0.0",
     "replace": "^1.0.1",
     "sass-loader": "^7.1.0",
     "standard-version": "^4.4.0",

@@ -1,5 +1,5 @@
 <template>
-  <li v-on="$listeners">
+  <li :draggable="draggable" v-on="$listeners">
     <slot />
   </li>
 </template>
@@ -7,6 +7,13 @@
 <script>
 export default {
   name: 'ListItem',
+  props: {
+    draggable: {
+      type: String,
+      required: false,
+      default: 'false',
+    },
+  },
 };
 </script>
 

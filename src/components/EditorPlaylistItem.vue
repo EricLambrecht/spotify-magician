@@ -1,7 +1,8 @@
 <template>
   <b-list-item 
     class="playlist-item" 
-    tabindex="0" 
+    tabindex="0"
+    draggable="true"
     @click.self="toggleContextMenu" 
     @blur.self="hideContextMenu"
   >

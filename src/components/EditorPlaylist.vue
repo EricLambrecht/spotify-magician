@@ -18,7 +18,7 @@
           'drag-origin': index === draggedFromOriginally
         }"
         draggable="true"
-        @dragstart.native="onDragStart(index)"
+        @dragstart.native="(e) => onDragStart(index, e)"
         @dragend.native="onDragEnd(index)"
         @dragenter.native="onDragEnter(index)"
       />
@@ -64,12 +64,13 @@ export default {
     ...mapActions('editor', [
       'reorderTracks',
     ]),
-    onDragStart(index) {
+    onDragStart(index, event) {
       this.dragging = true;
       this.draggedFrom = index;
       this.draggedTo = null;
       this.draggedFromOriginally = index;
       this.temporaryPlaylistItems = [...this.playlistItems];
+      event.dataTransfer.setData('text/plain', 'This is dummy data to fix a firefox bug');
     },
     onDragEnter(index) {
       if (this.draggedTo !== index) {

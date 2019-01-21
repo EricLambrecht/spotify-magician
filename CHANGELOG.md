@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.16.2"></a>
+## [0.16.2](https://github.com/EricLambrecht/spotify-magician/compare/v0.16.1...v0.16.2) (2019-01-21)
+
+
+### Bug Fixes
+
+* Fix broken github pages deployment ([0879034](https://github.com/EricLambrecht/spotify-magician/commit/0879034))
+
+
+
 <a name="0.16.1"></a>
 ## [0.16.1](https://github.com/EricLambrecht/spotify-magician/compare/v0.16.0...v0.16.1) (2019-01-21)
 

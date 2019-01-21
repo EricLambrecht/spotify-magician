@@ -4,12 +4,9 @@ node_js:
 
 stages:
 - test
-- name: deploy-github
-  if: tag IS present
-- name: deploy-now-nightly
-  if: branch = master
-- name: deploy-now
-  if: tag IS present
+- deploy-github
+- deploy-now-nightly
+- deploy-now
 
 jobs:
   include:
@@ -21,16 +18,24 @@ jobs:
         provider: pages
         skip-cleanup: true
         github-token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+        local-dir: './dist'
         keep-history: true
         on:
           branch: master
           tags: true
     - stage: deploy-now-nightly
-      script: npm run deploy
-      after_script: npm run alias:dev
+      deploy:
+        provider: script
+        skip-cleanup: true
+        script: npm run deploy
+        on:
+          all_branches: true
+          tags: false
+      after_deploy: npm run alias:dev
     - stage: deploy-now
       deploy:
         provider: script
+        skip-cleanup: true
         script: npm run deploy
         on:
           branch: master

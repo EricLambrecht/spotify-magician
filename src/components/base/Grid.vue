@@ -13,7 +13,7 @@ export default {
 <style lang="scss" scoped>
   .grid {
     max-width: var(--grid-max-width);
-    width: 100%;
+    width: calc(100% - (2 * var(--grid-padding)));
     padding: 0 var(--grid-padding);
     margin: 0 auto;
   }

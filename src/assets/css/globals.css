@@ -18,3 +18,10 @@
   --grid-max-width: 1000px;
   --grid-padding: 20px;
 }
+
+/* Media Queries */
+@media screen and (max-width: 1080px) {
+  :root {
+    --grid-padding: 40px;
+  }
+}

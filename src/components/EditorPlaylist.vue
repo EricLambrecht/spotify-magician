@@ -113,8 +113,8 @@ export default {
 
 <style lang="scss">
   .playlist {
-    width: 100%;
-    max-width: 1000px;
+    width: calc(100% - (2 * var(--grid-padding)));
+    max-width: var(--grid-max-width);
     margin: 20px auto;
 
     /* This really solves an issue with drag and drop rendering in chrome */

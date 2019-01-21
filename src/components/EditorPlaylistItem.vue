@@ -100,6 +100,7 @@ export default {
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+      pointer-events: none;
 
       &:not(:first-child) {
         margin-left: 20px;

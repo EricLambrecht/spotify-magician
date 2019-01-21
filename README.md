@@ -10,6 +10,9 @@
 **Live App on Github Pages:** 
 [http://ericlambrecht.github.io/spotify-magician](http://ericlambrecht.github.io/spotify-magician)
 
+**Live App on Now:** 
+[https://spotify-magician.now.sh](https://spotify-magician.now.sh)
+
 This project is an attempt to improve the playlist editing (and visualization)
 capabilities of Spotify. So far, this is a purely client based web app. It's built 
 with [VueJS](https://vuejs.org/) and the 

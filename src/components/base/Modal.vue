@@ -2,13 +2,15 @@
   <div class="backdrop">
     <div class="modal">
       <div v-if="headline" class="header">
-        <b-headline level="3" class="headline">{{ headline }}</b-headline>
+        <b-headline level="3" class="headline">
+          {{ headline }}
+        </b-headline>
       </div>
       <div class="main">
-        <slot/>
+        <slot />
       </div>
       <div v-if="$slots.footer" class="footer">
-        <slot name="footer"/>
+        <slot name="footer" />
       </div>
     </div>
   </div>

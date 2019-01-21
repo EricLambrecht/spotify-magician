@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <logged-out-window v-if="!hasAccess"/>
-    <main-window v-else/>
+    <logged-out-window v-if="!hasAccess" />
+    <main-window v-else />
   </div>
 </template>
 

@@ -1,8 +1,10 @@
 <template>
   <b-modal headline="Add track">
-    <track-search class="adder" @select="appendTrackToPlaylist"/>
+    <track-search class="adder" @select="appendTrackToPlaylist" />
     <div slot="footer">
-      <b-button @click="closeModal">Close</b-button>
+      <b-button @click="closeModal">
+        Close
+      </b-button>
     </div>
   </b-modal>
 </template>

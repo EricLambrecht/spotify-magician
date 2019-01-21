@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.16.1"></a>
+## [0.16.1](https://github.com/EricLambrecht/spotify-magician/compare/v0.16.0...v0.16.1) (2019-01-21)
+
+
+### Bug Fixes
+
+* Fixed drag & drop in firefox ([2fc7a4c](https://github.com/EricLambrecht/spotify-magician/commit/2fc7a4c)), closes [#33](https://github.com/EricLambrecht/spotify-magician/issues/33)
+
+
+
 <a name="0.16.0"></a>
 # [0.16.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.15.1...v0.16.0) (2018-10-31)
 

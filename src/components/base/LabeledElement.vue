@@ -1,10 +1,10 @@
 <template>
   <label v-if="label">
     {{ label }}
-    <slot/>
+    <slot />
   </label>
   <span v-else>
-    <slot/>
+    <slot />
   </span>
 </template>
 

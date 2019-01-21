@@ -18,7 +18,7 @@
         animated
         curve
       />
-      <la-x-axis prop="name" class="x-axis"/>
+      <la-x-axis prop="name" class="x-axis" />
       <la-tooltip>
         <div slot="props">
           {props.label}
@@ -26,8 +26,12 @@
       </la-tooltip>
     </la-cartesian>
     <div class="chart-bottom">
-      <b-text class="start">Start</b-text>
-      <b-text class="end">End</b-text>
+      <b-text class="start">
+        Start
+      </b-text>
+      <b-text class="end">
+        End
+      </b-text>
     </div>
   </div>
 </template>

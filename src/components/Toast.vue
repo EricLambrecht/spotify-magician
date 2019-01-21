@@ -1,12 +1,18 @@
 <template>
   <div :class="{ toast: true, [type]: true }">
-    <p class="caption">{{ caption || displayableType }}</p>
-    <p class="message">{{ message }}</p>
+    <p class="caption">
+      {{ caption || displayableType }}
+    </p>
+    <p class="message">
+      {{ message }}
+    </p>
     <a 
       v-if="dismissible" 
       class="close" 
       @click="removeToast(id)"
-    >×</a>
+    >
+      ×
+    </a>
   </div>
 </template>
 

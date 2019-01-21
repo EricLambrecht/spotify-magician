@@ -1,7 +1,9 @@
 <template>
   <div class="logged-out-window">
-    <square-image :url="'./src/assets/logo.png'" :size="140"/>
-    <b-headline level="1" class="app-name">Spotify Magician</b-headline>
+    <square-image :url="logoUrl" :size="140" />
+    <b-headline level="1" class="app-name">
+      Spotify Magician
+    </b-headline>
     <b-link :href="loginURI" class="login-link">
       Please login
     </b-link>
@@ -10,6 +12,7 @@
 
 <script>
 import SquareImage from './SquareImage.vue';
+import logoUrl from '../assets/logo.png';
 import config from '../config';
 
 const { spotify: { scopes } } = config;
@@ -20,6 +23,9 @@ export default {
   components: {
     SquareImage,
   },
+  data: () => ({
+    logoUrl,
+  }),
   computed: {
     loginURI() {
       return `${'https://accounts.spotify.com/authorize?'

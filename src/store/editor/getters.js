@@ -1,3 +1,5 @@
+import fallbackLogo from '../../assets/logo.png';
+
 export default {
   playlist: state => state.playlist || {
     description: '',
@@ -13,7 +15,7 @@ export default {
   playlistExists: (state, getters) => getters.playlist.href !== '',
   playlistImage: (state, getters) => {
     if (getters.playlist.images.length === 0) {
-      return './src/assets/logo.png';
+      return fallbackLogo;
     }
     return state.playlist.images[0].url;
   },

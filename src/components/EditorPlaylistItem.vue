@@ -1,7 +1,8 @@
 <template>
   <b-list-item 
     class="playlist-item" 
-    tabindex="0" 
+    tabindex="0"
+    draggable="true"
     @click.self="toggleContextMenu" 
     @blur.self="hideContextMenu"
   >
@@ -14,11 +15,13 @@
     <b-text class="song">
       {{ item.track.name }}
     </b-text>
-    <b-text class="track-menu">···</b-text>
+    <b-text class="track-menu">
+      ···
+    </b-text>
     <b-text class="duration">
       {{ item.track.duration_ms | formatTime('mm:ss') }}
     </b-text>
-    <b-context-menu :show="showContextMenu" :actions="contextMenuActions"/>
+    <b-context-menu :show="showContextMenu" :actions="contextMenuActions" />
   </b-list-item>
 </template>
 

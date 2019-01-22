@@ -70,4 +70,8 @@ export default {
     commit('setOnConfirmationAccept', null);
     commit('setOnConfirmationDecline', null);
   },
+
+  updateAppWidth({ commit }, width) {
+    commit('setAppWidth', width);
+  },
 };

@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" v-resize:throttle.300="onResize">
     <logged-out-window v-if="!hasAccess" />
     <main-window v-else />
   </div>
@@ -7,6 +7,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
+import resize from 'vue-resize-directive';
 
 import LoggedOutWindow from './components/LoggedOutWindow.vue';
 import MainWindow from './components/MainWindow.vue';
@@ -17,6 +18,9 @@ export default {
     LoggedOutWindow,
     MainWindow,
   },
+  directives: {
+    resize,
+  },
   computed: {
     ...mapGetters({
       hasAccess: 'user/hasAccess',
@@ -24,6 +28,11 @@ export default {
   },
   mounted() {
     this.$store.dispatch('user/checkAccess');
+  },
+  methods: {
+    onResize(app) {
+      this.$store.dispatch('app/updateAppWidth', app.clientWidth);
+    },
   },
 };
 </script>

@@ -20,4 +20,7 @@ export default {
   setOnConfirmationDecline(state, callback) {
     state.onConfirmationDecline = callback;
   },
+  setAppWidth(state, width) {
+    state.appWidth = width;
+  },
 };

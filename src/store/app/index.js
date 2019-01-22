@@ -10,6 +10,7 @@ const state = {
   pendingConfirmation: {},
   onConfirmationAccept: null,
   onConfirmationDecline: null,
+  appWidth: 0,
 };
 
 export default {

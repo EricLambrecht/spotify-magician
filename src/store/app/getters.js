@@ -4,4 +4,5 @@ export default {
   pendingConfirmation: state => state.pendingConfirmation,
   toastMessages: state => state.toastMessages,
   getToastMessage: state => id => state.toastMessages.find(toast => toast.id === id),
+  appWidth: state => state.appWidth,
 };

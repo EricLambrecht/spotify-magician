@@ -5,7 +5,7 @@
       :data="getAudioFeatureWithName(featureName)"
       :bound="[0,1]"
       :height="100"
-      :width="400"
+      :width="width"
       :padding="0"
       class="chart"
     >
@@ -64,6 +64,15 @@ export default {
     ...mapGetters('editor', [
       'getAudioFeatureWithName',
     ]),
+    ...mapGetters('app', [
+      'appWidth',
+    ]),
+    width() {
+      const padding = 40;
+      const maxWidth = 400;
+      const maximumAvailableSpace = this.appWidth - (2 * padding);
+      return Math.min(maximumAvailableSpace, maxWidth);
+    },
   },
 };
 </script>

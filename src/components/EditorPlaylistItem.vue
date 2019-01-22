@@ -87,6 +87,8 @@ export default {
     background-color: var(--color-track-item);
     left: -15px;
 
+    font-size: var(--font-size-playlist-item);
+
     margin-top: 6px;
     border-radius: 5px;
 
@@ -121,6 +123,11 @@ export default {
       opacity: 0;
       pointer-events: none;
       font-weight: bold;
+    }
+
+    .duration {
+      min-width: 48px;
+      text-align: right;
     }
 
     &:hover {

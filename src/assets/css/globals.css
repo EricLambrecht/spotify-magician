@@ -13,15 +13,30 @@
   --color-track-item: #fcfcfc;
 
   /* Typography */
+  --font-size-playlist-item: 16px;
+  --font-size-playlist-name: 36px;
+  --font-size-choose-playlist: 40px;
+  --font-size-add-track-button: 18px;
 
   /* Dimensions */
   --grid-max-width: 1000px;
   --grid-padding: 20px;
+
+  /* Media Queries */
+  --max-width-small: 768px;
 }
 
-/* Media Queries */
 @media screen and (max-width: 1080px) {
   :root {
     --grid-padding: 40px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  :root {
+    --font-size-playlist-item: 14px;
+    --font-size-playlist-name: 28px;
+    --font-size-choose-playlist: 34px;
+    --font-size-add-track-button: 16px;
   }
 }

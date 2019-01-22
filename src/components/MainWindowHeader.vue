@@ -4,8 +4,9 @@
       <div class="content">
         <square-image :url="playlistImage" :size="110" />
         <div class="playlist-meta">
-          <b-headline :class="{ 'playlist-name': true, 'large': !playlistExists }">
-            {{ playlistName }} <b-button
+          <b-headline :class="{ 'playlist-name': true, 'empty': !playlistExists }">
+            {{ playlistName }}
+            <b-button
               v-if="playlistExists"
               class="selector" 
               tertiary 
@@ -70,15 +71,20 @@ export default {
     align-items: flex-end;
 
     .playlist-meta {
+      position: relative;
       margin: 0 30px -1px;
+
+      @media screen and (max-width: 768px) {
+        margin-left: 20px;
+      }
 
       .playlist-name {
         display: flex;
         align-items: flex-end;
 
-        font-size: 36px;
-        &.large {
-          font-size: 40px;
+        font-size: var(--font-size-playlist-name);
+        &.empty {
+          font-size: var(--font-size-choose-playlist);
         }
       }
 
@@ -108,5 +114,11 @@ export default {
 
     position: relative;
     top: 9px;
+
+    @media screen and (max-width: 768px) {
+      font-size: 26px;
+      margin-left: 5px;
+      display: block;
+    }
   }
 </style>

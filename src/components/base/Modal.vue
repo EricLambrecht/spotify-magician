@@ -39,7 +39,7 @@ export default {
     background-color: hsla(0,0,0, 0.3);
 
     display: grid;
-    grid-template-columns: 100px 1fr 100px;
+    grid-template-columns: 20px 1fr 20px;
 
     opacity: 1;
 

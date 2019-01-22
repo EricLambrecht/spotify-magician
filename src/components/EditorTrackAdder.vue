@@ -38,7 +38,7 @@ export default {
     transition: background-color .1s ease;
 
     .label {
-      font-size: 18px;
+      font-size: var(--font-size-add-track-button);
       font-weight: bold;
       opacity: 0.6;
       transition: opacity .1s ease;
@@ -49,6 +49,10 @@ export default {
       .label {
         opacity: 0.7;
       }
+    }
+
+    @media screen and (max-width: 768px){
+      margin: 20px auto;
     }
   }
 </style>

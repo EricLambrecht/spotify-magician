@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.16.3"></a>
+## [0.16.3](https://github.com/EricLambrecht/spotify-magician/compare/v0.16.2...v0.16.3) (2019-01-22)
+
+
+### Bug Fixes
+
+* Audio feature graphs now properly resize on small screens ([2955482](https://github.com/EricLambrecht/spotify-magician/commit/2955482))
+* Fixed general responsiveness (no clipping on small screens) ([8639cfa](https://github.com/EricLambrecht/spotify-magician/commit/8639cfa))
+* Fixed playlist item not being clickable everywhere ([c51a154](https://github.com/EricLambrecht/spotify-magician/commit/c51a154))
+* Improved general appearance on mobile screens ([a7fe42c](https://github.com/EricLambrecht/spotify-magician/commit/a7fe42c))
+
+
+
 <a name="0.16.2"></a>
 ## [0.16.2](https://github.com/EricLambrecht/spotify-magician/compare/v0.16.1...v0.16.2) (2019-01-21)
 

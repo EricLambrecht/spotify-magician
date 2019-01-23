@@ -25,8 +25,6 @@ export default {
   },
   computed: {
     ...mapGetters('editor', [
-      'playlistImage',
-      'playlistName',
       'playlistExists',
     ]),
     ...mapGetters('app', {

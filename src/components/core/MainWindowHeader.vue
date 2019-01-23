@@ -2,7 +2,7 @@
   <div class="header">
     <b-container>
       <div class="content">
-        <square-image :url="playlistImage" :size="110" />
+        <b-square-image :url="playlistImage" :size="110" />
         <div class="playlist-meta">
           <b-headline :class="{ 'playlist-name': true, 'empty': !playlistExists }">
             {{ playlistName }}
@@ -31,14 +31,10 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
-import SquareImage from './SquareImage.vue';
-import formatTime from '../utils/formatTime';
+import formatTime from '../../utils/formatTime';
 
 export default {
   name: 'MainWindowHeader',
-  components: {
-    SquareImage,
-  },
   filters: {
     formatTime,
   },

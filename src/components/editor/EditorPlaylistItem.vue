@@ -27,7 +27,7 @@
 
 <script>
 import { mapState, mapActions } from 'vuex';
-import formatTime from '../utils/formatTime';
+import formatTime from '../../utils/formatTime';
 
 export default {
   name: 'EditorPlaylistItem',

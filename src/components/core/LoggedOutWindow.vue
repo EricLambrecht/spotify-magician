@@ -1,6 +1,6 @@
 <template>
   <div class="logged-out-window">
-    <square-image :url="logoUrl" :size="140" />
+    <b-square-image :url="logoUrl" :size="140" />
     <b-headline level="1" class="app-name">
       Spotify Magician
     </b-headline>
@@ -11,18 +11,14 @@
 </template>
 
 <script>
-import SquareImage from './SquareImage.vue';
-import logoUrl from '../assets/logo.png';
-import config from '../config';
+import logoUrl from '../../assets/logo.png';
+import config from '../../config';
 
 const { spotify: { scopes } } = config;
 const getScopes = () => scopes.map(scope => encodeURIComponent(scope)).join(' ');
 
 export default {
   name: 'LoggedOutWindow',
-  components: {
-    SquareImage,
-  },
   data: () => ({
     logoUrl,
   }),

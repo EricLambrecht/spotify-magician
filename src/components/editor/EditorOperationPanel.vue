@@ -22,7 +22,7 @@
 import { mapActions } from 'vuex';
 import { Shuffle, BarChart } from 'vue-feather-icon';
 import StartTimeSettings from './StartTimeSettings.vue';
-import shuffle from '../editor-operations/shuffle';
+import shuffle from '../../editor-operations/shuffle';
 
 export default {
   name: 'EditorOperationPanel',

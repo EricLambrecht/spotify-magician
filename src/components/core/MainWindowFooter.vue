@@ -8,7 +8,7 @@
 
 <script>
 import { mapActions } from 'vuex';
-import versionFile from '../version.json';
+import versionFile from '../../version.json';
 
 export default {
   name: 'MainWindowFooter',

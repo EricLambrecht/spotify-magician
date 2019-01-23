@@ -12,11 +12,11 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
-import AddTrackModal from './modals/AddTrackModal.vue';
-import SelectPlaylistModal from './modals/SelectPlaylistModal.vue';
-import ChangelogModal from './modals/ChangelogModal.vue';
-import ConfirmationModal from './modals/ConfirmationModal.vue';
-import StatisticsModal from './modals/StatisticsModal.vue';
+import AddTrackModal from '../modals/AddTrackModal.vue';
+import SelectPlaylistModal from '../modals/SelectPlaylistModal.vue';
+import ChangelogModal from '../modals/ChangelogModal.vue';
+import ConfirmationModal from '../modals/ConfirmationModal.vue';
+import StatisticsModal from '../modals/StatisticsModal.vue';
 
 export default {
   name: 'ModalManager',

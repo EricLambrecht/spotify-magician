@@ -3,7 +3,7 @@ import App from './App.vue';
 import store from './store';
 
 // Register base components globally
-import './components/base/_setup';
+import './components/_base/_setup';
 
 // eslint-disable-next-line no-new
 new Vue({

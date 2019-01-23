@@ -17,13 +17,13 @@
 <script>
 import { mapGetters, mapState, mapActions } from 'vuex';
 
-import EditorPlaylist from './EditorPlaylist.vue';
-import ErrorMessage from './ErrorMessage.vue';
+import EditorPlaylist from '../editor/EditorPlaylist.vue';
+import ErrorMessage from '../feedback/ErrorMessage.vue';
 import MainWindowHeader from './MainWindowHeader.vue';
-import EditorOperationPanel from './EditorOperationPanel.vue';
-import EditorTrackAdder from './EditorTrackAdder.vue';
+import EditorOperationPanel from '../editor/EditorOperationPanel.vue';
+import EditorTrackAdder from '../editor/EditorTrackAdder.vue';
 import ModalManager from './ModalManager.vue';
-import ToastMessageSystem from './ToastMessageSystem.vue';
+import ToastMessageSystem from '../feedback/ToastMessageSystem.vue';
 import MainWindowFooter from './MainWindowFooter.vue';
 
 export default {

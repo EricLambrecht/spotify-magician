@@ -23,6 +23,7 @@ import ListItem from './ListItem.vue';
 import Modal from './Modal.vue';
 import NumberInput from './NumberInput.vue';
 import Paragraph from './Paragraph.vue';
+import SquareImage from "./SquareImage.vue";
 import Text from './Text.vue';
 import TextInput from './TextInput.vue';
 
@@ -41,6 +42,7 @@ Vue.component('b-list-item', ListItem);
 Vue.component('b-modal', Modal);
 Vue.component('b-number-input', NumberInput);
 Vue.component('b-paragraph', Paragraph);
+Vue.component('b-square-image', SquareImage);
 Vue.component('b-row', GridRow);
 Vue.component('b-text', Text);
 Vue.component('b-text-input', TextInput);

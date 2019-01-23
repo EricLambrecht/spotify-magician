@@ -9,8 +9,8 @@
 import { mapGetters } from 'vuex';
 import resize from 'vue-resize-directive';
 
-import LoggedOutWindow from './components/LoggedOutWindow.vue';
-import MainWindow from './components/MainWindow.vue';
+import LoggedOutWindow from './components/core/LoggedOutWindow.vue';
+import MainWindow from './components/core/MainWindow.vue';
 
 export default {
   name: 'App',

@@ -11,7 +11,7 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex';
-import PlaylistSelector from '../PlaylistSelector.vue';
+import PlaylistSelector from './PlaylistSelector.vue';
 
 export default {
   name: 'PlaylistSelectorModal',

@@ -11,7 +11,7 @@
 
 <script>
 import { mapActions } from 'vuex';
-import TrackSearch from '../TrackSearch.vue';
+import TrackSearch from './TrackSearch.vue';
 
 export default {
   name: 'AddTrackModal',

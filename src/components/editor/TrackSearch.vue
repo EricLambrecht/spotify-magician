@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import Spotify from '../utils/Spotify';
+import Spotify from '../../utils/Spotify';
 
 export default {
   name: 'TrackSearch',

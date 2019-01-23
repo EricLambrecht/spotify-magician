@@ -14,7 +14,7 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex';
-import AudioFeatureGraph from '../visualization/AudioFeatureGraph.vue';
+import AudioFeatureGraph from './AudioFeatureGraph.vue';
 
 export default {
   name: 'StatisticsModal',

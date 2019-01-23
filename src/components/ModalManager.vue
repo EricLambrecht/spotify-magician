@@ -1,16 +1,12 @@
 <template>
-  <transition 
-    :duration="300" 
-    name="modal" 
-    appear
-  >
+  <div>
     <add-track-modal v-if="isOpen('add-track')" />
     <select-playlist-modal v-if="isOpen('select-playlist') || !playlistExists" />
     <changelog-modal v-if="isOpen('changelog-modal')" />
     <confirmation-modal v-if="confirmationIsPending" />
     <statistics-modal v-if="isOpen('statistics-modal')" />
     <!-- add more modals here... -->
-  </transition>
+  </div>
 </template>
 
 <script>

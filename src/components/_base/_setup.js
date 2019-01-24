@@ -23,7 +23,7 @@ import ListItem from './ListItem.vue';
 import Modal from './Modal.vue';
 import NumberInput from './NumberInput.vue';
 import Paragraph from './Paragraph.vue';
-import SquareImage from "./SquareImage.vue";
+import SquareImage from './SquareImage.vue';
 import Text from './Text.vue';
 import TextInput from './TextInput.vue';
 

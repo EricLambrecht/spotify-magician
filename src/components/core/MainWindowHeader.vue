@@ -6,14 +6,6 @@
         <div class="playlist-meta">
           <b-headline :class="{ 'playlist-name': true, 'empty': !playlistExists }">
             {{ playlistName }}
-            <b-button
-              v-if="playlistExists"
-              class="selector" 
-              tertiary 
-              @click="openModal('select-playlist')"
-            >
-              ⇆
-            </b-button>
           </b-headline>
           <div class="smaller-info">
             <b-text v-if="playlistExists">
@@ -26,15 +18,18 @@
         </div>
       </div>
     </b-container>
+    <main-window-top-menu />
   </div>
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
+import { mapGetters } from 'vuex';
 import formatTime from '../../utils/formatTime';
+import MainWindowTopMenu from './MainWindowTopMenu.vue';
 
 export default {
   name: 'MainWindowHeader',
+  components: { MainWindowTopMenu },
   filters: {
     formatTime,
   },
@@ -47,11 +42,6 @@ export default {
       'playlistLengthMs',
     ]),
   },
-  methods: {
-    ...mapActions('app', [
-      'openModal',
-    ]),
-  },
 };
 </script>
 
@@ -59,62 +49,59 @@ export default {
   .header {
     background-color: white;
     padding: 60px 0;
+    position: relative;
   }
 
   .content {
     display: flex;
     flex-direction: row;
     align-items: flex-end;
+  }
 
-    .playlist-meta {
-      position: relative;
-      margin: 0 30px -1px;
+  .playlist-meta {
+    position: relative;
+    margin: 0 30px -1px;
+  }
 
-      @media screen and (max-width: 768px) {
-        margin-left: 20px;
-      }
+  .playlist-name {
+    display: flex;
+    align-items: flex-end;
 
-      .playlist-name {
-        display: flex;
-        align-items: flex-end;
+    font-size: var(--font-size-playlist-name);
+    &.empty {
+      font-size: var(--font-size-choose-playlist);
+    }
+  }
 
-        font-size: var(--font-size-playlist-name);
-        &.empty {
-          font-size: var(--font-size-choose-playlist);
-        }
-      }
+  .smaller-info {
+    margin: 11px 0 0 1px;
+    display: flex;
+    flex-direction: row;
 
-      .smaller-info {
-        margin: 11px 0 0 1px;
-        display: flex;
-        flex-direction: row;
+    font-size: 15px;
+    color: #888;
 
-        font-size: 15px;
-        color: #888;
-
-        :not(:first-child) {
-          &::before {
-            content: '•';
-            margin: 0 5px;
-          }
-        }
+    :not(:first-child) {
+      &::before {
+        content: '•';
+        margin: 0 5px;
       }
     }
   }
 
-  .selector {
-    margin-left: 25px;
-    font-size: 32px;
-    font-weight: bold;
-    color: var(--spotify-green);
+  @media screen and (max-width: 768px) {
+    .header {
+      background-color: white;
+      padding: 80px 0 30px;
+      position: relative;
+    }
 
-    position: relative;
-    top: 9px;
+    .smaller-info {
+      font-size: 13px;
+    }
 
-    @media screen and (max-width: 768px) {
-      font-size: 26px;
-      margin-left: 5px;
-      display: block;
+    .playlist-meta {
+      margin-left: 20px;
     }
   }
 </style>

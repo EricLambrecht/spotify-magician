@@ -44,7 +44,7 @@
 @media screen and (max-width: 768px) {
   :root {
     --font-size-playlist-item: 14px;
-    --font-size-playlist-name: 28px;
+    --font-size-playlist-name: 24px;
     --font-size-choose-playlist: 34px;
     --font-size-add-track-button: 16px;
   }

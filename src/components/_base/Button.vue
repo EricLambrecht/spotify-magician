@@ -1,7 +1,8 @@
 <template>
   <button
     v-bind="$attrs"
-    :class="{ primary: primary, tertiary: tertiary }"
+    :class="{ primary, tertiary, disabled, small }"
+    :disabled="disabled"
     v-on="$listeners"
   >
     <slot />
@@ -17,6 +18,14 @@ export default {
       default: false,
     },
     tertiary: {
+      type: Boolean,
+      default: false,
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+    small: {
       type: Boolean,
       default: false,
     },
@@ -42,6 +51,10 @@ export default {
     color: var(--color-default);
     font-size: 14px;
 
+    &.small {
+      font-size: 12px;
+    }
+
     &:hover {
       background-image: linear-gradient(rgba(0,0,0,0.04), rgba(0,0,0,0.04));
     }
@@ -60,6 +73,10 @@ export default {
         background-image: none;
         background-color: #E0E0E0;
       }
+    }
+
+    &.disabled {
+      cursor: not-allowed;
     }
   }
 </style>

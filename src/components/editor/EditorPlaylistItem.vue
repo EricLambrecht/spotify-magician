@@ -91,7 +91,17 @@ export default {
     --track-item-song-font-size: 13px;
     --track-item-song-line-height: 17px;
     --track-item-artist-font-size: 9px;
-    --track-item-artist-line-height: 13px
+    --track-item-artist-line-height: 13px;
+  }
+
+  @media screen and (max-width: 1080px) {
+    :root {
+      --track-item-height: 51px;
+      --track-item-song-font-size: 13px;
+      --track-item-song-line-height: 17px;
+      --track-item-artist-font-size: 9px;
+      --track-item-artist-line-height: 13px;
+    }
   }
 </style>
 
@@ -102,7 +112,7 @@ export default {
     width: 100%;
     height: var(--track-item-height);
 
-    margin-top: 15px;
+    margin-top: 10px;
     padding: 0 0 0 0;
     border-radius: 5px;
 

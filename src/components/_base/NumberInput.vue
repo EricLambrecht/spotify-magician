@@ -37,6 +37,7 @@ export default {
 
 <style lang="scss" scoped>
   input {
+    font-family: var(--font-family);
     padding: 3px 5px;
   }
 </style>

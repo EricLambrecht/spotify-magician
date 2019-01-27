@@ -71,5 +71,6 @@ export default {
     display: flex;
     flex-direction: column;
     background-color: var(--color-background-grey);
+    font-family: var(--font-family);
   }
 </style>

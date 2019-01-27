@@ -20,6 +20,7 @@ export default {
 <style lang="scss" scoped>
   ol, ul {
     text-align: left;
+    font-family: inherit;
   }
   ol {}
   ul {}

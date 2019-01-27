@@ -12,6 +12,7 @@ export default {
 
 <style lang="scss" scoped>
   a {
+    font-family: inherit;
     color: var(--spotify-green);
   }
 </style>

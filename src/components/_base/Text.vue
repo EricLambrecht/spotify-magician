@@ -22,6 +22,7 @@ export default {
 
 <style lang="scss" scoped>
   span {
+    font-family: inherit;
     display: inline;
 
     &.bold {

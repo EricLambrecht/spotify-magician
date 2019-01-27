@@ -42,6 +42,7 @@ export default {
     align-items: center;
     height: 80vh;
     text-align: center;
+    font-family: var(--font-family);
 
     .app-name {
       margin-bottom: 20px;

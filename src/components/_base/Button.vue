@@ -37,6 +37,8 @@ export default {
     cursor: pointer;
 
     background-color: white;
+
+    font-family: var(--font-family);
     color: var(--color-default);
     font-size: 14px;
 

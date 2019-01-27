@@ -12,6 +12,7 @@ export default {
 
 <style lang="scss" scoped>
   p {
+    font-family: inherit;
     text-align: left;
   }
 </style>

@@ -36,6 +36,7 @@ export default {
 
 <style lang="scss" scoped>
   select {
+    font-family: var(--font-family);
     color: var(--color-default-light);
     border-radius: 3px;
     border: 1px solid #CCC;

@@ -20,5 +20,6 @@ export default {
 <style lang="scss" scoped>
   li {
     padding: 10px 10px;
+    font-family: inherit;
   }
 </style>

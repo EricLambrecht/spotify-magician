@@ -10,15 +10,19 @@
 
   --color-default: #343030;
   --color-default-light: #454242;
+
+  --color-default-opposite: #FFFFFF;
+
+  --color-grey: #888888;
+  --color-light-grey: #F7F7F7;
+
+  --color-background-grey: #F0F0F0;
+
   --color-danger: #e2403e;
   --color-warning: #ffcb5d;
   --color-info: #4a97cc;
-  --color-background-grey: #F0F0F0;
-  --color-light-grey: #F7F7F7;
-  --color-track-item: #fcfcfc;
 
   /* Typography */
-  --font-size-playlist-item: 16px;
   --font-size-playlist-name: 36px;
   --font-size-choose-playlist: 40px;
   --font-size-add-track-button: 18px;

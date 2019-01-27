@@ -85,7 +85,7 @@ export default {
       }
 
       .smaller-info {
-        margin: 8px 0 0 1px;
+        margin: 11px 0 0 1px;
         display: flex;
         flex-direction: row;
 

@@ -115,17 +115,6 @@ export default {
       outline: none;
     }
 
-    > * {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      pointer-events: none;
-
-      &:not(:first-child) {
-        margin-left: 20px;
-      }
-    }
-
     &:hover {
       background-color:  white;
       box-shadow: 0 0 5px 0 rgba(0,0,0, 0.15);
@@ -134,6 +123,17 @@ export default {
       .track-menu {
         opacity: 0; /* TODO: enable */
         pointer-events: initial;
+      }
+    }
+
+    > * {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      pointer-events: none;
+
+      &:not(:first-child) {
+        margin-left: 20px;
       }
     }
   }

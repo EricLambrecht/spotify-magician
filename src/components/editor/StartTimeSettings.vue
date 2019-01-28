@@ -1,6 +1,6 @@
 <template>
   <div class="display-settings">
-    <div v-if="showSettings" class="inputs">
+    <div v-if="false" class="inputs">
       <b-number-input
         v-model="startHour"
         type="number"
@@ -16,14 +16,13 @@
         step="5"
         @input="onChangeTime"
       />
-      <b-text class="switch" @click.native="showStartingTime(false)">
-        Hide time of day
-      </b-text>
     </div>
-    <div v-else>
-      <b-text class="switch" @click.native="showStartingTime(true)">
-        Show time of day
-      </b-text>
+    <div>
+      <b-light-switch
+        :on="isActive"
+        label="Show time of day"
+        @click.native="showStartingTime(!isActive)"
+      />
     </div>
   </div>
 </template>
@@ -40,7 +39,7 @@ export default {
   },
   computed: {
     ...mapState('editor', {
-      showSettings: state => state.displayOptions.showStartingTime,
+      isActive: state => state.displayOptions.showStartingTime,
     }),
   },
   methods: {

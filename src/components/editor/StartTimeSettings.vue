@@ -1,32 +1,30 @@
 <template>
   <div class="display-settings">
-    <b-labeled-element label="Starting time">
-      <div v-if="showSettings" class="inputs">
-        <b-number-input
-          v-model="startHour"
-          type="number"
-          min="0"
-          max="24"
-          @input="onChangeTime"
-        />
-        <b-number-input
-          v-model="startMinute"
-          type="number"
-          min="0"
-          max="59"
-          step="5"
-          @input="onChangeTime"
-        />
-        <b-text class="switch" @click.native="showStartingTime(false)">
-          Hide
-        </b-text>
-      </div>
-      <div v-else>
-        <b-text class="switch" @click.native="showStartingTime(true)">
-          Show
-        </b-text>
-      </div>
-    </b-labeled-element>
+    <div v-if="showSettings" class="inputs">
+      <b-number-input
+        v-model="startHour"
+        type="number"
+        min="0"
+        max="24"
+        @input="onChangeTime"
+      />
+      <b-number-input
+        v-model="startMinute"
+        type="number"
+        min="0"
+        max="59"
+        step="5"
+        @input="onChangeTime"
+      />
+      <b-text class="switch" @click.native="showStartingTime(false)">
+        Hide time of day
+      </b-text>
+    </div>
+    <div v-else>
+      <b-text class="switch" @click.native="showStartingTime(true)">
+        Show time of day
+      </b-text>
+    </div>
   </div>
 </template>
 <script>

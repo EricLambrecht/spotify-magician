@@ -1,11 +1,16 @@
 <template>
   <button
     v-bind="$attrs"
-    :class="{ primary, tertiary, disabled, small }"
+    :class="{ button: true, primary, secondary, tertiary, disabled, small }"
     :disabled="disabled"
     v-on="$listeners"
   >
-    <slot />
+    <span v-if="hasIcon" class="icon">
+      <slot name="icon" />
+    </span>
+    <span class="label">
+      <slot />
+    </span>
   </button>
 </template>
 
@@ -14,6 +19,10 @@ export default {
   name: 'Button',
   props: {
     primary: {
+      type: Boolean,
+      default: false,
+    },
+    secondary: {
       type: Boolean,
       default: false,
     },
@@ -30,12 +39,18 @@ export default {
       default: false,
     },
   },
+  computed: {
+    hasIcon() {
+      return Boolean(this.$slots.icon);
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-  button {
-    display: inline-block;
+  button, .button {
+    display: inline-flex;
+    align-items: center;
     margin: 0 5px;
     padding: 6px 10px 7px;
 
@@ -51,6 +66,13 @@ export default {
     color: var(--color-default);
     font-size: 14px;
 
+    &:first-child {
+      margin-left: 0;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+
     &.small {
       font-size: 12px;
     }
@@ -63,6 +85,12 @@ export default {
       background-color: var(--spotify-green);
       border: none;
       color: white;
+    }
+
+    &.secondary {
+      background-color: white;
+      border: none;
+      color: var(--color-default);
     }
 
     &.tertiary {
@@ -79,4 +107,12 @@ export default {
       cursor: not-allowed;
     }
   }
+
+  .icon {
+    margin-right: 10px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .label {}
 </style>

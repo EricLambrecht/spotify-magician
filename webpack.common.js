@@ -26,6 +26,14 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
+        test: /\.css$/,
+        use: [
+          'vue-style-loader',
+          'css-loader',
+        ],
+        include: /node_modules/,
+      },
+      {
         test: /\.js$/,
         loader: 'babel-loader',
         exclude: file => (

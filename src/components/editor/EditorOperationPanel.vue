@@ -3,15 +3,33 @@
     <b-grid>
       <b-row>
         <b-column>
-          <start-time-settings />
-        </b-column>
-        <b-column class="right">
-          <b-button tertiary @click="onClickStatistics">
-            <chart-icon class="icon" />
+          <b-button tertiary @click="onClickShuffle">
+            <v-icon
+              slot="icon"
+              name="random"
+              label="shuffle"
+            />
+            Shuffle
           </b-button>
           <b-button tertiary @click="onClickShuffle">
-            <shuffle-icon class="icon" />
+            <v-icon
+              slot="icon"
+              name="sort"
+              label="shuffle"
+            />
+            Sort
           </b-button>
+          <b-button tertiary @click="onClickStatistics">
+            <v-icon
+              slot="icon"
+              name="chart-line"
+              label="playlist-stats"
+            />
+            Analyze
+          </b-button>
+        </b-column>
+        <b-column class="right">
+          <start-time-settings />
         </b-column>
       </b-row>
     </b-grid>
@@ -19,8 +37,11 @@
 </template>
 
 <script>
+import 'vue-awesome/icons/chart-line';
+import 'vue-awesome/icons/random';
+import 'vue-awesome/icons/sort';
 import { mapActions } from 'vuex';
-import { Shuffle, BarChart } from 'vue-feather-icon';
+
 import StartTimeSettings from './StartTimeSettings.vue';
 import shuffle from '../../editor-operations/shuffle';
 
@@ -28,8 +49,6 @@ export default {
   name: 'EditorOperationPanel',
   components: {
     StartTimeSettings,
-    ShuffleIcon: Shuffle.default,
-    ChartIcon: BarChart.default,
   },
   methods: {
     async onClickShuffle() {
@@ -81,10 +100,9 @@ export default {
     background-color: var(--color-light-grey);
   }
 
-  .icon, .icon > * {
-    color: green;
-    fill: red;
-    stroke: blue;
+  .fa-icon {
+    color: var(--spotify-green);
+    font-size: 18px;
   }
 
   .right {

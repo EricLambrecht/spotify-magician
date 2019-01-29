@@ -16,7 +16,7 @@ import AddTrackModal from '../editor/AddTrackModal.vue';
 import SelectPlaylistModal from '../editor/SelectPlaylistModal.vue';
 import ChangelogModal from './ChangelogModal.vue';
 import ConfirmationModal from './ConfirmationModal.vue';
-import StatisticsModal from '../analysis/StatisticsModal.vue';
+import StatisticsModal from '../playlist-statistics/StatisticsModal.vue';
 
 export default {
   name: 'ModalManager',

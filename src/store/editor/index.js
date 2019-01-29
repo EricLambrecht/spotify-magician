@@ -9,8 +9,12 @@ const state = {
     timeOfDayStartHour: 18,
     timeOfDayStartMinute: 0,
   },
+  playlistStatistics: {
+    show: false,
+    fetching: false,
+  },
   playlist: null,
-  playlistAudioFeatures: null,
+  playlistAudioFeatures: [],
 };
 
 export default {

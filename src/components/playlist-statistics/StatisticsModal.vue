@@ -13,20 +13,13 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex';
+import { mapActions } from 'vuex';
 import AudioFeatureGraph from './AudioFeatureGraph.vue';
 
 export default {
   name: 'StatisticsModal',
   components: {
     AudioFeatureGraph,
-  },
-  computed: {
-    ...mapGetters('editor', [
-      'playlistItems',
-      'getAudioFeature',
-      'getAudioFeatureWithName',
-    ]),
   },
   methods: {
     ...mapActions('app', [

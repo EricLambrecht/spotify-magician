@@ -8,12 +8,18 @@ export default {
   }, playlistId) {
     try {
       Spotify.setAccessToken(rootState.user.accessToken);
+
       const playlist = await Spotify.getFullPlaylist(playlistId);
       commit('setPlaylist', playlist);
+
       dispatch('setTimeOfDayStart', {
         hour: state.displayOptions.timeOfDayStartHour,
         minute: state.displayOptions.timeOfDayStartMinute,
       });
+
+      if (state.playlistStatistics.show) {
+        await dispatch('fetchPlaylistAudioFeatures');
+      }
     } catch (err) {
       Spotify.handleApiError(dispatch, err);
     }
@@ -22,12 +28,15 @@ export default {
   async fetchPlaylistAudioFeatures({
     commit, dispatch, getters,
   }) {
+    commit('setPlaylistStatisticsFetching', true);
     try {
       const { playlistIds } = getters;
       const result = await api.getAudioFeaturesForTracks(playlistIds);
       commit('setPlaylistAudioFeatures', result.audio_features);
     } catch (err) {
       Spotify.handleApiError(dispatch, err);
+    } finally {
+      commit('setPlaylistStatisticsFetching', false);
     }
   },
 
@@ -49,6 +58,7 @@ export default {
       Spotify.handleApiError(dispatch, err);
     }
   },
+
 
   setTimeOfDayStart({ commit, state }, { hour, minute }) {
     commit('setTimeOfDayStart', { hour, minute });
@@ -79,6 +89,14 @@ export default {
       };
     });
     commit('setTrackItems', trackItems);
+  },
+
+  openPlaylistStatistics({ commit }) {
+    commit('setShowPlaylistStatistics', true);
+  },
+
+  closePlaylistStatistics({ commit }) {
+    commit('setShowPlaylistStatistics', false);
   },
 
   showTimeOfDay({ commit }, showIt) {

@@ -3,6 +3,7 @@
     <b-list-item
       class="time-of-day-headline"
     >
+      <!-- eslint-disable -->
       <input
         v-if="allowEdit"
         class="time input"
@@ -10,8 +11,8 @@
         @input="updateHour"
         @blur="inputHour = padNumber(inputHour)"
       >
-      <span v-else class="time">{{ hours }}</span> <!-- eslint-disable-line -->
-      <span class="colon">:</span> <!-- eslint-disable-line -->
+      <span v-else class="time">{{ hours }}</span>
+      <span class="colon">:</span>
       <input
         v-if="allowEdit"
         class="time input"
@@ -19,7 +20,7 @@
         @input="updateMinute"
         @blur="inputMinute = padNumber(inputMinute)"
       >
-      <span v-else class="time">00</span> <!-- eslint-disable-line -->
+      <span v-else class="time">00</span>
       <span>&nbsp;</span>
       <span>Uhr</span>
       <v-icon
@@ -27,6 +28,7 @@
         name="pen"
         class="icon"
       />
+      <!-- eslint-enable -->
     </b-list-item>
   </div>
 </template>

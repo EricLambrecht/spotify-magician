@@ -10,6 +10,8 @@
     <editor-playlist />
     <editor-track-adder />
 
+    <playlist-statistics-panel />
+
     <main-window-footer />
   </div>
 </template>
@@ -17,24 +19,28 @@
 <script>
 import { mapGetters, mapState, mapActions } from 'vuex';
 
-import EditorPlaylist from '../editor/EditorPlaylist.vue';
+import EditorOperationPanel from '../editor/EditorOperationPanel.vue';
 import ErrorMessage from './ErrorMessage.vue';
 import MainWindowHeader from './MainWindowHeader.vue';
-import EditorOperationPanel from '../editor/EditorOperationPanel.vue';
-import EditorTrackAdder from '../editor/EditorTrackAdder.vue';
+
 import ModalManager from './ModalManager.vue';
 import ToastMessageSystem from './ToastMessageSystem.vue';
 import MainWindowFooter from './MainWindowFooter.vue';
+import EditorPlaylist from '../editor/EditorPlaylist.vue';
+import EditorTrackAdder from '../editor/EditorTrackAdder.vue';
+import PlaylistStatisticsPanel from '../playlist-statistics/PlaylistStatisticsPanel.vue';
+
 
 export default {
   name: 'MainWindow',
   components: {
+    PlaylistStatisticsPanel,
+    EditorTrackAdder,
+    EditorPlaylist,
     MainWindowFooter,
     ToastMessageSystem,
     ModalManager,
-    EditorTrackAdder,
     EditorOperationPanel,
-    EditorPlaylist,
     ErrorMessage,
     MainWindowHeader,
   },

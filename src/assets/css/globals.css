@@ -33,6 +33,9 @@
 
   /* Media Queries */
   --max-width-small: 768px;
+
+  /* Transitions */
+  --ease-out-quart: cubic-bezier(0.165, 0.840, 0.440, 1.000);
 }
 
 @media screen and (max-width: 1080px) {

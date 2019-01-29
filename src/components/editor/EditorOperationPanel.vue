@@ -40,7 +40,7 @@
 import 'vue-awesome/icons/chart-line';
 import 'vue-awesome/icons/random';
 import 'vue-awesome/icons/sort';
-import { mapActions } from 'vuex';
+import { mapActions, mapState } from 'vuex';
 
 import TimeOfDaySwitch from './TimeOfDaySwitch.vue';
 import shuffle from '../../editor-operations/shuffle';
@@ -49,6 +49,11 @@ export default {
   name: 'EditorOperationPanel',
   components: {
     TimeOfDaySwitch,
+  },
+  computed: {
+    ...mapState('editor', {
+      showStatistics: state => state.playlistStatistics.show,
+    }),
   },
   methods: {
     async onClickShuffle() {
@@ -69,9 +74,14 @@ export default {
       }
     },
     async onClickStatistics() {
+      if (this.showStatistics) {
+        this.closePlaylistStatistics();
+        return;
+      }
+
       try {
         await this.fetchPlaylistAudioFeatures();
-        this.openModal('statistics-modal');
+        this.openPlaylistStatistics();
       } catch (e) {
         this.addToast({
           message: e.message,
@@ -83,10 +93,11 @@ export default {
     ...mapActions('app', [
       'askForConfirmation',
       'addToast',
-      'openModal',
     ]),
     ...mapActions('editor', [
       'rearrangePlaylistWith',
+      'openPlaylistStatistics',
+      'closePlaylistStatistics',
       'fetchPlaylistAudioFeatures',
     ]),
   },

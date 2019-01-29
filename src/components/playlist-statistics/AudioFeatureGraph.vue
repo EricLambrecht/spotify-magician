@@ -1,5 +1,5 @@
 <template>
-  <div class="section">
+  <div v-if="getAudioFeatureWithName(featureName).length > 0" class="section">
     <b-headline>{{ headline }}</b-headline>
     <la-cartesian
       :data="getAudioFeatureWithName(featureName)"
@@ -11,7 +11,7 @@
     >
       <la-line
         :width="1.5"
-        :animation-duration="2"
+        :animation-duration="1"
         prop="data"
         label="Energy"
         color="#1DB954"
@@ -69,7 +69,7 @@ export default {
     ]),
     width() {
       const padding = 40;
-      const maxWidth = 400;
+      const maxWidth = 300;
       const maximumAvailableSpace = this.appWidth - (2 * padding);
       return Math.min(maximumAvailableSpace, maxWidth);
     },

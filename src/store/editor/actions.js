@@ -10,9 +10,9 @@ export default {
       Spotify.setAccessToken(rootState.user.accessToken);
       const playlist = await Spotify.getFullPlaylist(playlistId);
       commit('setPlaylist', playlist);
-      dispatch('setStartingTime', {
-        startHour: state.displayOptions.startHour,
-        startMinute: state.displayOptions.startMinute,
+      dispatch('setTimeOfDayStart', {
+        hour: state.displayOptions.timeOfDayStartHour,
+        minute: state.displayOptions.timeOfDayStartMinute,
       });
     } catch (err) {
       Spotify.handleApiError(dispatch, err);
@@ -50,13 +50,13 @@ export default {
     }
   },
 
-  setStartingTime({ commit, state }, { startHour, startMinute }) {
-    commit('setStartingTime', { startHour, startMinute });
+  setTimeOfDayStart({ commit, state }, { hour, minute }) {
+    commit('setTimeOfDayStart', { hour, minute });
 
     let currentTime = moment
       .duration(0)
-      .add(parseInt(startHour, 10), 'hours')
-      .add(parseInt(startMinute, 10), 'minutes');
+      .add(parseInt(hour, 10), 'hours')
+      .add(parseInt(minute, 10), 'minutes');
 
     let lastHour = currentTime.hours();
 
@@ -81,8 +81,8 @@ export default {
     commit('setTrackItems', trackItems);
   },
 
-  showStartingTime({ commit }, showIt) {
-    commit('showStartingTime', showIt);
+  showTimeOfDay({ commit }, showIt) {
+    commit('showTimeOfDay', showIt);
   },
 
   async removeTrack({ dispatch, state }, uri) {

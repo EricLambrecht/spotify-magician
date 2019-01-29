@@ -5,9 +5,9 @@ import mutations from './mutations';
 // initial state
 const state = {
   displayOptions: {
-    showStartingTime: false,
-    startHour: 18,
-    startMinute: 0,
+    showTimeOfDay: false,
+    timeOfDayStartHour: 18,
+    timeOfDayStartMinute: 0,
   },
   playlist: null,
   playlistAudioFeatures: null,

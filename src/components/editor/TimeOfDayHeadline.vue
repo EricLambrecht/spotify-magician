@@ -1,7 +1,7 @@
 <template>
   <div>
     <b-list-item
-      class="start-time-headline"
+      class="time-of-day-headline"
     >
       <input
         v-if="allowEdit"
@@ -10,12 +10,8 @@
         @input="updateHour"
         @blur="inputHour = padNumber(inputHour)"
       >
-      <span v-else class="time">
-        {{ hours }}
-      </span>
-      <span class="colon">
-        :
-      </span>
+      <span v-else class="time">{{ hours }}</span> <!-- eslint-disable-line -->
+      <span class="colon">:</span> <!-- eslint-disable-line -->
       <input
         v-if="allowEdit"
         class="time input"
@@ -23,9 +19,7 @@
         @input="updateMinute"
         @blur="inputMinute = padNumber(inputMinute)"
       >
-      <span v-else class="time">
-        00
-      </span>
+      <span v-else class="time">00</span> <!-- eslint-disable-line -->
       <span>&nbsp;</span>
       <span>Uhr</span>
       <v-icon
@@ -43,7 +37,7 @@ import { mapActions, mapState } from 'vuex';
 import { getHours, getMinutes } from '../../utils/formatTime';
 
 export default {
-  name: 'StartTimeHeadline',
+  name: 'TimeOfDayHeadline',
   props: {
     startTimeMs: {
       type: Number,
@@ -68,8 +62,8 @@ export default {
       return this.padNumber(getMinutes(this.startTimeMs));
     },
     ...mapState('editor', {
-      startHour: state => state.displayOptions.startHour,
-      startMinute: state => state.displayOptions.startMinute,
+      timeOfDayStartHour: state => state.displayOptions.timeOfDayStartHour,
+      timeOfDayStartMinute: state => state.displayOptions.timeOfDayStartMinute,
     }),
   },
   methods: {
@@ -77,15 +71,15 @@ export default {
       return number.toString().padStart(2, '0');
     },
     ...mapActions('editor', [
-      'setStartingTime',
+      'setTimeOfDayStart',
     ]),
     updateHour(e) {
       this.inputHour = e.target.value;
-      this.setStartingTime({ startHour: this.inputHour, startMinute: this.startMinute });
+      this.setTimeOfDayStart({ hour: this.inputHour, minute: this.timeOfDayStartMinute });
     },
     updateMinute(e) {
       this.inputMinute = e.target.value;
-      this.setStartingTime({ startHour: this.startHour, startMinute: this.inputMinute });
+      this.setTimeOfDayStart({ hour: this.timeOfDayStartHour, minute: this.inputMinute });
     },
   },
 
@@ -93,7 +87,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .start-time-headline {
+  .time-of-day-headline {
     margin-top: 30px;
     margin-bottom: 15px;
 

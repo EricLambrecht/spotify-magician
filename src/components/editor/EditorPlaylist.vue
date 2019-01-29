@@ -1,9 +1,9 @@
 <template>
   <b-list class="playlist" ordered>
     <template v-for="(item, index) in displayItems">
-      <start-time-headline
+      <time-of-day-headline
         v-if="index === 0 || item.track.first_of_hour"
-        v-show="showStartingTime"
+        v-show="showTimeOfDay"
         :key="`${item._uniqueId}_headline`"
         class="section-headline"
         :start-time-ms="item.track.relative_start_time_ms"
@@ -29,11 +29,11 @@
 <script>
 import { mapGetters, mapState, mapActions } from 'vuex';
 import EditorPlaylistItem from './EditorPlaylistItem.vue';
-import StartTimeHeadline from './StartTimeHeadline.vue';
+import TimeOfDayHeadline from './TimeOfDayHeadline.vue';
 
 export default {
   name: 'EditorPlaylist',
-  components: { StartTimeHeadline, EditorPlaylistItem },
+  components: { TimeOfDayHeadline, EditorPlaylistItem },
   data() {
     return {
       temporaryPlaylistItems: null,
@@ -45,7 +45,7 @@ export default {
   },
   computed: {
     ...mapState('editor', {
-      showStartingTime: state => state.displayOptions.showStartingTime,
+      showTimeOfDay: state => state.displayOptions.showTimeOfDay,
     }),
     ...mapGetters({
       playlistItems: 'editor/playlistItems',

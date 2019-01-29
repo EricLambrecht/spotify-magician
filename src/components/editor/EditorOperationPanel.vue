@@ -29,7 +29,7 @@
           </b-button>
         </b-column>
         <b-column class="right">
-          <start-time-settings />
+          <time-of-day-switch />
         </b-column>
       </b-row>
     </b-grid>
@@ -42,13 +42,13 @@ import 'vue-awesome/icons/random';
 import 'vue-awesome/icons/sort';
 import { mapActions } from 'vuex';
 
-import StartTimeSettings from './StartTimeSettings.vue';
+import TimeOfDaySwitch from './TimeOfDaySwitch.vue';
 import shuffle from '../../editor-operations/shuffle';
 
 export default {
   name: 'EditorOperationPanel',
   components: {
-    StartTimeSettings,
+    TimeOfDaySwitch,
   },
   methods: {
     async onClickShuffle() {

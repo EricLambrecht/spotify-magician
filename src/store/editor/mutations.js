@@ -5,16 +5,16 @@ export default {
   setPlaylistAudioFeatures(state, audioFeatures) {
     state.playlistAudioFeatures = audioFeatures;
   },
-  setStartingTime(state, { startHour, startMinute }) {
-    state.displayOptions.startHour = startHour;
-    state.displayOptions.startMinute = startMinute;
+  setTimeOfDayStart(state, { hour, minute }) {
+    state.displayOptions.timeOfDayStartHour = hour;
+    state.displayOptions.timeOfDayStartMinute = minute;
   },
   setTrackItems(state, items) {
     if (state.playlist && state.playlist.tracks) {
       state.playlist.tracks.items = items;
     }
   },
-  showStartingTime(state, showIt) {
-    state.displayOptions.showStartingTime = showIt;
+  showTimeOfDay(state, showIt) {
+    state.displayOptions.showTimeOfDay = showIt;
   },
 };

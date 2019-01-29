@@ -11,7 +11,7 @@
       :size="51"
       class="image"
     />
-    <b-text v-if="showStartingTime" class="time time-of-day">
+    <b-text v-if="showTimeOfDay" class="time time-of-day">
       {{ item.track.relative_start_time_ms | formatTime('h:mm') }}
     </b-text>
     <b-text v-else class="time duration">
@@ -60,7 +60,7 @@ export default {
   },
   computed: {
     ...mapState('editor', {
-      showStartingTime: state => state.displayOptions.showStartingTime,
+      showTimeOfDay: state => state.displayOptions.showTimeOfDay,
     }),
     contextMenuActions() {
       return [

@@ -1,14 +1,14 @@
 <template>
   <b-list class="playlist" ordered>
     <template v-for="(item, index) in displayItems">
-      <b-list-item
+      <start-time-headline
         v-if="index === 0 || item.track.first_of_hour"
         v-show="showStartingTime"
         :key="item.track.relative_start_time_ms"
         class="section-headline"
-      >
-        {{ item.track.relative_start_time_ms | formatTime('h:mm') }} Uhr
-      </b-list-item>
+        :start-time-ms="item.track.relative_start_time_ms"
+        :allowEdit="index === 0"
+      />
       <editor-playlist-item
         :key="item._uniqueId"
         :item="item"
@@ -29,16 +29,11 @@
 <script>
 import { mapGetters, mapState, mapActions } from 'vuex';
 import EditorPlaylistItem from './EditorPlaylistItem.vue';
-import formatTime from '../../utils/formatTime';
+import StartTimeHeadline from "./StartTimeHeadline.vue";
 
 export default {
   name: 'EditorPlaylist',
-  components: { EditorPlaylistItem },
-  filters: {
-    formatTime(milliseconds, format = '') {
-      return formatTime(milliseconds, format);
-    },
-  },
+  components: { StartTimeHeadline, EditorPlaylistItem },
   data() {
     return {
       temporaryPlaylistItems: null,
@@ -104,9 +99,6 @@ export default {
         this.temporaryPlaylistItems.splice(from, 1)[0],
       );
     },
-    createUniqueId() {
-      return Math.random().toString(36).substr(2, 9);
-    },
   },
 };
 </script>
@@ -119,13 +111,6 @@ export default {
 
     /* This really solves an issue with drag and drop rendering in chrome */
     transform: translateZ(0);
-
-    .section-headline {
-      margin-top: 20px;
-      margin-bottom: 12px;
-      font-weight: bold;
-      padding: 0;
-    }
 
     .drag-hover {
       background-color: white;

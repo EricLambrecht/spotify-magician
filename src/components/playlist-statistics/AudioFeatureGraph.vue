@@ -1,6 +1,8 @@
 <template>
   <div v-if="getAudioFeatureWithName(featureName).length > 0" class="section">
-    <b-headline>{{ headline }}</b-headline>
+    <b-headline class="headline">
+      {{ headline }}
+    </b-headline>
     <la-cartesian
       :data="getAudioFeatureWithName(featureName)"
       :bound="[0,1]"
@@ -78,6 +80,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  span.headline {
+    color: #CCCCCC;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 600;
+    font-size: 15px;
+  }
   .section {
     &:not(:last-child) {
       margin-bottom: 40px;
@@ -85,13 +95,13 @@ export default {
   }
   .chart {
     margin: 15px 1px 10px;
-    border-left: 2px dashed var(--color-light-grey);
-    border-right: 2px dashed var(--color-light-grey);
+    border-left: 2px dashed var(--color-default-light);
+    border-right: 2px dashed var(--color-default-light);
   }
   .chart-bottom {
     display: flex;
     font-size: 13px;
-    color: #666;
+    color: var(--color-grey);
   }
   .x-axis {
     display: none;

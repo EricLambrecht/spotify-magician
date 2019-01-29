@@ -27,11 +27,12 @@ export default {
 
 <style lang="scss" scoped>
   .panel {
-    background-color: white;
+    background: linear-gradient(20deg, #041010, #010f35);
     border-radius: 5px;
-    box-shadow: rgba(0,0,0, 0.25) 0 0 20px;
+    box-shadow: rgba(0,0,0, 0.65) 0 0 30px;
 
     position: fixed;
+    z-index: var(--z-index-statistics-panel);
     top: 50%;
     transform: translateY(-50%);
     right: 0;
@@ -59,5 +60,43 @@ export default {
 
   .padding-box {
     padding: 20px;
+  }
+
+  @media screen and (max-width: 1080px) {
+    .panel {
+      background-color: var(--color-default);
+      border-top-right-radius: 0;
+      border-top-left-radius: 0;
+      box-shadow: none;
+
+      width: 100%;
+      max-width: none;
+      margin: auto;
+
+      position: static;
+      transform: none;
+      overflow-x: scroll;
+      overflow-y: hidden;
+
+      max-height: 0;
+      transition: max-height 0.25s var(--ease-out-quart);
+
+      &.show {
+        max-width: none;
+        max-height: 250px;
+      }
+    }
+
+    .padding-box {
+      width: 100%;
+      padding: 30px 20px;
+      display: flex;
+
+      > * {
+        &:not(:last-child) {
+          margin-right: 40px;
+        }
+      }
+    }
   }
 </style>

@@ -23,6 +23,7 @@ export default {
 
 <style lang="scss" scoped>
   .headline {
+    display: block;
     color: var(--color-default);
     font-family: var(--font-family);
     font-weight: bold;

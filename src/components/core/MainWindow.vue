@@ -7,10 +7,10 @@
     <modal-manager />
     <toast-message-system />
 
+    <playlist-statistics-panel />
+
     <editor-playlist />
     <editor-track-adder />
-
-    <playlist-statistics-panel />
 
     <main-window-footer />
   </div>

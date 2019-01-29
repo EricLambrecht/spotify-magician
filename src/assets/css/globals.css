@@ -36,6 +36,9 @@
 
   /* Transitions */
   --ease-out-quart: cubic-bezier(0.165, 0.840, 0.440, 1.000);
+
+  /* Z-indices */
+  --z-index-statistics-panel: 1000;
 }
 
 @media screen and (max-width: 1080px) {

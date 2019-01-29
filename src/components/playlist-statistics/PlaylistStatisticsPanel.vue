@@ -1,9 +1,13 @@
 <template>
   <div :class="{ panel: true, show }">
     <div class="padding-box">
-      <audio-feature-graph headline="Energy" feature-name="energy" />
-      <audio-feature-graph headline="Positiveness" feature-name="valence" />
-      <audio-feature-graph headline="Danceability" feature-name="danceability" />
+      <!-- map over user selected features -->
+      <audio-feature-graph
+        v-for="feature in activeFeatures"
+        :key="feature.name"
+        :headline="feature.caption"
+        :feature-name="feature.name"
+      />
     </div>
   </div>
 </template>
@@ -20,6 +24,7 @@ export default {
   computed: {
     ...mapState('editor', {
       show: state => state.playlistStatistics.show,
+      activeFeatures: state => state.playlistStatistics.activeFeatures,
     }),
   },
 };

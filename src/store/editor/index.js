@@ -12,6 +12,11 @@ const state = {
   playlistStatistics: {
     show: false,
     fetching: false,
+    activeFeatures: [
+      { caption: 'Energy', name: 'energy' },
+      { caption: 'Danceability', name: 'danceability' },
+      { caption: 'Positiveness', name: 'valence' },
+    ],
   },
   playlist: null,
   playlistAudioFeatures: [],

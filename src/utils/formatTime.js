@@ -20,12 +20,12 @@ const formatTime = (milliseconds, format = '') => {
 
 export default formatTime;
 
-export const getHours = milliseconds => {
+export const getHours = (milliseconds) => {
   const duration = moment.duration(milliseconds);
   return duration.hours();
 };
 
-export const getMinutes = milliseconds => {
+export const getMinutes = (milliseconds) => {
   const duration = moment.duration(milliseconds);
   return duration.minutes();
 };

@@ -4,10 +4,10 @@
       <start-time-headline
         v-if="index === 0 || item.track.first_of_hour"
         v-show="showStartingTime"
-        :key="item.track.relative_start_time_ms"
+        :key="`${item._uniqueId}_headline`"
         class="section-headline"
         :start-time-ms="item.track.relative_start_time_ms"
-        :allowEdit="index === 0"
+        :allow-edit="index === 0"
       />
       <editor-playlist-item
         :key="item._uniqueId"
@@ -29,7 +29,7 @@
 <script>
 import { mapGetters, mapState, mapActions } from 'vuex';
 import EditorPlaylistItem from './EditorPlaylistItem.vue';
-import StartTimeHeadline from "./StartTimeHeadline.vue";
+import StartTimeHeadline from './StartTimeHeadline.vue';
 
 export default {
   name: 'EditorPlaylist',

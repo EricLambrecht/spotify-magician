@@ -3,25 +3,44 @@
     <b-list-item
       class="start-time-headline"
     >
-      <span
-        class="time"
-        :contenteditable="allowEdit"
-        v-text="formatTime(startTimeMs, 'hh')"
-        @blur="updateHours"></span>
-      <span class="colon">:</span>
-      <span v-if="allowEdit" class="time" :contenteditable="allowEdit" v-text="formatTime(minutesInMilliseconds, 'mm')"></span>
-      <span v-else="allowEdit" class="time">00</span>
+      <input
+        v-if="allowEdit"
+        class="time input"
+        :value="inputHour"
+        @input="updateHour"
+        @blur="inputHour = padNumber(inputHour)"
+      >
+      <span v-else class="time">
+        {{ hours }}
+      </span>
+      <span class="colon">
+        :
+      </span>
+      <input
+        v-if="allowEdit"
+        class="time input"
+        :value="inputMinute"
+        @input="updateMinute"
+        @blur="inputMinute = padNumber(inputMinute)"
+      >
+      <span v-else class="time">
+        00
+      </span>
       <span>&nbsp;</span>
       <span>Uhr</span>
-      <v-icon v-if="allowEdit" name="pen" class="icon" />
+      <v-icon
+        v-if="allowEdit"
+        name="pen"
+        class="icon"
+      />
     </b-list-item>
   </div>
 </template>
 
 <script>
 import 'vue-awesome/icons/pen';
-import { mapActions } from 'vuex';
-import formatTime, { getHours, getMinutes } from '../../utils/formatTime';
+import { mapActions, mapState } from 'vuex';
+import { getHours, getMinutes } from '../../utils/formatTime';
 
 export default {
   name: 'StartTimeHeadline',
@@ -33,29 +52,40 @@ export default {
     allowEdit: {
       type: Boolean,
       default: false,
-    }
+    },
+  },
+  data() {
+    return {
+      inputHour: this.padNumber(getHours(this.startTimeMs)),
+      inputMinute: this.padNumber(getMinutes(this.startTimeMs)),
+    };
   },
   computed: {
     hours() {
-      return getHours(this.startTimeMs);
+      return this.padNumber(getHours(this.startTimeMs));
     },
     minutes() {
-      return getMinutes(this.startTimeMs);
+      return this.padNumber(getMinutes(this.startTimeMs));
     },
-    minutesInMilliseconds() {
-      return this.minutes * 60000;
-    }
+    ...mapState('editor', {
+      startHour: state => state.displayOptions.startHour,
+      startMinute: state => state.displayOptions.startMinute,
+    }),
   },
   methods: {
-    formatTime,
+    padNumber(number) {
+      return number.toString().padStart(2, '0');
+    },
     ...mapActions('editor', [
       'setStartingTime',
     ]),
-    updateHours(e) {
-      console.log('e:', Number.parseInt(e.target.textContent));
+    updateHour(e) {
+      this.inputHour = e.target.value;
+      this.setStartingTime({ startHour: this.inputHour, startMinute: this.startMinute });
     },
-    onChangeTime() {
-      this.setStartingTime({ startHour: this.startHour, startMinute: this.startMinute });
+    updateMinute(e) {
+      this.inputMinute = e.target.value;
+      this.setStartingTime({ startHour: this.startHour, startMinute: this.inputMinute });
     },
   },
 
@@ -78,8 +108,17 @@ export default {
   }
 
   .icon {
+    color: #cccccc;
     font-size: 22px;
     margin-left: 5px;
     margin-bottom: 1px;
+  }
+
+  .input {
+    width: 36px;
+    padding: 0;
+    background-color: var(--color-background-grey);
+    border: none;
+    outline: none;
   }
 </style>

@@ -1,13 +1,16 @@
 <template>
   <div :class="{ panel: true, show }">
     <div class="padding-box">
+      <graph-feature-chooser class="buttons" />
       <!-- map over user selected features -->
-      <audio-feature-graph
-        v-for="feature in activeFeatures"
-        :key="feature.name"
-        :headline="feature.caption"
-        :feature-name="feature.name"
-      />
+      <div class="graphs">
+        <audio-feature-graph
+          v-for="feature in activeFeatureGraphs"
+          :key="feature"
+          :headline="feature"
+          :feature-name="feature"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -15,16 +18,18 @@
 <script>
 import { mapState } from 'vuex';
 import AudioFeatureGraph from './AudioFeatureGraph.vue';
+import GraphFeatureChooser from './GraphFeatureChooser.vue';
 
 export default {
   name: 'PlaylistStatisticsPanel',
   components: {
+    GraphFeatureChooser,
     AudioFeatureGraph,
   },
   computed: {
-    ...mapState('editor', {
-      show: state => state.playlistStatistics.show,
-      activeFeatures: state => state.playlistStatistics.activeFeatures,
+    ...mapState('playlistStatistics', {
+      show: state => state.show,
+      activeFeatureGraphs: state => state.activeFeatureGraphs,
     }),
   },
 };
@@ -41,11 +46,8 @@ export default {
     top: 50%;
     transform: translateY(-50%);
     right: 0;
-    max-height: 70vh;
 
     max-width: 0;
-    overflow-x: hidden;
-    overflow-y: scroll;
 
     transition: max-width 0.25s var(--ease-out-quart);
 
@@ -63,27 +65,49 @@ export default {
     }
   }
 
+  .buttons {
+    margin-bottom: 20px;
+    min-width: 380px;
+    max-height: 102px;
+    overflow-y: hidden;
+  }
+
+  .graphs {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    max-height: 61vh;
+
+    padding-left: 20px;
+    padding-right: 37px;
+
+    > * {
+      &:not(:last-child) {
+        margin-bottom: 30px;
+      }
+    }
+  }
+
   .padding-box {
-    padding: 20px;
+    height: 100%;
+    max-width: 100%;
+    padding: 20px 0 20px 20px;
+    box-sizing: border-box;
   }
 
   @media screen and (max-width: 1080px) {
     .panel {
       background-color: var(--color-default);
-      border-top-right-radius: 0;
-      border-top-left-radius: 0;
-      box-shadow: none;
+      border-radius: 0 0 10px 10px;
+      box-shadow: rgba(0,0,0, 0.45) 0 3px 8px;
 
       width: 100%;
       max-width: none;
       margin: auto;
+      max-height: 0;
 
       position: static;
       transform: none;
-      overflow-x: scroll;
-      overflow-y: hidden;
 
-      max-height: 0;
       transition: max-height 0.25s var(--ease-out-quart);
 
       &.show {
@@ -92,16 +116,33 @@ export default {
       }
     }
 
+    .graphs {
+      overflow-x: scroll;
+      overflow-y: hidden;
+      max-height: none;
+
+      display: flex;
+      padding: 0;
+
+      > * {
+        &:not(:last-child) {
+          margin-bottom: 0;
+          margin-right: 40px;
+        }
+      }
+    }
+
+    .buttons {
+      min-width: 240px;
+      max-width: 270px;
+      max-height: none;
+      margin-bottom: 0;
+    }
+
     .padding-box {
       width: 100%;
       padding: 30px 20px;
       display: flex;
-
-      > * {
-        &:not(:last-child) {
-          margin-right: 40px;
-        }
-      }
     }
   }
 </style>

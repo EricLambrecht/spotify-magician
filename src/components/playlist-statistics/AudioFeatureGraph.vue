@@ -1,11 +1,11 @@
 <template>
-  <div v-if="getAudioFeatureWithName(featureName).length > 0" class="section">
+  <div v-if="audioFeatureData.length > 0" class="section">
     <b-headline class="headline">
-      {{ headline }}
+      {{ featureName | caption }}
     </b-headline>
     <la-cartesian
-      :data="getAudioFeatureWithName(featureName)"
-      :bound="[0,1]"
+      :data="audioFeatureData"
+      :bound="bounds"
       :height="100"
       :width="width"
       :padding="0"
@@ -44,6 +44,8 @@ import {
   Cartesian, Line, Tooltip, XAxis, 
 } from 'laue';
 
+import { getCaptionForFeatureName, getBoundsForLineChartFeature } from '../../store/playlist-statistics/supportedAudioFeatures';
+
 export default {
   name: 'AudioFeatureGraph',
   components: {
@@ -52,23 +54,30 @@ export default {
     LaTooltip: Tooltip,
     LaXAxis: XAxis,
   },
-  props: {
-    headline: {
-      type: String,
-      required: true,
+  filters: {
+    caption(featureName) {
+      return getCaptionForFeatureName(featureName);
     },
+  },
+  props: {
     featureName: {
       type: String,
       required: true,
     },
   },
   computed: {
-    ...mapGetters('editor', [
+    ...mapGetters('playlistStatistics', [
       'getAudioFeatureWithName',
     ]),
     ...mapGetters('app', [
       'appWidth',
     ]),
+    audioFeatureData() {
+      return this.getAudioFeatureWithName(this.featureName);
+    },
+    bounds() {
+      return getBoundsForLineChartFeature(this.featureName);
+    },
     width() {
       const padding = 40;
       const maxWidth = 300;
@@ -87,11 +96,6 @@ export default {
     margin-bottom: 20px;
     font-weight: 600;
     font-size: 15px;
-  }
-  .section {
-    &:not(:last-child) {
-      margin-bottom: 40px;
-    }
   }
   .chart {
     margin: 15px 1px 10px;

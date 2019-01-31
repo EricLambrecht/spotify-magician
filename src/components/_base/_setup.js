@@ -8,6 +8,7 @@ import Vue from 'vue';
  */
 
 import Button from './Button.vue';
+import CheckboxButton from './CheckboxButton.vue';
 import Container from './Container.vue';
 import ContextMenu from './ContextMenu.vue';
 import Dropdown from './Dropdown.vue';
@@ -29,6 +30,7 @@ import Text from './Text.vue';
 import TextInput from './TextInput.vue';
 
 Vue.component('b-button', Button);
+Vue.component('b-checkbox-button', CheckboxButton);
 Vue.component('b-column', GridColumn);
 Vue.component('b-container', Container);
 Vue.component('b-context-menu', ContextMenu);

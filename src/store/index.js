@@ -6,6 +6,7 @@ import Vuex from 'vuex';
 import app from './app';
 import editor from './editor';
 import user from './user';
+import playlistStatistics from './playlist-statistics';
 
 Vue.use(Vuex);
 
@@ -16,6 +17,7 @@ export default new Vuex.Store({
     app,
     editor,
     user,
+    playlistStatistics,
   },
   strict: debug,
   plugins: [],

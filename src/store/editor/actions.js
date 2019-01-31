@@ -4,7 +4,7 @@ import 'moment-duration-format';
 
 export default {
   async fetchPlaylist({
-    commit, dispatch, state, rootState, 
+    commit, dispatch, state, rootState,
   }, playlistId) {
     try {
       Spotify.setAccessToken(rootState.user.accessToken);
@@ -17,26 +17,11 @@ export default {
         minute: state.displayOptions.timeOfDayStartMinute,
       });
 
-      if (state.playlistStatistics.show) {
-        await dispatch('fetchPlaylistAudioFeatures');
+      if (rootState.playlistStatistics.show) {
+        await dispatch('playlistStatistics/fetchPlaylistAudioFeatures', null, { root: true });
       }
     } catch (err) {
       Spotify.handleApiError(dispatch, err);
-    }
-  },
-
-  async fetchPlaylistAudioFeatures({
-    commit, dispatch, getters,
-  }) {
-    commit('setPlaylistStatisticsFetching', true);
-    try {
-      const { playlistIds } = getters;
-      const result = await api.getAudioFeaturesForTracks(playlistIds);
-      commit('setPlaylistAudioFeatures', result.audio_features);
-    } catch (err) {
-      Spotify.handleApiError(dispatch, err);
-    } finally {
-      commit('setPlaylistStatisticsFetching', false);
     }
   },
 
@@ -89,14 +74,6 @@ export default {
       };
     });
     commit('setTrackItems', trackItems);
-  },
-
-  openPlaylistStatistics({ commit }) {
-    commit('setShowPlaylistStatistics', true);
-  },
-
-  closePlaylistStatistics({ commit }) {
-    commit('setShowPlaylistStatistics', false);
   },
 
   showTimeOfDay({ commit }, showIt) {

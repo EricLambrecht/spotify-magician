@@ -15,7 +15,7 @@
             <v-icon
               slot="icon"
               name="sort"
-              label="shuffle"
+              label="sort"
             />
             Sort
           </b-button>
@@ -51,8 +51,8 @@ export default {
     TimeOfDaySwitch,
   },
   computed: {
-    ...mapState('editor', {
-      showStatistics: state => state.playlistStatistics.show,
+    ...mapState('playlistStatistics', {
+      showStatistics: state => state.show,
     }),
   },
   methods: {
@@ -96,9 +96,11 @@ export default {
     ]),
     ...mapActions('editor', [
       'rearrangePlaylistWith',
+    ]),
+    ...mapActions('playlistStatistics', [
+      'fetchPlaylistAudioFeatures',
       'openPlaylistStatistics',
       'closePlaylistStatistics',
-      'fetchPlaylistAudioFeatures',
     ]),
   },
 };

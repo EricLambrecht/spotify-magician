@@ -4,12 +4,14 @@ import mutations from './mutations';
 
 // initial state
 const state = {
-  displayOptions: {
-    showTimeOfDay: false,
-    timeOfDayStartHour: 18,
-    timeOfDayStartMinute: 0,
-  },
-  playlist: null,
+  fetching: false,
+  playlistAudioFeatures: [],
+  show: false,
+  activeFeatureGraphs: [
+    'danceability',
+    'energy',
+    'valence',
+  ],
 };
 
 export default {

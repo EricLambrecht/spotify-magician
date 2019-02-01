@@ -98,9 +98,17 @@ export default {
     }
   },
 
-  async rearrangePlaylistWith({ dispatch, state }, rearranger) {
+  /**
+   * Rearranges the current editor playlist with a selected rearranger
+   * @param dispatch
+   * @param state
+   * @param {Rearranger} rearranger
+   * @param {Object} options
+   * @returns {Promise<*>}
+   */
+  async rearrangePlaylistWith({ dispatch, state }, { rearranger, options }) {
     const { playlist } = state;
-    const uris = rearranger.rearrange(playlist);
+    const uris = rearranger.rearrange(playlist, options);
     return dispatch('replaceTracks', uris);
   },
 };

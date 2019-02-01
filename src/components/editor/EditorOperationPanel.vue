@@ -11,7 +11,7 @@
             />
             Shuffle
           </b-button>
-          <b-button tertiary @click="onClickShuffle">
+          <b-button tertiary @click="onClickSort">
             <v-icon
               slot="icon"
               name="sort"
@@ -43,7 +43,8 @@ import 'vue-awesome/icons/sort';
 import { mapActions, mapState } from 'vuex';
 
 import TimeOfDaySwitch from './TimeOfDaySwitch';
-import shuffle from '../../editor-operations/shuffle';
+import RandomShuffle from '../../playlist-modifications/RandomShuffle';
+import SortByTrackProperty from '../../playlist-modifications/SortByTrackProperty';
 
 export default {
   name: 'EditorOperationPanel',
@@ -64,7 +65,32 @@ export default {
           positive: 'Shuffle',
           negative: 'Cancel',
         });
-        await this.rearrangePlaylistWith(shuffle);
+        await this.rearrangePlaylistWith({
+          rearranger: RandomShuffle,
+        });
+      } catch (e) {
+        this.addToast({
+          message: e.message,
+          type: 'error',
+          dismissible: false,
+        });
+      }
+    },
+    async onClickSort() {
+      try {
+        await this.askForConfirmation({
+          headline: 'Sort',
+          question: 'Are you sure you want to sort your playlist?',
+          positive: 'Sort',
+          negative: 'Cancel',
+        });
+        await this.rearrangePlaylistWith({
+          rearranger: SortByTrackProperty,
+          options: {
+            order: 'ASC',
+            sortBy: 'artists.0.name',
+          },
+        });
       } catch (e) {
         this.addToast({
           message: e.message,

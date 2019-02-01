@@ -5,7 +5,7 @@
     <confirmation-modal />
 
     <!-- dynamic modals live here... -->
-    <portal-target name="modals"></portal-target>
+    <portal-target name="modals" />
   </div>
 </template>
 

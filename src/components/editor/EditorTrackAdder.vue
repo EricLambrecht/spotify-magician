@@ -5,17 +5,17 @@
         Add track
       </b-text>
     </div>
-    <add-track-modal :show="showModal" @close="closeModal"/>
+    <add-track-modal :show="showModal" @close="closeModal" />
   </b-container>
 </template>
 
 <script>
 import { mapGetters } from 'vuex';
-import AddTrackModal from "./AddTrackModal";
+import AddTrackModal from './AddTrackModal';
 
 export default {
   name: 'EditorTrackAdder',
-  components: {AddTrackModal},
+  components: { AddTrackModal },
   data() {
     return {
       showModal: false,
@@ -32,7 +32,7 @@ export default {
     },
     closeModal() {
       this.showModal = false;
-    }
+    },
   },
 };
 </script>

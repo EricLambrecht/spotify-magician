@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Icon from 'vue-awesome/components/Icon';
-import PortalVue from 'portal-vue'
+import PortalVue from 'portal-vue';
 
 import App from './App';
 import store from './store';

@@ -1,6 +1,6 @@
 <template>
   <b-modal :show="show" :modal-styles="{ maxHeight: '75vh', overflowY: 'scroll' }">
-    <div v-html="html" class="changelog-saljhd98a2ebhs"/>
+    <div class="changelog-saljhd98a2ebhs" v-html="html" />
     <div slot="footer">
       <b-button @click="$emit('close')">
         Close
@@ -15,15 +15,15 @@ import changelog from '../../../CHANGELOG.md';
 
 export default {
   name: 'ChangelogModal',
-  computed: {
-    html() {
-      return changelog.replace(/All[\s\S]*guidelines./g, '');
-    },
-  },
   props: {
     show: {
       type: Boolean,
       required: true,
+    },
+  },
+  computed: {
+    html() {
+      return changelog.replace(/All[\s\S]*guidelines./g, '');
     },
   },
   methods: {

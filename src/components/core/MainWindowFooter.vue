@@ -28,7 +28,7 @@ export default {
     },
     closeChangelog() {
       this.showChangelog = false;
-    }
+    },
   },
 };
 </script>

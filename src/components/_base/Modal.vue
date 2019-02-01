@@ -1,5 +1,5 @@
 <template>
-  <portal to="modals" v-if="show">
+  <portal v-if="show" to="modals">
     <transition
       :duration="300"
       name="modal"
@@ -38,8 +38,8 @@ export default {
     },
     modalStyles: {
       type: Object,
-      default: {},
-    }
+      default: () => {},
+    },
   },
 };
 </script>

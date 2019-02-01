@@ -3,10 +3,12 @@ import Rearranger from './Rearranger';
 
 export default class AbstractSort extends Rearranger {
   static rearrange(playlist, options = { order: 'ASC' }) {
+    const { order } = options;
+
     if (!options.order || !['ASC', 'DESC'].includes(options.order)) {
       throw Error('"options.order" must be defined and be either "ASC" or "DESC" in order to sort.');
     }
-    const order = { options };
+
     return this.sort(playlist, order, options);
   }
 
@@ -50,7 +52,7 @@ export default class AbstractSort extends Rearranger {
    * @returns {number}
    */
   static smallerThanValue(order) {
-    return order === 'ASC' ? 1 : -1;
+    return order === 'ASC' ? -1 : 1;
   }
 
   /**
@@ -59,6 +61,6 @@ export default class AbstractSort extends Rearranger {
    * @returns {number}
    */
   static greaterThanValue(order) {
-    return order === 'ASC' ? -1 : 1;
+    return order === 'ASC' ? 1 : -1;
   }
 }

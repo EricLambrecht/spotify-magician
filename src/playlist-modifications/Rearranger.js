@@ -10,7 +10,6 @@ export default class Rearranger {
    * @returns {string[]} An array of URIs
    */
   static rearrange(playlist, options = {}) {
-    console.log('rearranger');
     return this.getUris(playlist);
   }
 

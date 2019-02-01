@@ -11,14 +11,7 @@
             />
             Shuffle
           </b-button>
-          <b-button tertiary @click="onClickSort">
-            <v-icon
-              slot="icon"
-              name="sort"
-              label="sort"
-            />
-            Sort
-          </b-button>
+          <sort-configuration-modal />
           <b-button tertiary @click="onClickStatistics">
             <v-icon
               slot="icon"
@@ -44,11 +37,12 @@ import { mapActions, mapState } from 'vuex';
 
 import TimeOfDaySwitch from './TimeOfDaySwitch';
 import RandomShuffle from '../../playlist-modifications/RandomShuffle';
-import SortByTrackProperty from '../../playlist-modifications/SortByTrackProperty';
+import SortConfigurationModal from './SortConfigurationModal';
 
 export default {
   name: 'EditorOperationPanel',
   components: {
+    SortConfigurationModal,
     TimeOfDaySwitch,
   },
   computed: {
@@ -67,29 +61,6 @@ export default {
         });
         await this.rearrangePlaylistWith({
           rearranger: RandomShuffle,
-        });
-      } catch (e) {
-        this.addToast({
-          message: e.message,
-          type: 'error',
-          dismissible: false,
-        });
-      }
-    },
-    async onClickSort() {
-      try {
-        await this.askForConfirmation({
-          headline: 'Sort',
-          question: 'Are you sure you want to sort your playlist?',
-          positive: 'Sort',
-          negative: 'Cancel',
-        });
-        await this.rearrangePlaylistWith({
-          rearranger: SortByTrackProperty,
-          options: {
-            order: 'ASC',
-            sortBy: 'artists.0.name',
-          },
         });
       } catch (e) {
         this.addToast({
@@ -119,6 +90,7 @@ export default {
     ...mapActions('app', [
       'askForConfirmation',
       'addToast',
+      'openModal',
     ]),
     ...mapActions('editor', [
       'rearrangePlaylistWith',

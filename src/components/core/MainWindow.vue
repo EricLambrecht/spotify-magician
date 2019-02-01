@@ -19,16 +19,16 @@
 <script>
 import { mapGetters, mapState, mapActions } from 'vuex';
 
-import EditorOperationPanel from '../editor/EditorOperationPanel.vue';
-import ErrorMessage from './ErrorMessage.vue';
-import MainWindowHeader from './MainWindowHeader.vue';
+import EditorOperationPanel from '../editor/EditorOperationPanel';
+import ErrorMessage from './ErrorMessage';
+import MainWindowHeader from './MainWindowHeader';
 
-import ModalManager from './ModalManager.vue';
-import ToastMessageSystem from './ToastMessageSystem.vue';
-import MainWindowFooter from './MainWindowFooter.vue';
-import EditorPlaylist from '../editor/EditorPlaylist.vue';
-import EditorTrackAdder from '../editor/EditorTrackAdder.vue';
-import PlaylistStatisticsPanel from '../playlist-statistics/PlaylistStatisticsPanel.vue';
+import ModalManager from './ModalManager';
+import ToastMessageSystem from './ToastMessageSystem';
+import MainWindowFooter from './MainWindowFooter';
+import EditorPlaylist from '../editor/EditorPlaylist';
+import EditorTrackAdder from '../editor/EditorTrackAdder';
+import PlaylistStatisticsPanel from '../playlist-statistics/PlaylistStatisticsPanel';
 
 
 export default {

@@ -17,8 +17,8 @@
 
 <script>
 import { mapState } from 'vuex';
-import AudioFeatureGraph from './AudioFeatureGraph.vue';
-import GraphFeatureChooser from './GraphFeatureChooser.vue';
+import AudioFeatureGraph from './AudioFeatureGraph';
+import GraphFeatureChooser from './GraphFeatureChooser';
 
 export default {
   name: 'PlaylistStatisticsPanel',

@@ -15,7 +15,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import Toast from './Toast.vue';
+import Toast from './Toast';
 
 export default {
   name: 'ToastMessageSystem',

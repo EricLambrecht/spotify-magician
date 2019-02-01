@@ -1,7 +1,7 @@
 import Vue from 'vue';
-import Icon from 'vue-awesome/components/Icon.vue';
+import Icon from 'vue-awesome/components/Icon';
 
-import App from './App.vue';
+import App from './App';
 import store from './store';
 
 // Register base components globally

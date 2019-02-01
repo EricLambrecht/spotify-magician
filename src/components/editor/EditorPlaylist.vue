@@ -28,8 +28,8 @@
 
 <script>
 import { mapGetters, mapState, mapActions } from 'vuex';
-import EditorPlaylistItem from './EditorPlaylistItem.vue';
-import TimeOfDayHeadline from './TimeOfDayHeadline.vue';
+import EditorPlaylistItem from './EditorPlaylistItem';
+import TimeOfDayHeadline from './TimeOfDayHeadline';
 
 export default {
   name: 'EditorPlaylist',

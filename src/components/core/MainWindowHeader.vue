@@ -25,7 +25,7 @@
 <script>
 import { mapGetters } from 'vuex';
 import formatTime from '../../utils/formatTime';
-import MainWindowTopMenu from './MainWindowTopMenu.vue';
+import MainWindowTopMenu from './MainWindowTopMenu';
 
 export default {
   name: 'MainWindowHeader',

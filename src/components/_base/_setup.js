@@ -7,27 +7,27 @@ import Vue from 'vue';
  * Apart from that, this is also the approach that big libraries like element-ui take.
  */
 
-import Button from './Button.vue';
-import CheckboxButton from './CheckboxButton.vue';
-import Container from './Container.vue';
-import ContextMenu from './ContextMenu.vue';
-import Dropdown from './Dropdown.vue';
-import DropdownItem from './DropdownItem.vue';
-import Grid from './Grid.vue';
-import GridColumn from './GridColumn.vue';
-import GridRow from './GridRow.vue';
-import Headline from './Headline.vue';
-import LabeledElement from './LabeledElement.vue';
-import LightSwitch from './LightSwitch.vue';
-import Link from './Link.vue';
-import List from './List.vue';
-import ListItem from './ListItem.vue';
-import Modal from './Modal.vue';
-import NumberInput from './NumberInput.vue';
-import Paragraph from './Paragraph.vue';
-import SquareImage from './SquareImage.vue';
-import Text from './Text.vue';
-import TextInput from './TextInput.vue';
+import Button from './Button';
+import CheckboxButton from './CheckboxButton';
+import Container from './Container';
+import ContextMenu from './ContextMenu';
+import Dropdown from './Dropdown';
+import DropdownItem from './DropdownItem';
+import Grid from './Grid';
+import GridColumn from './GridColumn';
+import GridRow from './GridRow';
+import Headline from './Headline';
+import LabeledElement from './LabeledElement';
+import LightSwitch from './LightSwitch';
+import Link from './Link';
+import List from './List';
+import ListItem from './ListItem';
+import Modal from './Modal';
+import NumberInput from './NumberInput';
+import Paragraph from './Paragraph';
+import SquareImage from './SquareImage';
+import Text from './Text';
+import TextInput from './TextInput';
 
 Vue.component('b-button', Button);
 Vue.component('b-checkbox-button', CheckboxButton);

@@ -42,7 +42,7 @@ import 'vue-awesome/icons/random';
 import 'vue-awesome/icons/sort';
 import { mapActions, mapState } from 'vuex';
 
-import TimeOfDaySwitch from './TimeOfDaySwitch.vue';
+import TimeOfDaySwitch from './TimeOfDaySwitch';
 import shuffle from '../../editor-operations/shuffle';
 
 export default {

@@ -1,5 +1,5 @@
 <template>
-  <b-modal :headline="pendingConfirmation.headline">
+  <b-modal :headline="pendingConfirmation.headline" :show="confirmationIsPending">
     <b-text>{{ pendingConfirmation.question }}</b-text>
     <div slot="footer">
       <b-button tertiary @click="declineConfirmation">
@@ -20,6 +20,7 @@ export default {
   computed: {
     ...mapGetters('app', [
       'pendingConfirmation',
+      'confirmationIsPending',
     ]),
   },
   methods: {

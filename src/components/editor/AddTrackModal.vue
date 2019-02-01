@@ -1,8 +1,8 @@
 <template>
-  <b-modal headline="Add track">
+  <b-modal headline="Add track" :show="show">
     <track-search class="adder" @select="appendTrackToPlaylist" />
     <div slot="footer">
-      <b-button @click="closeModal">
+      <b-button @click="$emit('close')">
         Close
       </b-button>
     </div>
@@ -16,6 +16,12 @@ import TrackSearch from './TrackSearch';
 export default {
   name: 'AddTrackModal',
   components: { TrackSearch },
+  props: {
+    show: {
+      type: Boolean,
+      required: true,
+    },
+  },
   methods: {
     ...mapActions('app', [
       'closeModal',

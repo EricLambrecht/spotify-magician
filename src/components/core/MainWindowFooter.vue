@@ -1,26 +1,34 @@
 <template>
   <div class="footer">
-    <b-text class="version" @click.native="openModal('changelog-modal')">
+    <b-text class="version" @click.native="openChangelog">
       v{{ version }}
     </b-text>
+    <changelog-modal :show="showChangelog" @close="closeChangelog" />
   </div>
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import ChangelogModal from './ChangelogModal';
 import versionFile from '../../version.json';
 
 export default {
   name: 'MainWindowFooter',
+  components: {
+    ChangelogModal,
+  },
   data() {
     return {
       version: versionFile.version,
+      showChangelog: false,
     };
   },
   methods: {
-    ...mapActions('app', [
-      'openModal',
-    ]),
+    openChangelog() {
+      this.showChangelog = true;
+    },
+    closeChangelog() {
+      this.showChangelog = false;
+    }
   },
 };
 </script>

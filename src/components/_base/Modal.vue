@@ -1,35 +1,45 @@
 <template>
-  <transition
-    :duration="300"
-    name="modal"
-    appear
-  >
-    <div class="backdrop">
-      <div class="modal">
-        <div v-if="headline" class="header">
-          <b-headline level="3" class="headline">
-            {{ headline }}
-          </b-headline>
-        </div>
-        <div class="main">
-          <slot />
-        </div>
-        <div v-if="$slots.footer" class="footer">
-          <slot name="footer" />
+  <portal to="modals" v-if="show">
+    <transition
+      :duration="300"
+      name="modal"
+      appear
+    >
+      <div class="backdrop">
+        <div class="modal">
+          <div v-if="headline" class="header">
+            <b-headline level="3" class="headline">
+              {{ headline }}
+            </b-headline>
+          </div>
+          <div class="main" :style="modalStyles">
+            <slot />
+          </div>
+          <div v-if="$slots.footer" class="footer">
+            <slot name="footer" />
+          </div>
         </div>
       </div>
-    </div>
-  </transition>
+    </transition>
+  </portal>
 </template>
 
 <script>
 export default {
   name: 'Modal',
   props: {
+    show: {
+      type: Boolean,
+      required: true,
+    },
     headline: {
       type: String,
       default: null,
     },
+    modalStyles: {
+      type: Object,
+      default: {},
+    }
   },
 };
 </script>

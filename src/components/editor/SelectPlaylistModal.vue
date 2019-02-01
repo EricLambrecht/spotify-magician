@@ -1,5 +1,5 @@
 <template>
-  <b-modal headline="Choose a playlist">
+  <b-modal headline="Choose a playlist" :show="isOpen('select-playlist') || !playlistExists">
     <playlist-selector @select="closeModal" />
     <div v-if="playlistExists" slot="footer">
       <b-button @click="closeModal">
@@ -20,6 +20,9 @@ export default {
     ...mapGetters('editor', [
       'playlistExists',
     ]),
+    ...mapGetters('app', {
+      isOpen: 'modalIsOpen',
+    }),
   },
   methods: {
     ...mapActions('editor', [

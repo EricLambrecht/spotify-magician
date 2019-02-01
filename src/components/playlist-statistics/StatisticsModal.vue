@@ -1,11 +1,11 @@
 <template>
-  <b-modal headline="Statistics">
+  <b-modal headline="Statistics" :show="show">
     <audio-feature-graph headline="Energy" feature-name="energy" />
     <audio-feature-graph headline="Positiveness" feature-name="valence" />
     <audio-feature-graph headline="Danceability" feature-name="danceability" />
 
     <div slot="footer">
-      <b-button @click="closeModal">
+      <b-button @click="$emit('close')">
         Close
       </b-button>
     </div>
@@ -20,6 +20,12 @@ export default {
   name: 'StatisticsModal',
   components: {
     AudioFeatureGraph,
+  },
+  props: {
+    show: {
+      type: Boolean,
+      required: true,
+    },
   },
   methods: {
     ...mapActions('app', [

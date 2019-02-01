@@ -1,0 +1,83 @@
+<template>
+  <div class="button-group">
+    <label v-for="key in optionKeys" :class="{ button: true, checked: value === key }">
+      {{options[key]}}
+      <input
+        type="radio"
+        class="input"
+        :value="key"
+        :name="name"
+        :checked="value === key"
+        @click="$emit('change', key)"
+      />
+    </label>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'RadioButtonGroup',
+  props: {
+    options: {
+      type: Object,
+      required: true,
+    },
+    value: {
+      type: String,
+      required: true,
+    },
+    name: {
+      type: String,
+      required: true,
+    }
+  },
+  computed: {
+    optionKeys() {
+      return Object.keys(this.options);
+    }
+  },
+};
+</script>
+
+<style lang="scss" scoped>
+  .button {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 10px 7px;
+
+    border: 1px solid var(--color-grey);
+    border-left-width: 0;
+    outline: 0;
+
+    cursor: pointer;
+
+    background-color: white;
+
+    font-family: var(--font-family);
+    color: var(--color-default);
+    font-size: 14px;
+
+    &:hover {
+      background-color: rgba(0,0,0,0.04);
+    }
+
+    &:first-child {
+      border-left-width: 1px;
+      border-radius: 3px 0 0px 3px;
+    }
+
+    &:last-child {
+      border-radius: 0 3px 3px 0;
+    }
+
+    &:checked {
+      background-color: var(--spotify-green);
+      border-color: var(--spotify-green);
+      color: white;
+    }
+  }
+
+  .input {
+    display: none;
+  }
+</style>

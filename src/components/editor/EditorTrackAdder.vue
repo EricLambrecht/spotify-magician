@@ -1,27 +1,38 @@
 <template>
   <b-container v-if="playlistExists">
-    <div class="add-button" @click.capture="openModal('add-track')">
+    <div class="add-button" @click.capture="openModal">
       <b-text class="label">
         Add track
       </b-text>
     </div>
+    <add-track-modal :show="showModal" @close="closeModal"/>
   </b-container>
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex';
+import { mapGetters } from 'vuex';
+import AddTrackModal from "./AddTrackModal";
 
 export default {
   name: 'EditorTrackAdder',
+  components: {AddTrackModal},
+  data() {
+    return {
+      showModal: false,
+    };
+  },
   computed: {
     ...mapGetters('editor', [
       'playlistExists',
     ]),
   },
   methods: {
-    ...mapActions('app', [
-      'openModal',
-    ]),
+    openModal() {
+      this.showModal = true;
+    },
+    closeModal() {
+      this.showModal = false;
+    }
   },
 };
 </script>

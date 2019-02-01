@@ -78,7 +78,7 @@ export default {
     }
 
     &:hover {
-      background-image: linear-gradient(rgba(0,0,0,0.04), rgba(0,0,0,0.04));
+      background-color: rgba(0,0,0,0.04);
     }
 
     &.primary {

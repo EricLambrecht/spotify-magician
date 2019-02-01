@@ -1,8 +1,8 @@
 <template>
-  <b-modal class="modal changelog-saljhd98a2ebhs">
-    <div v-html="html" />
+  <b-modal :show="show" :modal-styles="{ maxHeight: '75vh', overflowY: 'scroll' }">
+    <div v-html="html" class="changelog-saljhd98a2ebhs"/>
     <div slot="footer">
-      <b-button @click="closeModal('changelog-modal')">
+      <b-button @click="$emit('close')">
         Close
       </b-button>
     </div>
@@ -20,6 +20,12 @@ export default {
       return changelog.replace(/All[\s\S]*guidelines./g, '');
     },
   },
+  props: {
+    show: {
+      type: Boolean,
+      required: true,
+    },
+  },
   methods: {
     ...mapActions('app', [
       'closeModal',
@@ -30,11 +36,6 @@ export default {
 
 <style lang="scss">
   .changelog-saljhd98a2ebhs {
-    .main {
-      max-height: 75vh;
-      overflow-y: scroll;
-    }
-
     h1 {
       font-size: 22px;
       font-weight: bold;

@@ -1,7 +1,7 @@
 import AbstractSort from './AbstractSort';
 
 export default class SortByTimeAdded extends AbstractSort {
-  static sort(playlist, order) {
+  static sort(playlist, order, options) {
     const items = [...playlist.tracks.items];
 
     items.sort((a, b) => {

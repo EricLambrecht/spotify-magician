@@ -1,3 +1,5 @@
+const TOAST_DURATION_MS = 5 * 1000;
+
 export default {
   setError({ commit }, errorMessage) {
     if (errorMessage === 'Token expired') {
@@ -22,9 +24,9 @@ export default {
       id, message, type, dismissible, 
     });
 
-    // Dismiss this toast automatically after 3 seconds if it's not dismissible
+    // Dismiss this toast automatically after 5 seconds if it's not dismissible
     if (typeof dismissible === 'undefined' || dismissible === false) {
-      setTimeout(() => dispatch('removeToast', id), 3000);
+      setTimeout(() => dispatch('removeToast', id), TOAST_DURATION_MS);
     }
 
     return id;

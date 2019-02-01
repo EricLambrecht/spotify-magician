@@ -1,5 +1,6 @@
 import Rearranger from './Rearranger';
 
+
 export default class AbstractSort extends Rearranger {
   static rearrange(playlist, options = { order: 'ASC' }) {
     if (!options.order || !['ASC', 'DESC'].includes(options.order)) {
@@ -21,8 +22,11 @@ export default class AbstractSort extends Rearranger {
   }
 
   /**
-   * Expects to easily comparable values (must be comparable by < / >) and returns either -1, 0 or 1.
+   * Expects to easily comparable values (must be comparable by < / >) and
+   * returns either -1, 0 or 1.
+   *
    * Also takes order into account (must be "ASC" or "DESC").
+   *
    * @param {*} comparableA Comparable value A
    * @param {*} comparableB Comparable value B
    * @param {String} order Either "ASC" or "DESC".

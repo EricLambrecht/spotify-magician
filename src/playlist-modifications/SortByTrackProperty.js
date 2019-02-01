@@ -13,7 +13,7 @@ export default class Sort extends AbstractSort {
       const propertyA = get(a, sortBy);
       const propertyB = get(b, sortBy);
 
-      return this.compare(propertyA, propertyB);
+      return this.compare(propertyA, propertyB, order);
     });
 
     return tracks.map(track => track.uri);

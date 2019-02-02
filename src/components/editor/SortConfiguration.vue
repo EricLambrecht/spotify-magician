@@ -50,7 +50,7 @@ import { mapActions } from 'vuex';
 import SortByTrackProperty from '../../playlist-modifications/SortByTrackProperty';
 
 export default {
-  name: 'SortConfigurationModal',
+  name: 'SortConfiguration',
   data() {
     return {
       showModal: false,

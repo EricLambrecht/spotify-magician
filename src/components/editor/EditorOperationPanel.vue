@@ -12,7 +12,7 @@
               />
               Shuffle
             </b-button>
-            <sort-configuration-modal />
+            <sort-configuration />
             <b-button tertiary @click="onClickStatistics">
               <v-icon
                 slot="icon"
@@ -39,12 +39,12 @@ import { mapActions, mapState } from 'vuex';
 
 import TimeOfDaySwitch from './TimeOfDaySwitch';
 import RandomShuffle from '../../playlist-modifications/RandomShuffle';
-import SortConfigurationModal from './SortConfigurationModal';
+import SortConfiguration from './SortConfiguration';
 
 export default {
   name: 'EditorOperationPanel',
   components: {
-    SortConfigurationModal,
+    SortConfiguration,
     TimeOfDaySwitch,
   },
   computed: {

@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.17.0"></a>
+# [0.17.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.16.3...v0.17.0) (2019-02-02)
+
+Version 0.17 features an extensive **redesign** of the app. This redesign includes:
+
+- Proper track items (with album cover art)
+- A completely overhauled audio feature section
+- Improved "time of day" feature
+- Overall UX/UI improvements for all menus
+
+Apart from that, there were also new technical features:
+
+### Features
+
+* Added "Sort" feature. It allows sorting by track name, artist name, duration and popularity. ([74358c1](https://github.com/EricLambrecht/spotify-magician/commit/74358c1))
+* Users can now choose which audio feature graphs they want to see. ([b2601e5](https://github.com/EricLambrecht/spotify-magician/commit/b2601e5))
+
+
+
 <a name="0.16.3"></a>
 ## [0.16.3](https://github.com/EricLambrecht/spotify-magician/compare/v0.16.2...v0.16.3) (2019-01-22)
 

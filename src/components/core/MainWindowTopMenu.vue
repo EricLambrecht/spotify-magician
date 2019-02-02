@@ -1,22 +1,24 @@
 <template>
   <div v-if="playlistExists" class="menu">
     <b-container class="container">
-      <b-button
-        class="menu-item"
-        tertiary
-        small
-        @click="openModal('select-playlist')"
-      >
-        Open
-      </b-button>
-      <b-button
-        class="menu-item"
-        primary
-        disabled
-        small
-      >
-        New
-      </b-button>
+      <b-button-group>
+        <b-button
+          class="menu-item"
+          tertiary
+          small
+          @click="openModal('select-playlist')"
+        >
+          Open
+        </b-button>
+        <b-button
+          class="menu-item"
+          primary
+          disabled
+          small
+        >
+          New
+        </b-button>
+      </b-button-group>
     </b-container>
   </div>
 </template>

@@ -51,7 +51,6 @@ export default {
   button, .button {
     display: inline-flex;
     align-items: center;
-    margin: 0 5px;
     padding: 6px 10px 7px;
 
     border-radius: 3px;
@@ -65,13 +64,6 @@ export default {
     font-family: var(--font-family);
     color: var(--color-default);
     font-size: 14px;
-
-    &:first-child {
-      margin-left: 0;
-    }
-    &:last-child {
-      margin-right: 0;
-    }
 
     &.small {
       font-size: 12px;

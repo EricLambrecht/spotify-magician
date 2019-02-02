@@ -30,12 +30,14 @@
         @change="onSortByChange"
       />
       <div slot="footer">
-        <b-button tertiary @click="closeModal">
-          Close
-        </b-button>
-        <b-button primary @click="sort">
-          Sort
-        </b-button>
+        <b-button-group>
+          <b-button tertiary @click="closeModal">
+            Close
+          </b-button>
+          <b-button primary @click="sort">
+            Sort
+          </b-button>
+        </b-button-group>
       </div>
     </b-modal>
   </div>
@@ -111,7 +113,7 @@ export default {
   }
 
   .button-group {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
   }
 
   .toggle {

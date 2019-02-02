@@ -3,23 +3,25 @@
     <b-grid>
       <b-row>
         <b-column>
-          <b-button tertiary @click="onClickShuffle">
-            <v-icon
-              slot="icon"
-              name="random"
-              label="shuffle"
-            />
-            Shuffle
-          </b-button>
-          <sort-configuration-modal />
-          <b-button tertiary @click="onClickStatistics">
-            <v-icon
-              slot="icon"
-              name="chart-line"
-              label="playlist-stats"
-            />
-            Analyze
-          </b-button>
+          <b-button-group>
+            <b-button tertiary @click="onClickShuffle">
+              <v-icon
+                slot="icon"
+                name="random"
+                label="shuffle"
+              />
+              Shuffle
+            </b-button>
+            <sort-configuration-modal />
+            <b-button tertiary @click="onClickStatistics">
+              <v-icon
+                slot="icon"
+                name="chart-line"
+                label="playlist-stats"
+              />
+              Analyze
+            </b-button>
+          </b-button-group>
         </b-column>
         <b-column class="right">
           <time-of-day-switch />

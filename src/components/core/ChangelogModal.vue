@@ -59,7 +59,8 @@ export default {
       font-size: 15px;
     }
     ul {
-      list-style: disc;
+      list-style: disc inside;
+      margin-left: 2px;
       li {
         margin-top: 8px;
       }
@@ -76,6 +77,20 @@ export default {
       margin-bottom: 10px;
       border-bottom: 1px solid #F0F0f0;
       padding-bottom: 30px;
+    }
+
+    h1 + p {
+      margin-top: 20px;
+    }
+
+    p + ul {
+      margin-top: 13px;
+      padding-left: 0;
+      list-style-type: circle;
+    }
+
+    h1 + p + ul + p {
+      margin-top: 13px;
     }
   }
 </style>

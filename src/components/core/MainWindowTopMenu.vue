@@ -1,9 +1,9 @@
 <template>
   <div v-if="playlistExists" class="menu">
     <b-container class="container">
-      <b-button-group>
+      <b-button-group class="button-group">
         <b-button
-          class="menu-item"
+          class="menu-item open-button"
           tertiary
           small
           @click="openModal('select-playlist')"
@@ -41,7 +41,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .container {
+  .button-group {
     display: flex;
     justify-content: flex-end;
   }
@@ -59,7 +59,7 @@ export default {
     .menu-item {
       width: 100%;
       &:first-child {
-        background-color: var(--color-light-grey);
+        background-color: #E0E0E0 !important;
       }
     }
   }

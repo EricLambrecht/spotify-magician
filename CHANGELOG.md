@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.17.1"></a>
+## [0.17.1](https://github.com/EricLambrecht/spotify-magician/compare/v0.17.0...v0.17.1) (2019-02-03)
+
+
+### Bug Fixes
+
+* Fixed broken buttons and modals on mobile devices ([459343c](https://github.com/EricLambrecht/spotify-magician/commit/459343c)), closes [#41](https://github.com/EricLambrecht/spotify-magician/issues/41) [#42](https://github.com/EricLambrecht/spotify-magician/issues/42) [#46](https://github.com/EricLambrecht/spotify-magician/issues/46)
+* Fixed changelog formatting ([28f7a4f](https://github.com/EricLambrecht/spotify-magician/commit/28f7a4f))
+* Fixed dropdown appearance on macOS ([8e876e1](https://github.com/EricLambrecht/spotify-magician/commit/8e876e1))
+* Fixed top menu appearance on mobile screens ([be1583b](https://github.com/EricLambrecht/spotify-magician/commit/be1583b)), closes [#43](https://github.com/EricLambrecht/spotify-magician/issues/43)
+* Fixed track adder window on mobile ([868a848](https://github.com/EricLambrecht/spotify-magician/commit/868a848)), closes [#45](https://github.com/EricLambrecht/spotify-magician/issues/45)
+
+
+
 <a name="0.17.0"></a>
 # [0.17.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.16.3...v0.17.0) (2019-02-02)
 

@@ -39,6 +39,8 @@
 
   /* Z-indices */
   --z-index-statistics-panel: 1000;
+  --z-index-modal-backdrop: 2000;
+  --z-index-modal: 2001;
 }
 
 @media screen and (max-width: 1080px) {

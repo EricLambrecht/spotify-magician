@@ -56,6 +56,7 @@ export default {
     }
 
     &:not(.show) {
+      pointer-events: none;
       > * {
         opacity: 0;
       }

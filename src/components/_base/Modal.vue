@@ -46,7 +46,7 @@ export default {
 
 <style lang="scss" scoped>
   .backdrop {
-    z-index: 100;
+    z-index: var(--z-index-modal-backdrop);
 
     position: fixed;
     top: 0; left: 0;
@@ -60,7 +60,7 @@ export default {
     opacity: 1;
 
     .modal {
-      z-index: 101;
+      z-index: var(--z-index-modal);
       background-color: white;
       border-radius: 5px;
 

@@ -1,6 +1,6 @@
 <template>
   <b-modal headline="Add track" :show="show">
-    <track-search class="adder" @select="appendTrackToPlaylist" />
+    <track-search class="adder" @select="addTrack" />
     <div slot="footer">
       <b-button @click="$emit('close')">
         Close
@@ -23,12 +23,13 @@ export default {
     },
   },
   methods: {
-    ...mapActions('app', [
-      'closeModal',
-    ]),
     ...mapActions('editor', [
       'appendTrackToPlaylist',
     ]),
+    addTrack(uri) {
+      this.appendTrackToPlaylist(uri);
+      this.$emit('close');
+    },
   },
 };
 </script>
@@ -37,5 +38,13 @@ export default {
   .adder {
     width: 600px;
     height: 290px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .adder {
+      min-width: calc(100vw - 80px);
+      width: calc(100vw - 80px);
+      height:70vh;
+    }
   }
 </style>

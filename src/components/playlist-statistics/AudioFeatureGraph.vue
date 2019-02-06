@@ -15,7 +15,7 @@
         :width="1.5"
         :animation-duration="1"
         prop="data"
-        label="Energy"
+        :label="getCaptionForFeatureName(featureName)"
         color="#1DB954"
         animated
         curve

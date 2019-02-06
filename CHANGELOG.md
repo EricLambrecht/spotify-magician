@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.18.0"></a>
+# [0.18.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.17.1...v0.18.0) (2019-02-06)
+
+
+### Bug Fixes
+
+* Audio feature graphs now display the correct label on hover (instead of always "Energy") ([67ba4a1](https://github.com/EricLambrecht/spotify-magician/commit/67ba4a1)), closes [#48](https://github.com/EricLambrecht/spotify-magician/issues/48)
+
+
+### Features
+
+* Made line chart tooltips more "human readable" (Added units etc.) ([1afc8b1](https://github.com/EricLambrecht/spotify-magician/commit/1afc8b1))
+* Sorting by audio feature is now supported ([f0ba1f9](https://github.com/EricLambrecht/spotify-magician/commit/f0ba1f9))
+
+
+
 <a name="0.17.1"></a>
 ## [0.17.1](https://github.com/EricLambrecht/spotify-magician/compare/v0.17.0...v0.17.1) (2019-02-03)
 

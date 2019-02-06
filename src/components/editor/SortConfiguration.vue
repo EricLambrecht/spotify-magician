@@ -14,20 +14,20 @@
     </b-button>
     <b-modal headline="Sort settings" :show="showModal">
       <b-radio-button-group
-        name="order"
-        label="Order"
+        name="sortMode"
+        label="Sort Mode"
         class="button-group"
-        :options="orderOptions"
-        :value="order"
-        @change="onOrderChange"
+        :options="sortModeOptions"
+        :value="sortMode"
+        @change="onSortModeChange"
       />
-      <b-radio-button-group
-        name="sortBy"
-        label="Sort by"
-        class="button-group"
-        :options="sortByOptions"
-        :value="sortBy"
-        @change="onSortByChange"
+      <SortByTrackPropertyOptions
+        v-show="sortMode === 'trackProperty'"
+        @change="onOptionsChange"
+      />
+      <SortByAudioFeatureOptions
+        v-show="sortMode === 'audioFeature'"
+        @change="onOptionsChange"
       />
       <div slot="footer">
         <b-button-group>
@@ -48,23 +48,28 @@ import 'vue-awesome/icons/sort';
 import { mapActions } from 'vuex';
 
 import SortByTrackProperty from '../../playlist-modifications/SortByTrackProperty';
+import SortByTrackPropertyOptions from './SortByTrackPropertyOptions';
+import SortByAudioFeature from '../../playlist-modifications/SortByAudioFeature';
+import SortByAudioFeatureOptions from './SortByAudioFeatureOptions';
 
 export default {
   name: 'SortConfiguration',
+  components: { SortByAudioFeatureOptions, SortByTrackPropertyOptions },
   data() {
     return {
       showModal: false,
-      order: 'ASC',
-      orderOptions: {
-        ASC: 'ASC',
-        DESC: 'DESC',
+      options: {
+        order: 'ASC',
+        sortBy: 'artists.0.name',
       },
-      sortBy: 'artists.0.name',
-      sortByOptions: {
-        'artists.0.name': 'Artist name',
-        name: 'Track name',
-        popularity: 'Popularity',
-        duration_ms: 'Duration',
+      sortMode: 'trackProperty',
+      sortModeMap: {
+        trackProperty: SortByTrackProperty,
+        audioFeature: SortByAudioFeature,
+      },
+      sortModeOptions: {
+        trackProperty: 'Track Property',
+        audioFeature: 'Audio Feature',
       },
     };
   },
@@ -75,11 +80,11 @@ export default {
     closeModal() {
       this.showModal = false;
     },
-    onSortByChange(value) {
-      this.sortBy = value;
+    onOptionsChange(options) {
+      this.options = options;
     },
-    onOrderChange(value) {
-      this.order = value;
+    onSortModeChange(sortMode) {
+      this.sortMode = sortMode;
     },
     async sort() {
       this.showModal = false;
@@ -90,11 +95,8 @@ export default {
         negative: 'Cancel',
       });
       await this.rearrangePlaylistWith({
-        rearranger: SortByTrackProperty,
-        options: {
-          sortBy: this.sortBy,
-          order: this.order,
-        },
+        rearranger: this.sortModeMap[this.sortMode],
+        options: this.options,
       });
     },
     ...mapActions('app', [

@@ -40,3 +40,9 @@ export const getCaptionAndNameForFeature = featureKey => ({
   caption: getCaptionForFeatureName(featureKey),
   name: featureKey,
 });
+
+export const sortableAudioFeatures = [
+  ...lineChartFeatures,
+  'mode',
+  'time_signature',
+];

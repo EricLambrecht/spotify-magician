@@ -54,7 +54,7 @@ export default {
 
 <style lang="scss" scoped>
   .label {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 700;
     color: var(--color-default);
     margin-bottom: 5px;
@@ -75,7 +75,7 @@ export default {
 
     font-family: var(--font-family);
     color: var(--color-default);
-    font-size: 14px;
+    font-size: 13px;
 
     &:hover {
       background-color: rgba(0,0,0,0.04);

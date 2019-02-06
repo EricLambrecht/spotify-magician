@@ -2,7 +2,7 @@ import Rearranger from './Rearranger';
 
 export default class AbstractShuffle extends Rearranger {
   static rearrange(playlist, options = {}) {
-    return this.sort(playlist, options);
+    return this.shuffle(playlist, options);
   }
 
   /**

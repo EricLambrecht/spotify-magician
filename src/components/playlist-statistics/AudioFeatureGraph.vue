@@ -15,15 +15,39 @@
         :width="1.5"
         :animation-duration="1"
         prop="data"
-        :label="getCaptionForFeatureName(featureName)"
+        :label="featureName | caption"
         color="#1DB954"
         animated
         curve
-      />
+      >
+        <g
+          v-show="props.actived"
+          slot-scope="props"
+          :fill="props.color"
+        >
+          <circle
+            :cx="props.x"
+            :cy="props.y"
+            r="4"
+          />
+        </g>
+      </la-line>
       <la-x-axis prop="name" class="x-axis" />
       <la-tooltip>
-        <div slot="props">
-          {props.label}
+        <!-- FIXME: slot-scope will be deprecated in Vue 3 -->
+        <div slot-scope="props" class="tooltip">
+          <span class="song-name">
+            {{ props.label }}
+          </span>
+          <div v-if="props.actived[0]" class="feature-value">
+            <span class="colored-circle" :style="{ background: props.actived[0].color }" />
+            <span class="formatted-value">
+              {{ props.actived[0].value | formatValue(bounds, featureName) }}
+            </span>
+            <span class="formatted-value-label">
+              &nbsp;{{ props.actived[0].label }}
+            </span>
+          </div>
         </div>
       </la-tooltip>
     </la-cartesian>
@@ -57,6 +81,21 @@ export default {
   filters: {
     caption(featureName) {
       return getCaptionForFeatureName(featureName);
+    },
+    formatValue(val, bounds, featureName) {
+      if (bounds[0] === 0 && bounds[1] === 1) {
+        return `${Math.round(val * 100)}%`;
+      }
+
+      if (featureName === 'tempo') {
+        return `${Math.round(val)} BPM`;
+      }
+
+      if (featureName === 'loudness') {
+        return `${val.toFixed(2)} dB`;
+      }
+
+      return val;
     },
   },
   props: {
@@ -112,5 +151,33 @@ export default {
   }
   .end {
     margin-left: auto;
+  }
+
+  .tooltip {
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 5px;
+    padding: 5px;
+    color: white;
+  }
+
+  .song-name {
+    display: block;
+    margin-bottom: 7px;
+  }
+
+  .feature-value {
+    display: flex;
+    align-items: center;
+  }
+
+  .colored-circle {
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    margin-right: 8px;
+  }
+
+  .formatted-value {
+    font-weight: bold;
   }
 </style>

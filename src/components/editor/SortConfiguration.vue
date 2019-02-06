@@ -12,7 +12,11 @@
       />
       Sort
     </b-button>
-    <b-modal headline="Sort settings" :show="showModal">
+    <b-modal
+      headline="Sort settings"
+      :show="showModal"
+      :modal-styles="{ minWidth: '400px' }"
+    >
       <b-radio-button-group
         name="sortMode"
         label="Sort Mode"

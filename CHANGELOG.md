@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.18.1"></a>
+## [0.18.1](https://github.com/EricLambrecht/spotify-magician/compare/v0.18.0...v0.18.1) (2019-02-06)
+
+
+### Bug Fixes
+
+* Fixed broken shuffle ([1e006c7](https://github.com/EricLambrecht/spotify-magician/commit/1e006c7))
+* Fixed min width of sort config modal ([36b3e6e](https://github.com/EricLambrecht/spotify-magician/commit/36b3e6e))
+
+
+
 <a name="0.18.0"></a>
 # [0.18.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.17.1...v0.18.0) (2019-02-06)
 

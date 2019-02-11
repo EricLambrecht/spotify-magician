@@ -1,4 +1,5 @@
 import SpotifyWebApi from 'spotify-web-api-js';
+import chunk from 'lodash/chunk';
 
 export const api = new SpotifyWebApi();
 
@@ -126,12 +127,16 @@ export default class Spotify {
 
   /**
    * Adds multiple tracks to a playlist
+   * Supports more than 100 tracks, unlike the raw Spotify Web API endpoints.
    * @param playlistId
    * @param uris
    * @returns {Promise}
    */
   static async addTracksToPlaylist(playlistId, uris) {
-    return api.addTracksToPlaylist(playlistId, uris);
+    const chunks = chunk(uris, 100);
+    for (const uriChunk of chunks) { // eslint-disable-line no-restricted-syntax
+      await api.addTracksToPlaylist(playlistId, uriChunk); // eslint-disable-line no-await-in-loop
+    }
   }
 
   /**
@@ -151,5 +156,22 @@ export default class Spotify {
    */
   static getArtistNameFromTrack(track) {
     return track.artists.map(artist => artist.name).join(',');
+  }
+
+  /**
+   * Replaces the entire playlist with the provided track-URIs.
+   * Since Spotify Web API supports only 100 tracks, array greater than
+   * 100 tracks will be split into chunks to replace everything.
+   */
+  static async replaceTracks(playlistId, uris) {
+    const chunks = chunk(uris, 100);
+    const firstChunk = chunks.shift();
+    await api.replaceTracksInPlaylist(playlistId, firstChunk);
+
+    if (chunks.length > 0) {
+      for (const uriChunk of chunks) { // eslint-disable-line no-restricted-syntax
+        await api.addTracksToPlaylist(playlistId, uriChunk); // eslint-disable-line no-await-in-loop
+      }
+    }
   }
 }

@@ -91,7 +91,7 @@ export default {
 
   async replaceTracks({ dispatch, state }, uris) {
     try {
-      await api.replaceTracksInPlaylist(state.playlist.id, uris);
+      await Spotify.replaceTracksInPlaylist(state.playlist.id, uris);
       await dispatch('fetchPlaylist', state.playlist.id);
     } catch (err) {
       Spotify.handleApiError(dispatch, err);

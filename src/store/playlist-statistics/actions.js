@@ -1,4 +1,4 @@
-import Spotify, { api } from '../../utils/Spotify';
+import Spotify from '../../utils/Spotify';
 
 export default {
   async fetchPlaylistAudioFeatures({
@@ -7,8 +7,8 @@ export default {
     commit('setFetching', true);
     try {
       const { 'editor/playlistIds': playlistIds } = rootGetters;
-      const result = await api.getAudioFeaturesForTracks(playlistIds);
-      commit('setPlaylistAudioFeatures', result.audio_features);
+      const audioFeatures = await Spotify.getAudioFeaturesForTracks(playlistIds);
+      commit('setPlaylistAudioFeatures', audioFeatures);
     } catch (err) {
       Spotify.handleApiError(dispatch, err);
     } finally {

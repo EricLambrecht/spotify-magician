@@ -104,6 +104,23 @@ export default class Spotify {
   }
 
   /**
+   * Fetches audio features for a playlist. Supports playlists with more than 100 songs.
+   * @param {Array.<String>} trackIds
+   * @returns {Array}
+   */
+  static async getAudioFeaturesForTracks(trackIds) {
+    const chunks = chunk(trackIds, 100);
+    const audioFeatures = [];
+
+    for (const trackIdChunk of chunks) { // eslint-disable-line no-restricted-syntax
+      const response = await api.getAudioFeaturesForTracks(trackIdChunk); // eslint-disable-line
+      audioFeatures.push(...response.audio_features);
+    }
+
+    return audioFeatures;
+  }
+
+  /**
    * This function returns an array of tracks that match the search query
    * @param query
    * @param limit (optional) defaults to 8.

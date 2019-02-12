@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.19.0"></a>
+# [0.19.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.18.1...v0.19.0) (2019-02-12)
+
+
+### Bug Fixes
+
+* One can now replace (and add) more than 100 tracks at once ([93cad92](https://github.com/EricLambrecht/spotify-magician/commit/93cad92))
+* Playlist analysis now supports playlists with more than 100 tracks ([a99619e](https://github.com/EricLambrecht/spotify-magician/commit/a99619e))
+
+
+### Features
+
+* Enabled editing of collaborative playlists ([e3e352b](https://github.com/EricLambrecht/spotify-magician/commit/e3e352b))
+
+
+
 <a name="0.18.1"></a>
 ## [0.18.1](https://github.com/EricLambrecht/spotify-magician/compare/v0.18.0...v0.18.1) (2019-02-06)
 

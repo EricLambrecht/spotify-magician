@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.19.1"></a>
+## [0.19.1](https://github.com/EricLambrecht/spotify-magician/compare/v0.19.0...v0.19.1) (2019-03-05)
+
+
+### Bug Fixes
+
+* Fixed "time-of-day" format for times after 12am (next day) ([91c84f7](https://github.com/EricLambrecht/spotify-magician/commit/91c84f7))
+* Fixed font of "time-of-day" input ([4c34a12](https://github.com/EricLambrecht/spotify-magician/commit/4c34a12))
+
+
+
 <a name="0.19.0"></a>
 # [0.19.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.18.1...v0.19.0) (2019-02-12)
 

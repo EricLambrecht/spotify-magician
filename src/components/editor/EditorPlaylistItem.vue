@@ -12,7 +12,7 @@
       class="image"
     />
     <b-text v-if="showTimeOfDay" class="time time-of-day">
-      {{ item.track.relative_start_time_ms | formatTime('h:mm') }}
+      {{ item.track.relative_start_time_ms | formatTime('hh:mm') }}
     </b-text>
     <b-text v-else class="time duration">
       {{ item.track.duration_ms | formatTime('mm:ss') }}

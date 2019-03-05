@@ -1,24 +1,16 @@
 import moment from 'moment';
 import 'moment-duration-format';
 
-const formatTime = (milliseconds, format = '') => {
-  const duration = moment.duration(milliseconds);
+export const ONE_DAY_IN_MILLISECONDS = 86400000;
 
-  if (format) {
-    return duration.format(format);
-  }
-
-  if (duration.days() > 0) {
-    return duration.format('D h:mm');
-  }
-  if (duration.hours() > 0) {
-    return duration.format('h:mm');
-  }
-
-  return duration.format('mm:ss');
+const formatTime = (milliseconds, format = 'h:mm') => {
+  const ms = milliseconds % ONE_DAY_IN_MILLISECONDS;
+  const duration = moment.duration(ms);
+  return duration.format(format, { trim: false });
 };
 
 export default formatTime;
+
 
 export const getHours = (milliseconds) => {
   const duration = moment.duration(milliseconds);

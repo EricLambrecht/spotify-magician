@@ -117,4 +117,8 @@ export default {
     border: none;
     outline: none;
   }
+
+  .time {
+    font-family: var(--font-family);
+  }
 </style>

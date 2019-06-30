@@ -17,9 +17,7 @@ export default {
         minute: state.displayOptions.timeOfDayStartMinute,
       });
 
-      if (rootState.playlistStatistics.show) {
-        await dispatch('playlistStatistics/fetchPlaylistAudioFeatures', null, { root: true });
-      }
+      await dispatch('playlistStatistics/fetchPlaylistAudioFeatures', null, { root: true });
     } catch (err) {
       Spotify.handleApiError(dispatch, err);
     }
@@ -76,8 +74,12 @@ export default {
     commit('setTrackItems', trackItems);
   },
 
-  showTimeOfDay({ commit }, showIt) {
-    commit('showTimeOfDay', showIt);
+  showTimeOfDay({ commit }, newValue) {
+    commit('showTimeOfDay', newValue);
+  },
+
+  showTempo({ commit }, newValue) {
+    commit('showTempo', newValue);
   },
 
   async removeTrack({ dispatch, state }, uri) {

@@ -17,6 +17,7 @@
           'drag-hover': draggedTo === index,
           'drag-origin': index === draggedFromOriginally
         }"
+        :audio-features="audioFeatures[index]"
         draggable="true"
         @dragstart.native="(e) => onDragStart(index, e)"
         @dragend.native="onDragEnd(index)"
@@ -46,6 +47,9 @@ export default {
   computed: {
     ...mapState('editor', {
       showTimeOfDay: state => state.displayOptions.showTimeOfDay,
+    }),
+    ...mapState('playlistStatistics', {
+      audioFeatures: state => state.playlistAudioFeatures,
     }),
     ...mapGetters({
       playlistItems: 'editor/playlistItems',

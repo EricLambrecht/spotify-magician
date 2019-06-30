@@ -25,6 +25,9 @@
         {{ item.track.artists[0].name }}
       </b-text>
     </div>
+    <b-text v-if="audioFeatures && showTempo" class="tempo">
+      {{ audioFeatures.tempo.toFixed(2) }} BPM
+    </b-text>
     <b-text class="track-menu">
       ···
     </b-text>
@@ -52,6 +55,11 @@ export default {
       type: Number,
       required: true,
     },
+    audioFeatures: {
+      type: Object,
+      required: false,
+      default: null,
+    },
   },
   data() {
     return {
@@ -61,6 +69,7 @@ export default {
   computed: {
     ...mapState('editor', {
       showTimeOfDay: state => state.displayOptions.showTimeOfDay,
+      showTempo: state => state.displayOptions.showTempo,
     }),
     contextMenuActions() {
       return [
@@ -141,10 +150,6 @@ export default {
       text-overflow: ellipsis;
       white-space: nowrap;
       pointer-events: none;
-
-      &:not(:first-child) {
-        margin-left: 20px;
-      }
     }
   }
 
@@ -157,12 +162,14 @@ export default {
   .time {
     min-width: 34px;
     text-align: right;
+    margin-left: 20px;
   }
 
   .artist-song-pair {
     display: flex;
     flex-direction: column;
     width: 200px;
+    margin-left: 20px;
 
     .song {
       font-size: var(--track-item-song-font-size);
@@ -176,10 +183,18 @@ export default {
     }
   }
 
+  .tempo {
+    margin-left: auto;
+    margin-right: 20px;
+    font-weight: 700;
+    color: var(--color-grey);
+    font-size: 14px;
+  }
+
   .track-menu {
     width: 20px;
-    margin-left: auto;
-    opacity: 0;
+    margin-left: 20px;
+    display: none;
     pointer-events: none;
     font-weight: bold;
   }

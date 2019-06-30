@@ -23,7 +23,8 @@
             </b-button>
           </b-button-group>
         </b-column>
-        <b-column class="right">
+        <b-column class="right switches">
+          <tempo-switch />
           <time-of-day-switch />
         </b-column>
       </b-row>
@@ -38,6 +39,7 @@ import 'vue-awesome/icons/sort';
 import { mapActions, mapState } from 'vuex';
 
 import TimeOfDaySwitch from './TimeOfDaySwitch';
+import TempoSwitch from './TempoSwitch';
 import RandomShuffle from '../../playlist-modifications/RandomShuffle';
 import SortConfiguration from './SortConfiguration';
 
@@ -46,6 +48,7 @@ export default {
   components: {
     SortConfiguration,
     TimeOfDaySwitch,
+    TempoSwitch,
   },
   computed: {
     ...mapState('playlistStatistics', {
@@ -72,14 +75,13 @@ export default {
         });
       }
     },
-    async onClickStatistics() {
+    onClickStatistics() {
       if (this.showStatistics) {
         this.closePlaylistStatistics();
         return;
       }
 
       try {
-        await this.fetchPlaylistAudioFeatures();
         this.openPlaylistStatistics();
       } catch (e) {
         this.addToast({
@@ -98,7 +100,6 @@ export default {
       'rearrangePlaylistWith',
     ]),
     ...mapActions('playlistStatistics', [
-      'fetchPlaylistAudioFeatures',
       'openPlaylistStatistics',
       'closePlaylistStatistics',
     ]),
@@ -120,5 +121,11 @@ export default {
 
   .right {
     margin-left: auto;
+  }
+
+  .switches {
+    > *:not(:first-child) {
+      margin-left: 12px;
+    }
   }
 </style>

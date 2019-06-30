@@ -36,7 +36,7 @@ export default {
 
     height: 32px;
 
-    font-size: 15px;
+    font-size: 14px;
 
     cursor: pointer;
   }

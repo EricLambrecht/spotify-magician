@@ -6,6 +6,7 @@ import mutations from './mutations';
 const state = {
   displayOptions: {
     showTimeOfDay: false,
+    showTempo: false,
     timeOfDayStartHour: 18,
     timeOfDayStartMinute: 0,
   },

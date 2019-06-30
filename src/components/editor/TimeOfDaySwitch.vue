@@ -28,16 +28,3 @@ export default {
   },
 };
 </script>
-<style lang="scss" scoped>
-  .switch {
-    text-decoration: underline;
-    font-size: 12px;
-    color: var(--spotify-green);
-    cursor: pointer;
-
-    &:not(:first-child) {
-      margin-left: 10px;
-      align-self: center;
-    }
-  }
-</style>

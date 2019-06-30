@@ -13,7 +13,11 @@ export default {
     }
   },
 
-  showTimeOfDay(state, showIt) {
-    state.displayOptions.showTimeOfDay = showIt;
+  showTimeOfDay(state, newValue) {
+    state.displayOptions.showTimeOfDay = newValue;
+  },
+
+  showTempo(state, newValue) {
+    state.displayOptions.showTempo = newValue;
   },
 };

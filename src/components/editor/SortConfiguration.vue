@@ -129,5 +129,6 @@ export default {
   .fa-icon {
     color: var(--spotify-green);
     font-size: 18px;
+    width: 18px;
   }
 </style>

@@ -3,7 +3,7 @@
     <b-grid>
       <b-row>
         <b-column>
-          <b-button-group>
+          <b-button-group class="buttons">
             <b-button tertiary @click="onClickShuffle">
               <v-icon
                 slot="icon"
@@ -117,6 +117,7 @@ export default {
   .fa-icon {
     color: var(--spotify-green);
     font-size: 18px;
+    width: 18px;
   }
 
   .right {
@@ -126,6 +127,30 @@ export default {
   .switches {
     > *:not(:first-child) {
       margin-left: 12px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      left: -5px;
+
+      > *:not(:first-child) {
+        margin-top: 5px;
+        margin-left: 0px;
+      }
+    }
+
+    .switches {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+
+      > *:not(:first-child) {
+        margin: 5px 0 0;
+      }
     }
   }
 </style>

@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.20.0"></a>
+# [0.20.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.19.1...v0.20.0) (2019-06-30)
+
+
+### Bug Fixes
+
+* "Analyze" button will now stay pressed when panel is open ([c161a03](https://github.com/EricLambrecht/spotify-magician/commit/c161a03))
+* Improved mobile layout of operation panel ([b6c457c](https://github.com/EricLambrecht/spotify-magician/commit/b6c457c))
+* Updated dependencies to fix security vulnerabilities ([b15181c](https://github.com/EricLambrecht/spotify-magician/commit/b15181c))
+
+
+### Features
+
+* Added "show song tempo" toggle ([0f77f92](https://github.com/EricLambrecht/spotify-magician/commit/0f77f92))
+
+
+
 <a name="0.19.1"></a>
 ## [0.19.1](https://github.com/EricLambrecht/spotify-magician/compare/v0.19.0...v0.19.1) (2019-03-05)
 

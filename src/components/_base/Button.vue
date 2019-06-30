@@ -1,7 +1,7 @@
 <template>
   <button
     v-bind="$attrs"
-    :class="{ button: true, primary, secondary, tertiary, disabled, small }"
+    :class="{ button: true, primary, secondary, tertiary, disabled, small, pressed }"
     :disabled="disabled"
     v-on="$listeners"
   >
@@ -35,6 +35,10 @@ export default {
       default: false,
     },
     small: {
+      type: Boolean,
+      default: false,
+    },
+    pressed: {
       type: Boolean,
       default: false,
     },
@@ -98,6 +102,11 @@ export default {
 
     &.disabled {
       cursor: not-allowed;
+    }
+
+    &.pressed {
+      background-color: rgba(0,0,0,0.12);
+      box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
     }
   }
 

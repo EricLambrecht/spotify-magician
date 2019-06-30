@@ -13,7 +13,11 @@
               Shuffle
             </b-button>
             <sort-configuration />
-            <b-button tertiary @click="onClickStatistics">
+            <b-button
+              tertiary
+              :pressed="showStatistics"
+              @click="onClickStatistics"
+            >
               <v-icon
                 slot="icon"
                 name="chart-line"

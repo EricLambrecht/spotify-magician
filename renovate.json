@@ -15,5 +15,6 @@
       "groupName": "webpack",
       "schedule": ["on the first day of the month"]
     }
-  ]
+  ],
+  "prHourlyLimit": 1
 }

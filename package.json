@@ -46,7 +46,7 @@
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-vue": "^5.1.0",
-    "file-loader": "^3.0.1",
+    "file-loader": "^4.2.0",
     "html-loader": "^0.5.5",
     "markdown-loader": "^5.0.0",
     "node-sass": "^4.11.0",

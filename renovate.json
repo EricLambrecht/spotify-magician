@@ -5,8 +5,14 @@
   ],
   "packageRules": [
     {
-      "packagePatterns": [ "eslint" ],
-      "groupName": "eslint"
+      "packagePatterns": [ "eslint-plugin", "eslint-config" ],
+      "groupName": "eslint plugins & configs",
+      "schedule": ["on the first day of the month"]
+    },
+    {
+      "packagePatterns": [ "webpack" ],
+      "groupName": "webpack",
+      "schedule": ["on the first day of the month"]
     }
   ]
 }

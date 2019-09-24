@@ -2,5 +2,11 @@
   "extends": [
     "config:base",
     ":pinAllExceptPeerDependencies"
+  ],
+  "packageRules": [
+    {
+      "packagePatterns": [ "eslint" ],
+      "groupName": "eslint"
+    }
   ]
 }

@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.20.1"></a>
+## [0.20.1](https://github.com/EricLambrecht/spotify-magician/compare/v0.20.0...v0.20.1) (2019-09-25)
+
+
+### Bug Fixes
+
+* **deps:** bump eslint-utils from 1.3.1 to 1.4.2 ([#52](https://github.com/EricLambrecht/spotify-magician/issues/52)) ([ab288b4](https://github.com/EricLambrecht/spotify-magician/commit/ab288b4))
+* **deps:** bump lodash.merge from 4.6.1 to 4.6.2 ([#54](https://github.com/EricLambrecht/spotify-magician/issues/54)) ([f89eb4c](https://github.com/EricLambrecht/spotify-magician/commit/f89eb4c))
+* **deps:** bump lodash.mergewith from 4.6.1 to 4.6.2 ([#55](https://github.com/EricLambrecht/spotify-magician/issues/55)) ([215cb0c](https://github.com/EricLambrecht/spotify-magician/commit/215cb0c))
+* **deps:** bump lodash.template from 4.4.0 to 4.5.0 ([#56](https://github.com/EricLambrecht/spotify-magician/issues/56)) ([663c284](https://github.com/EricLambrecht/spotify-magician/commit/663c284))
+* **deps:** bump mixin-deep from 1.3.1 to 1.3.2 ([1730979](https://github.com/EricLambrecht/spotify-magician/commit/1730979))
+* **deps:** bump vuex from 3.1.0 to 3.1.1 ([#58](https://github.com/EricLambrecht/spotify-magician/issues/58)) ([2b3e9c3](https://github.com/EricLambrecht/spotify-magician/commit/2b3e9c3))
+* Removed insecurity (replaced union-value 1.0.0 with 1.0.1) ([460a317](https://github.com/EricLambrecht/spotify-magician/commit/460a317))
+* Updated set-value 2.0.0 to 2.0.1 ([41c78dc](https://github.com/EricLambrecht/spotify-magician/commit/41c78dc))
+
+
+
 <a name="0.20.0"></a>
 # [0.20.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.19.1...v0.20.0) (2019-06-30)
 

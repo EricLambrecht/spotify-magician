@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.20.3"></a>
+## [0.20.3](https://github.com/EricLambrecht/spotify-magician/compare/v0.20.2...v0.20.3) (2019-09-27)
+
+
+### Bug Fixes
+
+* Fixed deployment url on now.sh ([6ed271c](https://github.com/EricLambrecht/spotify-magician/commit/6ed271c))
+
+
+
 <a name="0.20.2"></a>
 ## [0.20.2](https://github.com/EricLambrecht/spotify-magician/compare/v0.20.1...v0.20.2) (2019-09-27)
 

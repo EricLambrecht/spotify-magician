@@ -27,17 +27,15 @@ jobs:
       deploy:
         provider: script
         skip-cleanup: true
-        script: npm run deploy
+        script: npm run deploy:dev
         on:
           branch: master
           tags: false
-      after_deploy: npm run alias:dev
     - stage: deploy-now
       deploy:
         provider: script
         skip-cleanup: true
-        script: npm run deploy
+        script: npm run deploy:prod
         on:
           branch: master
           tags: true
-      after_deploy: npm run alias:prod

@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.20.2"></a>
+## [0.20.2](https://github.com/EricLambrecht/spotify-magician/compare/v0.20.1...v0.20.2) (2019-09-27)
+
+
+### Bug Fixes
+
+* Fixed an error in confirmation modal ([8792f72](https://github.com/EricLambrecht/spotify-magician/commit/8792f72)), closes [#62](https://github.com/EricLambrecht/spotify-magician/issues/62)
+
+
+
 <a name="0.20.1"></a>
 ## [0.20.1](https://github.com/EricLambrecht/spotify-magician/compare/v0.20.0...v0.20.1) (2019-09-25)
 

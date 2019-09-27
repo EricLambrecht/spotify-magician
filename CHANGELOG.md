@@ -8,7 +8,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Bug Fixes
 
-* Fixed deployment url on now.sh ([6ed271c](https://github.com/EricLambrecht/spotify-magician/commit/6ed271c))
+* **[NOT WORKING]** Fixed deployment url on now.sh ([6ed271c](https://github.com/EricLambrecht/spotify-magician/commit/6ed271c)) 
 
 
 

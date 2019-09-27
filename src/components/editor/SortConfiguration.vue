@@ -92,12 +92,15 @@ export default {
     },
     async sort() {
       this.showModal = false;
-      await this.askForConfirmation({
+      const confirmed = await this.askForConfirmation({
         headline: 'Sort',
         question: 'Are you sure you want to sort your playlist?',
         positive: 'Sort',
         negative: 'Cancel',
       });
+
+      if (!confirmed) return;
+
       await this.rearrangePlaylistWith({
         rearranger: this.sortModeMap[this.sortMode],
         options: this.options,

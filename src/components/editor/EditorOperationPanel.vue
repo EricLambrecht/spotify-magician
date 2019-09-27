@@ -61,13 +61,16 @@ export default {
   },
   methods: {
     async onClickShuffle() {
+      const confirmed = await this.askForConfirmation({
+        headline: 'Shuffle',
+        question: 'Are you sure you want to shuffle your playlist?',
+        positive: 'Shuffle',
+        negative: 'Cancel',
+      });
+
+      if (!confirmed) return;
+
       try {
-        await this.askForConfirmation({
-          headline: 'Shuffle',
-          question: 'Are you sure you want to shuffle your playlist?',
-          positive: 'Shuffle',
-          negative: 'Cancel',
-        });
         await this.rearrangePlaylistWith({
           rearranger: RandomShuffle,
         });

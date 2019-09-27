@@ -42,9 +42,9 @@ export default {
   },
 
   askForConfirmation({ commit }, confirmation = {}) {
-    const promise = new Promise((resolve, reject) => {
+    const promise = new Promise((resolve) => {
       commit('setOnConfirmationAccept', resolve);
-      commit('setOnConfirmationDecline', reject);
+      commit('setOnConfirmationDecline', resolve);
     });
 
     commit('setPendingConfirmation', {
@@ -54,12 +54,13 @@ export default {
       negative: 'No',
       ...confirmation,
     });
+
     return promise;
   },
 
   async acceptConfirmation({ commit, state }) {
     const { onConfirmationAccept } = state;
-    onConfirmationAccept(); // resolve promise
+    onConfirmationAccept(true); // resolve promise
     commit('setPendingConfirmation', null);
     commit('setOnConfirmationAccept', null);
     commit('setOnConfirmationDecline', null);
@@ -67,7 +68,7 @@ export default {
 
   declineConfirmation({ commit, state }) {
     const { onConfirmationDecline } = state;
-    onConfirmationDecline(); // reject promise
+    onConfirmationDecline(false); // resolve promise
     commit('setPendingConfirmation', null);
     commit('setOnConfirmationAccept', null);
     commit('setOnConfirmationDecline', null);

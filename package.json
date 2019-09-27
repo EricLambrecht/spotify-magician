@@ -1,7 +1,7 @@
 {
   "name": "spotify-magician",
   "description": "A spotify playlist editor",
-  "version": "0.20.3",
+  "version": "0.20.4",
   "author": "Eric Lambrecht <ericlambrecht.hh@gmail.com>",
   "private": true,
   "scripts": {

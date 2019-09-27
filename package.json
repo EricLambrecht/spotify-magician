@@ -13,7 +13,7 @@
     "release": "standard-version -a --message \"chore(release): :bookmark: %s\"",
     "deploy": "now --token $NOW_TOKEN",
     "alias:dev": "now alias spotify-magician-nightly --token $NOW_TOKEN",
-    "alias:prod": "now alias --token $NOW_TOKEN"
+    "alias:prod": "now alias --token $NOW_TOKEN --target staging"
   },
   "repository": {
     "type": "git",

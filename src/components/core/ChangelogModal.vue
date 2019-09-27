@@ -69,6 +69,9 @@ export default {
       color: #CCC;
       text-decoration: none;
     }
+    strong {
+      font-weight: 600;
+    }
 
     /* hacky territory... */
     h1 + h3 + ul + h3 + ul + p,

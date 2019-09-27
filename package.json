@@ -12,7 +12,7 @@
     "lint": "eslint --ext .js,.vue src",
     "release": "standard-version -a --message \"chore(release): :bookmark: %s\"",
     "deploy:dev": "now --token $NOW_TOKEN",
-    "deploy:prod": "now --token $NOW_TOKEN --target staging"
+    "deploy:prod": "now --token $NOW_TOKEN --target production"
   },
   "repository": {
     "type": "git",

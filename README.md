@@ -44,7 +44,7 @@ We use ECMAScript 2018 in this project. So please use *async/await* instead of *
 feel free to make use of the newest Javascript features whenever it makes sense. See 
 ([Code Style](#code-style) for further information). 
 
-This project uses's [Vue](https://vuejs.org/)'s *single-page-components*. 
+This project uses's [Vue](https://vuejs.org/)'s *single-file-components*. 
 They are parsed and bundled with [webpack](https://webpack.js.org) 
 (see [docs for vue-loader](http://vuejs.github.io/vue-loader)).
 

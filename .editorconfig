@@ -15,7 +15,7 @@ tab_width=2
 
 [*.vue]
 indent_style=space
-tab_width=2
+tab_width=1
 
 [{*.yml,*.yaml}]
 indent_style=space

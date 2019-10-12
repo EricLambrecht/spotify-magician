@@ -1,3 +1,4 @@
+import uuid from 'uuid/v4';
 import actions from './actions';
 import getters from './getters';
 import mutations from './mutations';
@@ -11,6 +12,7 @@ const state = {
   onConfirmationAccept: null,
   onConfirmationDecline: null,
   appWidth: 0,
+  authState: uuid(),
 };
 
 export default {

@@ -1,7 +1,12 @@
 <template>
   <div id="app" v-resize:throttle.300="onResize">
-    <logged-out-window v-if="!hasAccess" />
-    <main-window v-else />
+    <template v-if="$route.matched.length">
+      <router-view />
+    </template>
+    <template v-else>
+      <logged-out-window v-if="!hasAccess" />
+      <main-window v-else />
+    </template>
   </div>
 </template>
 
@@ -26,9 +31,7 @@ export default {
       hasAccess: 'user/hasAccess',
     }),
   },
-  mounted() {
-    this.$store.dispatch('user/checkAccess');
-  },
+  mounted() {},
   methods: {
     onResize(app) {
       this.$store.dispatch('app/updateAppWidth', app.clientWidth);

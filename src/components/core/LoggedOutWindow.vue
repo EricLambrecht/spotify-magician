@@ -11,6 +11,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import logoUrl from '../../assets/logo.png';
 import config from '../../config';
 
@@ -23,12 +24,14 @@ export default {
     logoUrl,
   }),
   computed: {
+    ...mapState('app', ['authState']),
     loginURI() {
       return `${'https://accounts.spotify.com/authorize?'
           + 'client_id='}${config.spotify.client_id}&`
-          + 'response_type=token&'
+          + 'response_type=code&'
+          + `state=${this.authState}`
           + `scope=${getScopes()}&`
-          + `redirect_uri=${encodeURIComponent(`${window.location.protocol}//${window.location.host}${window.location.pathname}`)}`;
+          + `redirect_uri=${encodeURIComponent(`${window.location.protocol}//${window.location.host}/requestTokens`)}`;
     },
   },
 };

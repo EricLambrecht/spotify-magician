@@ -5,6 +5,7 @@ import mutations from './mutations';
 // initial state
 const state = {
   accessToken: null,
+  refreshToken: null,
   playlists: [],
 };
 

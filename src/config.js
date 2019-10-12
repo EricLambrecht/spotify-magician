@@ -1,4 +1,7 @@
 const config = {
+  backend: {
+    host: 'https://europe-west2-spotify-magician.cloudfunctions.net',
+  },
   spotify: {
     client_id: 'dc57243b2f564609beb31f87954380b6',
     scopes: [

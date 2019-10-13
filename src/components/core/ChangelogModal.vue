@@ -1,7 +1,11 @@
 <template>
   <b-modal
     :show="show"
-    :modal-styles="{ maxHeight: '75vh', overflowY: 'scroll' }"
+    :modal-styles="{
+      maxHeight: '75vh',
+      overflowY: 'scroll',
+      maxWidth: '1100px',
+    }"
   >
     <div class="changelog-saljhd98a2ebhs" v-html="html" />
     <div slot="footer">
@@ -60,12 +64,13 @@ export default {
   p,
   ul {
     font-size: 15px;
+    line-height: 1.5;
   }
   ul {
     list-style: disc inside;
     margin-left: 2px;
     li {
-      margin-top: 8px;
+      margin-top: 2px;
     }
   }
   a {

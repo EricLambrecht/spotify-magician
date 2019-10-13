@@ -71,8 +71,21 @@ export default class Spotify {
    * @returns {Promise<Object>}
    * @throws
    */
-  static async getUserPlaylists(options = {}) {
+  static async getUserPlaylists(options = { offset: 0, limit: 50 }) {
     const apiResult = await api.getUserPlaylists(options)
+    let numberOfFetchedPlaylists = apiResult.items.length + apiResult.offset
+
+    // Do we have all playlists yet?
+    while (numberOfFetchedPlaylists < apiResult.total) {
+      // eslint-disable-next-line no-await-in-loop
+      const nextSlice = await api.getUserPlaylists({
+        offset: numberOfFetchedPlaylists,
+        limit: 50,
+      })
+      apiResult.items = apiResult.items.concat(nextSlice.items)
+      numberOfFetchedPlaylists = apiResult.items.length + apiResult.offset
+    }
+
     return apiResult.items
   }
 
@@ -85,19 +98,10 @@ export default class Spotify {
    * @throws
    */
   static async getPlaylistSlice(playlistId, offset = 0, limit = 0) {
-    const tracks = await api.getPlaylistTracks(playlistId, {
+    return api.getPlaylistTracks(playlistId, {
       limit,
       offset,
     })
-    const numberOfFetchedTracks = tracks.items.length + tracks.offset
-    if (numberOfFetchedTracks < tracks.total) {
-      const remainingTracks = await Spotify.getTracks(
-        numberOfFetchedTracks,
-        100
-      )
-      tracks.items = tracks.items.concat(remainingTracks.items)
-    }
-    return tracks
   }
 
   /**
@@ -110,15 +114,18 @@ export default class Spotify {
     const playlist = await api.getPlaylist(playlistId)
 
     // Do we have all tracks?
-    const numberOfFetchedTracks =
+    let numberOfFetchedTracks =
       playlist.tracks.items.length + playlist.tracks.offset
-    if (numberOfFetchedTracks < playlist.tracks.total) {
+    while (numberOfFetchedTracks < playlist.tracks.total) {
+      // eslint-disable-next-line no-await-in-loop
       const nextSlice = await Spotify.getPlaylistSlice(
         playlistId,
         numberOfFetchedTracks,
         100
       )
       playlist.tracks.items = playlist.tracks.items.concat(nextSlice.items)
+      numberOfFetchedTracks =
+        playlist.tracks.items.length + playlist.tracks.offset
     }
     return playlist
   }

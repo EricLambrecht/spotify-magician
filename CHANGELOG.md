@@ -5,9 +5,11 @@ All notable changes to this project will be documented in this file. See [standa
 <a name="0.21.0"></a>
 # [0.21.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.20.5...v0.21.0) (2019-10-13)
 
-This version introduces persistent user sessions!
+This version introduces persistent user sessions and a loading screen!
 
 No longer do you have to login on every reload. The session will last for the next two years as long as you don't log out ...which is not possible right now :D
+
+The loading screen makes the app load less "flickery" and hopefully provides a better user experience than before.
 
 ### Bug Fixes
 

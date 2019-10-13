@@ -1,5 +1,5 @@
 <template>
-  <div class="logged-out-window">
+  <div class="login-screen">
     <b-square-image :url="logoUrl" :size="140" />
     <b-headline level="1" class="app-name">
       Spotify Magician
@@ -31,14 +31,14 @@ export default {
           + 'response_type=code&'
           + `state=${this.authState}`
           + `scope=${getScopes()}&`
-          + `redirect_uri=${encodeURIComponent(`${window.location.protocol}//${window.location.host}/requestToken`)}`;
+          + `redirect_uri=${encodeURIComponent(`${window.location.protocol}//${window.location.host}/init`)}`;
     },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-  .logged-out-window {
+  .login-screen {
     display: flex;
     flex-direction: column;
     justify-content: center;

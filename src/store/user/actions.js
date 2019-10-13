@@ -21,7 +21,7 @@ export default {
         },
         body: JSON.stringify({
           code,
-          redirect_uri: `${window.location.protocol}//${window.location.host}/requestToken`,
+          redirect_uri: `${window.location.protocol}//${window.location.host}/init`,
         }),
       });
     } else {
@@ -33,6 +33,12 @@ export default {
           'Content-Type': 'application/json',
         },
       });
+    }
+
+    if (result.status === 400) {
+      const error = new Error('No refresh token');
+      error.trigger_login = true;
+      throw error;
     }
 
     const tokenData = await result.json();

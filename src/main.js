@@ -7,10 +7,11 @@ import * as Integrations from '@sentry/integrations';
 
 import App from './App';
 import store from './store';
-import AuthTokenRetrieval from './components/auth/AuthTokenRetrieval';
+import AppInitializer from './components/init/AppInitializer';
+import LoggedOutWindow from './components/init/LoginScreen';
+import MainWindow from './components/core/MainWindow';
 
 import versionFile from './version.json';
-
 // Register base components globally
 import './components/_base/_setup';
 
@@ -31,9 +32,23 @@ const router = new VueRouter({
   mode: 'history',
   base: __dirname,
   routes: [
-    { path: '/requestToken', component: AuthTokenRetrieval },
+    {
+      path: '/',
+      name: 'home',
+      component: MainWindow,
+      beforeEnter(to, from, next) {
+        if (!store.getters['user/hasAccess']) {
+          next('/init');
+        } else {
+          next();
+        }
+      }, 
+    },
+    { path: '/login', component: LoggedOutWindow, name: 'login' },
+    { path: '/init', component: AppInitializer, name: 'init' },
     {
       path: '/logout',
+      name: 'logout',
       // beforeEnter(to, from, next) {
       // console.warn('logging out is not supported yet');
       // next('/');

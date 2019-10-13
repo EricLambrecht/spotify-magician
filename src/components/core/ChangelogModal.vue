@@ -98,5 +98,9 @@ export default {
   h1 + p + ul + p {
     margin-top: 13px;
   }
+
+  p + p {
+    margin-top: 13px;
+  }
 }
 </style>

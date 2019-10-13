@@ -14,62 +14,61 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
-import Toast from './Toast';
+import { mapGetters } from 'vuex'
+import Toast from './Toast'
 
 export default {
   name: 'ToastMessageSystem',
   components: { Toast },
   computed: {
-    ...mapGetters('app', [
-      'toastMessages',
-    ]),
+    ...mapGetters('app', ['toastMessages']),
   },
   methods: {
     getCssStyleObject(index) {
-      const toastHeight = 120;
-      const margin = 20;
+      const toastHeight = 120
+      const margin = 20
       return {
         height: `${toastHeight}px`,
         boxSizing: 'border-box',
         transform: `translateY(${(toastHeight + margin) * index}px)`,
-      };
+      }
     },
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>
-  .fixed-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 200;
+.fixed-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 200;
 
-    width: 100%;
-    height: 100vh;
-    background-color: transparent;
+  width: 100%;
+  height: 100vh;
+  background-color: transparent;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
 
-    box-sizing: border-box;
+  box-sizing: border-box;
 
-    pointer-events: none;
+  pointer-events: none;
 
-    .toast {
-      position: absolute;
-      top: 20px;
-      right: 40px;
+  .toast {
+    position: absolute;
+    top: 20px;
+    right: 40px;
 
-      opacity: 1;
-      transition: transform 0.15s ease, opacity 0.1s ease;
+    opacity: 1;
+    transition: transform 0.15s ease, opacity 0.1s ease;
 
-      &.fade-enter, &.fade-leave-to {
-        opacity: 0;
-      }
+    &.fade-enter,
+    &.fade-leave-to {
+      opacity: 0;
     }
   }
+}
 </style>

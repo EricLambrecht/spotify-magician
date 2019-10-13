@@ -17,20 +17,20 @@ export default {
       default: false,
     },
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>
-  span {
-    font-family: inherit;
-    display: inline;
+span {
+  font-family: inherit;
+  display: inline;
 
-    &.bold {
-      font-weight: bold;
-    }
-
-    &.italic {
-      font-style: italic;
-    }
+  &.bold {
+    font-weight: bold;
   }
+
+  &.italic {
+    font-style: italic;
+  }
+}
 </style>

@@ -1,15 +1,7 @@
 <template>
   <div class="container">
-    <b-button
-      tertiary
-      class="toggle"
-      @click="openModal"
-    >
-      <v-icon
-        slot="icon"
-        name="sort"
-        label="sort"
-      />
+    <b-button tertiary class="toggle" @click="openModal">
+      <v-icon slot="icon" name="sort" label="sort" />
       Sort
     </b-button>
     <b-modal
@@ -48,13 +40,13 @@
 </template>
 
 <script>
-import 'vue-awesome/icons/sort';
-import { mapActions } from 'vuex';
+import 'vue-awesome/icons/sort'
+import { mapActions } from 'vuex'
 
-import SortByTrackProperty from '../../playlist-modifications/SortByTrackProperty';
-import SortByTrackPropertyOptions from './SortByTrackPropertyOptions';
-import SortByAudioFeature from '../../playlist-modifications/SortByAudioFeature';
-import SortByAudioFeatureOptions from './SortByAudioFeatureOptions';
+import SortByTrackProperty from '../../playlist-modifications/SortByTrackProperty'
+import SortByTrackPropertyOptions from './SortByTrackPropertyOptions'
+import SortByAudioFeature from '../../playlist-modifications/SortByAudioFeature'
+import SortByAudioFeatureOptions from './SortByAudioFeatureOptions'
 
 export default {
   name: 'SortConfiguration',
@@ -75,63 +67,59 @@ export default {
         trackProperty: 'Track Property',
         audioFeature: 'Audio Feature',
       },
-    };
+    }
   },
   methods: {
     openModal() {
-      this.showModal = true;
+      this.showModal = true
     },
     closeModal() {
-      this.showModal = false;
+      this.showModal = false
     },
     onOptionsChange(options) {
-      this.options = options;
+      this.options = options
     },
     onSortModeChange(sortMode) {
-      this.sortMode = sortMode;
+      this.sortMode = sortMode
     },
     async sort() {
-      this.showModal = false;
+      this.showModal = false
       const confirmed = await this.askForConfirmation({
         headline: 'Sort',
         question: 'Are you sure you want to sort your playlist?',
         positive: 'Sort',
         negative: 'Cancel',
-      });
+      })
 
-      if (!confirmed) return;
+      if (!confirmed) return
 
       await this.rearrangePlaylistWith({
         rearranger: this.sortModeMap[this.sortMode],
         options: this.options,
-      });
+      })
     },
-    ...mapActions('app', [
-      'askForConfirmation',
-    ]),
-    ...mapActions('editor', [
-      'rearrangePlaylistWith',
-    ]),
+    ...mapActions('app', ['askForConfirmation']),
+    ...mapActions('editor', ['rearrangePlaylistWith']),
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>
-  .container {
-    display: inline-block;
-  }
+.container {
+  display: inline-block;
+}
 
-  .button-group {
-    margin-bottom: 12px;
-  }
+.button-group {
+  margin-bottom: 12px;
+}
 
-  .toggle {
-    margin: 0;
-  }
+.toggle {
+  margin: 0;
+}
 
-  .fa-icon {
-    color: var(--spotify-green);
-    font-size: 18px;
-    width: 18px;
-  }
+.fa-icon {
+  color: var(--spotify-green);
+  font-size: 18px;
+  width: 18px;
+}
 </style>

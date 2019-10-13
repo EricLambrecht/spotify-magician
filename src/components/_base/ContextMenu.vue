@@ -1,9 +1,9 @@
 <template>
   <div :class="{ 'context-menu': true, show }">
-    <p 
+    <p
       v-for="action in actions"
       :key="action.label"
-      class="action" 
+      class="action"
       @click.self="onClick($event, action)"
     >
       {{ action.label }}
@@ -26,38 +26,38 @@ export default {
   },
   methods: {
     onClick(event, action) {
-      event.preventDefault();
-      action.callback();
+      event.preventDefault()
+      action.callback()
     },
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>
-  .context-menu {
-    position: absolute;
-    top: 100%;
-    right: 50px;
-    z-index: 10;
+.context-menu {
+  position: absolute;
+  top: 100%;
+  right: 50px;
+  z-index: 10;
 
-    margin-top: 10px;
-    background-color: white;
-    box-shadow: 0 0 16px 1px rgba(0,0,0, 0.15);
-    border-radius: 5px;
-    min-width: 100px;
-    padding: 10px 15px;
-    font-size: 14px;
-    font-weight: bold;
-    display: none;
+  margin-top: 10px;
+  background-color: white;
+  box-shadow: 0 0 16px 1px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  min-width: 100px;
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: bold;
+  display: none;
 
-    &.show {
-      display: block;
-    }
+  &.show {
+    display: block;
+  }
 
-    .action {
-      &:not(:last-child) {
-        border-bottom: 1px solid var(--color-light-grey);
-      }
+  .action {
+    &:not(:last-child) {
+      border-bottom: 1px solid var(--color-light-grey);
     }
   }
+}
 </style>

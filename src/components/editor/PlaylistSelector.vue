@@ -8,17 +8,13 @@
         class="input uri-input"
         label="Enter playlist URI:"
       />
-      <b-button 
-        class="fetch-button" 
-        primary 
-        @click="fetchPlaylist"
-      >
+      <b-button class="fetch-button" primary @click="fetchPlaylist">
         Load playlist
       </b-button>
     </div>
     <div v-else class="form">
       <b-dropdown
-        v-model="playlistId" 
+        v-model="playlistId"
         class="input select-box"
         @change="fetchPlaylist"
       >
@@ -41,7 +37,7 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex';
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   name: 'PlaylistSelector',
@@ -50,68 +46,64 @@ export default {
       playlistURI: '',
       playlistId: null,
       mode: 'user',
-    };
+    }
   },
   computed: {
     parsedPlaylistId() {
       // example: spotify:user:1127316932:playlist:0pLfNXXyU21MWIv0tP3hwH
-      const search = this.playlistURI.match(/.*user:[^\s]+:playlist:([^\s]+)/i);
+      const search = this.playlistURI.match(/.*user:[^\s]+:playlist:([^\s]+)/i)
       if (search === null) {
-        return null;
+        return null
       }
-      return search[1];
+      return search[1]
     },
     userPlaylists() {
-      return this.$store.state.user.playlists;
+      return this.$store.state.user.playlists
     },
-    ...mapGetters('editor', [
-      'playlistName',
-    ]),
+    ...mapGetters('editor', ['playlistName']),
   },
   mounted() {
-    this.getPlaylists();
+    this.getPlaylists()
   },
   methods: {
     async fetchPlaylist() {
-      const playlistId = this.mode === 'custom'
-        ? this.parsedPlaylistId
-        : this.playlistId;
+      const playlistId =
+        this.mode === 'custom' ? this.parsedPlaylistId : this.playlistId
 
-      await this.$store.dispatch('editor/fetchPlaylist', playlistId);
-      this.$emit('select');
+      await this.$store.dispatch('editor/fetchPlaylist', playlistId)
+      this.$emit('select')
     },
     switchMode() {
-      this.mode = this.mode === 'user' ? 'custom' : 'user';
+      this.mode = this.mode === 'user' ? 'custom' : 'user'
     },
-    ...mapActions('user', [
-      'getPlaylists',
-    ]),
+    ...mapActions('user', ['getPlaylists']),
   },
-};
+}
 </script>
 
 <style lang="scss">
-  .spotify-playlist-selector {
-    .form {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: flex-end;
+.spotify-playlist-selector {
+  .form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
 
-      .label {
-        margin-right: 10px;
-      }
-      .select-box { }
-      .fetch-button {
-        margin-left: 4px;
-      }
+    .label {
+      margin-right: 10px;
     }
-    .mode-switch {
-      display: inline-block;
-      margin-top: 8px;
-      font-size: 12px;
-      text-decoration: underline;
-      cursor: pointer;
+    .select-box {
+    }
+    .fetch-button {
+      margin-left: 4px;
     }
   }
+  .mode-switch {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 12px;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
 </style>

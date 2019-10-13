@@ -1,7 +1,7 @@
-import SpotifyWebApi from 'spotify-web-api-js';
-import chunk from 'lodash/chunk';
+import SpotifyWebApi from 'spotify-web-api-js'
+import chunk from 'lodash/chunk'
 
-export const api = new SpotifyWebApi();
+export const api = new SpotifyWebApi()
 
 /**
  * This is a collection of (mostly) functions that use the spotify-web-api.
@@ -20,29 +20,41 @@ export default class Spotify {
   static handleApiError(dispatch, error) {
     if (typeof error.response === 'undefined') {
       // This is not an API error, it's a javascript error.
-      dispatch('app/addToast', { message: error.message, type: 'error' }, { root: true });
-      return;
+      dispatch(
+        'app/addToast',
+        { message: error.message, type: 'error' },
+        { root: true }
+      )
+      return
     }
 
-    const res = JSON.parse(error.response);
+    const res = JSON.parse(error.response)
 
     if (!res.error) {
       // We can't process this error if the 'error' property is missing
-      dispatch('app/addToast', { message: error.message, type: 'error' }, { root: true });
-      return;
+      dispatch(
+        'app/addToast',
+        { message: error.message, type: 'error' },
+        { root: true }
+      )
+      return
     }
 
     // See if access token expired
     if (res.error.status === 401) {
-      dispatch('app/setError', 'Token expired', { root: true });
-      return;
+      dispatch('app/setError', 'Token expired', { root: true })
+      return
     }
 
     // Throw error with api error message (or unknown, if empty)
-    dispatch('app/addToast', {
-      message: res.error.message || 'An unknown error occured',
-      type: 'error',
-    }, { root: true });
+    dispatch(
+      'app/addToast',
+      {
+        message: res.error.message || 'An unknown error occured',
+        type: 'error',
+      },
+      { root: true }
+    )
   }
 
   /**
@@ -50,7 +62,7 @@ export default class Spotify {
    * @param token
    */
   static setAccessToken(token) {
-    api.setAccessToken(token);
+    api.setAccessToken(token)
   }
 
   /**
@@ -60,8 +72,8 @@ export default class Spotify {
    * @throws
    */
   static async getUserPlaylists(options = {}) {
-    const apiResult = await api.getUserPlaylists(options);
-    return apiResult.items;
+    const apiResult = await api.getUserPlaylists(options)
+    return apiResult.items
   }
 
   /**
@@ -76,13 +88,16 @@ export default class Spotify {
     const tracks = await api.getPlaylistTracks(playlistId, {
       limit,
       offset,
-    });
-    const numberOfFetchedTracks = tracks.items.length + tracks.offset;
+    })
+    const numberOfFetchedTracks = tracks.items.length + tracks.offset
     if (numberOfFetchedTracks < tracks.total) {
-      const remainingTracks = await Spotify.getTracks(numberOfFetchedTracks, 100);
-      tracks.items = tracks.items.concat(remainingTracks.items);
+      const remainingTracks = await Spotify.getTracks(
+        numberOfFetchedTracks,
+        100
+      )
+      tracks.items = tracks.items.concat(remainingTracks.items)
     }
-    return tracks;
+    return tracks
   }
 
   /**
@@ -92,15 +107,20 @@ export default class Spotify {
    * @returns {Promise<SpotifyWebApi.SinglePlaylistResponse>}
    */
   static async getFullPlaylist(playlistId) {
-    const playlist = await api.getPlaylist(playlistId);
+    const playlist = await api.getPlaylist(playlistId)
 
     // Do we have all tracks?
-    const numberOfFetchedTracks = playlist.tracks.items.length + playlist.tracks.offset;
+    const numberOfFetchedTracks =
+      playlist.tracks.items.length + playlist.tracks.offset
     if (numberOfFetchedTracks < playlist.tracks.total) {
-      const nextSlice = await Spotify.getPlaylistSlice(playlistId, numberOfFetchedTracks, 100);
-      playlist.tracks.items = playlist.tracks.items.concat(nextSlice.items);
+      const nextSlice = await Spotify.getPlaylistSlice(
+        playlistId,
+        numberOfFetchedTracks,
+        100
+      )
+      playlist.tracks.items = playlist.tracks.items.concat(nextSlice.items)
     }
-    return playlist;
+    return playlist
   }
 
   /**
@@ -109,15 +129,16 @@ export default class Spotify {
    * @returns {Array}
    */
   static async getAudioFeaturesForTracks(trackIds) {
-    const chunks = chunk(trackIds, 100);
-    const audioFeatures = [];
+    const chunks = chunk(trackIds, 100)
+    const audioFeatures = []
 
-    for (const trackIdChunk of chunks) { // eslint-disable-line no-restricted-syntax
-      const response = await api.getAudioFeaturesForTracks(trackIdChunk); // eslint-disable-line
-      audioFeatures.push(...response.audio_features);
+    for (const trackIdChunk of chunks) {
+      // eslint-disable-line no-restricted-syntax
+      const response = await api.getAudioFeaturesForTracks(trackIdChunk) // eslint-disable-line
+      audioFeatures.push(...response.audio_features)
     }
 
-    return audioFeatures;
+    return audioFeatures
   }
 
   /**
@@ -127,9 +148,9 @@ export default class Spotify {
    * @returns {Promise<SpotifyWebApi.TrackSearchResponse>}
    */
   static async searchTracks(query, limit = 8) {
-    const result = await api.searchTracks(query, { limit });
-    const { tracks: pagedTracks } = result;
-    const { items: tracks } = pagedTracks;
+    const result = await api.searchTracks(query, { limit })
+    const { tracks: pagedTracks } = result
+    const { items: tracks } = pagedTracks
 
     // TODO: Sort by track popularity.
     // And maybe fetch more than 20 (if performance allows) to improve sorting.
@@ -139,7 +160,7 @@ export default class Spotify {
       artist: Spotify.getArtistNameFromTrack(track),
       album: track.album.name,
       releaseDate: Spotify.getReleaseDate(track),
-    }));
+    }))
   }
 
   /**
@@ -150,9 +171,10 @@ export default class Spotify {
    * @returns {Promise}
    */
   static async addTracksToPlaylist(playlistId, uris) {
-    const chunks = chunk(uris, 100);
-    for (const uriChunk of chunks) { // eslint-disable-line no-restricted-syntax
-      await api.addTracksToPlaylist(playlistId, uriChunk); // eslint-disable-line no-await-in-loop
+    const chunks = chunk(uris, 100)
+    for (const uriChunk of chunks) {
+      // eslint-disable-line no-restricted-syntax
+      await api.addTracksToPlaylist(playlistId, uriChunk) // eslint-disable-line no-await-in-loop
     }
   }
 
@@ -163,7 +185,7 @@ export default class Spotify {
    */
   static getReleaseDate(track) {
     // TODO: Improve this function by using release_date_precision.
-    return track.album.release_date;
+    return track.album.release_date
   }
 
   /**
@@ -172,7 +194,7 @@ export default class Spotify {
    * @returns {string}
    */
   static getArtistNameFromTrack(track) {
-    return track.artists.map(artist => artist.name).join(',');
+    return track.artists.map(artist => artist.name).join(',')
   }
 
   /**
@@ -181,13 +203,14 @@ export default class Spotify {
    * 100 tracks will be split into chunks to replace everything.
    */
   static async replaceTracks(playlistId, uris) {
-    const chunks = chunk(uris, 100);
-    const firstChunk = chunks.shift();
-    await api.replaceTracksInPlaylist(playlistId, firstChunk);
+    const chunks = chunk(uris, 100)
+    const firstChunk = chunks.shift()
+    await api.replaceTracksInPlaylist(playlistId, firstChunk)
 
     if (chunks.length > 0) {
-      for (const uriChunk of chunks) { // eslint-disable-line no-restricted-syntax
-        await api.addTracksToPlaylist(playlistId, uriChunk); // eslint-disable-line no-await-in-loop
+      for (const uriChunk of chunks) {
+        // eslint-disable-line no-restricted-syntax
+        await api.addTracksToPlaylist(playlistId, uriChunk) // eslint-disable-line no-await-in-loop
       }
     }
   }

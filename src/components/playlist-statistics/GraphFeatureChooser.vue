@@ -12,16 +12,19 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
+import { mapState, mapActions } from 'vuex'
 
-import { lineChartFeatures, getCaptionForFeatureName } from '../../store/playlist-statistics/supportedAudioFeatures';
+import {
+  lineChartFeatures,
+  getCaptionForFeatureName,
+} from '../../store/playlist-statistics/supportedAudioFeatures'
 
 export default {
   name: 'GraphFeatureChooser',
   data() {
     return {
       availableFeatures: [...lineChartFeatures],
-    };
+    }
   },
   computed: {
     ...mapState('playlistStatistics', {
@@ -35,16 +38,16 @@ export default {
     ]),
     getCaptionForFeatureName,
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>
-  .checkbox-button-group {
-    margin-bottom: 10px;
+.checkbox-button-group {
+  margin-bottom: 10px;
 
-    > * {
-      margin-bottom: 6px;
-      margin-right: 6px;
-    }
+  > * {
+    margin-bottom: 6px;
+    margin-right: 6px;
   }
+}
 </style>

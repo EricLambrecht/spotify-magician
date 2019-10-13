@@ -1,15 +1,16 @@
-import Rearranger from './Rearranger';
-
+import Rearranger from './Rearranger'
 
 export default class AbstractSort extends Rearranger {
   static rearrange(playlist, options = { order: 'ASC' }) {
-    const { order } = options;
+    const { order } = options
 
     if (!options.order || !['ASC', 'DESC'].includes(options.order)) {
-      throw Error('"options.order" must be defined and be either "ASC" or "DESC" in order to sort.');
+      throw Error(
+        '"options.order" must be defined and be either "ASC" or "DESC" in order to sort.'
+      )
     }
 
-    return this.sort(playlist, order, options);
+    return this.sort(playlist, order, options)
   }
 
   /**
@@ -20,7 +21,9 @@ export default class AbstractSort extends Rearranger {
    * @returns {string[]}
    */
   static sort(playlist, order, options) {
-    throw new Error('This abstract class has no implementation of "sort()". Please extend it.');
+    throw new Error(
+      'This abstract class has no implementation of "sort()". Please extend it.'
+    )
   }
 
   /**
@@ -36,14 +39,14 @@ export default class AbstractSort extends Rearranger {
    */
   static compare(comparableA, comparableB, order) {
     if (comparableA > comparableB) {
-      return this.greaterThanValue(order);
+      return this.greaterThanValue(order)
     }
 
     if (comparableA < comparableB) {
-      return this.smallerThanValue(order);
+      return this.smallerThanValue(order)
     }
 
-    return 0;
+    return 0
   }
 
   /**
@@ -52,7 +55,7 @@ export default class AbstractSort extends Rearranger {
    * @returns {number}
    */
   static smallerThanValue(order) {
-    return order === 'ASC' ? -1 : 1;
+    return order === 'ASC' ? -1 : 1
   }
 
   /**
@@ -61,6 +64,6 @@ export default class AbstractSort extends Rearranger {
    * @returns {number}
    */
   static greaterThanValue(order) {
-    return order === 'ASC' ? 1 : -1;
+    return order === 'ASC' ? 1 : -1
   }
 }

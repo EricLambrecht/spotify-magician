@@ -11,6 +11,6 @@ const config = {
       'playlist-modify-private',
     ],
   },
-};
+}
 
-export default config;
+export default config

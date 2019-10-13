@@ -6,7 +6,7 @@
   />
 </template>
 <script>
-import { mapState, mapActions } from 'vuex';
+import { mapState, mapActions } from 'vuex'
 
 export default {
   name: 'TempoSwitch',
@@ -16,9 +16,7 @@ export default {
     }),
   },
   methods: {
-    ...mapActions('editor', [
-      'showTempo',
-    ]),
+    ...mapActions('editor', ['showTempo']),
   },
-};
+}
 </script>

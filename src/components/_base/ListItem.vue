@@ -14,12 +14,12 @@ export default {
       default: 'false',
     },
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>
-  li {
-    padding: 10px 10px;
-    font-family: inherit;
-  }
+li {
+  padding: 10px 10px;
+  font-family: inherit;
+}
 </style>

@@ -27,21 +27,21 @@ export default {
   },
   computed: {
     listeners() {
-      const { input, ...listeners } = this.$listeners;
-      return listeners;
+      const { input, ...listeners } = this.$listeners
+      return listeners
     },
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>
-  select {
-    font-family: var(--font-family);
-    font-size: 13px;
-    color: var(--color-default-light);
-    border-radius: 3px;
-    border: 1px solid #CCC;
-    padding: 6px 10px 6px;
-    height: 34px; /* macOS needs this */
-  }
+select {
+  font-family: var(--font-family);
+  font-size: 13px;
+  color: var(--color-default-light);
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  padding: 6px 10px 6px;
+  height: 34px; /* macOS needs this */
+}
 </style>

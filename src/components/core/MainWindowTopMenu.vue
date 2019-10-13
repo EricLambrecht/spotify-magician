@@ -10,12 +10,7 @@
         >
           Open
         </b-button>
-        <b-button
-          class="menu-item"
-          primary
-          disabled
-          small
-        >
+        <b-button class="menu-item" primary disabled small>
           New
         </b-button>
       </b-button-group>
@@ -24,43 +19,39 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   computed: {
-    ...mapGetters('editor', [
-      'playlistExists',
-    ]),
+    ...mapGetters('editor', ['playlistExists']),
   },
   methods: {
-    ...mapActions('app', [
-      'openModal',
-    ]),
+    ...mapActions('app', ['openModal']),
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>
-  .button-group {
-    display: flex;
-    justify-content: flex-end;
+.button-group {
+  display: flex;
+  justify-content: flex-end;
+}
+.menu {
+  position: absolute;
+  top: 20px;
+  right: 0;
+  left: 0;
+}
+@media screen and (max-width: 768px) {
+  .container {
+    justify-content: flex-start;
   }
-  .menu {
-    position: absolute;
-    top: 20px;
-    right: 0;
-    left: 0;
-  }
-  @media screen and (max-width: 768px) {
-    .container {
-      justify-content: flex-start;
-    }
 
-    .menu-item {
-      width: 100%;
-      &:first-child {
-        background-color: #E0E0E0 !important;
-      }
+  .menu-item {
+    width: 100%;
+    &:first-child {
+      background-color: #e0e0e0 !important;
     }
   }
+}
 </style>

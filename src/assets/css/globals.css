@@ -5,18 +5,18 @@
   --font-family: 'Open Sans', sans-serif;
 
   /* Colors */
-  --spotify-green: #1DB954;
+  --spotify-green: #1db954;
   --spotify-black: #191414;
 
   --color-default: #343030;
   --color-default-light: #454242;
 
-  --color-default-opposite: #FFFFFF;
+  --color-default-opposite: #ffffff;
 
   --color-grey: #888888;
-  --color-light-grey: #F7F7F7;
+  --color-light-grey: #f7f7f7;
 
-  --color-background-grey: #F0F0F0;
+  --color-background-grey: #f0f0f0;
 
   --color-danger: #e2403e;
   --color-warning: #ffcb5d;
@@ -35,7 +35,7 @@
   --max-width-small: 768px;
 
   /* Transitions */
-  --ease-out-quart: cubic-bezier(0.165, 0.840, 0.440, 1.000);
+  --ease-out-quart: cubic-bezier(0.165, 0.84, 0.44, 1);
 
   /* Z-indices */
   --z-index-statistics-panel: 1000;

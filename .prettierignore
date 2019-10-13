@@ -1,0 +1,16 @@
+.nowignore
+.prettierignore
+.gitignore
+
+.editorconfig
+.travis.yml
+
+.idea/
+.git/
+
+now.json
+CHANGELOG.md
+LICENSE.md
+
+# File types
+**/*.png

@@ -7,12 +7,12 @@
 <script>
 export default {
   name: 'Link',
-};
+}
 </script>
 
 <style lang="scss" scoped>
-  a {
-    font-family: inherit;
-    color: var(--spotify-green);
-  }
+a {
+  font-family: inherit;
+  color: var(--spotify-green);
+}
 </style>

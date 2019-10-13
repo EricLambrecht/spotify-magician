@@ -14,11 +14,11 @@ export default {
       default: '',
     },
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>
-  option {
-    color: var(--color-default-light);
-  }
+option {
+  color: var(--color-default-light);
+}
 </style>

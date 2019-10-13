@@ -13,8 +13,8 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
-import AudioFeatureGraph from './AudioFeatureGraph';
+import { mapActions } from 'vuex'
+import AudioFeatureGraph from './AudioFeatureGraph'
 
 export default {
   name: 'StatisticsModal',
@@ -28,33 +28,31 @@ export default {
     },
   },
   methods: {
-    ...mapActions('app', [
-      'closeModal',
-    ]),
+    ...mapActions('app', ['closeModal']),
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>
-  .section {
-    &:not(:last-child) {
-      margin-bottom: 40px;
-    }
+.section {
+  &:not(:last-child) {
+    margin-bottom: 40px;
   }
-  .chart {
-    margin: 15px 1px 10px;
-    border-left: 2px dashed var(--color-light-grey);
-    border-right: 2px dashed var(--color-light-grey);
-  }
-  .chart-bottom {
-    display: flex;
-    font-size: 13px;
-    color: #666;
-  }
-  .x-axis {
-    display: none;
-  }
-  .end {
-    margin-left: auto;
-  }
+}
+.chart {
+  margin: 15px 1px 10px;
+  border-left: 2px dashed var(--color-light-grey);
+  border-right: 2px dashed var(--color-light-grey);
+}
+.chart-bottom {
+  display: flex;
+  font-size: 13px;
+  color: #666;
+}
+.x-axis {
+  display: none;
+}
+.end {
+  margin-left: auto;
+}
 </style>

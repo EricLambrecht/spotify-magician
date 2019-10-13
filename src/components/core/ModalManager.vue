@@ -10,9 +10,9 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
-import SelectPlaylistModal from '../editor/SelectPlaylistModal';
-import ConfirmationModal from './ConfirmationModal';
+import { mapGetters, mapActions } from 'vuex'
+import SelectPlaylistModal from '../editor/SelectPlaylistModal'
+import ConfirmationModal from './ConfirmationModal'
 
 export default {
   name: 'ModalManager',
@@ -21,23 +21,16 @@ export default {
     ConfirmationModal,
   },
   computed: {
-    ...mapGetters('editor', [
-      'playlistExists',
-    ]),
+    ...mapGetters('editor', ['playlistExists']),
     ...mapGetters('app', {
       isOpen: 'modalIsOpen',
       confirmationIsPending: 'confirmationIsPending',
     }),
   },
   methods: {
-    ...mapActions('app', [
-      'openModal',
-      'closeModal',
-    ]),
+    ...mapActions('app', ['openModal', 'closeModal']),
   },
-};
+}
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

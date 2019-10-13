@@ -2,19 +2,34 @@
   "extends": [
     "eslint:recommended",
     "airbnb-base",
-    "plugin:vue/recommended"
+    "plugin:vue/recommended",
+    "prettier"
   ],
+  "plugins": ["prettier"],
   "rules": {
+    "prettier/prettier": "error",
     "no-trailing-spaces": "off",
+    "no-restricted-syntax": ["error", "ForInStatement", "LabeledStatement", "WithStatement"],
     "vue/html-closing-bracket-newline": ["error", { "multiline": "always" }],
-    "vue/max-attributes-per-line": ["error", { "singleline": 2 }],
-    "no-param-reassign": ["error", {
-      "props": true,
-      "ignorePropertyModificationsFor": [
-        "acc", // for reduce accumulators
-        "state" // for vuex state mutations
-      ]
-    }]
+    "vue/max-attributes-per-line": "off",
+    "vue/html-self-closing": [
+      "error",
+      {
+        "html": {
+          "void": "any"
+        }
+      }
+    ],
+    "no-param-reassign": [
+      "error",
+      {
+        "props": true,
+        "ignorePropertyModificationsFor": [
+          "acc", // for reduce accumulators
+          "state" // for vuex state mutations
+        ]
+      }
+    ]
   },
   "parserOptions": {
     "ecmaVersion": 2018
@@ -22,7 +37,7 @@
   "settings": {
     "import/resolver": {
       "node": {
-        "extensions": [".js",".vue"]
+        "extensions": [".js", ".vue"]
       }
     }
   }

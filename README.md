@@ -7,18 +7,17 @@
 
 > A spotify playlist editor
 
-**Live App on Github Pages:** 
+**Live App on Github Pages:**
 [http://ericlambrecht.github.io/spotify-magician](http://ericlambrecht.github.io/spotify-magician)
 
-**Live App on Now:** 
+**Live App on Now:**
 [https://spotify-magician.now.sh](https://spotify-magician.now.sh)
 
 This project is an attempt to improve the playlist editing (and visualization)
-capabilities of Spotify. So far, this is a purely client based web app. It's built 
-with [VueJS](https://vuejs.org/) and the 
-[Spotify Web API](https://developer.spotify.com/documentation/web-api/) (using 
+capabilities of Spotify. So far, this is a purely client based web app. It's built
+with [VueJS](https://vuejs.org/) and the
+[Spotify Web API](https://developer.spotify.com/documentation/web-api/) (using
 [this](https://github.com/JMPerez/spotify-web-api-js) wrapper).
-
 
 ## Build Setup
 
@@ -29,7 +28,7 @@ You will need the following tools if you want to setup this project locally:
 
 Install packages and run a local development server using the following npm scripts:
 
-``` bash
+```bash
 # install dependencies
 npm install
 
@@ -37,20 +36,19 @@ npm install
 npm run start
 ```
 
-
 ## Contributing
 
-We use ECMAScript 2018 in this project. So please use *async/await* instead of *Promises* and 
-feel free to make use of the newest Javascript features whenever it makes sense. See 
-([Code Style](#code-style) for further information). 
+We use ECMAScript 2018 in this project. So please use _async/await_ instead of _Promises_ and
+feel free to make use of the newest Javascript features whenever it makes sense. See
+([Code Style](#code-style) for further information).
 
-This project uses's [Vue](https://vuejs.org/)'s *single-file-components*. 
-They are parsed and bundled with [webpack](https://webpack.js.org) 
+This project uses's [Vue](https://vuejs.org/)'s _single-file-components_.
+They are parsed and bundled with [webpack](https://webpack.js.org)
 (see [docs for vue-loader](http://vuejs.github.io/vue-loader)).
 
 ### Code Style
 
-We use the [airbnb code style](https://github.com/airbnb/javascript) and the 
+We use the [airbnb code style](https://github.com/airbnb/javascript) and the
 recommended [Vue code styles](https://github.com/vuejs/eslint-plugin-vue).
 
 You should use [eslint](https://eslint.org/) to check your code before you commit it to avoid code style errors:
@@ -59,26 +57,26 @@ You should use [eslint](https://eslint.org/) to check your code before you commi
 npm run lint
 ```
 
-You can also configure your editor or IDE to use *eslint* and check your code during development.
+You can also configure your editor or IDE to use _eslint_ and check your code during development.
 
 ### Commiting changes
 
 **Please commit your changes in the [conventional commit format](https://conventionalcommits.org/).**
 
-I recommend to use *commitizen* (which is included in our dev-dependencies). It will help you to write
+I recommend to use _commitizen_ (which is included in our dev-dependencies). It will help you to write
 your commit messages in this format. There is an npm script to launch commitizen (`npm run commit`) - but
 make sure to stage your changes beforehand with `git add`.
 
-
-This will also guarantee that your commits can be used to *automatically* generate new changelog entries.
+This will also guarantee that your commits can be used to _automatically_ generate new changelog entries.
 You can release a new app version (and update the changelog) by running `npm run release`.
 
 ### New Features
 
-Please create *feature branches* and make a pull request to **master** if you want to implement new features.
+Please create _feature branches_ and make a pull request to **master** if you want to implement new features.
 
 ### Deployment
+
 All releases (i.e. tagged commits) on master will be automatically deployed to github pages!
 
-We have an automated deployment pipeline on Travis CI. You can monitor the current build status 
+We have an automated deployment pipeline on Travis CI. You can monitor the current build status
 [here](https://travis-ci.org/EricLambrecht/better-spotify-playlists) (or by clicking on the build status badge at the top).

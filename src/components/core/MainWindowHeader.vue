@@ -4,7 +4,9 @@
       <div class="content">
         <b-square-image :url="playlistImage" :size="110" />
         <div class="playlist-meta">
-          <b-headline :class="{ 'playlist-name': true, 'empty': !playlistExists }">
+          <b-headline
+            :class="{ 'playlist-name': true, empty: !playlistExists }"
+          >
             {{ playlistName }}
           </b-headline>
           <div class="smaller-info">
@@ -23,9 +25,9 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
-import formatTime from '../../utils/formatTime';
-import MainWindowTopMenu from './MainWindowTopMenu';
+import { mapGetters } from 'vuex'
+import formatTime from '../../utils/formatTime'
+import MainWindowTopMenu from './MainWindowTopMenu'
 
 export default {
   name: 'MainWindowHeader',
@@ -42,66 +44,66 @@ export default {
       'playlistLengthMs',
     ]),
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>
+.header {
+  background-color: white;
+  padding: 60px 0;
+  position: relative;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+.playlist-meta {
+  position: relative;
+  margin: 0 30px -1px;
+}
+
+.playlist-name {
+  display: flex;
+  align-items: flex-end;
+
+  font-size: var(--font-size-playlist-name);
+  &.empty {
+    font-size: var(--font-size-choose-playlist);
+  }
+}
+
+.smaller-info {
+  margin: 11px 0 0 1px;
+  display: flex;
+  flex-direction: row;
+
+  font-size: 15px;
+  color: #888;
+
+  :not(:first-child) {
+    &::before {
+      content: '•';
+      margin: 0 5px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
   .header {
     background-color: white;
-    padding: 60px 0;
+    padding: 80px 0 30px;
     position: relative;
-  }
-
-  .content {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-  }
-
-  .playlist-meta {
-    position: relative;
-    margin: 0 30px -1px;
-  }
-
-  .playlist-name {
-    display: flex;
-    align-items: flex-end;
-
-    font-size: var(--font-size-playlist-name);
-    &.empty {
-      font-size: var(--font-size-choose-playlist);
-    }
   }
 
   .smaller-info {
-    margin: 11px 0 0 1px;
-    display: flex;
-    flex-direction: row;
-
-    font-size: 15px;
-    color: #888;
-
-    :not(:first-child) {
-      &::before {
-        content: '•';
-        margin: 0 5px;
-      }
-    }
+    font-size: 13px;
   }
 
-  @media screen and (max-width: 768px) {
-    .header {
-      background-color: white;
-      padding: 80px 0 30px;
-      position: relative;
-    }
-
-    .smaller-info {
-      font-size: 13px;
-    }
-
-    .playlist-meta {
-      margin-left: 20px;
-    }
+  .playlist-meta {
+    margin-left: 20px;
   }
+}
 </style>

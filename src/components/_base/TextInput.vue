@@ -6,7 +6,7 @@
       v-bind="attrs"
       @input="$emit('input', $event.target.value)"
       v-on="listeners"
-    >
+    />
   </b-labeled-element>
 </template>
 
@@ -30,23 +30,23 @@ export default {
   },
   computed: {
     attrs() {
-      const { type, ...attrs } = this.$attrs;
-      return attrs;
+      const { type, ...attrs } = this.$attrs
+      return attrs
     },
     listeners() {
-      const { input, ...listeners } = this.$listeners;
-      return listeners;
+      const { input, ...listeners } = this.$listeners
+      return listeners
     },
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>
-  input {
-    font-family: var(--font-family);
-    color: var(--color-default-light);
-    border-radius: 3px;
-    border: 1px solid #CCC;
-    padding: 6px 10px 6px;
-  }
+input {
+  font-family: var(--font-family);
+  color: var(--color-default-light);
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  padding: 6px 10px 6px;
+}
 </style>

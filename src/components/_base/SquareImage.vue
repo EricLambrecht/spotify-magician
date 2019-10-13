@@ -1,10 +1,5 @@
 <template>
-  <img
-    :src="url"
-    :style="style"
-    :width="size"
-    class="image"
-  >
+  <img :src="url" :style="style" :width="size" class="image" />
 </template>
 
 <script>
@@ -22,15 +17,15 @@ export default {
   },
   computed: {
     style() {
-      return `{ width: ${this.size}px; height: ${this.size}px; }`;
+      return `{ width: ${this.size}px; height: ${this.size}px; }`
     },
   },
-};
+}
 </script>
 
 <style lang="scss">
-  .image {
-    object-fit: cover;
-    border-radius: 5px;
-  }
+.image {
+  object-fit: cover;
+  border-radius: 5px;
+}
 </style>

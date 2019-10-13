@@ -36,29 +36,29 @@ export default {
         popularity: 'Popularity',
         duration_ms: 'Duration',
       },
-    };
+    }
   },
   methods: {
     onSortByChange(value) {
-      this.sortBy = value;
-      this.emitChange();
+      this.sortBy = value
+      this.emitChange()
     },
     onOrderChange(value) {
-      this.order = value;
-      this.emitChange();
+      this.order = value
+      this.emitChange()
     },
     emitChange() {
       this.$emit('change', {
         sortBy: this.sortBy,
         order: this.order,
-      });
+      })
     },
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>
-  .button-group {
-    margin-bottom: 12px;
-  }
+.button-group {
+  margin-bottom: 12px;
+}
 </style>

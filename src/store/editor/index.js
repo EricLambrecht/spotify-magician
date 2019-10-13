@@ -1,6 +1,6 @@
-import actions from './actions';
-import getters from './getters';
-import mutations from './mutations';
+import actions from './actions'
+import getters from './getters'
+import mutations from './mutations'
 
 // initial state
 const state = {
@@ -11,7 +11,7 @@ const state = {
     timeOfDayStartMinute: 0,
   },
   playlist: null,
-};
+}
 
 export default {
   namespaced: true,
@@ -19,4 +19,4 @@ export default {
   getters,
   actions,
   mutations,
-};
+}

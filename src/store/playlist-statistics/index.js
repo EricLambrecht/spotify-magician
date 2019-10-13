@@ -1,18 +1,14 @@
-import actions from './actions';
-import getters from './getters';
-import mutations from './mutations';
+import actions from './actions'
+import getters from './getters'
+import mutations from './mutations'
 
 // initial state
 const state = {
   fetching: false,
   playlistAudioFeatures: [],
   show: false,
-  activeFeatureGraphs: [
-    'danceability',
-    'energy',
-    'valence',
-  ],
-};
+  activeFeatureGraphs: ['danceability', 'energy', 'valence'],
+}
 
 export default {
   namespaced: true,
@@ -20,4 +16,4 @@ export default {
   getters,
   actions,
   mutations,
-};
+}

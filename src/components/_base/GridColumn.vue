@@ -7,11 +7,10 @@
 <script>
 export default {
   name: 'GridColumn',
-};
+}
 </script>
 
 <style lang="scss" scoped>
-  .grid-column {
-
-  }
+.grid-column {
+}
 </style>

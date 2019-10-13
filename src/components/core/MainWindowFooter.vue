@@ -8,8 +8,8 @@
 </template>
 
 <script>
-import ChangelogModal from './ChangelogModal';
-import versionFile from '../../version.json';
+import ChangelogModal from './ChangelogModal'
+import versionFile from '../../version.json'
 
 export default {
   name: 'MainWindowFooter',
@@ -20,37 +20,37 @@ export default {
     return {
       version: versionFile.version,
       showChangelog: false,
-    };
+    }
   },
   methods: {
     openChangelog() {
-      this.showChangelog = true;
+      this.showChangelog = true
     },
     closeChangelog() {
-      this.showChangelog = false;
+      this.showChangelog = false
     },
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>
-  .footer {
-    height: 30px;
-    margin-top: auto;
-    margin-bottom: 10px;
-    box-sizing: border-box;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-  }
+.footer {
+  height: 30px;
+  margin-top: auto;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
 
-  .version {
-    color: var(--spotify-green);
-    font-weight: bold;
-    font-size: 14px;
-    padding: 10px;
-    cursor: pointer;
-  }
+.version {
+  color: var(--spotify-green);
+  font-weight: bold;
+  font-size: 14px;
+  padding: 10px;
+  cursor: pointer;
+}
 </style>

@@ -10,7 +10,7 @@ export default class Rearranger {
    * @returns {string[]} An array of URIs
    */
   static rearrange(playlist, options = {}) {
-    return this.getUris(playlist);
+    return this.getUris(playlist)
   }
 
   /**
@@ -19,6 +19,6 @@ export default class Rearranger {
    * @returns {string[]} An array of URIs
    */
   static getUris(playlist) {
-    return playlist.tracks.items.map(item => item.track.uri);
+    return playlist.tracks.items.map(item => item.track.uri)
   }
 }

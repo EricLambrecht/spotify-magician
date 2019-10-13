@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
-import TrackSearch from './TrackSearch';
+import { mapActions } from 'vuex'
+import TrackSearch from './TrackSearch'
 
 export default {
   name: 'AddTrackModal',
@@ -23,28 +23,26 @@ export default {
     },
   },
   methods: {
-    ...mapActions('editor', [
-      'appendTrackToPlaylist',
-    ]),
+    ...mapActions('editor', ['appendTrackToPlaylist']),
     addTrack(uri) {
-      this.appendTrackToPlaylist(uri);
-      this.$emit('close');
+      this.appendTrackToPlaylist(uri)
+      this.$emit('close')
     },
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>
-  .adder {
-    width: 600px;
-    height: 290px;
-  }
+.adder {
+  width: 600px;
+  height: 290px;
+}
 
-  @media screen and (max-width: 768px) {
-    .adder {
-      min-width: calc(100vw - 80px);
-      width: calc(100vw - 80px);
-      height:70vh;
-    }
+@media screen and (max-width: 768px) {
+  .adder {
+    min-width: calc(100vw - 80px);
+    width: calc(100vw - 80px);
+    height: 70vh;
   }
+}
 </style>

@@ -1,8 +1,8 @@
-import Rearranger from './Rearranger';
+import Rearranger from './Rearranger'
 
 export default class AbstractShuffle extends Rearranger {
   static rearrange(playlist, options = {}) {
-    return this.shuffle(playlist, options);
+    return this.shuffle(playlist, options)
   }
 
   /**
@@ -12,6 +12,8 @@ export default class AbstractShuffle extends Rearranger {
    * @returns {string[]}
    */
   static shuffle(playlist, options) {
-    throw new Error('This abstract class has no implementation of "shuffle()". Please extend it.');
+    throw new Error(
+      'This abstract class has no implementation of "shuffle()". Please extend it.'
+    )
   }
 }

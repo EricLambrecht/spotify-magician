@@ -1,5 +1,8 @@
 <template>
-  <b-modal :headline="pendingConfirmation.headline" :show="confirmationIsPending">
+  <b-modal
+    :headline="pendingConfirmation.headline"
+    :show="confirmationIsPending"
+  >
     <b-text>{{ pendingConfirmation.question }}</b-text>
     <div slot="footer">
       <b-button-group>
@@ -15,25 +18,20 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex';
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   name: 'ConfirmationModal',
   computed: {
-    ...mapGetters('app', [
-      'pendingConfirmation',
-      'confirmationIsPending',
-    ]),
+    ...mapGetters('app', ['pendingConfirmation', 'confirmationIsPending']),
   },
   methods: {
-    ...mapActions('app', [
-      'acceptConfirmation',
-      'declineConfirmation',
-    ]),
+    ...mapActions('app', ['acceptConfirmation', 'declineConfirmation']),
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>
-  .confirmation-modal {}
+.confirmation-modal {
+}
 </style>

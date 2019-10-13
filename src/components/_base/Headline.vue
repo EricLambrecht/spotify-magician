@@ -15,33 +15,33 @@ export default {
           headline: true,
         },
       },
-      this.$slots.default,
-    );
+      this.$slots.default
+    )
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>
-  .headline {
-    display: block;
-    color: var(--color-default);
-    font-family: var(--font-family);
-    font-weight: bold;
-  }
-  h1.headline {
-    font-size: 34px;
-    margin: 17px 0 34px;
-  }
-  h2.headline {
-    font-size: 26px;
-    margin: 13px 0 26px;
-  }
-  h3.headline {
-    font-size: 20px;
-    margin: 10px 0 20px;
-  }
-  h4.headline {
-    font-size: 16px;
-    margin: 8px 0 16px;
-  }
+.headline {
+  display: block;
+  color: var(--color-default);
+  font-family: var(--font-family);
+  font-weight: bold;
+}
+h1.headline {
+  font-size: 34px;
+  margin: 17px 0 34px;
+}
+h2.headline {
+  font-size: 26px;
+  margin: 13px 0 26px;
+}
+h3.headline {
+  font-size: 20px;
+  margin: 10px 0 20px;
+}
+h4.headline {
+  font-size: 16px;
+  margin: 8px 0 16px;
+}
 </style>

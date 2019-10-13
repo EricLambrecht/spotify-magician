@@ -26,51 +26,51 @@ export default {
       default: false,
     },
   },
-};
+}
 </script>
 
 <style scoped lang="scss">
-  .light-switch-input {
-    display: inline-flex;
-    align-items: center;
+.light-switch-input {
+  display: inline-flex;
+  align-items: center;
 
-    height: 32px;
+  height: 32px;
 
-    font-size: 14px;
+  font-size: 14px;
 
-    cursor: pointer;
+  cursor: pointer;
+}
+
+.label {
+  margin-right: 8px;
+}
+
+.switch {
+  width: 36px;
+  height: 17px;
+  border-radius: 5px;
+
+  background-color: #d2d2d2;
+  display: inline-flex;
+
+  padding: 3px;
+  box-sizing: border-box;
+}
+
+.switch-handle {
+  width: 15px;
+  height: 11px;
+  border-radius: 3px;
+
+  background-color: var(--color-grey);
+
+  position: relative;
+  left: 0;
+  transition: left 0.2s ease-out;
+
+  &.on {
+    background-color: var(--spotify-green);
+    left: 15px;
   }
-
-  .label {
-    margin-right: 8px;
-  }
-
-  .switch {
-    width: 36px;
-    height: 17px;
-    border-radius: 5px;
-
-    background-color: #d2d2d2;
-    display: inline-flex;
-
-    padding: 3px;
-    box-sizing: border-box;
-  }
-
-  .switch-handle {
-    width: 15px;
-    height: 11px;
-    border-radius: 3px;
-
-    background-color: var(--color-grey);
-
-    position: relative;
-    left: 0;
-    transition: left 0.2s ease-out;
-
-    &.on {
-      background-color: var(--spotify-green);
-      left: 15px;
-    }
-  }
+}
 </style>

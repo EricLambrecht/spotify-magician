@@ -6,7 +6,7 @@
   />
 </template>
 <script>
-import { mapState, mapActions } from 'vuex';
+import { mapState, mapActions } from 'vuex'
 
 export default {
   name: 'TimeOfDaySwitch',
@@ -14,7 +14,7 @@ export default {
     return {
       timeOfDayStartHour: 18,
       timeOfDayStartMinute: 0,
-    };
+    }
   },
   computed: {
     ...mapState('editor', {
@@ -22,9 +22,7 @@ export default {
     }),
   },
   methods: {
-    ...mapActions('editor', [
-      'showTimeOfDay',
-    ]),
+    ...mapActions('editor', ['showTimeOfDay']),
   },
-};
+}
 </script>

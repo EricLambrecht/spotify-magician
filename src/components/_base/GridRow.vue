@@ -7,11 +7,11 @@
 <script>
 export default {
   name: 'GridRow',
-};
+}
 </script>
 
 <style lang="scss" scoped>
-  .grid-row {
-    display: flex;
-  }
+.grid-row {
+  display: flex;
+}
 </style>

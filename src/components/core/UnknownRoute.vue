@@ -5,7 +5,8 @@
         Oops!
       </b-headline>
       <b-paragraph>
-        I don't know how you got here, but the following link will bring you home:
+        I don't know how you got here, but the following link will bring you
+        home:
       </b-paragraph>
       <b-paragraph>
         <router-link to="/">
@@ -19,9 +20,7 @@
 <script>
 export default {
   name: 'UnknownRoute',
-};
+}
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

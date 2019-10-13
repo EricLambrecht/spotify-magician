@@ -1,7 +1,7 @@
-import uuid from 'uuid/v4';
-import actions from './actions';
-import getters from './getters';
-import mutations from './mutations';
+import uuid from 'uuid/v4'
+import actions from './actions'
+import getters from './getters'
+import mutations from './mutations'
 
 // initial state
 const state = {
@@ -13,7 +13,7 @@ const state = {
   onConfirmationDecline: null,
   appWidth: 0,
   authState: uuid(),
-};
+}
 
 export default {
   namespaced: true,
@@ -21,4 +21,4 @@ export default {
   getters,
   actions,
   mutations,
-};
+}

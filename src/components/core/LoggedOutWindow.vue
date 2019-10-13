@@ -31,7 +31,7 @@ export default {
           + 'response_type=code&'
           + `state=${this.authState}`
           + `scope=${getScopes()}&`
-          + `redirect_uri=${encodeURIComponent(`${window.location.protocol}//${window.location.host}/requestTokens`)}`;
+          + `redirect_uri=${encodeURIComponent(`${window.location.protocol}//${window.location.host}/requestToken`)}`;
     },
   },
 };

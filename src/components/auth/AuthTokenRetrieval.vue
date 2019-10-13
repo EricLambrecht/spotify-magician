@@ -16,7 +16,7 @@ export default {
   },
   async mounted() {
     try {
-      await this.$store.dispatch('user/requestTokens');
+      await this.$store.dispatch('user/requestToken');
       this.$router.push('/');
     } catch (e) {
       this.addToast({ message: e.message, type: 'error' });

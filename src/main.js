@@ -31,7 +31,7 @@ const router = new VueRouter({
   mode: 'history',
   base: __dirname,
   routes: [
-    { path: '/requestTokens', component: AuthTokenRetrieval },
+    { path: '/requestToken', component: AuthTokenRetrieval },
     {
       path: '/logout',
       // beforeEnter(to, from, next) {

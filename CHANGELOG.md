@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file. See [standa
 <a name="0.21.0"></a>
 # [0.21.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.20.5...v0.21.0) (2019-10-13)
 
-This version introduces persistent user sessions and a loading screen!
+This version introduces **persistent user sessions** and a **loading screen**!
 
 No longer do you have to login on every reload. The session will last for the next two years as long as you don't log out ...which is not possible right now :D
 
@@ -20,7 +20,7 @@ The loading screen makes the app load less "flickery" and hopefully provides a b
 
 * Added 404 page ([05fef4e](https://github.com/EricLambrecht/spotify-magician/commit/05fef4e))
 * Playlists will now be loaded before launching the editor ([f044519](https://github.com/EricLambrecht/spotify-magician/commit/f044519)), closes [#74](https://github.com/EricLambrecht/spotify-magician/issues/74)
-* **User sessions are now persisted and refreshed automatically.** ([5960f2a](https://github.com/EricLambrecht/spotify-magician/commit/5960f2a)), closes [#15](https://github.com/EricLambrecht/spotify-magician/issues/15)
+* User sessions are now persisted and refreshed automatically. ([5960f2a](https://github.com/EricLambrecht/spotify-magician/commit/5960f2a)), closes [#15](https://github.com/EricLambrecht/spotify-magician/issues/15)
 
 
 

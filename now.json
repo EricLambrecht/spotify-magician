@@ -2,6 +2,10 @@
   "version": 2,
   "name": "spotify-magician",
   "alias": "spotify-magician",
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/.*", "dest": "/index.html" }
+  ],
   "builds": [
     { "src": "package.json", "use": "@now/static-build" }
   ],

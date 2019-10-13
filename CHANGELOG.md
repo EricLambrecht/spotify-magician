@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.21.0"></a>
+# [0.21.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.20.5...v0.21.0) (2019-10-13)
+
+
+### Bug Fixes
+
+* All of the user's playlists are now fetched (instead of only 20) ([d71fa23](https://github.com/EricLambrecht/spotify-magician/commit/d71fa23)), closes [#75](https://github.com/EricLambrecht/spotify-magician/issues/75) [#47](https://github.com/EricLambrecht/spotify-magician/issues/47)
+
+
+### Features
+
+* Added 404 page ([05fef4e](https://github.com/EricLambrecht/spotify-magician/commit/05fef4e))
+* Playlists will now be loaded before launching the editor ([f044519](https://github.com/EricLambrecht/spotify-magician/commit/f044519)), closes [#74](https://github.com/EricLambrecht/spotify-magician/issues/74)
+* User sessions are now persisted and refreshed automatically. ([5960f2a](https://github.com/EricLambrecht/spotify-magician/commit/5960f2a)), closes [#15](https://github.com/EricLambrecht/spotify-magician/issues/15)
+
+
+
 <a name="0.20.5"></a>
 ## [0.20.5](https://github.com/EricLambrecht/spotify-magician/compare/v0.20.4...v0.20.5) (2019-09-27)
 

@@ -1,9 +1,6 @@
 <template>
   <div class="loading-screen">
-    <b-square-image :url="logoUrl" :size="140" />
-    <b-headline level="1" class="headline">
-      Spotify Magician
-    </b-headline>
+    <init-header />
     <b-text class="status">
       {{ status }}
     </b-text>
@@ -13,9 +10,11 @@
 <script>
 import { mapGetters, mapActions } from 'vuex'
 import logoUrl from '../../assets/logo.png'
+import InitHeader from './InitHeader'
 
 export default {
   name: 'AppInitializer',
+  components: { InitHeader },
   data: () => ({
     logoUrl,
     status: '',
@@ -51,15 +50,10 @@ export default {
 .loading-screen {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  height: 80vh;
   text-align: center;
   font-family: var(--font-family);
-
-  .headline {
-    margin-bottom: 20px;
-  }
 
   .status {
     font-size: 18px;

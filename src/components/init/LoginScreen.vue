@@ -1,9 +1,6 @@
 <template>
   <div class="login-screen">
-    <b-square-image :url="logoUrl" :size="140" />
-    <b-headline level="1" class="app-name">
-      Spotify Magician
-    </b-headline>
+    <init-header />
     <b-link :href="loginURI" class="login-link">
       Please login
     </b-link>
@@ -14,6 +11,7 @@
 import { mapState } from 'vuex'
 import logoUrl from '../../assets/logo.png'
 import config from '../../config'
+import InitHeader from './InitHeader'
 
 const {
   spotify: { scopes },
@@ -22,6 +20,7 @@ const getScopes = () => scopes.map(scope => encodeURIComponent(scope)).join(' ')
 
 export default {
   name: 'LoginScreen',
+  components: { InitHeader },
   data: () => ({
     logoUrl,
   }),
@@ -46,15 +45,10 @@ export default {
 .login-screen {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  height: 80vh;
   text-align: center;
   font-family: var(--font-family);
-
-  .app-name {
-    margin-bottom: 20px;
-  }
 
   .login-link {
     font-size: 18px;

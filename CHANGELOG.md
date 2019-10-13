@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.21.1"></a>
+## [0.21.1](https://github.com/EricLambrecht/spotify-magician/compare/v0.21.0...v0.21.1) (2019-10-13)
+
+
+### Bug Fixes
+
+* Aligned logo and app name position between login and loading-screen ([1b89e88](https://github.com/EricLambrecht/spotify-magician/commit/1b89e88))
+
+
+
 <a name="0.21.0"></a>
 # [0.21.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.20.5...v0.21.0) (2019-10-13)
 

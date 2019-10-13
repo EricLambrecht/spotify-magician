@@ -4,8 +4,7 @@
       <router-view :key="$route.fullPath" />
     </template>
     <template v-else>
-      <logged-out-window v-if="!hasAccess" />
-      <main-window v-else />
+      <unknown-route />
     </template>
   </div>
 </template>
@@ -14,14 +13,12 @@
 import { mapGetters } from 'vuex';
 import resize from 'vue-resize-directive';
 
-import LoggedOutWindow from './components/core/LoggedOutWindow';
-import MainWindow from './components/core/MainWindow';
+import UnknownRoute from './components/core/UnknownRoute';
 
 export default {
   name: 'App',
   components: {
-    LoggedOutWindow,
-    MainWindow,
+    UnknownRoute,
   },
   directives: {
     resize,

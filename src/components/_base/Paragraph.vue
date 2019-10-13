@@ -14,5 +14,6 @@ export default {
   p {
     font-family: inherit;
     text-align: left;
+    margin: 0 0 8px;
   }
 </style>

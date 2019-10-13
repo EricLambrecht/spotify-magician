@@ -30,6 +30,7 @@ export default {
       this.status = 'Authenticating...'
       await this.$store.dispatch('user/requestToken')
       this.status = 'Fetching playlists...'
+      await this.$store.dispatch('user/getPlaylists')
       await this.$router.replace({ name: 'home' })
     } catch (e) {
       if (e.trigger_login) {

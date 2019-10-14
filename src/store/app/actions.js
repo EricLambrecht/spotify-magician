@@ -19,7 +19,7 @@ export default {
   },
 
   spawnErrorToast({ dispatch }, { message, dismissible }) {
-    Sentry.captureException(message)
+    Sentry.captureException(new Error(message))
     dispatch('spawnToast', { message, dismissible, type: 'error' })
   },
 

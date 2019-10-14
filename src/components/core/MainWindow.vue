@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import { mapGetters, mapState, mapActions } from 'vuex'
+import { mapState } from 'vuex'
 
 import EditorOperationPanel from '../editor/EditorOperationPanel'
 import ErrorMessage from './ErrorMessage'
@@ -52,17 +52,6 @@ export default {
     ...mapState('editor', {
       errorMessage: state => state.error,
     }),
-    ...mapGetters('app', {
-      isOpen: 'modalIsOpen',
-    }),
-    ...mapGetters('editor', [
-      'playlistImage',
-      'playlistName',
-      'playlistExists',
-    ]),
-  },
-  methods: {
-    ...mapActions('app', ['openModal', 'addToast']),
   },
 }
 </script>

@@ -5,7 +5,7 @@ export default {
   setOpenedModal(state, modalNameOrNull) {
     state.openedModal = modalNameOrNull
   },
-  addToast(state, toast) {
+  spawnToast(state, toast) {
     state.toastMessages.push(toast)
   },
   removeToast(state, index) {

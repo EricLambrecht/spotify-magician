@@ -1,3 +1,5 @@
+import * as Sentry from '@sentry/browser'
+
 const TOAST_DURATION_MS = 5 * 1000
 
 export default {
@@ -16,13 +18,18 @@ export default {
     commit('setOpenedModal', null)
   },
 
-  addToast({ commit, dispatch }, { message, type, dismissible }) {
+  spawnErrorToast({ dispatch }, { message, dismissible }) {
+    Sentry.captureException(message)
+    dispatch('spawnToast', { message, dismissible, type: 'error' })
+  },
+
+  spawnToast({ commit, dispatch }, { message, type, dismissible }) {
     // Generate a unique id
     const id = Math.random()
       .toString(36)
       .substr(2, 9)
 
-    commit('addToast', {
+    commit('spawnToast', {
       id,
       message,
       type,

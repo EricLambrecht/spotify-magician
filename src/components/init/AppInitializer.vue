@@ -35,13 +35,13 @@ export default {
       if (e.trigger_login) {
         await this.$router.replace({ name: 'login' })
       } else {
-        this.addToast({ message: e.message, type: 'error' })
+        this.spawnErrorToast({ message: e.message })
         throw new Error(e)
       }
     }
   },
   methods: {
-    ...mapActions('app', ['addToast']),
+    ...mapActions('app', ['spawnErrorToast']),
   },
 }
 </script>

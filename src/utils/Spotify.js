@@ -21,8 +21,8 @@ export default class Spotify {
     if (typeof error.response === 'undefined') {
       // This is not an API error, it's a javascript error.
       dispatch(
-        'app/addToast',
-        { message: error.message, type: 'error' },
+        'app/spawnErrorToast',
+        { message: error.message },
         { root: true }
       )
       return
@@ -33,8 +33,8 @@ export default class Spotify {
     if (!res.error) {
       // We can't process this error if the 'error' property is missing
       dispatch(
-        'app/addToast',
-        { message: error.message, type: 'error' },
+        'app/spawnErrorToast',
+        { message: error.message },
         { root: true }
       )
       return
@@ -48,10 +48,9 @@ export default class Spotify {
 
     // Throw error with api error message (or unknown, if empty)
     dispatch(
-      'app/addToast',
+      'app/spawnErrorToast',
       {
         message: res.error.message || 'An unknown error occured',
-        type: 'error',
       },
       { root: true }
     )

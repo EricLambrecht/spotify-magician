@@ -67,9 +67,8 @@ export default {
           rearranger: RandomShuffle,
         })
       } catch (e) {
-        this.addToast({
+        this.spawnErrorToast({
           message: e.message,
-          type: 'error',
           dismissible: false,
         })
       }
@@ -83,14 +82,17 @@ export default {
       try {
         this.openPlaylistStatistics()
       } catch (e) {
-        this.addToast({
+        this.spawnErrorToast({
           message: e.message,
-          type: 'error',
           dismissible: false,
         })
       }
     },
-    ...mapActions('app', ['askForConfirmation', 'addToast', 'openModal']),
+    ...mapActions('app', [
+      'askForConfirmation',
+      'spawnErrorToast',
+      'openModal',
+    ]),
     ...mapActions('editor', ['rearrangePlaylistWith']),
     ...mapActions('playlistStatistics', [
       'openPlaylistStatistics',

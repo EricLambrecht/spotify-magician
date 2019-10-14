@@ -15,17 +15,23 @@ import versionFile from './version.json'
 // Register base components globally
 import './components/_base/_setup'
 
-const version = process.env.WEBPACK_DEV_SERVER
-  ? `${versionFile.version}-dev`
-  : versionFile.version
+const isDevServer = Boolean(process.env.WEBPACK_DEV_SERVER)
 
-Sentry.init({
-  release: `spotify-magician@${version}`,
-  dsn: 'https://d9594251266d4383bd960036f78f0d57@sentry.io/1763722',
-  integrations: [
-    new Integrations.Vue({ Vue, attachProps: true, logErrors: true }),
-  ],
-})
+if (!isDevServer) {
+  const isNightly =
+    window.location.host === 'spotify-magician.ericlambrecht.now.sh'
+  const sentryReleaseName = isNightly
+    ? `${versionFile.version}-nightly`
+    : versionFile.version
+
+  Sentry.init({
+    release: sentryReleaseName,
+    dsn: 'https://d9594251266d4383bd960036f78f0d57@sentry.io/1763722',
+    integrations: [
+      new Integrations.Vue({ Vue, attachProps: true, logErrors: true }),
+    ],
+  })
+}
 
 Vue.use(PortalVue)
 Vue.use(VueRouter)

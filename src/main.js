@@ -12,9 +12,13 @@ import LoggedOutWindow from './components/init/LoginScreen'
 import MainWindow from './components/core/MainWindow'
 
 import versionFile from './version.json'
+
 // Register base components globally
 import './components/_base/_setup'
 
+/* --------------------------------- */
+/* --------- SENTRY SETUP ---------- */
+/* --------------------------------- */
 const isDevServer = Boolean(process.env.WEBPACK_DEV_SERVER)
 
 if (!isDevServer) {
@@ -32,6 +36,7 @@ if (!isDevServer) {
     ],
   })
 }
+/* --------------------------------- */
 
 Vue.use(PortalVue)
 Vue.use(VueRouter)

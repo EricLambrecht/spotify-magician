@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.21.3"></a>
+## [0.21.3](https://github.com/EricLambrecht/spotify-magician/compare/v0.21.2...v0.21.3) (2019-10-14)
+
+
+### Bug Fixes
+
+* Handled errors are now sent to Sentry ([0f1861b](https://github.com/EricLambrecht/spotify-magician/commit/0f1861b))
+
+
+
 <a name="0.21.2"></a>
 ## [0.21.2](https://github.com/EricLambrecht/spotify-magician/compare/v0.21.1...v0.21.2) (2019-10-13)
 

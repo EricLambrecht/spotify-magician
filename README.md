@@ -7,10 +7,7 @@
 
 > A spotify playlist editor
 
-**Live App on Github Pages:**
-[http://ericlambrecht.github.io/spotify-magician](http://ericlambrecht.github.io/spotify-magician)
-
-**Live App on Now:**
+**Live App:**
 [https://spotify-magician.now.sh](https://spotify-magician.now.sh)
 
 This project is an attempt to improve the playlist editing (and visualization)

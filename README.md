@@ -3,7 +3,7 @@
 [![devDependencies Status](https://david-dm.org/ericlambrecht/spotify-magician/dev-status.svg)](https://david-dm.org/ericlambrecht/spotify-magician?type=dev)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
-# spotify-magician
+# Spotify Magician
 
 > A playlist editor for Spotify
 

@@ -5,7 +5,7 @@
 
 # spotify-magician
 
-> A spotify playlist editor
+> A playlist editor for Spotify
 
 **Live App:**
 [https://spotify-magician.now.sh](https://spotify-magician.now.sh)

@@ -76,4 +76,4 @@ Please create _feature branches_ and make a pull request to **master** if you wa
 All releases (i.e. tagged commits) on master will be automatically deployed to github pages!
 
 We have an automated deployment pipeline on Travis CI. You can monitor the current build status
-[here](https://travis-ci.org/EricLambrecht/better-spotify-playlists) (or by clicking on the build status badge at the top).
+[here](https://travis-ci.org/EricLambrecht/spotify-magician) (or by clicking on the build status badge at the top).

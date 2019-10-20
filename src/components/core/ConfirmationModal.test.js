@@ -10,7 +10,7 @@ describe('ConfirmationModal', () => {
 
   const testState = {
     app: {
-      dummyConfirmation,
+      pendingConfirmation: dummyConfirmation,
     },
   }
 

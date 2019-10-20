@@ -29,7 +29,7 @@ describe('Toast', () => {
     })
   }
 
-  it('adds type as class', () => {
+  it('adds type to class names', () => {
     const { wrapper } = renderToast({ type: 'test-type' })
     expect(wrapper.attributes('class')).toContain('test-type')
   })

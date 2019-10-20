@@ -1,11 +1,15 @@
 {
+  "env": {
+    "jest/globals": true,
+    "es6": true
+  },
   "extends": [
     "eslint:recommended",
     "airbnb-base",
     "plugin:vue/recommended",
     "prettier"
   ],
-  "plugins": ["prettier"],
+  "plugins": ["jest", "prettier"],
   "rules": {
     "prettier/prettier": "error",
     "no-trailing-spaces": "off",
@@ -29,7 +33,12 @@
           "state" // for vuex state mutations
         ]
       }
-    ]
+    ],
+    "jest/no-disabled-tests": "warn",
+    "jest/no-focused-tests": "error",
+    "jest/no-identical-title": "error",
+    "jest/prefer-to-have-length": "warn",
+    "jest/valid-expect": "error"
   },
   "parserOptions": {
     "ecmaVersion": 2018

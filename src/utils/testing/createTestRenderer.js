@@ -1,34 +1,52 @@
 import { Store } from 'vuex-mock-store' // eslint-disable-line import/no-extraneous-dependencies
+import merge from 'lodash/fp/merge'
 import { shallowMount, mount } from '@vue/test-utils' // eslint-disable-line import/no-extraneous-dependencies
 import Button from '../../components/_base/Button'
 
 // register some important modules that shouldn't be stubbed because of their functionality
-const defaultStubs = {
+const specialStubs = {
   'b-button': Button,
 }
 
-export const createRenderer = (
-  Component,
-  defaultState = {},
-  defaultGetters = {},
-  shallow = true,
-  customStubsArray = []
-) => {
-  const customStubs = customStubsArray.reduce((map, stub) => {
+const defaultOptions = {
+  props: {},
+  state: {},
+  getters: {},
+  stubs: [],
+  shallow: true,
+}
+
+export const createRenderer = (Component, options = defaultOptions) => {
+  const mergedOptions = merge(defaultOptions, options)
+  const {
+    props: defaultProps,
+    state: defaultState,
+    getters: defaultGetters,
+    stubs: defaultStubs,
+    shallow,
+  } = mergedOptions
+
+  const customStubsMap = defaultStubs.reduce((map, stub) => {
     map[stub] = true // eslint-disable-line no-param-reassign
     return map
   }, {})
 
-  const mountWithVuex = (customState = {}, customGetters = {}) => {
-    const state = {
-      ...defaultState,
-      ...customState,
-    }
+  const defaultCustoms = {
+    props: {},
+    state: {},
+    getters: {},
+  }
 
-    const getters = {
-      ...defaultGetters,
-      ...customGetters,
-    }
+  const mountWithVuex = (mountOptions = defaultCustoms) => {
+    const mergedCustoms = merge(defaultCustoms, mountOptions)
+    const {
+      state: customState,
+      getters: customGetters,
+      props: customProps,
+    } = mergedCustoms
+
+    const state = merge(defaultState, customState)
+    const getters = merge(defaultGetters, customGetters)
 
     const mockStore = new Store({
       state,
@@ -39,14 +57,12 @@ export const createRenderer = (
       $store: mockStore,
     }
 
-    const stubs = {
-      ...defaultStubs,
-      ...customStubs,
-    }
+    const stubs = merge(specialStubs, customStubsMap)
+    const propsData = merge(defaultProps, customProps)
 
     const wrapper = shallow
-      ? shallowMount(Component, { mocks, stubs })
-      : mount(Component, { mocks, stubs })
+      ? shallowMount(Component, { mocks, stubs, propsData })
+      : mount(Component, { mocks, stubs, propsData })
 
     return { wrapper, mockStore }
   }

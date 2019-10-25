@@ -30,7 +30,7 @@ export default {
       return (
         `https://accounts.spotify.com/authorize?client_id=${config.spotify.client_id}&` +
         'response_type=code&' +
-        `state=${this.authState}` +
+        `state=${this.authState}&` +
         `scope=${getScopes()}&` +
         `redirect_uri=${encodeURIComponent(
           `${window.location.protocol}//${window.location.host}/init`

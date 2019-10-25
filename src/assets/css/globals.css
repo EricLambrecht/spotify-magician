@@ -6,6 +6,7 @@
 
   /* Colors */
   --spotify-green: #1db954;
+  --spotify-green-light: #b4e6c7;
   --spotify-black: #191414;
 
   --color-default: #343030;
@@ -26,6 +27,7 @@
   --font-size-playlist-name: 36px;
   --font-size-choose-playlist: 40px;
   --font-size-add-track-button: 18px;
+  --font-size-big-input: 18px;
 
   /* Dimensions */
   --grid-max-width: 1000px;

@@ -153,7 +153,7 @@ export default class Spotify {
    * @param limit (optional) defaults to 8.
    * @returns {Promise<SpotifyWebApi.TrackSearchResponse>}
    */
-  static async searchTracks(query, limit = 8) {
+  static async searchTracks(query, limit = 16) {
     const result = await api.searchTracks(query, { limit })
     const { tracks: pagedTracks } = result
     const { items: tracks } = pagedTracks
@@ -166,6 +166,8 @@ export default class Spotify {
       artist: Spotify.getArtistNameFromTrack(track),
       album: track.album.name,
       releaseDate: Spotify.getReleaseDate(track),
+      image: track.album.images[2].url,
+      duration_ms: track.duration_ms,
     }))
   }
 

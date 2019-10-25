@@ -1,33 +1,64 @@
 <template>
   <div class="track-search">
-    <b-text-input v-model="query" @input="searchTrack" />
-    <b-list class="results">
-      <b-list-item
+    <b-text-input
+      v-model="query"
+      class="search-input"
+      icon="search"
+      big
+      @input="searchTrack"
+    >
+      <v-icon slot="icon" name="search" class="icon" />
+    </b-text-input>
+    <b-list v-if="tracksToAdd.length > 0" class="add-list">
+      <div
+        v-for="track in tracksToAdd"
+        :key="track.uri"
+        class="track-container"
+      >
+        <search-playlist-item
+          :track="track"
+          class="track"
+          @click.native="onAddedTrackClick(track)"
+        />
+        <v-icon name="times" class="icon" />
+      </div>
+    </b-list>
+    <b-list v-if="searchResult.length > 0" class="results">
+      <div
         v-for="track in searchResult"
         :key="track.uri"
-        class="track"
-        @click.native="onTrackClick(track.uri)"
+        class="track-container"
       >
-        <b-text class="label">
-          <b-text bold>
-            {{ track.name }}
-          </b-text>
-          - {{ track.artist }} - {{ track.album }}
-        </b-text>
-      </b-list-item>
+        <search-playlist-item
+          :track="track"
+          class="track"
+          @click.native="onResultTrackClick(track)"
+        />
+        <v-icon name="plus" class="icon" />
+      </div>
     </b-list>
+    <div v-else class="results no-results">
+      No results :(
+    </div>
   </div>
 </template>
 
 <script>
+import 'vue-awesome/icons/search'
+import 'vue-awesome/icons/plus'
+import 'vue-awesome/icons/times'
+import pull from 'lodash/pull'
 import Spotify from '../../utils/Spotify'
+import SearchPlaylistItem from './SearchPlaylistItem'
 
 export default {
   name: 'TrackSearch',
+  components: { SearchPlaylistItem },
   data() {
     return {
       query: '',
       searchResult: [],
+      tracksToAdd: [],
     }
   },
   methods: {
@@ -38,68 +69,88 @@ export default {
         this.searchResult = []
       }
     },
-    onTrackClick(uri) {
-      this.$emit('select', uri)
+    onAddedTrackClick(track) {
+      pull(this.tracksToAdd, track)
+      this.emitTrackUris()
+    },
+    onResultTrackClick(track) {
+      this.tracksToAdd.push(track)
+      this.emitTrackUris()
+    },
+    emitTrackUris() {
+      const uris = this.tracksToAdd.map(track => track.uri)
+      this.$emit('select', uris)
     },
   },
 }
 </script>
 
 <style lang="scss" scoped>
-.results {
-  font-size: 13px;
-  margin-top: 10px;
+.track-search {
+  display: flex;
+  flex-direction: column;
 }
 
-.track {
-  border-radius: 3px;
-  padding: 8px 10px;
-  cursor: pointer;
-  display: flex;
+.add-list {
+  margin-top: 16px;
+  padding: 11px 10px 10px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  max-height: 280px;
+  overflow-y: scroll;
+  background: var(--spotify-green-light);
+  flex-shrink: 0;
+
+  .track-container:hover {
+    color: var(--color-danger);
+  }
+}
+
+.results {
+  margin-top: 16px;
+  padding: 11px 10px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  max-height: 100%;
+  overflow-y: scroll;
+  background: var(--color-background-grey);
+}
+
+.track-container {
+  position: relative;
+  color: var(--spotify-green);
 
   &:not(:first-child) {
-    margin-top: 3px;
+    margin-top: 5px;
+  }
+
+  .icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: none;
   }
 
   &:hover {
-    background-color: var(--color-background-grey);
-    position: relative;
-    overflow: hidden;
-    &::after {
-      content: 'Add';
-      position: absolute;
-      top: 0;
-      right: 0;
-      height: 100%;
-      display: flex;
-      padding: 8px;
-      justify-content: flex-end;
-      font-weight: bold;
-      color: white;
-      background-color: var(--spotify-green);
-      box-sizing: border-box;
-      border-radius: 3px;
+    .icon {
+      display: block;
     }
-    &::before {
-      content: '';
-      color: transparent;
-      position: absolute;
-      top: 50%;
-      right: -5px;
-      height: 50px;
-      width: 50px;
-      background-color: var(--spotify-green);
-      transform: translateY(-50%) rotate(45deg);
-      box-shadow: 0 0 2px 10px var(--color-background-grey);
-    }
-    /* wow. sorry. */
   }
+}
 
-  .label {
-    /* no multilines, please */
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
+.search-input {
+  display: block;
+  width: 100%;
+}
+
+.no-results {
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  color: #ccc;
 }
 </style>

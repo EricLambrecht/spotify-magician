@@ -23,10 +23,10 @@ export default {
     }
   },
 
-  async appendTrackToPlaylist({ dispatch, state }, uri) {
+  async appendTracksToPlaylist({ dispatch, state }, uris) {
     try {
       // const { snapshot_id } = ... TODO: we could compare snapshots to support collaboration...
-      await Spotify.addTracksToPlaylist(state.playlist.id, [uri])
+      await Spotify.addTracksToPlaylist(state.playlist.id, uris)
       await dispatch('fetchPlaylist', state.playlist.id)
     } catch (err) {
       Spotify.handleApiError(dispatch, err)

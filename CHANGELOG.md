@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.21.6"></a>
+## [0.21.6](https://github.com/EricLambrecht/spotify-magician/compare/v0.21.5...v0.21.6) (2019-10-25)
+
+
+### Bug Fixes
+
+* Recover from revoked app access. (user was stuck on /init before) ([57efbd4](https://github.com/EricLambrecht/spotify-magician/commit/57efbd4)), closes [#87](https://github.com/EricLambrecht/spotify-magician/issues/87)
+
+
+
 <a name="0.21.5"></a>
 ## [0.21.5](https://github.com/EricLambrecht/spotify-magician/compare/v0.21.4...v0.21.5) (2019-10-25)
 

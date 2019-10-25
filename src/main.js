@@ -2,8 +2,6 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Icon from 'vue-awesome/components/Icon'
 import PortalVue from 'portal-vue'
-import upperFirst from 'lodash/upperFirst'
-import camelCase from 'lodash/camelCase'
 import * as Sentry from '@sentry/browser'
 import * as Integrations from '@sentry/integrations'
 

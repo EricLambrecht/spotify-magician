@@ -41,6 +41,12 @@ export default {
       throw error
     }
 
+    if (result.status === 401) {
+      const error = new Error('Invalid grant / Unauthorized')
+      error.trigger_login = true
+      throw error
+    }
+
     const tokenData = await result.json()
 
     if (!tokenData.error) {

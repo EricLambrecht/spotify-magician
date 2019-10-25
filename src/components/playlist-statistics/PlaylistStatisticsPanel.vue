@@ -113,7 +113,7 @@ export default {
 
     &.show {
       max-width: none;
-      max-height: 250px;
+      max-height: 430px;
     }
   }
 
@@ -121,6 +121,7 @@ export default {
     overflow-x: scroll;
     overflow-y: hidden;
     max-height: none;
+    order: 1;
 
     display: flex;
     padding: 0;
@@ -134,16 +135,18 @@ export default {
   }
 
   .buttons {
+    order: 2;
     min-width: 240px;
-    max-width: 270px;
+    max-width: 100%;
     max-height: none;
-    margin-bottom: 0;
+    margin: 30px 0 0;
   }
 
   .padding-box {
     width: 100%;
     padding: 30px 20px;
     display: flex;
+    flex-direction: column;
   }
 }
 </style>

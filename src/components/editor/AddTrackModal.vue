@@ -1,9 +1,12 @@
 <template>
   <b-modal headline="Add track" :show="show">
-    <track-search class="adder" @select="addTrack" />
+    <track-search class="adder" @select="updateTracks" />
     <div slot="footer">
       <b-button @click="$emit('close')">
         Close
+      </b-button>
+      <b-button :disabled="!uris" primary @click="addTracks">
+        Add
       </b-button>
     </div>
   </b-modal>
@@ -22,10 +25,18 @@ export default {
       required: true,
     },
   },
+  data() {
+    return {
+      uris: [],
+    }
+  },
   methods: {
-    ...mapActions('editor', ['appendTrackToPlaylist']),
-    addTrack(uri) {
-      this.appendTrackToPlaylist(uri)
+    ...mapActions('editor', ['appendTracksToPlaylist']),
+    updateTracks(uris) {
+      this.uris = uris
+    },
+    addTracks() {
+      this.appendTracksToPlaylist(this.uris)
       this.$emit('close')
     },
   },
@@ -35,7 +46,7 @@ export default {
 <style lang="scss" scoped>
 .adder {
   width: 600px;
-  height: 290px;
+  height: 405px;
 }
 
 @media screen and (max-width: 768px) {

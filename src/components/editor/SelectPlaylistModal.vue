@@ -26,7 +26,6 @@ export default {
     }),
   },
   methods: {
-    ...mapActions('editor', ['appendTrackToPlaylist']),
     ...mapActions('app', ['closeModal']),
   },
 }

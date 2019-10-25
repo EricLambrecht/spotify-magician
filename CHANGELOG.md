@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.21.5"></a>
+## [0.21.5](https://github.com/EricLambrecht/spotify-magician/compare/v0.21.4...v0.21.5) (2019-10-25)
+
+
+### Bug Fixes
+
+* Fix layout issues with sorting modal ([6e98d77](https://github.com/EricLambrecht/spotify-magician/commit/6e98d77))
+* Fixed dropdown look on Android ([088e590](https://github.com/EricLambrecht/spotify-magician/commit/088e590))
+* Improved text overflow handling on mobile screens ([1929416](https://github.com/EricLambrecht/spotify-magician/commit/1929416))
+
+
+
 <a name="0.21.4"></a>
 ## [0.21.4](https://github.com/EricLambrecht/spotify-magician/compare/v0.21.3...v0.21.4) (2019-10-25)
 

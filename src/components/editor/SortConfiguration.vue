@@ -4,15 +4,11 @@
       <v-icon slot="icon" name="sort" label="sort" />
       Sort
     </b-button>
-    <b-modal
-      headline="Sort settings"
-      :show="showModal"
-      :modal-styles="{ minWidth: '400px' }"
-    >
+    <b-modal headline="Sort settings" :show="showModal">
       <b-radio-button-group
         name="sortMode"
         label="Sort Mode"
-        class="button-group"
+        class="sort-mode"
         :options="sortModeOptions"
         :value="sortMode"
         @change="onSortModeChange"
@@ -109,7 +105,7 @@ export default {
   display: inline-block;
 }
 
-.button-group {
+.sort-mode {
   margin-bottom: 12px;
 }
 

@@ -41,6 +41,7 @@ select {
   color: var(--color-default-light);
   border-radius: 3px;
   border: 1px solid #ccc;
+  background: white;
   padding: 6px 10px 6px;
   height: 34px; /* macOS needs this */
 }

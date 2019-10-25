@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.21.7"></a>
+## [0.21.7](https://github.com/EricLambrecht/spotify-magician/compare/v0.21.6...v0.21.7) (2019-10-25)
+
+
+### Bug Fixes
+
+* Fixed broken scope request ([5ab6daf](https://github.com/EricLambrecht/spotify-magician/commit/5ab6daf))
+
+
+
 <a name="0.21.6"></a>
 ## [0.21.6](https://github.com/EricLambrecht/spotify-magician/compare/v0.21.5...v0.21.6) (2019-10-25)
 

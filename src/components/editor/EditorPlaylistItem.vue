@@ -173,11 +173,15 @@ export default {
     font-size: var(--track-item-song-font-size);
     line-height: var(--track-item-song-line-height);
     color: var(--color-default);
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .artist {
     font-size: var(--track-item-artist-font-size);
     line-height: var(--track-item-artist-line-height);
     color: var(--color-grey);
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 
@@ -187,6 +191,8 @@ export default {
   font-weight: 700;
   color: var(--color-grey);
   font-size: 14px;
+  flex-shrink: 0;
+  padding: 10px 0 10px 10px;
 }
 
 .track-menu {

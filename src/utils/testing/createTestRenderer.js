@@ -1,12 +1,26 @@
 import { Store } from 'vuex-mock-store' // eslint-disable-line import/no-extraneous-dependencies
 import merge from 'lodash/fp/merge'
-import { shallowMount, mount } from '@vue/test-utils' // eslint-disable-line import/no-extraneous-dependencies
+import { shallowMount, mount, createLocalVue } from '@vue/test-utils' // eslint-disable-line import/no-extraneous-dependencies
+import Icon from 'vue-awesome/components/Icon'
 import Button from '../../components/_base/Button'
+import TextInput from '../../components/_base/TextInput'
 
 // register some important modules that shouldn't be stubbed because of their functionality
 const specialStubs = {
   'b-button': Button,
+  'b-text-input': TextInput,
+  'b-labeled-element': true,
+  'b-list': true,
+  'b-list-item': true,
+  'b-square-image': true,
+  'b-text': true,
+  'b-button-group': true,
+  'b-paragraph': true,
+  'b-headline': true,
 }
+
+const localVue = createLocalVue()
+localVue.component('v-icon', Icon)
 
 const defaultOptions = {
   props: {},
@@ -60,9 +74,10 @@ export const createRenderer = (Component, options = defaultOptions) => {
     const stubs = merge(specialStubs, customStubsMap)
     const propsData = merge(defaultProps, customProps)
 
+    const testOptions = { mocks, stubs, propsData, localVue }
     const wrapper = shallow
-      ? shallowMount(Component, { mocks, stubs, propsData })
-      : mount(Component, { mocks, stubs, propsData })
+      ? shallowMount(Component, testOptions)
+      : mount(Component, testOptions)
 
     return { wrapper, mockStore }
   }

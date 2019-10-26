@@ -1,8 +1,14 @@
-name: Check commit
-
-on: [push]
+name: Check PR
+on: pull_request
 
 jobs:
+  approve:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: hmarr/auto-approve-action@v2.0.0
+      if: github.actor == 'dependabot[bot]' || github.actor == 'dependabot-preview[bot]'
+      with:
+        github-token: "${{ secrets.GITHUB_TOKEN }}"
   test:
     runs-on: ubuntu-latest
     steps:
@@ -15,4 +21,4 @@ jobs:
       run: |
         npm ci
         npm run lint
-        npm run test
+        npm run test     

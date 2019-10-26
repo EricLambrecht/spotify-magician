@@ -4,12 +4,16 @@
       v-model="query"
       class="search-input"
       icon="search"
+      placeholder="Search for track"
       big
       @input="searchTrack"
     >
       <v-icon slot="icon" name="search" class="icon" />
     </b-text-input>
     <b-list v-if="tracksToAdd.length > 0" class="add-list">
+      <b-text class="headline">
+        Tracks to add:
+      </b-text>
       <div
         v-for="track in tracksToAdd"
         :key="track.uri"
@@ -47,7 +51,6 @@
 import 'vue-awesome/icons/search'
 import 'vue-awesome/icons/plus'
 import 'vue-awesome/icons/times'
-import pull from 'lodash/pull'
 import Spotify from '../../utils/Spotify'
 import SearchPlaylistItem from './SearchPlaylistItem'
 
@@ -70,7 +73,8 @@ export default {
       }
     },
     onAddedTrackClick(track) {
-      pull(this.tracksToAdd, track)
+      const i = this.tracksToAdd.findIndex(item => item.uri === track.uri)
+      this.$delete(this.tracksToAdd, i)
       this.emitTrackUris()
     },
     onResultTrackClick(track) {
@@ -93,16 +97,24 @@ export default {
 
 .add-list {
   margin-top: 16px;
-  padding: 11px 10px 10px;
+  padding: 7px 10px 10px;
   border-radius: 5px;
   box-sizing: border-box;
-  max-height: 280px;
+  max-height: 140px;
   overflow-y: scroll;
   background: var(--spotify-green-light);
   flex-shrink: 0;
 
   .track-container:hover {
     color: var(--color-danger);
+  }
+
+  .headline {
+    font-size: 12px;
+    font-weight: 900;
+    color: var(--color-default-light);
+    display: block;
+    margin-bottom: 6px;
   }
 }
 

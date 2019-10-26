@@ -4,6 +4,7 @@
       <input
         :type="type"
         :value="value"
+        :placeholder="placeholder"
         v-bind="attrs"
         :class="{ hasIcon, big }"
         @input="$emit('input', $event.target.value)"
@@ -32,6 +33,10 @@ export default {
     type: {
       default: 'text',
       validator: value => ['text', 'password'].indexOf(value) !== -1,
+    },
+    placeholder: {
+      type: String,
+      default: '',
     },
     icon: {
       type: String,

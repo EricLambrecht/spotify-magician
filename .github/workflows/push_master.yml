@@ -1,6 +1,9 @@
-name: Check commit
+name: Check master branch
 
-on: [push]
+on:
+  push:
+    branches:    
+      - master
 
 jobs:
   test:

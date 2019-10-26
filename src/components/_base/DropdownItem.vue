@@ -20,5 +20,6 @@ export default {
 <style lang="scss" scoped>
 option {
   color: var(--color-default-light);
+  max-width: 100%;
 }
 </style>

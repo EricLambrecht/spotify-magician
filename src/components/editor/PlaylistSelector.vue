@@ -93,6 +93,7 @@ export default {
       margin-right: 10px;
     }
     .select-box {
+      max-width: 100%;
     }
     .fetch-button {
       margin-left: 4px;

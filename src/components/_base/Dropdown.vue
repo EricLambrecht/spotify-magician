@@ -44,5 +44,6 @@ select {
   background: white;
   padding: 6px 10px 6px;
   height: 34px; /* macOS needs this */
+  max-width: 100%;
 }
 </style>

@@ -70,6 +70,7 @@ export default {
 
     min-height: 160px;
     min-width: 250px;
+    max-width: 100%;
 
     transform: scale(1);
     opacity: 1;

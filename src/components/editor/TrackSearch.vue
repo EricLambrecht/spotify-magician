@@ -4,6 +4,7 @@
       v-model="query"
       class="search-input"
       icon="search"
+      placeholder="Search for track"
       big
       @input="searchTrack"
     >
@@ -47,7 +48,6 @@
 import 'vue-awesome/icons/search'
 import 'vue-awesome/icons/plus'
 import 'vue-awesome/icons/times'
-import pull from 'lodash/pull'
 import Spotify from '../../utils/Spotify'
 import SearchPlaylistItem from './SearchPlaylistItem'
 
@@ -70,7 +70,8 @@ export default {
       }
     },
     onAddedTrackClick(track) {
-      pull(this.tracksToAdd, track)
+      const i = this.tracksToAdd.findIndex(item => item.uri === track.uri)
+      this.$delete(this.tracksToAdd, i)
       this.emitTrackUris()
     },
     onResultTrackClick(track) {
@@ -96,7 +97,7 @@ export default {
   padding: 11px 10px 10px;
   border-radius: 5px;
   box-sizing: border-box;
-  max-height: 280px;
+  max-height: 140px;
   overflow-y: scroll;
   background: var(--spotify-green-light);
   flex-shrink: 0;

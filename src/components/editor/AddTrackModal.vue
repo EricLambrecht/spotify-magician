@@ -3,10 +3,10 @@
     <track-search class="adder" @select="updateTracks" />
     <div slot="footer">
       <b-button @click="$emit('close')">
-        Close
+        Cancel
       </b-button>
       <b-button :disabled="!uris" primary @click="addTracks">
-        Add
+        {{ `Add ${uris.length} track${uris.length > 1 ? 's' : ''}` }}
       </b-button>
     </div>
   </b-modal>

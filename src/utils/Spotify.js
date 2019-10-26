@@ -17,7 +17,7 @@ export default class Spotify {
    * @param dispatch dispatch function of the calling store module
    * @param error The error that was catched
    */
-  static handleApiError(dispatch, error) {
+  static async handleApiError(dispatch, error) {
     if (typeof error.response === 'undefined') {
       // This is not an API error, it's a javascript error.
       dispatch(
@@ -42,7 +42,20 @@ export default class Spotify {
 
     // See if access token expired
     if (res.error.status === 401) {
-      dispatch('app/setError', 'Token expired', { root: true })
+      try {
+        await dispatch('user/requestToken', null, { root: true })
+        dispatch(
+          'app/spawnToast',
+          { message: 'Please retry!', type: 'info' },
+          { root: true }
+        )
+      } catch (e) {
+        dispatch(
+          'app/spawnErrorToast',
+          { message: e.message || 'Could not refresh user session' },
+          { root: true }
+        )
+      }
       return
     }
 

@@ -49,7 +49,7 @@ export default {
     }
   },
   computed: {
-    ...mapState('editor', {
+    ...mapState('app', {
       errorMessage: state => state.error,
     }),
   },

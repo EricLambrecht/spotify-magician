@@ -45,8 +45,8 @@ They are parsed and bundled with [webpack](https://webpack.js.org)
 
 ### Code Style
 
-We use the [airbnb code style](https://github.com/airbnb/javascript) and the
-recommended [Vue code styles](https://github.com/vuejs/eslint-plugin-vue).
+This project uses [Prettier](https://prettier.io). You can let _Prettier_ format everything
+on save using a watcher, there is no pre-commit hook. _eslint_ is also set up of course.
 
 You should use [eslint](https://eslint.org/) to check your code before you commit it to avoid code style errors:
 
@@ -54,15 +54,29 @@ You should use [eslint](https://eslint.org/) to check your code before you commi
 npm run lint
 ```
 
-You can also configure your editor or IDE to use _eslint_ and check your code during development.
+You can also configure your editor or IDE to use _eslint_ (and _Prettier_) and check your code during development.
+
+### Testing
+
+Use `ComponentName.test.js` to write unit tests for a component. This project uses _Jest_ + _Vue test utils_.
+
+Run tests with
+
+```bash
+npm run test
+```
 
 ### Commiting changes
 
 **Please commit your changes in the [conventional commit format](https://conventionalcommits.org/).**
 
-I recommend to use _commitizen_ (which is included in our dev-dependencies). It will help you to write
-your commit messages in this format. There is an npm script to launch commitizen (`npm run commit`) - but
-make sure to stage your changes beforehand with `git add`.
+You can't do anything wrong if you use 
+
+```bash
+npm run commit # ...or yarn commit
+```
+
+to commit changes. It will run _commitizen_. 
 
 This will also guarantee that your commits can be used to _automatically_ generate new changelog entries.
 You can release a new app version (and update the changelog) by running `npm run release`.
@@ -73,7 +87,12 @@ Please create _feature branches_ and make a pull request to **master** if you wa
 
 ### Deployment
 
-All releases (i.e. tagged commits) on master will be automatically deployed to github pages!
+All releases (i.e. tagged commits) on master will be automatically deployed to [now.sh](https://zeit.co/docs)!
 
-We have an automated deployment pipeline on Travis CI. You can monitor the current build status
-[here](https://travis-ci.org/EricLambrecht/spotify-magician) (or by clicking on the build status badge at the top).
+|Staging                                         | Production                                     |
+|------------------------------------------------|------------------------------------------------|
+|[https://spotify-magician.ericlambrecht.now.sh] | [https://spotify-magician.ericlambrecht.now.sh]|
+
+
+We have an automated deployment pipeline using [Github Workflows](https://help.github.com/en/github/automating-your-workflow-with-github-actions/configuring-a-workflow).
+You can monitor the current build status in the "Actions" tab or next to every commit.

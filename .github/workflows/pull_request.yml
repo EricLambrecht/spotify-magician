@@ -1,0 +1,24 @@
+name: Check PR
+on: pull_request
+
+jobs:
+  approve:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: hmarr/auto-approve-action@v2.0.0
+      if: github.actor == 'dependabot[bot]' || github.actor == 'dependabot-preview[bot]'
+      with:
+        github-token: "${{ secrets.GITHUB_TOKEN }}"
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node_version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node_version }}  
+    - name: Install, lint and test
+      run: |
+        npm ci
+        npm run lint
+        npm run test     

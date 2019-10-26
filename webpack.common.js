@@ -1,8 +1,8 @@
 const path = require('path')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const EnvironmentPlugin = require('webpack').EnvironmentPlugin
+const { EnvironmentPlugin } = require('webpack')
 
 module.exports = {
   entry: './src/main.js',
@@ -57,7 +57,7 @@ module.exports = {
     ],
   },
   plugins: [
-    new CleanWebpackPlugin(['dist']),
+    new CleanWebpackPlugin(),
     new EnvironmentPlugin(['WEBPACK_DEV_SERVER']),
     new VueLoaderPlugin(),
     new HtmlWebpackPlugin({

@@ -67,8 +67,8 @@ export default {
     line-height: 1.5;
   }
   ul {
-    list-style: disc inside;
-    margin-left: 2px;
+    list-style: disc outside;
+    padding-left: 16px;
     li {
       margin-top: 2px;
     }

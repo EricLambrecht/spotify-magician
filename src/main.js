@@ -31,6 +31,7 @@ if (!isDevServer) {
   Sentry.init({
     release: sentryReleaseName,
     dsn: 'https://d9594251266d4383bd960036f78f0d57@sentry.io/1763722',
+    environment: isNightly ? 'staging' : 'production',
     integrations: [
       new Integrations.Vue({ Vue, attachProps: true, logErrors: true }),
     ],

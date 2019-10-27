@@ -41,5 +41,6 @@ jobs:
           npm install @sentry/cli
           ./node_modules/.bin/sentry-cli releases new -p spotify-magician $VERSION
           ./node_modules/.bin/sentry-cli releases set-commits --auto $VERSION
+          ./node_modules/.bin/sentry-cli releases deploys $VERSION new -e production
       - name: Deploy to production
         run: npm run deploy:prod

@@ -1,5 +1,8 @@
 <template>
-  <b-list-item class="playlist-item" tabindex="0">
+  <b-list-item v-if="skeleton" class="skeleton">
+    <div class="fake-text" />
+  </b-list-item>
+  <b-list-item v-else class="playlist-item" tabindex="0">
     <b-square-image :url="track.image" :size="36" class="image" />
     <b-text class="time duration">
       {{ track.duration_ms | formatTime('mm:ss') }}
@@ -29,6 +32,10 @@ export default {
     track: {
       type: Object,
       required: true,
+    },
+    skeleton: {
+      type: Boolean,
+      default: false,
     },
   },
 }
@@ -130,6 +137,60 @@ export default {
     color: var(--color-grey);
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+}
+
+.skeleton {
+  $color-bg: #ddd;
+
+  border-radius: 3px;
+  background: $color-bg;
+  position: relative;
+  height: var(--small-track-item-height);
+  padding: 0;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    display: block;
+    height: var(--small-track-item-height);
+    width: var(--small-track-item-height);
+    background: darken($color-bg, 3%);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.25),
+      transparent
+    );
+    animation: shine 0.8s ease-out infinite;
+  }
+
+  .fake-text {
+    border-radius: 3px;
+    height: 10px;
+    flex-grow: 1;
+    background: lighten($color-bg, 5%);
+    margin: 0 20px;
+  }
+}
+
+@keyframes shine {
+  0% {
+    transform: translate3d(-100%, 0, 0);
+  }
+  100% {
+    transform: translate3d(100%, 0, 0);
   }
 }
 </style>

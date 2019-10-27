@@ -167,7 +167,9 @@ export default class Spotify {
    * @returns {Promise<SpotifyWebApi.TrackSearchResponse>}
    */
   static async searchTracks(query, limit = 16) {
-    const result = await api.searchTracks(query, { limit })
+    const result = await api.searchTracks(query, {
+      limit,
+    })
     const { tracks: pagedTracks } = result
     const { items: tracks } = pagedTracks
 

@@ -8,11 +8,12 @@
       big
       @input="searchTrack"
     >
-      <v-icon slot="icon" name="search" class="icon" />
+      <v-icon v-if="searching" slot="icon" name="spinner" pulse />
+      <v-icon v-else slot="icon" name="search" class="icon" />
     </b-text-input>
-    <b-list v-if="tracksToAdd.length > 0" class="add-list">
+    <b-list v-if="tracksToAdd.length > 0" class="add-list song-list">
       <b-text class="headline">
-        Tracks to add:
+        Selected tracks:
       </b-text>
       <div
         v-for="track in tracksToAdd"
@@ -27,7 +28,26 @@
         <v-icon name="times" class="icon" />
       </div>
     </b-list>
-    <b-list v-if="searchResult.length > 0" class="results">
+    <b-list v-if="loading" class="results">
+      <div
+        v-for="fakeTrack in [{}, {}, {}, {}, {}, {}, {}, {}]"
+        :key="fakeTrack.uri"
+        class="track-container"
+      >
+        <search-playlist-item
+          :track="fakeTrack"
+          :skeleton="true"
+          class="track"
+        />
+      </div>
+    </b-list>
+    <b-list v-else-if="searchResult.length > 0" class="results song-list">
+      <b-text class="headline">
+        Results for
+        {{ /* eslint-disable-next-line */ }}
+        <b-text class="query" underline>{{ query }}</b-text
+        >:
+      </b-text>
       <div
         v-for="track in searchResult"
         :key="track.uri"
@@ -41,7 +61,7 @@
         <v-icon name="plus" class="icon" />
       </div>
     </b-list>
-    <div v-else class="results no-results">
+    <div v-else class="results no-results song-list">
       No results :(
     </div>
   </div>
@@ -49,6 +69,7 @@
 
 <script>
 import 'vue-awesome/icons/search'
+import 'vue-awesome/icons/spinner'
 import 'vue-awesome/icons/plus'
 import 'vue-awesome/icons/times'
 import Spotify from '../../utils/Spotify'
@@ -62,12 +83,20 @@ export default {
       query: '',
       searchResult: [],
       tracksToAdd: [],
+      loading: false,
+      searching: false,
     }
   },
   methods: {
     async searchTrack() {
       if (this.query) {
-        this.searchResult = await Spotify.searchTracks(this.query)
+        this.searching = true
+        try {
+          this.searchResult = await Spotify.searchTracks(this.query)
+        } catch (e) {
+          await Spotify.handleApiError(this.$store.dispatch, e)
+        }
+        this.searching = false
       } else {
         this.searchResult = []
       }
@@ -95,6 +124,20 @@ export default {
   flex-direction: column;
 }
 
+.song-list {
+  .headline {
+    font-size: 12px;
+    font-weight: 900;
+    color: var(--color-default-light);
+    display: block;
+    margin-bottom: 6px;
+
+    .query {
+      color: var(--color-default);
+    }
+  }
+}
+
 .add-list {
   margin-top: 16px;
   padding: 7px 10px 10px;
@@ -102,19 +145,12 @@ export default {
   box-sizing: border-box;
   max-height: 140px;
   overflow-y: scroll;
-  background: var(--spotify-green-light);
+  background: var(--color-background-grey);
+  border: 1px dotted var(--color-grey);
   flex-shrink: 0;
 
   .track-container:hover {
     color: var(--color-danger);
-  }
-
-  .headline {
-    font-size: 12px;
-    font-weight: 900;
-    color: var(--color-default-light);
-    display: block;
-    margin-bottom: 6px;
   }
 }
 

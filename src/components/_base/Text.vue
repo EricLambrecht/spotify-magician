@@ -1,5 +1,5 @@
 <template>
-  <span :class="{ bold: bold, italic: italic }">
+  <span :class="{ bold, italic, underline }">
     <slot />
   </span>
 </template>
@@ -13,6 +13,10 @@ export default {
       default: false,
     },
     italic: {
+      type: Boolean,
+      default: false,
+    },
+    underline: {
       type: Boolean,
       default: false,
     },
@@ -31,6 +35,10 @@ span {
 
   &.italic {
     font-style: italic;
+  }
+
+  &.underline {
+    text-decoration: underline;
   }
 }
 </style>

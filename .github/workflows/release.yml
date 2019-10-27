@@ -1,6 +1,9 @@
 name: Release production build
 
-on: [release]
+on:
+  push:
+    tags:
+      - '*'
 
 jobs:
   test:

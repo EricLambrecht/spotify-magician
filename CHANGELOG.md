@@ -1,6 +1,22 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [0.21.8](https://github.com/EricLambrecht/spotify-magician/compare/v0.21.7...v0.21.8) (2019-10-27)
+
+
+### Features
+
+* Added context menu button for playlist tracks (songs can be removed using this menu) ([1870fb0](https://github.com/EricLambrecht/spotify-magician/commit/1870fb0433d85bc6b9b3cc77a615da5c1a68dad6)), closes [#38](https://github.com/EricLambrecht/spotify-magician/issues/38)
+* Re-implemented track adding modal ([e9dedeb](https://github.com/EricLambrecht/spotify-magician/commit/e9dedebc47df246caeb8b7e5ab58eba62806b467)), closes [#73](https://github.com/EricLambrecht/spotify-magician/issues/73)
+
+
+### Bug Fixes
+
+* Fix display of list-items with multiple lines in changelog ([7c72e8f](https://github.com/EricLambrecht/spotify-magician/commit/7c72e8fe6e815301ff3a4d07da38b33c0a1aceec)), closes [#81](https://github.com/EricLambrecht/spotify-magician/issues/81)
+* Fixed playlist selection modal exceeding the screen ([bb2af34](https://github.com/EricLambrecht/spotify-magician/commit/bb2af34452414dae12c813a7e00e6b6e0180a5e2)), closes [#80](https://github.com/EricLambrecht/spotify-magician/issues/80)
+* Fixed tracks not being removed correctly from track adder ([893c054](https://github.com/EricLambrecht/spotify-magician/commit/893c0543abb01e4dca36f92388bc92f26c6954d7))
+* Sessions will now be properly restored if expired. User will be asked to retry though. ([c652f63](https://github.com/EricLambrecht/spotify-magician/commit/c652f63d5469399972b0a7ec353c806b858ae35f))
 
 <a name="0.21.7"></a>
 ## [0.21.7](https://github.com/EricLambrecht/spotify-magician/compare/v0.21.6...v0.21.7) (2019-10-25)

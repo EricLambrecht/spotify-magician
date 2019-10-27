@@ -27,6 +27,9 @@
     <b-text v-if="audioFeatures && showTempo" class="tempo">
       {{ audioFeatures.tempo.toFixed(2) }} BPM
     </b-text>
+    <b-text class="mobile-drag-handle">
+      <v-icon name="bars" />
+    </b-text>
     <b-text class="track-menu" @click.native="toggleContextMenu">
       <v-icon name="ellipsis-h" />
     </b-text>
@@ -37,6 +40,7 @@
 <script>
 import { mapState, mapActions } from 'vuex'
 import 'vue-awesome/icons/ellipsis-h'
+import 'vue-awesome/icons/bars'
 import formatTime from '../../utils/formatTime'
 
 export default {
@@ -191,13 +195,28 @@ export default {
   padding: 10px 0 10px 10px;
 }
 
+.mobile-drag-handle {
+  display: flex;
+  margin-left: auto;
+  margin-right: 10px;
+  color: #eaeaea;
+  visibility: hidden;
+  pointer-events: none;
+
+  @media screen and (max-width: 1080px) {
+    // TODO: Show it as soon as touch dragging is supported
+    /*visibility: visible; */
+    /*pointer-events: all;*/
+  }
+}
+
 .track-menu {
   width: 40px;
   height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 10px 0 auto;
+  margin: 0 10px 0 0;
   font-weight: bold;
   color: var(--color-grey);
   pointer-events: all;

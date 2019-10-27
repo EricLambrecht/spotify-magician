@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.21.9](https://github.com/EricLambrecht/spotify-magician/compare/v0.21.8...v0.21.9) (2019-10-27)
+
 ### [0.21.8](https://github.com/EricLambrecht/spotify-magician/compare/v0.21.7...v0.21.8) (2019-10-27)
 
 

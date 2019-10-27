@@ -5,4 +5,7 @@ export default {
   setPlaylists(state, playlists) {
     state.playlists = playlists
   },
+  setMe(state, me) {
+    state.me = me
+  },
 }

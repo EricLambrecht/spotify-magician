@@ -58,6 +58,14 @@ export default {
       throw new Error(errorMessage)
     }
   },
+  async fetchMe({ commit, dispatch }) {
+    try {
+      const me = await Spotify.getMe()
+      commit('setMe', me)
+    } catch (err) {
+      Spotify.handleApiError(dispatch, err)
+    }
+  },
   async getPlaylists({ commit, dispatch, state }) {
     try {
       Spotify.setAccessToken(state.accessToken)

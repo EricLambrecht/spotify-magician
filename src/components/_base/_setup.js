@@ -7,6 +7,7 @@ import Vue from 'vue'
  * Apart from that, this is also the approach that big libraries like element-ui take.
  */
 
+import Badge from './Badge'
 import Button from './Button'
 import ButtonGroup from './ButtonGroup'
 import CheckboxButton from './CheckboxButton'
@@ -31,6 +32,7 @@ import SquareImage from './SquareImage'
 import Text from './Text'
 import TextInput from './TextInput'
 
+Vue.component('b-badge', Badge)
 Vue.component('b-button', Button)
 Vue.component('b-button-group', ButtonGroup)
 Vue.component('b-checkbox-button', CheckboxButton)

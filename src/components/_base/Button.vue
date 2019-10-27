@@ -1,5 +1,12 @@
 <template>
+  <div v-if="skeleton" class="skeleton">
+    <span v-if="hasIcon" class="icon">
+      <slot name="icon" />
+    </span>
+    <slot />
+  </div>
   <button
+    v-else
     v-bind="$attrs"
     :class="{
       button: true,
@@ -50,6 +57,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    skeleton: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     hasIcon() {
@@ -61,7 +72,8 @@ export default {
 
 <style lang="scss" scoped>
 button,
-.button {
+.button,
+.skeleton {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -126,5 +138,50 @@ button,
 }
 
 .label {
+}
+
+$color-bg: #ddd;
+$color-highlight: lighten($color-bg, 3%);
+
+.skeleton {
+  position: relative;
+  border-radius: 5px;
+  background: $color-bg;
+  color: $color-bg;
+  overflow: hidden;
+  cursor: default;
+
+  .icon {
+    margin-right: 10px;
+    display: inline-flex;
+    align-items: center;
+    .fa-icon {
+      color: $color-bg !important;
+    }
+  }
+
+  &:hover {
+    background: $color-bg;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, $color-bg, $color-highlight, $color-bg);
+    animation: shine 0.8s ease-out infinite;
+  }
+}
+
+@keyframes shine {
+  0% {
+    transform: translate3d(-100%, 0, 0);
+  }
+  100% {
+    transform: translate3d(100%, 0, 0);
+  }
 }
 </style>

@@ -16,6 +16,9 @@
             <b-text v-if="playlistExists">
               {{ playlistLengthMs | formatTime('h [hr.,] mm [min.]') }}
             </b-text>
+            <b-badge v-if="playlistExists && playlistIsReadOnly" class="badge">
+              read-only
+            </b-badge>
           </div>
         </div>
       </div>
@@ -42,6 +45,7 @@ export default {
       'playlistTrackCount',
       'playlistExists',
       'playlistLengthMs',
+      'playlistIsReadOnly',
     ]),
   },
 }
@@ -79,15 +83,20 @@ export default {
   margin: 11px 0 0 1px;
   display: flex;
   flex-direction: row;
+  align-items: center;
 
   font-size: 15px;
   color: #888;
 
-  :not(:first-child) {
+  :not(:first-child):not(.badge) {
     &::before {
       content: '•';
       margin: 0 5px;
     }
+  }
+
+  .badge {
+    margin-left: 10px;
   }
 }
 

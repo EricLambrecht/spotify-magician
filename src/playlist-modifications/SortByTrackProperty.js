@@ -1,7 +1,7 @@
 import get from 'lodash/get'
 import AbstractSort from './AbstractSort'
 
-export default class Sort extends AbstractSort {
+export default class SortByTrackProperty extends AbstractSort {
   static sort(playlist, order, options) {
     const tracks = [...playlist.tracks.items.map(item => item.track)]
     const { sortBy } = options

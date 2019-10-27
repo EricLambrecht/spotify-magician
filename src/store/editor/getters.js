@@ -12,6 +12,9 @@ export default {
         items: [],
         total: 0,
       },
+      owner: {
+        uri: 'unknown',
+      },
     },
   playlistExists: (state, getters) => getters.playlist.href !== '',
   playlistImage: (state, getters) => {
@@ -41,4 +44,8 @@ export default {
       (total, item) => total + item.track.duration_ms,
       0
     ),
+  playlistIsCollaborative: (state, getters) => getters.playlist.collaborative,
+  playlistIsReadOnly: (state, getters, rootState) =>
+    !getters.playlistIsCollaborative &&
+    getters.playlist.owner.uri !== rootState.user.me.uri,
 }

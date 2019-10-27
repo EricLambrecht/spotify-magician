@@ -1,19 +1,17 @@
-import get from 'lodash/get'
-import Rearranger from './Rearranger'
 import AbstractSort from './AbstractSort'
 
-export default class Sort extends AbstractSort {
+export default class SortByAudioFeature extends AbstractSort {
   static sort(playlist, order, options) {
     const { sortBy, audioFeatures } = options
 
     if (typeof sortBy === 'undefined') {
       throw Error(
-        '"options.sortBy must be defined in order to sort by audio feature.'
+        '"options.sortBy" must be defined in order to sort by audio feature.'
       )
     }
     if (typeof audioFeatures === 'undefined') {
       throw Error(
-        '"options.audioFeatures must be provided in order to sort by audio feature.'
+        '"options.audioFeatures" must be provided in order to sort by audio feature.'
       )
     }
 

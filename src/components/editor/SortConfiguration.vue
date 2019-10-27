@@ -1,38 +1,32 @@
 <template>
-  <div class="container">
-    <b-button tertiary class="toggle" @click="openModal">
-      <v-icon slot="icon" name="sort" label="sort" />
-      Sort
-    </b-button>
-    <b-modal headline="Sort settings" :show="showModal">
-      <b-radio-button-group
-        name="sortMode"
-        label="Sort Mode"
-        class="sort-mode"
-        :options="sortModeOptions"
-        :value="sortMode"
-        @change="onSortModeChange"
-      />
-      <SortByTrackPropertyOptions
-        v-show="sortMode === 'trackProperty'"
-        @change="onOptionsChange"
-      />
-      <SortByAudioFeatureOptions
-        v-show="sortMode === 'audioFeature'"
-        @change="onOptionsChange"
-      />
-      <div slot="footer">
-        <b-button-group>
-          <b-button tertiary @click="closeModal">
-            Close
-          </b-button>
-          <b-button primary @click="sort">
-            Sort
-          </b-button>
-        </b-button-group>
-      </div>
-    </b-modal>
-  </div>
+  <b-modal headline="Sort settings" :show="show">
+    <b-radio-button-group
+      name="sortMode"
+      label="Sort Mode"
+      class="sort-mode"
+      :options="sortModeOptions"
+      :value="sortMode"
+      @change="onSortModeChange"
+    />
+    <SortByTrackPropertyOptions
+      v-show="sortMode === 'trackProperty'"
+      @change="onOptionsChange"
+    />
+    <SortByAudioFeatureOptions
+      v-show="sortMode === 'audioFeature'"
+      @change="onOptionsChange"
+    />
+    <div slot="footer">
+      <b-button-group>
+        <b-button tertiary @click="onCloseClick">
+          Close
+        </b-button>
+        <b-button primary @click="sort">
+          Sort
+        </b-button>
+      </b-button-group>
+    </div>
+  </b-modal>
 </template>
 
 <script>
@@ -47,6 +41,12 @@ import SortByAudioFeatureOptions from './SortByAudioFeatureOptions'
 export default {
   name: 'SortConfiguration',
   components: { SortByAudioFeatureOptions, SortByTrackPropertyOptions },
+  props: {
+    show: {
+      type: Boolean,
+      default: false,
+    },
+  },
   data() {
     return {
       showModal: false,
@@ -66,11 +66,8 @@ export default {
     }
   },
   methods: {
-    openModal() {
-      this.showModal = true
-    },
-    closeModal() {
-      this.showModal = false
+    onCloseClick() {
+      this.$emit('close')
     },
     onOptionsChange(options) {
       this.options = options
@@ -101,10 +98,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container {
-  display: inline-block;
-}
-
 .sort-mode {
   margin-bottom: 12px;
 }

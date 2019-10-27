@@ -113,7 +113,17 @@ export default {
    */
   async rearrangePlaylistWith({ dispatch, state }, { rearranger, options }) {
     const { playlist } = state
-    const uris = rearranger.rearrange(playlist, options)
-    return dispatch('replaceTracks', uris)
+    try {
+      const uris = rearranger.rearrange(playlist, options)
+      await dispatch('replaceTracks', uris)
+    } catch (e) {
+      dispatch(
+        'app/spawnErrorToast',
+        { message: e.message },
+        {
+          root: true,
+        }
+      )
+    }
   },
 }

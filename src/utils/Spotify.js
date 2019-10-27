@@ -77,6 +77,10 @@ export default class Spotify {
     api.setAccessToken(token)
   }
 
+  static async getMe() {
+    return api.getMe()
+  }
+
   /**
    * Returns a user's playlists
    * @param options

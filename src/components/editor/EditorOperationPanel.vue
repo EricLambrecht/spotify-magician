@@ -4,14 +4,28 @@
       <b-row>
         <b-column>
           <b-button-group class="buttons">
-            <b-button tertiary @click="onClickShuffle">
+            <b-button
+              v-if="!playlistExists || !playlistIsReadOnly"
+              :skeleton="!playlistExists"
+              tertiary
+              @click="onClickShuffle"
+            >
               <v-icon slot="icon" name="random" label="shuffle" />
               Shuffle
             </b-button>
-            <sort-configuration />
+            <b-button
+              v-if="!playlistExists || !playlistIsReadOnly"
+              :skeleton="!playlistExists"
+              tertiary
+              @click="openSortModal"
+            >
+              <v-icon slot="icon" name="sort" label="sort" />
+              Sort
+            </b-button>
             <b-button
               tertiary
               :pressed="showStatistics"
+              :skeleton="!playlistExists"
               @click="onClickStatistics"
             >
               <v-icon slot="icon" name="chart-line" label="playlist-stats" />
@@ -25,6 +39,7 @@
         </b-column>
       </b-row>
     </b-grid>
+    <sort-configuration :show="showSortModal" @close="closeSortModal" />
   </div>
 </template>
 
@@ -32,7 +47,7 @@
 import 'vue-awesome/icons/chart-line'
 import 'vue-awesome/icons/random'
 import 'vue-awesome/icons/sort'
-import { mapActions, mapState } from 'vuex'
+import { mapActions, mapState, mapGetters } from 'vuex'
 
 import TimeOfDaySwitch from './TimeOfDaySwitch'
 import TempoSwitch from './TempoSwitch'
@@ -42,16 +57,28 @@ import SortConfiguration from './SortConfiguration'
 export default {
   name: 'EditorOperationPanel',
   components: {
-    SortConfiguration,
     TimeOfDaySwitch,
     TempoSwitch,
+    SortConfiguration,
+  },
+  data() {
+    return {
+      showSortModal: false,
+    }
   },
   computed: {
     ...mapState('playlistStatistics', {
       showStatistics: state => state.show,
     }),
+    ...mapGetters('editor', ['playlistIsReadOnly', 'playlistExists']),
   },
   methods: {
+    openSortModal() {
+      this.showSortModal = true
+    },
+    closeSortModal() {
+      this.showSortModal = false
+    },
     async onClickShuffle() {
       const confirmed = await this.askForConfirmation({
         headline: 'Shuffle',

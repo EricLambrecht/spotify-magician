@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.23.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.22.2...v0.23.0) (2019-10-27)
+
+
+### Features
+
+* Added extra UI for playlists that are read-only. ([000906a](https://github.com/EricLambrecht/spotify-magician/commit/000906a7359d17e33134f0ed055ced0cde87d1d2)), closes [#90](https://github.com/EricLambrecht/spotify-magician/issues/90)
+
 ### [0.22.2](https://github.com/EricLambrecht/spotify-magician/compare/v0.22.1...v0.22.2) (2019-10-27)
 
 

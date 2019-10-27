@@ -4,11 +4,6 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## [0.22.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.21.9...v0.22.0) (2019-10-27)
 
-### [0.21.9](https://github.com/EricLambrecht/spotify-magician/compare/v0.21.8...v0.21.9) (2019-10-27)
-
-### [0.21.8](https://github.com/EricLambrecht/spotify-magician/compare/v0.21.7...v0.21.8) (2019-10-27)
-
-
 ### Features
 
 * Added context menu button for playlist tracks (songs can be removed using this menu) ([1870fb0](https://github.com/EricLambrecht/spotify-magician/commit/1870fb0433d85bc6b9b3cc77a615da5c1a68dad6)), closes [#38](https://github.com/EricLambrecht/spotify-magician/issues/38)
@@ -23,7 +18,7 @@ All notable changes to this project will be documented in this file. See [standa
 * Sessions will now be properly restored if expired. User will be asked to retry though. ([c652f63](https://github.com/EricLambrecht/spotify-magician/commit/c652f63d5469399972b0a7ec353c806b858ae35f))
 
 <a name="0.21.7"></a>
-## [0.21.7](https://github.com/EricLambrecht/spotify-magician/compare/v0.21.6...v0.21.7) (2019-10-25)
+### [0.21.7](https://github.com/EricLambrecht/spotify-magician/compare/v0.21.6...v0.21.7) (2019-10-25)
 
 
 ### Bug Fixes
@@ -33,7 +28,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 
 <a name="0.21.6"></a>
-## [0.21.6](https://github.com/EricLambrecht/spotify-magician/compare/v0.21.5...v0.21.6) (2019-10-25)
+### [0.21.6](https://github.com/EricLambrecht/spotify-magician/compare/v0.21.5...v0.21.6) (2019-10-25)
 
 
 ### Bug Fixes
@@ -43,7 +38,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 
 <a name="0.21.5"></a>
-## [0.21.5](https://github.com/EricLambrecht/spotify-magician/compare/v0.21.4...v0.21.5) (2019-10-25)
+### [0.21.5](https://github.com/EricLambrecht/spotify-magician/compare/v0.21.4...v0.21.5) (2019-10-25)
 
 
 ### Bug Fixes
@@ -55,7 +50,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 
 <a name="0.21.4"></a>
-## [0.21.4](https://github.com/EricLambrecht/spotify-magician/compare/v0.21.3...v0.21.4) (2019-10-25)
+### [0.21.4](https://github.com/EricLambrecht/spotify-magician/compare/v0.21.3...v0.21.4) (2019-10-25)
 
 
 ### Bug Fixes
@@ -65,7 +60,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 
 <a name="0.21.3"></a>
-## [0.21.3](https://github.com/EricLambrecht/spotify-magician/compare/v0.21.2...v0.21.3) (2019-10-14)
+### [0.21.3](https://github.com/EricLambrecht/spotify-magician/compare/v0.21.2...v0.21.3) (2019-10-14)
 
 
 ### Bug Fixes
@@ -75,7 +70,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 
 <a name="0.21.2"></a>
-## [0.21.2](https://github.com/EricLambrecht/spotify-magician/compare/v0.21.1...v0.21.2) (2019-10-13)
+### [0.21.2](https://github.com/EricLambrecht/spotify-magician/compare/v0.21.1...v0.21.2) (2019-10-13)
 
 
 ### Bug Fixes
@@ -85,7 +80,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 
 <a name="0.21.1"></a>
-## [0.21.1](https://github.com/EricLambrecht/spotify-magician/compare/v0.21.0...v0.21.1) (2019-10-13)
+### [0.21.1](https://github.com/EricLambrecht/spotify-magician/compare/v0.21.0...v0.21.1) (2019-10-13)
 
 
 ### Bug Fixes
@@ -95,7 +90,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 
 <a name="0.21.0"></a>
-# [0.21.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.20.5...v0.21.0) (2019-10-13)
+## [0.21.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.20.5...v0.21.0) (2019-10-13)
 
 This version introduces **persistent user sessions** and a **loading screen**!
 
@@ -117,7 +112,7 @@ The loading screen makes the app load less "flickery" and hopefully provides a b
 
 
 <a name="0.20.5"></a>
-## [0.20.5](https://github.com/EricLambrecht/spotify-magician/compare/v0.20.4...v0.20.5) (2019-09-27)
+### [0.20.5](https://github.com/EricLambrecht/spotify-magician/compare/v0.20.4...v0.20.5) (2019-09-27)
 
 
 ### Bug Fixes
@@ -127,7 +122,7 @@ The loading screen makes the app load less "flickery" and hopefully provides a b
 
 
 <a name="0.20.4"></a>
-## [0.20.4](https://github.com/EricLambrecht/spotify-magician/compare/v0.20.3...v0.20.4) (2019-09-27)
+### [0.20.4](https://github.com/EricLambrecht/spotify-magician/compare/v0.20.3...v0.20.4) (2019-09-27)
 
 
 ### Bug Fixes
@@ -137,7 +132,7 @@ The loading screen makes the app load less "flickery" and hopefully provides a b
 
 
 <a name="0.20.3"></a>
-## [0.20.3](https://github.com/EricLambrecht/spotify-magician/compare/v0.20.2...v0.20.3) (2019-09-27)
+### [0.20.3](https://github.com/EricLambrecht/spotify-magician/compare/v0.20.2...v0.20.3) (2019-09-27)
 
 
 ### Bug Fixes
@@ -147,7 +142,7 @@ The loading screen makes the app load less "flickery" and hopefully provides a b
 
 
 <a name="0.20.2"></a>
-## [0.20.2](https://github.com/EricLambrecht/spotify-magician/compare/v0.20.1...v0.20.2) (2019-09-27)
+### [0.20.2](https://github.com/EricLambrecht/spotify-magician/compare/v0.20.1...v0.20.2) (2019-09-27)
 
 
 ### Bug Fixes
@@ -157,7 +152,7 @@ The loading screen makes the app load less "flickery" and hopefully provides a b
 
 
 <a name="0.20.1"></a>
-## [0.20.1](https://github.com/EricLambrecht/spotify-magician/compare/v0.20.0...v0.20.1) (2019-09-25)
+### [0.20.1](https://github.com/EricLambrecht/spotify-magician/compare/v0.20.0...v0.20.1) (2019-09-25)
 
 
 ### Bug Fixes
@@ -174,7 +169,7 @@ The loading screen makes the app load less "flickery" and hopefully provides a b
 
 
 <a name="0.20.0"></a>
-# [0.20.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.19.1...v0.20.0) (2019-06-30)
+## [0.20.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.19.1...v0.20.0) (2019-06-30)
 
 
 ### Bug Fixes
@@ -191,7 +186,7 @@ The loading screen makes the app load less "flickery" and hopefully provides a b
 
 
 <a name="0.19.1"></a>
-## [0.19.1](https://github.com/EricLambrecht/spotify-magician/compare/v0.19.0...v0.19.1) (2019-03-05)
+### [0.19.1](https://github.com/EricLambrecht/spotify-magician/compare/v0.19.0...v0.19.1) (2019-03-05)
 
 
 ### Bug Fixes
@@ -202,7 +197,7 @@ The loading screen makes the app load less "flickery" and hopefully provides a b
 
 
 <a name="0.19.0"></a>
-# [0.19.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.18.1...v0.19.0) (2019-02-12)
+## [0.19.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.18.1...v0.19.0) (2019-02-12)
 
 
 ### Bug Fixes
@@ -218,7 +213,7 @@ The loading screen makes the app load less "flickery" and hopefully provides a b
 
 
 <a name="0.18.1"></a>
-## [0.18.1](https://github.com/EricLambrecht/spotify-magician/compare/v0.18.0...v0.18.1) (2019-02-06)
+### [0.18.1](https://github.com/EricLambrecht/spotify-magician/compare/v0.18.0...v0.18.1) (2019-02-06)
 
 
 ### Bug Fixes
@@ -229,7 +224,7 @@ The loading screen makes the app load less "flickery" and hopefully provides a b
 
 
 <a name="0.18.0"></a>
-# [0.18.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.17.1...v0.18.0) (2019-02-06)
+## [0.18.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.17.1...v0.18.0) (2019-02-06)
 
 
 ### Bug Fixes
@@ -245,7 +240,7 @@ The loading screen makes the app load less "flickery" and hopefully provides a b
 
 
 <a name="0.17.1"></a>
-## [0.17.1](https://github.com/EricLambrecht/spotify-magician/compare/v0.17.0...v0.17.1) (2019-02-03)
+### [0.17.1](https://github.com/EricLambrecht/spotify-magician/compare/v0.17.0...v0.17.1) (2019-02-03)
 
 
 ### Bug Fixes
@@ -259,7 +254,7 @@ The loading screen makes the app load less "flickery" and hopefully provides a b
 
 
 <a name="0.17.0"></a>
-# [0.17.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.16.3...v0.17.0) (2019-02-02)
+## [0.17.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.16.3...v0.17.0) (2019-02-02)
 
 Version 0.17 features an extensive **redesign** of the app. This redesign includes:
 
@@ -278,7 +273,7 @@ Apart from that, there were also new technical features:
 
 
 <a name="0.16.3"></a>
-## [0.16.3](https://github.com/EricLambrecht/spotify-magician/compare/v0.16.2...v0.16.3) (2019-01-22)
+### [0.16.3](https://github.com/EricLambrecht/spotify-magician/compare/v0.16.2...v0.16.3) (2019-01-22)
 
 
 ### Bug Fixes
@@ -291,7 +286,7 @@ Apart from that, there were also new technical features:
 
 
 <a name="0.16.2"></a>
-## [0.16.2](https://github.com/EricLambrecht/spotify-magician/compare/v0.16.1...v0.16.2) (2019-01-21)
+### [0.16.2](https://github.com/EricLambrecht/spotify-magician/compare/v0.16.1...v0.16.2) (2019-01-21)
 
 
 ### Bug Fixes
@@ -301,7 +296,7 @@ Apart from that, there were also new technical features:
 
 
 <a name="0.16.1"></a>
-## [0.16.1](https://github.com/EricLambrecht/spotify-magician/compare/v0.16.0...v0.16.1) (2019-01-21)
+### [0.16.1](https://github.com/EricLambrecht/spotify-magician/compare/v0.16.0...v0.16.1) (2019-01-21)
 
 
 ### Bug Fixes
@@ -311,7 +306,7 @@ Apart from that, there were also new technical features:
 
 
 <a name="0.16.0"></a>
-# [0.16.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.15.1...v0.16.0) (2018-10-31)
+## [0.16.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.15.1...v0.16.0) (2018-10-31)
 
 
 ### Features
@@ -321,7 +316,7 @@ Apart from that, there were also new technical features:
 
 
 <a name="0.15.1"></a>
-## [0.15.1](https://github.com/EricLambrecht/spotify-magician/compare/v0.15.0...v0.15.1) (2018-10-28)
+### [0.15.1](https://github.com/EricLambrecht/spotify-magician/compare/v0.15.0...v0.15.1) (2018-10-28)
 
 
 ### Features
@@ -331,7 +326,7 @@ Apart from that, there were also new technical features:
 
 
 <a name="0.15.0"></a>
-# [0.15.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.14.1...v0.15.0) (2018-10-28)
+## [0.15.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.14.1...v0.15.0) (2018-10-28)
 
 
 ### Features
@@ -341,12 +336,12 @@ Apart from that, there were also new technical features:
 
 
 <a name="0.14.1"></a>
-## [0.14.1](https://github.com/EricLambrecht/spotify-magician/compare/v0.14.0...v0.14.1) (2018-10-26)
+### [0.14.1](https://github.com/EricLambrecht/spotify-magician/compare/v0.14.0...v0.14.1) (2018-10-26)
 
 Re-deployment because of previously broken test.
 
 <a name="0.14.0"></a>
-# [0.14.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.13.1...v0.14.0) (2018-10-26)
+## [0.14.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.13.1...v0.14.0) (2018-10-26)
 
 
 ### Features
@@ -356,7 +351,7 @@ Re-deployment because of previously broken test.
 
 
 <a name="0.13.1"></a>
-## [0.13.1](https://github.com/EricLambrecht/spotify-magician/compare/v0.13.0...v0.13.1) (2018-09-14)
+### [0.13.1](https://github.com/EricLambrecht/spotify-magician/compare/v0.13.0...v0.13.1) (2018-09-14)
 
 
 ### Bug Fixes
@@ -366,7 +361,7 @@ Re-deployment because of previously broken test.
 
 
 <a name="0.13.0"></a>
-# [0.13.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.12.1...v0.13.0) (2018-09-11)
+## [0.13.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.12.1...v0.13.0) (2018-09-11)
 
 
 ### Features
@@ -378,7 +373,7 @@ Re-deployment because of previously broken test.
 
 
 <a name="0.12.1"></a>
-## [0.12.1](https://github.com/EricLambrecht/spotify-magician/compare/v0.12.0...v0.12.1) (2018-09-09)
+### [0.12.1](https://github.com/EricLambrecht/spotify-magician/compare/v0.12.0...v0.12.1) (2018-09-09)
 
 
 ### Features
@@ -389,7 +384,7 @@ Re-deployment because of previously broken test.
 
 
 <a name="0.12.0"></a>
-# [0.12.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.11.0...v0.12.0) (2018-09-07)
+## [0.12.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.11.0...v0.12.0) (2018-09-07)
 
 
 ### Bug Fixes
@@ -405,7 +400,7 @@ Re-deployment because of previously broken test.
 
 
 <a name="0.11.0"></a>
-# [0.11.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.10.0...v0.11.0) (2018-09-07)
+## [0.11.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.10.0...v0.11.0) (2018-09-07)
 
 
 ### Bug Fixes
@@ -421,7 +416,7 @@ Re-deployment because of previously broken test.
 
 
 <a name="0.10.0"></a>
-# [0.10.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.9.2...v0.10.0) (2018-09-06)
+## [0.10.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.9.2...v0.10.0) (2018-09-06)
 
 
 ### Features
@@ -431,7 +426,7 @@ Re-deployment because of previously broken test.
 
 
 <a name="0.9.2"></a>
-## [0.9.2](https://github.com/EricLambrecht/spotify-magician/compare/v0.9.1...v0.9.2) (2018-09-06)
+### [0.9.2](https://github.com/EricLambrecht/spotify-magician/compare/v0.9.1...v0.9.2) (2018-09-06)
 
 
 ### Bug Fixes
@@ -441,7 +436,7 @@ Re-deployment because of previously broken test.
 
 
 <a name="0.9.1"></a>
-## [0.9.1](https://github.com/EricLambrecht/spotify-magician/compare/v0.9.0...v0.9.1) (2018-09-06)
+### [0.9.1](https://github.com/EricLambrecht/spotify-magician/compare/v0.9.0...v0.9.1) (2018-09-06)
 
 
 ### Bug Fixes
@@ -451,7 +446,7 @@ Re-deployment because of previously broken test.
 
 
 <a name="0.9.0"></a>
-# [0.9.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.7.5...v0.9.0) (2018-09-05)
+## [0.9.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.7.5...v0.9.0) (2018-09-05)
 
 
 ### Features
@@ -461,7 +456,7 @@ Re-deployment because of previously broken test.
 
 
 <a name="0.8.0"></a>
-# [0.8.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.7.5...v0.8.0) (2018-09-05)
+## [0.8.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.7.5...v0.8.0) (2018-09-05)
 
 
 ### Features
@@ -470,7 +465,7 @@ Re-deployment because of previously broken test.
 
 
 <a name="0.7.5"></a>
-## [0.7.5](https://github.com/EricLambrecht/spotify-magician/compare/v0.7.4...v0.7.5) (2018-09-03)
+### [0.7.5](https://github.com/EricLambrecht/spotify-magician/compare/v0.7.4...v0.7.5) (2018-09-03)
 
 
 ### Bug Fixes
@@ -480,7 +475,7 @@ Re-deployment because of previously broken test.
 
 
 <a name="0.7.4"></a>
-## [0.7.4](https://github.com/EricLambrecht/spotify-magician/compare/v0.7.3...v0.7.4) (2018-09-03)
+### [0.7.4](https://github.com/EricLambrecht/spotify-magician/compare/v0.7.3...v0.7.4) (2018-09-03)
 
 
 ### Features
@@ -490,7 +485,7 @@ Re-deployment because of previously broken test.
 
 
 <a name="0.7.3"></a>
-## [0.7.3](https://github.com/EricLambrecht/spotify-magician/compare/v0.7.2...v0.7.3) (2018-09-02)
+### [0.7.3](https://github.com/EricLambrecht/spotify-magician/compare/v0.7.2...v0.7.3) (2018-09-02)
 
 
 ### Bug Fixes
@@ -502,7 +497,7 @@ Re-deployment because of previously broken test.
 
 
 <a name="0.7.2"></a>
-## [0.7.2](https://github.com/EricLambrecht/spotify-magician/compare/v0.7.1...v0.7.2) (2018-09-01)
+### [0.7.2](https://github.com/EricLambrecht/spotify-magician/compare/v0.7.1...v0.7.2) (2018-09-01)
 
 
 ### Bug Fixes
@@ -512,7 +507,7 @@ Re-deployment because of previously broken test.
 
 
 <a name="0.7.1"></a>
-## [0.7.1](https://github.com/EricLambrecht/spotify-magician/compare/v0.7.0...v0.7.1) (2018-09-01)
+### [0.7.1](https://github.com/EricLambrecht/spotify-magician/compare/v0.7.0...v0.7.1) (2018-09-01)
 I accidentally commited this feature as a "bug fix". I didn't want to change the version number, though. Sorry for that. ;)
 
 ### Bug Fixes
@@ -522,7 +517,7 @@ I accidentally commited this feature as a "bug fix". I didn't want to change the
 
 
 <a name="0.7.0"></a>
-# [0.7.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.6.3...v0.7.0) (2018-09-01)
+## [0.7.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.6.3...v0.7.0) (2018-09-01)
 
 
 ### Features
@@ -533,7 +528,7 @@ I accidentally commited this feature as a "bug fix". I didn't want to change the
 
 
 <a name="0.6.3"></a>
-## [0.6.3](https://github.com/EricLambrecht/better-spotify-playlists/compare/v0.6.2...v0.6.3) (2018-08-28)
+### [0.6.3](https://github.com/EricLambrecht/better-spotify-playlists/compare/v0.6.2...v0.6.3) (2018-08-28)
 
 
 ### Miscellaneous
@@ -542,7 +537,7 @@ I accidentally commited this feature as a "bug fix". I didn't want to change the
 
 
 <a name="0.6.2"></a>
-## [0.6.2](https://github.com/EricLambrecht/better-spotify-playlists/compare/v0.6.1...v0.6.2) (2018-08-28)
+### [0.6.2](https://github.com/EricLambrecht/better-spotify-playlists/compare/v0.6.1...v0.6.2) (2018-08-28)
 
 
 ### Bug Fixes
@@ -552,7 +547,7 @@ I accidentally commited this feature as a "bug fix". I didn't want to change the
 
 
 <a name="0.6.1"></a>
-## [0.6.1](https://github.com/EricLambrecht/better-spotify-playlists/compare/v0.6.0...v0.6.1) (2018-08-28)
+### [0.6.1](https://github.com/EricLambrecht/better-spotify-playlists/compare/v0.6.0...v0.6.1) (2018-08-28)
 
 
 ### Bug Fixes
@@ -562,7 +557,7 @@ I accidentally commited this feature as a "bug fix". I didn't want to change the
 
 
 <a name="0.6.0"></a>
-# [0.6.0](https://github.com/EricLambrecht/better-spotify-playlists/compare/v0.5.0...v0.6.0) (2018-08-28)
+## [0.6.0](https://github.com/EricLambrecht/better-spotify-playlists/compare/v0.5.0...v0.6.0) (2018-08-28)
 
 
 ### Features
@@ -572,7 +567,7 @@ I accidentally commited this feature as a "bug fix". I didn't want to change the
 
 
 <a name="0.5.0"></a>
-# [0.5.0](https://github.com/EricLambrecht/better-spotify-playlists/compare/v0.4.1...v0.5.0) (2018-08-24)
+## [0.5.0](https://github.com/EricLambrecht/better-spotify-playlists/compare/v0.4.1...v0.5.0) (2018-08-24)
 
 
 ### Features

@@ -41,31 +41,35 @@ export default {
 
 <style lang="scss">
 .changelog-saljhd98a2ebhs {
-  h1 {
-    font-size: 22px;
-    font-weight: bold;
-    margin: 30px 0 10px;
-  }
-  h2 {
-    font-size: 22px;
-    font-weight: bold;
-    margin: 30px 0 10px;
-  }
+  h1,
+  h2,
   h3 {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 30px 0 10px;
+  }
+
+  h3[id^='bug'],
+  h3[id^='feature'] {
+    font-size: initial;
     font-weight: bold;
     margin: 20px 0 10px;
   }
+
   h1,
-  h2 {
+  h2,
+  h3 {
     a {
       color: var(--spotify-green);
     }
   }
+
   p,
   ul {
     font-size: 15px;
     line-height: 1.5;
   }
+
   ul {
     list-style: disc outside;
     padding-left: 16px;
@@ -73,6 +77,7 @@ export default {
       margin-top: 2px;
     }
   }
+
   a {
     color: #ccc;
     text-decoration: none;
@@ -82,25 +87,28 @@ export default {
   }
 
   /* hacky territory... */
-  h1 + h3 + ul + h3 + ul + p,
-  h1 + h3 + ul + p,
-  h1 + ul + p {
+  h2 + p ~ h3 + ul + h3 + ul + p,
+  h2 + p + ul + p + h3 + ul + p,
+  h2 + ul + h3 + ul + h3 + ul + p,
+  h2 + ul + h3 + ul + p,
+  h2 + h3 + ul + h3 + ul + p,
+  h2 + h3 + ul + p,
+  h2 + ul + p {
     margin-bottom: 10px;
     border-bottom: 1px solid #f0f0f0;
     padding-bottom: 30px;
   }
 
-  h1 + p {
+  h2 + p {
     margin-top: 20px;
   }
 
   p + ul {
     margin-top: 13px;
-    padding-left: 0;
     list-style-type: circle;
   }
 
-  h1 + p + ul + p {
+  h2 + p + ul + p {
     margin-top: 13px;
   }
 

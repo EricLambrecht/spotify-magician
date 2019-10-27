@@ -2,37 +2,57 @@ name: Check master branch
 
 on:
   push:
-    branches:    
+    branches:
       - master
 
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node_version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node_version }}  
-    - name: Install, lint and test
-      run: |
-        npm ci
-        npm run lint
-        npm run test
-  deploy:
+      - uses: actions/checkout@v1
+      - name: Use Node.js ${{ matrix.node_version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node_version }}
+      - name: Install, lint and test
+        run: |
+          npm ci
+          npm run lint
+          npm run test
+  deploy-staging:
     runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/v') == false
     needs: [test]
     env:
       NOW_TOKEN: ${{ secrets.NOW_TOKEN }}
     steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node_version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node_version }}  
-    - name: Deploy to staging
-      if: startsWith(github.ref, 'refs/tags/v') == false
-      run: npm run deploy:dev
-    - name: Deploy to production
-      if: startsWith(github.ref, 'refs/tags/v') == true
-      run: npm run deploy:prod
+      - uses: actions/checkout@v1
+      - name: Use Node.js ${{ matrix.node_version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node_version }}
+      - name: Deploy to staging
+        run: npm run deploy:dev
+  deploy-prod:
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/v') == true
+    needs: [test]
+    env:
+      NOW_TOKEN: ${{ secrets.NOW_TOKEN }}
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js ${{ matrix.node_version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node_version }}
+      - name: Deploy to staging
+        run: npm run deploy:dev
+      - name: Set VERSION env
+        run: echo ::set-env name=VERSION::$(echo ${GITHUB_REF#refs/tags/})
+      - name: Register sentry release
+        run: |
+          npm install @sentry/cli
+          ./node_modules/.bin/sentry-cli releases new -p spotify-magician $VERSION
+          ./node_modules/.bin/sentry-cli releases set-commits --auto $VERSION
+      - name: Deploy to production
+        run: npm run deploy:prod

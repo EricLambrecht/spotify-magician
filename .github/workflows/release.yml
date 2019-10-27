@@ -3,7 +3,7 @@ name: Release production build
 on:
   push:
     tags:
-      - '*'
+      - v*
 
 jobs:
   test:

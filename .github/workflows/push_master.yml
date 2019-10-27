@@ -39,6 +39,8 @@ jobs:
     needs: [test]
     env:
       NOW_TOKEN: ${{ secrets.NOW_TOKEN }}
+      SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_API_TOKEN }}
+      SENTRY_ORG: eric-lambrecht-m5
     steps:
       - uses: actions/checkout@v1
       - name: Use Node.js ${{ matrix.node_version }}

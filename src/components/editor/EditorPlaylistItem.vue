@@ -3,7 +3,6 @@
     class="playlist-item"
     tabindex="0"
     draggable="true"
-    @click.self="toggleContextMenu"
     @blur.self="hideContextMenu"
   >
     <b-square-image
@@ -28,8 +27,8 @@
     <b-text v-if="audioFeatures && showTempo" class="tempo">
       {{ audioFeatures.tempo.toFixed(2) }} BPM
     </b-text>
-    <b-text class="track-menu">
-      ···
+    <b-text class="track-menu" @click.native="toggleContextMenu">
+      <v-icon name="ellipsis-h" />
     </b-text>
     <b-context-menu :show="showContextMenu" :actions="contextMenuActions" />
   </b-list-item>
@@ -37,6 +36,7 @@
 
 <script>
 import { mapState, mapActions } from 'vuex'
+import 'vue-awesome/icons/ellipsis-h'
 import formatTime from '../../utils/formatTime'
 
 export default {
@@ -127,6 +127,7 @@ export default {
   transition: background-color 0.1s ease;
 
   font-size: var(--track-item-song-font-size);
+  position: relative;
 
   &:focus {
     outline: none;
@@ -136,11 +137,6 @@ export default {
     background-color: white;
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);
     cursor: pointer;
-
-    .track-menu {
-      opacity: 0; /* TODO: enable */
-      pointer-events: initial;
-    }
   }
 
   > * {
@@ -196,10 +192,20 @@ export default {
 }
 
 .track-menu {
-  width: 20px;
-  margin-left: 20px;
-  display: none;
-  pointer-events: none;
+  width: 40px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px 0 auto;
   font-weight: bold;
+  color: var(--color-grey);
+  pointer-events: all;
+
+  &:hover {
+    background: var(--color-background-grey);
+    color: var(--color-default-light);
+    border-radius: 5px;
+  }
 }
 </style>

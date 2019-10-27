@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.22.2](https://github.com/EricLambrecht/spotify-magician/compare/v0.22.1...v0.22.2) (2019-10-27)
+
+
+### Bug Fixes
+
+* Added environment to error logging (Sentry) ([a13862e](https://github.com/EricLambrecht/spotify-magician/commit/a13862ea62832491a0428f7004c7ac5a4719dd0e))
+
 ### [0.22.1](https://github.com/EricLambrecht/spotify-magician/compare/v0.22.0...v0.22.1) (2019-10-27)
 
 

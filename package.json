@@ -87,6 +87,7 @@
       "postbump": "node scripts/writeVersionFile.js",
       "postchangelog": "replace  \"🐛 \" \"\" CHANGELOG.md&&replace \"✨ \" \"\" CHANGELOG.md",
       "precommit": "git add src/version.json"
-    }
+    },
+    "preMajor": "true"
   }
 }

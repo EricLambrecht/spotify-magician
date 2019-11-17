@@ -62,7 +62,7 @@
     "jest": "^24.9.0",
     "markdown-loader": "^5.1.0",
     "node-sass": "^4.13.0",
-    "now": "^16.4.3",
+    "now": "^16.5.2",
     "prettier": "1.19.1",
     "replace": "^1.1.1",
     "sass-loader": "^7.3.1",

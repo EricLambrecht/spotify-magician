@@ -34,14 +34,16 @@ export default {
   display: inline-flex;
   align-items: center;
 
-  height: 32px;
+  height: var(--input-height-default);
 
-  font-size: 14px;
+  font-size: var(--font-size-default);
 
   cursor: pointer;
 }
 
 .label {
+  position: relative;
+  top: -1px;
   margin-right: 8px;
 }
 

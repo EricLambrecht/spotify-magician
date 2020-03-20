@@ -95,7 +95,7 @@ export default {
   box-sizing: border-box;
 }
 
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1112px) {
   .panel {
     background-color: var(--color-default);
     border-radius: 0 0 10px 10px;

@@ -2,7 +2,9 @@
   <div class="header">
     <b-container>
       <div class="content">
-        <b-square-image :url="playlistImage" :size="110" />
+        <div class="playlist-image">
+          <b-square-image :url="playlistImage" />
+        </div>
         <div class="playlist-meta">
           <b-headline
             :class="{ 'playlist-name': true, empty: !playlistExists }"
@@ -59,13 +61,19 @@ export default {
 }
 
 .content {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  grid-template-rows: 110px;
+}
+
+.playlist-image {
+  width: 100%;
+  height: 100%;
 }
 
 .playlist-meta {
   position: relative;
+  align-self: end;
   margin: 0 30px -1px;
 }
 
@@ -75,7 +83,7 @@ export default {
 
   font-size: var(--font-size-playlist-name);
   &.empty {
-    font-size: var(--font-size-choose-playlist);
+    font-size: var(--font-size-playlist-name-placeholder);
   }
 }
 
@@ -83,6 +91,7 @@ export default {
   margin: 11px 0 0 1px;
   display: flex;
   flex-direction: row;
+  justify-content: flex-start;
   align-items: center;
 
   font-size: 15px;
@@ -97,6 +106,13 @@ export default {
 
   .badge {
     margin-left: 10px;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .content {
+    grid-template-columns: 24vw 1fr;
+    grid-template-rows: 24vw;
   }
 }
 

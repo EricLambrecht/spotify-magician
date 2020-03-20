@@ -156,6 +156,7 @@ export default {
   .buttons {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     position: relative;
     left: -5px;
 

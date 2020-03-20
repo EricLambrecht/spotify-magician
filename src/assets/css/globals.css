@@ -25,13 +25,15 @@
 
   /* Typography */
   --font-size-playlist-name: 36px;
-  --font-size-choose-playlist: 40px;
+  --font-size-playlist-name-placeholder: 40px;
   --font-size-add-track-button: 18px;
   --font-size-big-input: 18px;
+  --font-size-default: 14px;
 
   /* Dimensions */
   --grid-max-width: 1000px;
   --grid-padding: 20px;
+  --input-height-default: 32px;
 
   /* Media Queries */
   --max-width-small: 768px;
@@ -43,9 +45,18 @@
   --z-index-statistics-panel: 1000;
   --z-index-modal-backdrop: 2000;
   --z-index-modal: 2001;
+
+  /* Breakpoints */
+  /*--breakpoint-mobile-portrait-max: 414px;*/
+  /*--breakpoint-mobile-landscape-min: 568px;*/
+  /*--breakpoint-mobile-landscape-max: 812px;*/
+  /*--breakpoint-tablet-portrait-min: 768px;*/
+  /*--breakpoint-tablet-portrait-max: 834px;*/
+  /*--breakpoint-tablet-landscape-min: 1024px;*/
+  /*--breakpoint-tablet-landscape-max: 1112px;*/
 }
 
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1112px) {
   :root {
     --grid-padding: 20px;
   }
@@ -53,10 +64,23 @@
 
 @media screen and (max-width: 768px) {
   :root {
-    --font-size-playlist-item: 14px;
+    --grid-padding: 20px;
     --font-size-playlist-name: 24px;
-    --font-size-choose-playlist: 34px;
+    --font-size-playlist-name-placeholder: 30px;
     --font-size-add-track-button: 16px;
+    --font-size-default: 13px;
+    --input-height-default: 30px;
+  }
+}
+
+/* for small phones like iPhone 5 & Galaxy S% */
+@media screen and (max-width: 374px) {
+  :root {
+    --grid-padding: 16px;
+    --font-size-playlist-name: 20px;
+    --font-size-playlist-name-placeholder: 26px;
+    --font-size-add-track-button: 14px;
+    --font-size-default: 13px;
   }
 }
 

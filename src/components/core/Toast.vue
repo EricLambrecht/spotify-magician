@@ -56,7 +56,7 @@ export default {
   width: 250px;
   height: 100px;
   padding: 10px;
-  font-size: 14px;
+  font-size: var(--font-size-default);
   background-color: white;
   border-radius: 5px;
   box-shadow: 0 5px 12px 2px rgba(0, 0, 0, 0.25);

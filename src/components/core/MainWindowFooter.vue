@@ -49,7 +49,7 @@ export default {
 .version {
   color: var(--spotify-green);
   font-weight: bold;
-  font-size: 14px;
+  font-size: var(--font-size-default);
   padding: 10px;
   cursor: pointer;
 }

@@ -2,9 +2,12 @@
   <div
     v-if="skeleton"
     class="skeleton"
-    :style="{ width: `${size}px`, height: `${size}px` }"
+    :style="{
+      width: size ? `${size}px` : '100%',
+      height: size ? `${size}px` : '100%',
+    }"
   />
-  <img v-else :src="url" :style="style" :width="size" class="image" />
+  <img v-else :src="url" :style="style" class="image" />
 </template>
 
 <script>
@@ -17,7 +20,7 @@ export default {
     },
     size: {
       type: Number,
-      default: 140,
+      default: null,
     },
     skeleton: {
       type: Boolean,
@@ -26,7 +29,10 @@ export default {
   },
   computed: {
     style() {
-      return `{ width: ${this.size}px; height: ${this.size}px; }`
+      if (this.size) {
+        return `{ width: ${this.size}px; height: ${this.size}px; }`
+      }
+      return '{ width: 100%; height: 100%; }'
     },
   },
 }

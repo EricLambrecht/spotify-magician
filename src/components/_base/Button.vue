@@ -77,7 +77,8 @@ button,
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 6px 10px 7px;
+  height: var(--input-height-default);
+  padding: 6px 12px 7px;
 
   border-radius: 3px;
   border: none;
@@ -89,7 +90,7 @@ button,
 
   font-family: var(--font-family);
   color: var(--color-default);
-  font-size: 14px;
+  font-size: var(--font-size-default);
 
   &.small {
     font-size: 12px;
@@ -146,6 +147,7 @@ $color-highlight: lighten($color-bg, 3%);
 .skeleton {
   position: relative;
   border-radius: 5px;
+  box-sizing: border-box;
   background: $color-bg;
   color: $color-bg;
   overflow: hidden;

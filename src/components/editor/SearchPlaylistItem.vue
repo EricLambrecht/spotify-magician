@@ -50,7 +50,7 @@ export default {
   --small-track-item-artist-line-height: 13px;
 }
 
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1112px) {
   :root {
     --small-track-item-height: 36px;
     --small-track-item-song-font-size: 12px;

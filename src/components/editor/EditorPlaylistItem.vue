@@ -5,11 +5,9 @@
     draggable="true"
     @blur.self="hideContextMenu"
   >
-    <b-square-image
-      :url="item.track.album.images[1].url"
-      :size="51"
-      class="image"
-    />
+    <div class="image-container">
+      <b-square-image :url="item.track.album.images[1].url" class="image" />
+    </div>
     <b-text v-if="showTimeOfDay" class="time time-of-day">
       {{ item.track.relative_start_time_ms | formatTime('hh:mm') }}
     </b-text>
@@ -99,19 +97,35 @@ export default {
 <style lang="scss">
 :root {
   --track-item-height: 51px;
+  --track-item-spacing: 10px;
   --track-item-song-font-size: 13px;
   --track-item-song-line-height: 17px;
   --track-item-artist-font-size: 9px;
   --track-item-artist-line-height: 13px;
+  --track-item-inner-margin: 20px;
 }
 
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1112px) {
   :root {
     --track-item-height: 51px;
+    --track-item-spacing: 10px;
     --track-item-song-font-size: 13px;
     --track-item-song-line-height: 17px;
     --track-item-artist-font-size: 9px;
     --track-item-artist-line-height: 13px;
+    --track-item-inner-margin: 20px;
+  }
+}
+
+@media screen and (max-width: 374px) {
+  :root {
+    --track-item-height: 40px;
+    --track-item-spacing: 8px;
+    --track-item-song-font-size: 12px;
+    --track-item-song-line-height: 15px;
+    --track-item-artist-font-size: 9px;
+    --track-item-artist-line-height: 13px;
+    --track-item-inner-margin: 14px;
   }
 }
 </style>
@@ -123,7 +137,7 @@ export default {
   width: 100%;
   height: var(--track-item-height);
 
-  margin-top: 10px;
+  margin-top: var(--track-item-spacing);
   padding: 0 0 0 0;
   border-radius: 5px;
 
@@ -151,6 +165,12 @@ export default {
   }
 }
 
+.image-container {
+  width: var(--track-item-height);
+  min-width: var(--track-item-height);
+  height: var(--track-item-height);
+}
+
 .image {
   min-width: var(--track-item-height);
   border-top-right-radius: 0;
@@ -160,14 +180,14 @@ export default {
 .time {
   min-width: 34px;
   text-align: right;
-  margin-left: 20px;
+  margin-left: var(--track-item-inner-margin);
 }
 
 .artist-song-pair {
   display: flex;
   flex-direction: column;
   width: 200px;
-  margin-left: 20px;
+  margin-left: var(--track-item-inner-margin);
 
   .song {
     font-size: var(--track-item-song-font-size);
@@ -187,10 +207,10 @@ export default {
 
 .tempo {
   margin-left: auto;
-  margin-right: 20px;
+  margin-right: var(--track-item-inner-margin);
   font-weight: 700;
   color: var(--color-grey);
-  font-size: 14px;
+  font-size: var(--font-size-default);
   flex-shrink: 0;
   padding: 10px 0 10px 10px;
 }
@@ -203,7 +223,7 @@ export default {
   visibility: hidden;
   pointer-events: none;
 
-  @media screen and (max-width: 1080px) {
+  @media screen and (max-width: 1112px) {
     // TODO: Show it as soon as touch dragging is supported
     /*visibility: visible; */
     /*pointer-events: all;*/

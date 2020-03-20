@@ -47,7 +47,7 @@ export default {
   box-shadow: 0 0 16px 1px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   min-width: 100px;
-  font-size: 14px;
+  font-size: var(--font-size-default);
   font-weight: bold;
   display: none;
 

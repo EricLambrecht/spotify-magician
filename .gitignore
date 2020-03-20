@@ -5,3 +5,5 @@ yarn-error.log
 dist/build.js.map
 .idea/
 .vscode/
+
+.now

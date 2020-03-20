@@ -24,6 +24,8 @@ jobs:
     needs: [test]
     env:
       NOW_TOKEN: ${{ secrets.NOW_TOKEN }}
+      NOW_ORG_ID: ${{ secrets.NOW_ORG_ID }}
+      NOW_PROJECT_ID: ${{ secrets.NOW_PROJECT_ID }}
       SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_API_TOKEN }}
       SENTRY_ORG: eric-lambrecht-m5
     steps:

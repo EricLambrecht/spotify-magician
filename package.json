@@ -13,7 +13,7 @@
     "test": "jest",
     "release": "standard-version -a --message \"chore(release): :bookmark: %s\"",
     "deploy:dev": "now --token $NOW_TOKEN --confirm",
-    "deploy:prod": "now --token $NOW_TOKEN --target production --confirm"
+    "deploy:prod": "now --token $NOW_TOKEN --target production"
   },
   "repository": {
     "type": "git",

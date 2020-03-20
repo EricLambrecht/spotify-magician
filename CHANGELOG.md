@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.23.2](https://github.com/EricLambrecht/spotify-magician/compare/v0.23.1...v0.23.2) (2020-03-20)
+
+
+### Bug Fixes
+
+* **deps:** [security] bump acorn from 5.7.3 to 5.7.4 ([807cdbf](https://github.com/EricLambrecht/spotify-magician/commit/807cdbf7d42e62cbe08dda36ed7c8beb1ecf633c))
+* **deps:** bump @sentry/integrations from 5.6.1 to 5.7.1 ([#94](https://github.com/EricLambrecht/spotify-magician/issues/94)) ([7efe8c8](https://github.com/EricLambrecht/spotify-magician/commit/7efe8c826a654f53f4279bb1ad76a77d97c3d291))
+* **deps:** bump vue and vue-template-compiler ([f9df9ed](https://github.com/EricLambrecht/spotify-magician/commit/f9df9ed8f2cb7c17853e805d2636c3ead67e205f))
+* **deps:** bump vuex from 3.1.1 to 3.1.2 ([cb15975](https://github.com/EricLambrecht/spotify-magician/commit/cb15975a0977eabf2a996402a0de24e403934d8c))
+* Fix deployment of spotify-magician ([4193ab6](https://github.com/EricLambrecht/spotify-magician/commit/4193ab6223f028948ec700a8c698b29fa76bb20a))
+* Fix security vulnarabilities ([197ba94](https://github.com/EricLambrecht/spotify-magician/commit/197ba94221d5c1f7b025d8fd08de9374784740f5))
+
 ### [0.23.1](https://github.com/EricLambrecht/spotify-magician/compare/v0.23.0...v0.23.1) (2020-03-20)
 
 

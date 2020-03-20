@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.23.1](https://github.com/EricLambrecht/spotify-magician/compare/v0.23.0...v0.23.1) (2020-03-20)
+
+
+### Bug Fixes
+
+* Fix mobile appearance of track-adder modal ([ca0e9dd](https://github.com/EricLambrecht/spotify-magician/commit/ca0e9ddbc9d5a0652345b23d4edb64fcc09d467a))
+* Fix various visual issues on small-screen-devices ([ab80f49](https://github.com/EricLambrecht/spotify-magician/commit/ab80f49c0b83a6050117a9d393f9c4ae4dbfcdae))
+* Make changelog responsive ([5359ee5](https://github.com/EricLambrecht/spotify-magician/commit/5359ee5de408c80fcbb8a9a45b0d27702c736131))
+
 ## [0.23.0](https://github.com/EricLambrecht/spotify-magician/compare/v0.22.2...v0.23.0) (2019-10-27)
 
 

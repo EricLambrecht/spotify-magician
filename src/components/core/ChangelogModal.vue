@@ -47,6 +47,11 @@ export default {
     font-size: 22px;
     font-weight: bold;
     margin: 30px 0 10px;
+
+    @media screen and (max-width: 768px) {
+      font-size: 20px;
+      margin: 24px 0 10px;
+    }
   }
 
   h3[id^='bug'],
@@ -54,6 +59,11 @@ export default {
     font-size: initial;
     font-weight: bold;
     margin: 20px 0 10px;
+
+    @media screen and (max-width: 768px) {
+      font-size: 15px;
+      margin: 18px 0 10px;
+    }
   }
 
   h1,
@@ -68,6 +78,10 @@ export default {
   ul {
     font-size: 15px;
     line-height: 1.5;
+
+    @media screen and (max-width: 768px) {
+      font-size: 13px;
+    }
   }
 
   ul {

@@ -27,8 +27,6 @@ jobs:
     needs: [test]
     env:
       NOW_TOKEN: ${{ secrets.NOW_TOKEN }}
-      NOW_ORG_ID: ericlambrecht
-      NOW_PROJECT_ID: spotify-magician
     steps:
       - uses: actions/checkout@v1
       - name: Use Node.js ${{ matrix.node_version }}

@@ -1,5 +1,5 @@
 <template>
-  <b-modal headline="Add track" :show="show">
+  <b-modal headline="Add track" :show="show" mobile-full-width>
     <track-search class="adder" @select="updateTracks" />
     <div slot="footer">
       <b-button @click="$emit('close')">
@@ -51,9 +51,9 @@ export default {
 
 @media screen and (max-width: 768px) {
   .adder {
-    min-width: calc(100vw - 80px);
-    width: calc(100vw - 80px);
-    height: 70vh;
+    min-width: 100%;
+    width: 100%;
+    height: 65vh;
   }
 }
 </style>

@@ -121,7 +121,7 @@ export default {
 .artist-song-pair {
   display: flex;
   flex-direction: column;
-  width: 200px;
+  flex: 1;
   margin-left: 14px;
 
   .song {

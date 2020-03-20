@@ -86,6 +86,7 @@ input {
 
   &.big {
     padding: 10px 16px 10px;
+    border-radius: 5px;
     font-size: var(--font-size-big-input);
 
     &.hasIcon {

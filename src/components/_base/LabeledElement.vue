@@ -3,9 +3,9 @@
     {{ label }}
     <slot />
   </label>
-  <span v-else>
+  <div v-else class="labeled-element-fallback-container">
     <slot />
-  </span>
+  </div>
 </template>
 
 <script>
@@ -31,5 +31,8 @@ label {
 }
 label > *:first-child {
   margin-top: 8px;
+}
+.labeled-element-fallback-container {
+  display: inline-block;
 }
 </style>

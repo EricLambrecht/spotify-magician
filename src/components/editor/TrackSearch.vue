@@ -130,7 +130,7 @@ export default {
     font-weight: 900;
     color: var(--color-default-light);
     display: block;
-    margin-bottom: 6px;
+    margin-bottom: 10px;
 
     .query {
       color: var(--color-default);
@@ -139,7 +139,7 @@ export default {
 }
 
 .add-list {
-  margin-top: 16px;
+  margin-top: var(--modal-padding-between);
   padding: 7px 10px 10px;
   border-radius: 5px;
   box-sizing: border-box;
@@ -155,7 +155,7 @@ export default {
 }
 
 .results {
-  margin-top: 16px;
+  margin-top: var(--modal-padding-between);
   padding: 11px 10px;
   border-radius: 5px;
   box-sizing: border-box;
